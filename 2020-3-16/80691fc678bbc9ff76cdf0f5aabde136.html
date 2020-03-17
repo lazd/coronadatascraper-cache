@@ -35,7 +35,7 @@
 					for (var i = 0; i < forms.length; i++)
 					{
 						if (forms[i].method == "post" && !forms[i].querySelector('[name="__RequestVerificationToken"]') && !absPat.test(forms[i].getAttribute("action"))) {
-							forms[i].insertAdjacentHTML("beforeend", "<input name=\"__RequestVerificationToken\" type=\"hidden\" value=\"ULr8omMi7qmGHaFKEShCVtJfqZdM0hz2owH8UhjZGG5as3LifV7nJgR_le2joApGcvxYC90WpmnFNAxUZH-K16YmB-41\" />");
+							forms[i].insertAdjacentHTML("beforeend", "<input name=\"__RequestVerificationToken\" type=\"hidden\" value=\"RfkVnGfmEJ_53fxKp9FNjXpWQkcnB9u4l-4xAypCQ34PLE-L-rN9v0PuhjmKGtuzKUK-6otx8brpxML421v8aJrMmS81\" />");
 						}
 					}
 				}, false);
@@ -167,6 +167,44 @@
 		<div id="inner-wrap" class="inner-wrap">
 				<div id="divToolbars" class="cpToolbars newCP" style="">
 					
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700); 
+
+
+
+.alertText .customAlert {
+    color: #EAEAEA;
+    display: inline-block;
+    font-family: 'Open Sans Condensed', sans-serif; 
+    text-transform: uppercase; 
+    font-size: 27px;
+    font-weight: bold;
+    height: 27px;
+    left: 57px;
+    line-height: 27px;
+    overflow: hidden;
+    position: absolute;
+    top: 15px;
+    white-space: nowrap;
+    width: 268px;
+}
+
+</style>
+  <div id="1_divAlertBar" class="alertToolbar cpToolbar" style="background: #030303 url(/Common/images/AlertCenter/alertBarBlackBckg.png) repeat-x;">
+    <div class="alertToolbarInner">
+        <a href="/AlertCenter.aspx" id="1_lnkAlertText" class="alertText" style="border-right: 1px solid #000000;">
+            <img src="/DocumentCenter/View/35116/ActiveAlertFlash" id="1_imgDot" alt="Emergency Alert" class="redDot" />
+            <span id="1_customAlert" class="customAlert">Services Limited</span>
+        </a>
+        <span id="1_spnAlertContainer" class="alertContainer"><a href="/6467/Limited-County-Services" class="alert" style="border-left: 1px solid #635e65; border-right: 1px solid #000000;background: #030303 url(/Common/images/AlertCenter/alertBarBlackTextBckg.png) repeat-x; color: #FFFFFF;">
+	Public Counter Services Limited
+	<span style="color: #FC4C2F;">Click here to learn more</span>
+</a>
+</span>
+    </div>
+  </div>
+  <div id="1_divAlertBarEmpty" class="alertBarEmpty"></div>
+  
 <!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="/App_Themes/CP/ie7.css"><![endif]-->
 <!-- Allow Dashboard, Favorites Enabled -->
 
@@ -1801,6 +1839,16 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sz
 </script>
 
 <!--End of SITEIMPROVE -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-1464228-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-1464228-1');
+</script>
 
 
 	<script type="text/javascript">

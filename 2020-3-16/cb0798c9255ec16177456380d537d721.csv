@@ -1,1 +1,0 @@
-{"status":"Failed","error":{"message":"Failed while trying to get item information","code":400,"request":"https://www.arcgis.com/sharing/rest/content/items/ca77764e722c442986ef6514da88411c?f=json","response":"Item does not exist or is inaccessible.","timestamp":"2020-03-16T23:11:04.078Z"},"generating":{}}
