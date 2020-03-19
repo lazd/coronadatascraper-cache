@@ -1,0 +1,235 @@
+{
+  "objectIdFieldName" : "OBJECTID", 
+  "uniqueIdField" : 
+  {
+    "name" : "OBJECTID", 
+    "isSystemMaintained" : true
+  }, 
+  "globalIdFieldName" : "", 
+  "geometryType" : "esriGeometryPoint", 
+  "spatialReference" : {
+    "wkid" : 102100, 
+    "latestWkid" : 3857
+  }, 
+  "fields" : [
+    {
+      "name" : "NAME", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "NAME", 
+      "sqlType" : "sqlTypeOther", 
+      "length" : 25, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "POSITIVE", 
+      "type" : "esriFieldTypeInteger", 
+      "alias" : "POSITIVE", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "DATE", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "DATE", 
+      "sqlType" : "sqlTypeOther", 
+      "length" : 10, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "CMNTY_SPRD", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "CMNTY_SPRD", 
+      "sqlType" : "sqlTypeOther", 
+      "length" : 3, 
+      "domain" : null, 
+      "defaultValue" : null
+    }
+  ], 
+  "features" : [
+    {
+      "attributes" : {
+        "NAME" : "Brown", 
+        "POSITIVE" : 1, 
+        "DATE" : "3/18/2020", 
+        "CMNTY_SPRD" : null
+      }, 
+      "geometry" : 
+      {
+        "x" : -9796530.5346, 
+        "y" : 5535753.0957000032
+      }
+    }, 
+    {
+      "attributes" : {
+        "NAME" : "Dane", 
+        "POSITIVE" : 23, 
+        "DATE" : "3/18/2020", 
+        "CMNTY_SPRD" : "*"
+      }, 
+      "geometry" : 
+      {
+        "x" : -9953980.5701, 
+        "y" : 5322220.9170999974
+      }
+    }, 
+    {
+      "attributes" : {
+        "NAME" : "Fond du Lac", 
+        "POSITIVE" : 12, 
+        "DATE" : "3/18/2020", 
+        "CMNTY_SPRD" : null
+      }, 
+      "geometry" : 
+      {
+        "x" : -9850469.0815, 
+        "y" : 5427389.6841000021
+      }
+    }, 
+    {
+      "attributes" : {
+        "NAME" : "Kenosha", 
+        "POSITIVE" : 4, 
+        "DATE" : "3/18/2020", 
+        "CMNTY_SPRD" : "*"
+      }, 
+      "geometry" : 
+      {
+        "x" : -9800869.9179, 
+        "y" : 5247780.7347000018
+      }
+    }, 
+    {
+      "attributes" : {
+        "NAME" : "La Crosse", 
+        "POSITIVE" : 1, 
+        "DATE" : "3/18/2020", 
+        "CMNTY_SPRD" : null
+      }, 
+      "geometry" : 
+      {
+        "x" : -10142893.0968, 
+        "y" : 5450994.9160000011
+      }
+    }, 
+    {
+      "attributes" : {
+        "NAME" : "Milwaukee", 
+        "POSITIVE" : 47, 
+        "DATE" : "3/18/2020", 
+        "CMNTY_SPRD" : "*"
+      }, 
+      "geometry" : 
+      {
+        "x" : -9792416.3304, 
+        "y" : 5313057.2590999976
+      }
+    }, 
+    {
+      "attributes" : {
+        "NAME" : "Outagamie", 
+        "POSITIVE" : 1, 
+        "DATE" : "3/18/2020", 
+        "CMNTY_SPRD" : null
+      }, 
+      "geometry" : 
+      {
+        "x" : -9847871.9106, 
+        "y" : 5530062.0737999976
+      }
+    }, 
+    {
+      "attributes" : {
+        "NAME" : "Pierce", 
+        "POSITIVE" : 1, 
+        "DATE" : "3/18/2020", 
+        "CMNTY_SPRD" : null
+      }, 
+      "geometry" : 
+      {
+        "x" : -10288415.6637, 
+        "y" : 5577492.4094000012
+      }
+    }, 
+    {
+      "attributes" : {
+        "NAME" : "Racine", 
+        "POSITIVE" : 1, 
+        "DATE" : "3/18/2020", 
+        "CMNTY_SPRD" : null
+      }, 
+      "geometry" : 
+      {
+        "x" : -9802921.9322, 
+        "y" : 5273617.1281
+      }
+    }, 
+    {
+      "attributes" : {
+        "NAME" : "Sheboygan", 
+        "POSITIVE" : 4, 
+        "DATE" : "3/18/2020", 
+        "CMNTY_SPRD" : null
+      }, 
+      "geometry" : 
+      {
+        "x" : -9790034.9467, 
+        "y" : 5422398.9623999968
+      }
+    }, 
+    {
+      "attributes" : {
+        "NAME" : "Washington", 
+        "POSITIVE" : 2, 
+        "DATE" : "3/18/2020", 
+        "CMNTY_SPRD" : null
+      }, 
+      "geometry" : 
+      {
+        "x" : -9821804.2298, 
+        "y" : 5368228.7356000021
+      }
+    }, 
+    {
+      "attributes" : {
+        "NAME" : "Waukesha", 
+        "POSITIVE" : 5, 
+        "DATE" : "3/18/2020", 
+        "CMNTY_SPRD" : null
+      }, 
+      "geometry" : 
+      {
+        "x" : -9830013.5703, 
+        "y" : 5314745.9165999964
+      }
+    }, 
+    {
+      "attributes" : {
+        "NAME" : "Winnebago", 
+        "POSITIVE" : 3, 
+        "DATE" : "3/18/2020", 
+        "CMNTY_SPRD" : null
+      }, 
+      "geometry" : 
+      {
+        "x" : -9867878.974, 
+        "y" : 5476108.4992000014
+      }
+    }, 
+    {
+      "attributes" : {
+        "NAME" : "Wood", 
+        "POSITIVE" : 1, 
+        "DATE" : "3/18/2020", 
+        "CMNTY_SPRD" : null
+      }, 
+      "geometry" : 
+      {
+        "x" : -10023380.1358, 
+        "y" : 5536179.5201999992
+      }
+    }
+  ]
+}
