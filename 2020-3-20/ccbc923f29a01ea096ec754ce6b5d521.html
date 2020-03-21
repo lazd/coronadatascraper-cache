@@ -1,0 +1,783 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" lang="en-US"><head><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <title>Microsoft Power BI</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;">
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery-ui" src="./13.0.12661.186/externals/jquery-ui.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="powerbi-models" src="./13.0.12661.186/externals/powerbi-models.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jsonFilter" src="./13.0.12661.186/scripts/jsonfilter.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="resizeSensor" src="./13.0.12661.186/externals/resizeSensor.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="singleValueVisuals" src="./13.0.12661.186/scripts/singleValueVisuals.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="textboxVisual" src="./13.0.12661.186/scripts/textboxVisual.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="basicShapeVisual" src="./13.0.12661.186/scripts/basicShapeVisual.min.js"></script><base href="/">
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="shortcut icon" href="/images/PowerBI_Favicon.ico">
+
+    <link rel="stylesheet" href="13.0.12661.186/externals/jquery-ui.min.css"><script>
+        var viewLoadingStarted = Date.now();
+
+
+
+        var skipCheckPowerBIAccessToken = true;
+        var powerBIAccessToken = 'any';
+        var reportId = 'any';
+        var getExplorationUrl = '/public/';
+        var getConceptualSchemaUrl = '/public/reports/conceptualschema';
+        var queryDataUrl = '/public/reports/querydata';
+        var resourceLoaderUrl = '/public/reports/resourcePackage/';
+        var routingUrl = '/public/routing/cluster/';
+        var resourceLoaderIncludePackageId = true;
+        var isLoadReportMessagePending = false;
+        var isReportControllerInitialized = false;
+        var isAnonymousEmbed = true;
+        var accessToken;
+        var oDataFilter;
+        var resolvedClusterUri = 'https://wabi-us-gov-iowa-redirect.analysis.usgovcloudapi.net/';
+        var resourceKey;
+        var resolveClusterError;
+        var modelsAndExplorationResponse;
+        var frontLoadStatus;
+        var frontLoadError;
+        var conceptualSchemaResponse;
+        var loadingState = "#Loading#";
+        var errorState = "#Error#";
+        var isConceptualSchemaCached;
+        var isModelsAndExplorationCached;
+        var conceptualSchemaDuration;
+        var clusterResolutionFrontLoadStartTime = null;
+        var clusterResolutionFrontLoadEndTime = null;
+        var modelsAndExplorationFrontLoadStartTime = null;
+        var modelsAndExplorationFrontLoadEndTime = null;
+        var conceptualSchemaFrontLoadStartTime = null;
+        var conceptualSchemaFrontLoadEndTime = null;
+        var responseRequestId;
+        var conceptualSchemaRequestId;
+        var conceptualSchemaResponseRequestId;
+        var modelsAndExplorationRequestId;
+
+        //register for messages from parent window
+        window.addEventListener("message", receiveMessage, false);
+
+        //handle message from parent window
+        function receiveMessage(event) {
+            if (event.data) {
+                try {
+                    var messageData = jsCommon.JsonExtensions.isJsonString(event.data) ? JSON.parse(event.data) : event.data;
+                    if (messageData.action === 'setPage') {
+                        if (!messageData.pageName) {
+                            return;
+                        }
+
+                        var pageName = messageData.pageName;
+                        if (isReportControllerInitialized) {
+                            setPage(pageName);
+                        }
+                    }
+                }
+                catch (e) {
+                    var embedReportLoadMessage = {
+                        event: 'error',
+                        error: 'Invalid message data:' + e.message,
+                    };
+                    window.parent.postMessage(JSON.stringify(embedReportLoadMessage), '*');
+                    return;
+                }
+            }
+        }
+
+        function resolveCluster() {
+            try {
+                var activityId = telemetrySessionId;
+                var requestId = '270a7b1a-65f2-46cd-8b52-66023532a695';
+
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    try {
+                        if(xhr.readyState == XMLHttpRequest.DONE) {
+                            clusterResolutionFrontLoadEndTime = Date.now();
+                            var response = JSON.parse(xhr.responseText);
+                            if(response.FixedClusterUri) {
+                                resolvedClusterUri = response.FixedClusterUri;
+                                // Bug 121315: P2W frontload flow not working
+                                // getModelsAndExploration();
+                            }
+                            else {
+                                resolveClusterError = "FixedClusterUri is empty, activityid:" + activityId + "requestid:" + requestId;
+                            }
+                        }
+                    }
+                    catch(e) {
+                        resolveClusterError = "Exception:"+e.message +", activityid:" + activityId + "requestid:" + requestId;
+                    }
+                }
+
+                var apimClusterUri = getAPIMUrl(clusterUri);
+                xhr.open("GET", apimClusterUri + routingUrl + tenantId);
+                setGETRequestHeaders(xhr, telemetrySessionId, requestId, resourceKey);
+                clusterResolutionFrontLoadStartTime = Date.now();
+                xhr.send();
+            }
+            catch(e) {
+                resolveClusterError = "Exception:"+e.message +", activityid:" + activityId + "requestid:" + requestId;
+            }
+        }
+
+        function getModelsAndExploration() {
+            try {
+                var activityId = telemetrySessionId;
+                var requestId = '0aa19f9a-1da3-4f69-8043-686d6a09e54b';
+                modelsAndExplorationResponse = loadingState;
+
+                if(!resolvedClusterUri) {
+                    modelsAndExplorationResponse = errorState;
+                    return;
+                }
+
+                var resolvedAPIMCluster = getAPIMUrl(resolvedClusterUri);
+                url = resolvedAPIMCluster + "/public/reports/" + resourceKey + "/modelsAndExploration?preferReadOnlySession=true";
+
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    try{
+                        var status = xhr.status;
+                        if(xhr.readyState == XMLHttpRequest.DONE) {
+                            modelsAndExplorationFrontLoadEndTime = Date.now();
+                            var isSuccess = status >= 200 && status < 300 || status === 304;
+                            frontLoadStatus = status;
+                            if(isSuccess) {
+                                var data = JSON.parse(xhr.responseText);
+                                responseRequestId =  xhr.getResponseHeader('requestId');
+                                isModelsAndExplorationCached = responseRequestId && responseRequestId !== requestId ? true: false;
+                                modelsAndExplorationRequestId = responseRequestId ? responseRequestId : requestId;
+                                setModelsAndExploration(data);
+                                getConceptualSchema();
+                            }
+                            else {
+                                try {
+                                    var data = JSON.parse(xhr.response);
+                                    if (data && data.error) {
+                                        frontLoadError = data.error;
+                                    }
+                                }
+                                catch (e) {
+                                    // If we cannot parse an error out of the response, just fall through to the end to return undefined
+                                }
+                                setModelsAndExploration(errorState);
+                            }
+                        }
+                    }
+                    catch(e) {
+                        setModelsAndExploration(errorState);
+                    }
+                }
+
+                xhr.open("GET", url);
+                setGETRequestHeaders(xhr, telemetrySessionId, requestId, resourceKey);
+                modelsAndExplorationFrontLoadStartTime = Date.now();
+                xhr.send();
+            }
+            catch(e) {
+                setModelsAndExploration(errorState);
+            }
+        }
+
+        function getConceptualSchema() {
+            try {
+                var modelId;
+                conceptualSchemaResponse = loadingState;
+
+                if(modelsAndExplorationResponse.models && modelsAndExplorationResponse.models.length > 0) {
+                    modelId = modelsAndExplorationResponse.models[0].id;
+                }
+                else {
+                    setConceptualSchema(errorState);
+                    return;
+                }
+
+                var activityId = telemetrySessionId;
+                var requestId = 'abcb6eb2-531d-4ee8-8e46-811fd5f860d9';
+                conceptualSchemaResponse = loadingState;
+
+                var resolvedAPIMCluster = getAPIMUrl(resolvedClusterUri);
+                url = resolvedAPIMCluster + getConceptualSchemaUrl;
+
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    try {
+                        conceptualSchemaFrontLoadEndTime = Date.now();
+                        var status = xhr.status;
+                        if(xhr.readyState == XMLHttpRequest.DONE) {
+                            var isSuccess = status >= 200 && status < 300 || status === 304;
+                            if(isSuccess) {
+                                var data = JSON.parse(xhr.responseText);
+                                conceptualSchemaDuration = conceptualSchemaFrontLoadEndTime - conceptualSchemaFrontLoadStartTime;
+                                responseRequestId =  xhr.getResponseHeader('requestId');
+                                isConceptualSchemaCached = responseRequestId && responseRequestId !== requestId ? true: false;
+                                conceptualSchemaRequestId = requestId;
+                                conceptualSchemaResponseRequestId = responseRequestId ? responseRequestId : requestId;
+                                setConceptualSchema(data);
+                            }
+                            else {
+                                setConceptualSchema(errorState);
+                            }
+                        }
+                    }
+                    catch(e) {
+                        setConceptualSchema(errorState);
+                    }
+                }
+
+                var data = "{\"modelIds\":["+ modelId +"]}";
+                xhr.open("POST", url);
+                setPOSTRequestHeaders(xhr, telemetrySessionId, requestId, resourceKey);
+                conceptualSchemaFrontLoadStartTime = Date.now();
+                xhr.send(data);
+            }catch(e) {
+                setConceptualSchema(errorState);
+            }
+        }
+
+        function setGETRequestHeaders(xhr, activityId, requestId, resourceKey) {
+            xhr.setRequestHeader('Accept', 'application/json');
+            xhr.setRequestHeader('ActivityId', activityId);
+            xhr.setRequestHeader('RequestId', requestId);
+            xhr.setRequestHeader('X-PowerBI-ResourceKey', resourceKey);
+        }
+
+        function setPOSTRequestHeaders(xhr, activityId, requestId, resourceKey) {
+            setGETRequestHeaders(xhr, activityId, requestId, resourceKey);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+        }
+
+        function setConceptualSchema(data) {
+            conceptualSchemaResponse = data;
+            notifyConceptualSchemaComplete();
+        }
+
+        function setModelsAndExploration(data) {
+            modelsAndExplorationResponse = data;
+            notifyModelsAndExplorationComplete();
+        }
+
+        function  notifyModelsAndExplorationComplete() {
+            if(powerbi && powerbi.explore && powerbi.explore.reportembed && powerbi.explore.reportembed.notifyModelsAndExplorationReady) {
+                powerbi.explore.reportembed.notifyModelsAndExplorationReady(modelsAndExplorationResponse);
+            }
+        }
+
+        function notifyConceptualSchemaComplete() {
+            if(powerbi && powerbi.explore && powerbi.explore.reportembed && powerbi.explore.reportembed.notifyConceptualSchemaReady) {
+                powerbi.explore.reportembed.notifyConceptualSchemaReady(conceptualSchemaResponse);
+            }
+        }
+
+        function getAPIMUrl(clusterUri) {
+            var parser = document.createElement('a');
+            parser.href = clusterUri;
+
+            var protocol =  parser.protocol;
+            var hostname =  parser.hostname;
+
+            var hostNameTakens = hostname.split(".");
+            hostNameTakens[0] = hostNameTakens[0].replace("-redirect", "");
+            hostNameTakens[0] = hostNameTakens[0].replace("global-", "");
+            hostNameTakens[0] += "-api";
+            var apiHostName = hostNameTakens.join(".");
+            return protocol + "//" + apiHostName;
+        }
+
+        function isResponseCached(responseRequestId, requestId) {
+            if(responseRequestId && responseRequestId !== requestId) {
+                return true;
+            }
+            return false;
+        }
+
+        var baseUrl = window.location.protocol + '//' + window.location.host;
+        var powerbi = {
+            session : {
+                userInfo: {
+                    alternateEmail: '',
+                }
+            }
+        };
+
+        powerbi.telemetrySamplingRules = 'embed';
+        powerbi.build = '13.0.12661.186';
+        powerbi.buildDetails = '13.0.12661.186 ((Main).200313-1700)';
+        powerbi.clientVersion = '2003.2.029';
+        powerbi.customVisualsUrl = 'https://visuals.azureedge.net/;https://visuals2.azureedge.net/;https://extendcustomvisual.blob.core.windows.net/';
+        powerbi.visualCDNBlobContainerUrl = 'prod';
+        powerbi.common = {};
+        powerbi.common.cultureInfo = 'en-US';
+        powerbi.common.formattingLocale = 'en-US';
+        var useCDN = 'False';
+        var clusterUri =  'https://api.powerbigov.us';
+        var cdnUrl = '';
+        var previousTenantId = '';
+        var telemetrySessionId =  'd5f37d7d-0f55-4e62-875a-8517b2f775d1';
+        var sessionSource = "Embed";
+        var allowTelemetry = true;
+        var appInsightsV2InstrKey = '8adeeaf0-ca71-ff43-a91e-7afbce21a5f2';
+        var appInsightsV2EndpointUrl = 'https://dc.applicationinsights.us/v2/track';
+        var initialDashboardContainer = undefined;
+        var appLoadError = undefined;
+
+        var  url = window.location.href;
+        var reportQueryString = new RegExp('[\\?&]r=([^&#]*)').exec(url);
+        if (reportQueryString) {
+            try {
+                var embedCode = decodeURIComponent(reportQueryString[1]);
+                var encodedReport = JSON.parse(atob(embedCode));
+                var tenantId = encodedReport.t;
+                resourceKey = encodedReport.k;
+                if (resolvedClusterUri == '') {
+                    resolvedClusterUri = undefined;
+                    resolveCluster();
+                } else {
+                    // Bug 121315: P2W frontload flow not working
+                    // getModelsAndExploration();
+                }
+            }
+            catch(e) {
+                resolveClusterError = "Exception: " + e.message + ", activityid: " + telemetrySessionId;
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="13.0.12661.186/styles/reportembed.bundle.min.css">
+
+<style>[touch-action="none"]{ -ms-touch-action: none; touch-action: none; touch-action-delay: none; }
+[touch-action="auto"]{ -ms-touch-action: auto; touch-action: auto; touch-action-delay: none; }
+[touch-action="pan-x"]{ -ms-touch-action: pan-x; touch-action: pan-x; touch-action-delay: none; }
+[touch-action="pan-y"]{ -ms-touch-action: pan-y; touch-action: pan-y; touch-action-delay: none; }
+[touch-action="pan-x pan-y"],[touch-action="pan-y pan-x"]{ -ms-touch-action: pan-x pan-y; touch-action: pan-x pan-y; touch-action-delay: none; }
+</style><style></style><script src="13.0.12661.186/scripts/ai.0.js"></script><script charset="utf-8" src="13.0.12661.186/scripts/reportEmbed.json-contracts.min.js"></script><style>.logoBar[_ngcontent-okx-c2]   .logo[_ngcontent-okx-c2]   button[_ngcontent-okx-c2] {
+  border: transparent;
+  background: none;
+  padding: 0;
+  margin-left: 24px;
+}
+.logoBar[_ngcontent-okx-c2]   .logo[_ngcontent-okx-c2]   button[_ngcontent-okx-c2]:focus {
+  box-shadow: 0 0 5px #51caee;
+  outline: 1px solid #51cbee;
+}
+.logoBar[_ngcontent-okx-c2]   .logo[_ngcontent-okx-c2]   button[_ngcontent-okx-c2]   .icon[_ngcontent-okx-c2] {
+  margin: 0;
+}
+.logoBar[_ngcontent-okx-c2]   .logo[_ngcontent-okx-c2]   .socialSharing[_ngcontent-okx-c2] {
+  float: right;
+}</style><style>.navigation-wrapper[_ngcontent-okx-c3]   button[_ngcontent-okx-c3] {
+  border: transparent;
+  background: none;
+  padding: 0;
+  margin-left: 24px;
+}
+.navigation-wrapper[_ngcontent-okx-c3]   button[_ngcontent-okx-c3]:focus {
+  box-shadow: 0 0 5px #51caee;
+  outline: 1px solid #51cbee;
+}
+.navigation-wrapper[_ngcontent-okx-c3]   button[_ngcontent-okx-c3]   .icon[_ngcontent-okx-c3] {
+  margin: 0;
+}
+.navigation-wrapper[_ngcontent-okx-c3]   .socialIcon[_ngcontent-okx-c3] {
+  padding: 0;
+  cursor: pointer;
+  margin-left: 24px;
+}</style><style>.powerbi-spinner[_ngcontent-okx-c5] {
+  display: inline-block !important;
+  width: 20px;
+  height: 20px;
+  text-align: initial !important;
+  vertical-align: middle;
+}
+.powerbi-spinner[_ngcontent-okx-c5]   .spinner[_ngcontent-okx-c5] {
+  transform: scale(0.35714286);
+}
+.powerbi-spinner.centered[_ngcontent-okx-c5] {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -10px;
+  margin-left: -10px;
+}
+.powerbi-spinner.xlarge[_ngcontent-okx-c5] {
+  width: 48px;
+  height: 48px;
+}
+.powerbi-spinner.xlarge[_ngcontent-okx-c5]   .spinner[_ngcontent-okx-c5] {
+  transform: scale(0.85714286);
+}
+.powerbi-spinner.xlarge.centered[_ngcontent-okx-c5] {
+  margin-top: -24px;
+  margin-left: -24px;
+}
+.powerbi-spinner.large[_ngcontent-okx-c5] {
+  width: 32px;
+  height: 32px;
+}
+.powerbi-spinner.large[_ngcontent-okx-c5]   .spinner[_ngcontent-okx-c5] {
+  transform: scale(0.57142857);
+}
+.powerbi-spinner.large.centered[_ngcontent-okx-c5] {
+  margin-top: -16px;
+  margin-left: -16px;
+}
+.powerbi-spinner.small[_ngcontent-okx-c5] {
+  width: 20px;
+  height: 20px;
+}
+.powerbi-spinner.small[_ngcontent-okx-c5]   .spinner[_ngcontent-okx-c5] {
+  transform: scale(0.35714286);
+}
+.powerbi-spinner.small.centered[_ngcontent-okx-c5] {
+  margin-top: -10px;
+  margin-left: -10px;
+}
+.powerbi-spinner.xsmall[_ngcontent-okx-c5] {
+  width: 16px;
+  height: 16px;
+}
+.powerbi-spinner.xsmall[_ngcontent-okx-c5]   .spinner[_ngcontent-okx-c5] {
+  transform: scale(0.28571429);
+}
+.powerbi-spinner.xsmall.centered[_ngcontent-okx-c5] {
+  margin-top: -8px;
+  margin-left: -8px;
+}
+.powerbi-spinner[_ngcontent-okx-c5]   .spinner[_ngcontent-okx-c5] {
+  position: static;
+  display: block;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  box-sizing: content-box;
+  transform-origin: 0 0;
+  -webkit-transform-origin: 0 0;
+}
+html[dir="rtl"][_ngcontent-okx-c5]   .powerbi-spinner[_ngcontent-okx-c5]   .spinner[_ngcontent-okx-c5] {
+  transform-origin: top left;
+}
+.powerbi-spinner[_ngcontent-okx-c5]   .spinner[_ngcontent-okx-c5]   .circle[_ngcontent-okx-c5] {
+  position: absolute;
+  width: 38px;
+  height: 38px;
+  opacity: 0;
+  transform: rotate(225deg);
+  animation-iteration-count: infinite;
+  animation-name: orbit;
+  animation-duration: 5.5s;
+}
+.powerbi-spinner[_ngcontent-okx-c5]   .spinner[_ngcontent-okx-c5]   .circle[_ngcontent-okx-c5]:after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  background: #666;
+  
+}
+.powerbi-spinner[_ngcontent-okx-c5]   .spinner[_ngcontent-okx-c5]   .circle[_ngcontent-okx-c5]:nth-child(2) {
+  animation-delay: 360ms;
+}
+.powerbi-spinner[_ngcontent-okx-c5]   .spinner[_ngcontent-okx-c5]   .circle[_ngcontent-okx-c5]:nth-child(3) {
+  animation-delay: 720ms;
+}
+.powerbi-spinner[_ngcontent-okx-c5]   .spinner[_ngcontent-okx-c5]   .circle[_ngcontent-okx-c5]:nth-child(4) {
+  animation-delay: 1080ms;
+}
+.powerbi-spinner[_ngcontent-okx-c5]   .spinner[_ngcontent-okx-c5]   .circle[_ngcontent-okx-c5]:nth-child(5) {
+  animation-delay: 1440ms;
+}
+@keyframes orbit {
+  0% {
+    transform: rotate(225deg);
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  7% {
+    transform: rotate(345deg);
+    animation-timing-function: linear;
+  }
+  30% {
+    transform: rotate(455deg);
+    animation-timing-function: ease-in-out;
+  }
+  39% {
+    transform: rotate(690deg);
+    animation-timing-function: linear;
+  }
+  70% {
+    transform: rotate(815deg);
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  75% {
+    transform: rotate(945deg);
+    animation-timing-function: ease-out;
+  }
+  76% {
+    transform: rotate(945deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(945deg);
+    opacity: 0;
+  }
+}</style><style>.notification-bar[_ngcontent-okx-c6] {
+  background: #777777;
+  width: auto;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99998;
+  opacity: 0.95;
+}
+@keyframes infiniteLoading {
+  from {
+    left: -200px;
+    width: 30%;
+  }
+  50% {
+    width: 30%;
+  }
+  70% {
+    width: 70%;
+  }
+  80% {
+    left: 50%;
+  }
+  95% {
+    left: 120%;
+  }
+  to {
+    left: 100%;
+  }
+}
+@keyframes progressBarState1 {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 90%;
+  }
+}
+@keyframes progressBarState2 {
+  0% {
+    width: 90%;
+  }
+  100% {
+    width: 95%;
+  }
+}
+@keyframes progressBarState3 {
+  0% {
+    width: 95%;
+  }
+  100% {
+    width: 98%;
+  }
+}
+@keyframes progressBarState4 {
+  0% {
+    width: 98%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+.notification-bar[_ngcontent-okx-c6]   .infiniteLoader[_ngcontent-okx-c6] {
+  height: 6px;
+  width: 200px;
+  position: relative;
+  overflow: hidden;
+  background-color: #FFF;
+  float: left;
+  top: 22px;
+}
+.notification-bar[_ngcontent-okx-c6]   .infiniteLoader[_ngcontent-okx-c6]:before {
+  display: block;
+  position: absolute;
+  content: '';
+  left: -200px;
+  width: 200px;
+  height: 6px;
+  background-color: #F2C811;
+  animation: infiniteLoading 2s linear infinite;
+}
+.notification-bar[_ngcontent-okx-c6]   .progressBarLoader[_ngcontent-okx-c6] {
+  width: 100%;
+  height: 2px;
+  display: block;
+  background-color: #F2C811;
+  animation-name: progressBarState1, progressBarState2, progressBarState3, progressBarState4;
+  animation-timing-function: linear;
+}
+.notification-bar[_ngcontent-okx-c6]   .bar-actions[_ngcontent-okx-c6] {
+  float: right;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0 16px;
+}
+.notification-bar[_ngcontent-okx-c6]   .bar-actions[_ngcontent-okx-c6]   button[_ngcontent-okx-c6] {
+  display: block;
+  position: relative;
+  top: 50%;
+  margin-top: -16px;
+  float: left;
+  margin-right: 8px;
+  line-height: 13px;
+  padding: 8px 18px 8px 18px;
+}
+.notification-bar[_ngcontent-okx-c6]   .bar-actions[_ngcontent-okx-c6]   button.last[_ngcontent-okx-c6] {
+  margin-right: 0;
+}
+.notification-bar[_ngcontent-okx-c6]   .bar-actions[_ngcontent-okx-c6]   button.dismissBtn[_ngcontent-okx-c6] {
+  padding: 8px 0;
+  background: none;
+  border: none;
+  color: #FFF;
+  margin-right: 0;
+  margin-left: 16px;
+}
+.notification-bar[_ngcontent-okx-c6]   .bar-content[_ngcontent-okx-c6] {
+  float: none;
+  width: auto;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0 16px;
+  color: #EAEAEA;
+  line-height: 40px;
+}
+.notification-bar[_ngcontent-okx-c6]   .bar-content[_ngcontent-okx-c6]   .icon[_ngcontent-okx-c6], .notification-bar[_ngcontent-okx-c6]   .bar-content[_ngcontent-okx-c6]   spinner[_ngcontent-okx-c6] {
+  float: left;
+  box-sizing: border-box;
+  padding-right: 16px;
+}
+.notification-bar[_ngcontent-okx-c6]   .bar-content[_ngcontent-okx-c6]   .powerbi-spinner[_ngcontent-okx-c6]   .spinner[_ngcontent-okx-c6]   .circle[_ngcontent-okx-c6]:after {
+  background: #FFF !important;
+}
+.notification-bar[_ngcontent-okx-c6]   .bar-content[_ngcontent-okx-c6]   .message[_ngcontent-okx-c6] {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  font-size: 14px;
+}
+.notification-bar[_ngcontent-okx-c6]   .bar-content[_ngcontent-okx-c6]   a[_ngcontent-okx-c6] {
+  color: #EAEAEA;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.notification-bar[_ngcontent-okx-c6]   .bar-content[_ngcontent-okx-c6]   .actionLink[_ngcontent-okx-c6] {
+  padding: 0 8px;
+}
+.notification-bar[_ngcontent-okx-c6]   .bar-content[_ngcontent-okx-c6]   .embeddedActionLink[_ngcontent-okx-c6] {
+  padding: 0;
+}
+.notification-bar.error[_ngcontent-okx-c6] {
+  background-color: #FADBD2;
+}
+.notification-bar.error[_ngcontent-okx-c6]   .bar-content[_ngcontent-okx-c6], .notification-bar.error[_ngcontent-okx-c6]   .bar-content[_ngcontent-okx-c6]   a[_ngcontent-okx-c6], .notification-bar.error[_ngcontent-okx-c6]   .bar-actions[_ngcontent-okx-c6]   button.dismissBtn[_ngcontent-okx-c6] {
+  color: #333333;
+}
+.notification-bar.info[_ngcontent-okx-c6] {
+  background-color: #F2C811;
+}
+.notification-bar.info[_ngcontent-okx-c6]   .bar-content[_ngcontent-okx-c6], .notification-bar.info[_ngcontent-okx-c6]   .bar-content[_ngcontent-okx-c6]   a[_ngcontent-okx-c6], .notification-bar.info[_ngcontent-okx-c6]   .bar-actions[_ngcontent-okx-c6]   button.dismissBtn[_ngcontent-okx-c6] {
+  color: #333333;
+}
+@media print {
+  body[_nghost-okx-c6]   div.notification-bar[_ngcontent-okx-c6], body   div.notification-bar   [_nghost-okx-c6] {
+    display: none !important;
+  }
+}</style><style></style><style>[_nghost-okx-c8] {
+  position: absolute;
+  z-index: 10000003;
+}
+.accessibility-info[_ngcontent-okx-c8] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 10px;
+  padding: 10px 6px;
+  background: white;
+  border: #CCCCCC solid 1px;
+  box-shadow: 0px 0px 20px #CCCCCC;
+  outline: none;
+  font-family: 'Segoe UI', 'wf_segoe-ui_normal', helvetica, arial, sans-serif;
+  font-size: 14px;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+}
+.accessibility-info.accessibility-info-collapsed[_ngcontent-okx-c8] {
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0px;
+  overflow: hidden;
+  padding: 0;
+}
+.accessibility-info[_ngcontent-okx-c8]   a[_ngcontent-okx-c8], .accessibility-info[_ngcontent-okx-c8]   span.link[_ngcontent-okx-c8] {
+  color: #1F3A93;
+  text-decoration: underline;
+}
+.accessibility-info[_ngcontent-okx-c8]   span[_ngcontent-okx-c8]:focus, .accessibility-info[_ngcontent-okx-c8]   a[_ngcontent-okx-c8]:focus {
+  outline: none;
+  border: 1px dashed #333333;
+}
+.accessibility-info[_ngcontent-okx-c8]   a[_ngcontent-okx-c8]:visited {
+  color: #551A8B;
+}
+.accessibility-info[_ngcontent-okx-c8]   span[_ngcontent-okx-c8] {
+  color: #212121;
+}</style><style type="text/css">@keyframes resizeanim {from { opacity: 0; } to { opacity: 0; }} .ResizeSensor__resizeTriggers { animation: 1ms resizeanim; visibility: hidden; opacity: 0; } .ResizeSensor__resizeTriggers, .ResizeSensor__resizeTriggers > div, .ResizeSensor__contractTrigger:before { content: ' '; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; overflow: hidden; } .ResizeSensor__resizeTriggers > div { background: #eee; overflow: auto; } .ResizeSensor__contractTrigger:before { width: 200%; height: 200%; }</style><style>transform[_ngcontent-okx-c14] {
+  pointer-events: auto;
+}
+.explorationContainer.reading[_nghost-okx-c14]   .exploreCanvas[_ngcontent-okx-c14]   transform.selected[_ngcontent-okx-c14]:hover:not(.popOut), .explorationContainer.reading   .exploreCanvas   [_nghost-okx-c14]   transform.selected[_ngcontent-okx-c14]:hover:not(.popOut) {
+  z-index: 10000001 !important;
+}
+.explorationContainer.editing[_nghost-okx-c14]   .exploreCanvas[_ngcontent-okx-c14]:hover   transform.selected[_ngcontent-okx-c14]:not(.popOut), .explorationContainer.editing   .exploreCanvas:hover   [_nghost-okx-c14]   transform.selected[_ngcontent-okx-c14]:not(.popOut) {
+  z-index: 10000001 !important;
+}
+.explorationContainer[_nghost-okx-c14]   .exploreCanvas.stylableVisualContainerHeader[_ngcontent-okx-c14]   transform.dragging[_ngcontent-okx-c14]   .vcHeader[_ngcontent-okx-c14], .explorationContainer   .exploreCanvas.stylableVisualContainerHeader   [_nghost-okx-c14]   transform.dragging[_ngcontent-okx-c14]   .vcHeader[_ngcontent-okx-c14], .explorationContainer[_nghost-okx-c14]   .exploreCanvas.stylableVisualContainerHeader[_ngcontent-okx-c14]   transform.resizing[_ngcontent-okx-c14]   .vcHeader[_ngcontent-okx-c14], .explorationContainer   .exploreCanvas.stylableVisualContainerHeader   [_nghost-okx-c14]   transform.resizing[_ngcontent-okx-c14]   .vcHeader[_ngcontent-okx-c14] {
+  display: none;
+}</style><style>[_nghost-okx-c17] {
+  position: absolute;
+}</style></head>
+<body>
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="Power BI Report">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Report powered by Power BI">
+    <meta property="og:image" content="https://app.powerbigov.us/13.0.12661.186/images/PowerBI125x125.png">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Power BI Report">
+    <meta name="twitter:description" content="Report powered by Power BI">
+    <meta name="twitter:image:src" content="https://app.powerbigov.us/13.0.12661.186/images/PowerBI125x125.png">
+    <meta name="twitter:image" content="https://app.powerbigov.us/13.0.12661.186/images/PowerBI125x125.png">
+
+    <!-- perf: loading screen directly on page -->
+    
+
+    <div id="pbiAppPlaceHolder">
+        <!----><ui-view><!----><!----><!----><div><div id="embedWrapperID" class="embedWrapper" tabindex="0" ng-keydown="keyDown($event)" localize-attr="{'aria-label': 'Embed_Wrapper_Hint'}" aria-label="Press Ctrl + Enter key to navigate into the report."><!----><div ng-if="!showErrorMessage &amp;&amp; !showPromptForLogin &amp;&amp; !optimizePublishToWeb &amp;&amp; !isUserUnauthorized" class="landingController fillAvailableSpace"><div class="landingContainer"><div id="reportLandingContainer" class="embeddedLandingRootContent reportContainerContent isActive embeddedPV embeddedLandingRootContentLogoVisible" ng-class="backgroundCssClass + (showLogoBar ? ' embeddedLandingRootContentLogoVisible' : ' embeddedLandingRootContentLogoHidden')"><div class="embeddedPV"><!----><exploration-container [use-legacy]="useLegacyExplorationContainer()" [view-model]="exploreContainer" ng-if="exploreContainer" [canvas-options]="canvasOptions" [exploration-container-options]="explorationContainerOptions" ng-version="8.2.6"><!----><exploration-container-legacy><div class="explorationContainer explorationWithChrome themeableElement reading" ng-class="{'editing' : (C.viewModeState.getMode() === 1 || C.viewModeState.getMode() === 2),    'reading': C.viewModeState.getMode() === 0,    'newPaneColors': C.featureSwitchService.featureSwitches.paneColorRefresh || C.isFluentDesignEnabled()}" pbi-lazy-load-contents="C.jQueryUIConfig" prevent-focus-loss="true"><!----><notification-bar _nghost-okx-c6="" ng-version="8.2.6"><!----></notification-bar><div class="explorationHost explorationHostNoAppBar" ng-class="{ 'explorationHostNoAppBar': !C.viewModel.options.showAppBar }"><exploration-host [view-model]="C.viewModel" id="pvExplorationHost" _nghost-okx-c7="" ng-version="8.2.6"><div _ngcontent-okx-c7="" class="fillAvailableSpace verticalItemsContainer"><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><div class="horizontalItemsContainer" ng-if="!(C.viewModel &amp;&amp; C.viewModel.hideVisuals)"><exploration [view-model]="C.viewModel.exploration" ng-class="{'exploreCanvasToBottom': !C.isFooterVisible() &amp;&amp; !C.showFullScreenComponent(), 'exploreCanvasWithFullScreenComponent': C.showFullScreenComponent()}" [canvas-options]="C.canvasOptions" [should-set-focus]="C.shouldSetTabIndex()" ng-version="8.2.6" class="exploreCanvasToBottom"><div class="exploration" role="application" toolbar-container=""><accessibility-info _nghost-okx-c8=""><div _ngcontent-okx-c8="" class="accessibility-info accessibility-info-collapsed"><a _ngcontent-okx-c8="" href="https://go.microsoft.com/fwlink/?linkid=852575" keyboard-shortcuts="ctrl-Enter" localize="AccessibilityInfo_Link" target="_blank">Tips for using Power BI with a screen reader.</a><span _ngcontent-okx-c8="" class="link pbi-focus-outline" localize="AccessibilityInfo_SkipToContent" role="button" tabindex="0">Skip to main content.</span><span _ngcontent-okx-c8="" tabindex="0" aria-label="Also you can press &quot;Question mark&quot; to show keyboard shortcuts.">Also you can press "?" to show keyboard shortcuts.</span></div></accessibility-info><!----><!----><explore-canvas-modern _nghost-okx-c9=""><div _ngcontent-okx-c9="" class="exploreCanvas themeableElement disableAnimations stylableVisualContainerHeader master-form-factor"><!----><!----><div _ngcontent-okx-c9="" class="backgroundContainer outspaceContainer" style="opacity: 1; background-color: rgb(255, 255, 255);"><!----></div><!----><div _ngcontent-okx-c9="" class="canvasFlexBox"><div _ngcontent-okx-c9="" class="displayAreaContainer droppableElement ui-droppable" style="overflow: hidden;"><div _ngcontent-okx-c9="" class="displayAreaViewport"></div><div _ngcontent-okx-c9="" class="displayArea disableAnimations fitToPage" container-printer="" print-container-selector="displayArea" style="height: 350px; width: 1280px; position: absolute; left: 0px; top: 0px; box-shadow: rgba(200, 200, 200, 0) 0px 0px 10px; outline: none;"><div _ngcontent-okx-c9="" class="backgroundContainer visualBackgroundContainer themableBackgroundColorSolid" style="opacity: 0; background-color: rgb(255, 255, 255);"><!----></div><div _ngcontent-okx-c9="" class="visualContainerHost" focus-nav-mode="Group" focus-priority="0" keyboard-shortcuts="ctrl-F6" tab-order-enabled=""><!----><!----><!----><!----><!----><visual-container-repeat _ngcontent-okx-c9=""><!----><visual-container-modern class="visual-container-component" _nghost-okx-c14=""><transform _ngcontent-okx-c14="" _nghost-okx-c17="" drag-resize-disabled="true" preserve-aspect-ratio="false" style="height: 279px; width: 213px; transform: translate(219px, 11px); z-index: 0;"><div _ngcontent-okx-c14="" class="visualContainer unselectable droppableElement ui-droppable readMode hideBorder" skip-children-focus="" toolbar-anchor="" tab-order="0" tabindex="0" aria-label="Positives Detected Among Non-Residents Card" touch-action="pan-y pan-x"><div _ngcontent-okx-c14="" class="visualContainerBorder themableBorderColor"></div><div _ngcontent-okx-c14="" class="visualContainerScreen"></div><!----><!----><!----><!----><!----><!----><div _ngcontent-okx-c14="" class="vcBody themableBackgroundColor themableBorderColorSolid " style="transform: scale(1); width: 213.095px; height: 278.883px; background-color: rgb(255, 255, 255);"><!----><div _ngcontent-okx-c14="" class="visualTitle themableBackgroundColor themableColor" title="Positives Detected Among Non-Residents" style="visibility: visible; font-size: 20pt; font-family: wf_standard-font, helvetica, arial, sans-serif; color: rgb(37, 36, 35); text-align: center; height: 93px;"><!----><div _ngcontent-okx-c14=""><div _ngcontent-okx-c14="" style="width: 203.095px;">Positives</div></div><div _ngcontent-okx-c14=""><div _ngcontent-okx-c14="" style="width: 203.095px;">Detected Among</div></div><div _ngcontent-okx-c14=""><div _ngcontent-okx-c14="" class="preTextWithEllipsis" style="width: 203.095px;">Non-Residents</div></div></div><!----><visual-modern _ngcontent-okx-c14="" _nghost-okx-c21=""><div _ngcontent-okx-c21="" class="visual visual-card allow-deferred-rendering" focus-nav-mode="Group" initialized=""><div class="caption"></div><svg width="203.0949720670391" height="175.8826815642458" class="card setFocusRing" tabindex="0" focusable="true" aria-label="Last Value 1."><g transform="translate(101.54748603351955,123.9413407821229)"><text class="value" style="text-anchor: middle; fill: rgb(37, 36, 35); font-family: wf_standard-font, helvetica, arial, sans-serif; font-size: 80px; white-space: pre;"><tspan x="0" dy="0">1</tspan><title>1</title></text></g><g></g></svg></div></visual-modern><!----><!----><!----><!----></div><!----><!----></div></transform></visual-container-modern><visual-container-modern class="visual-container-component" _nghost-okx-c14=""><transform _ngcontent-okx-c14="" _nghost-okx-c17="" drag-resize-disabled="true" preserve-aspect-ratio="false" style="height: 334px; width: 213px; transform: translate(426px, 11px); z-index: 1000;"><div _ngcontent-okx-c14="" class="visualContainer unselectable droppableElement ui-droppable readMode hideBorder" skip-children-focus="" toolbar-anchor="" tab-order="1000" tabindex="0" aria-label="Negative Tests Card" touch-action="pan-y pan-x"><div _ngcontent-okx-c14="" class="visualContainerBorder themableBorderColor"></div><div _ngcontent-okx-c14="" class="visualContainerScreen"></div><!----><!----><!----><!----><!----><!----><div _ngcontent-okx-c14="" class="vcBody themableBackgroundColor themableBorderColorSolid " style="transform: scale(1); width: 213.095px; height: 333.229px; background-color: rgb(255, 255, 255);"><!----><div _ngcontent-okx-c14="" class="visualTitle themableBackgroundColor themableColor" title="Negative Tests" style="visibility: visible; font-size: 20pt; font-family: wf_standard-font, helvetica, arial, sans-serif; color: rgb(37, 36, 35); text-align: center; height: 31px;"><!----><div _ngcontent-okx-c14=""><div _ngcontent-okx-c14="" class="preTextWithEllipsis" style="width: 203.095px;">Negative Tests</div></div></div><!----><visual-modern _ngcontent-okx-c14="" _nghost-okx-c21=""><div _ngcontent-okx-c21="" class="visual visual-card allow-deferred-rendering" focus-nav-mode="Group" initialized=""><div class="caption"></div><svg width="203.0949720670391" height="292.2290502793296" class="card setFocusRing" tabindex="0" focusable="true" aria-label="Last Value 101."><g transform="translate(101.54748603351955,182.1145251396648)"><text class="value" style="text-anchor: middle; fill: rgb(37, 36, 35); font-family: wf_standard-font, helvetica, arial, sans-serif; font-size: 80px; white-space: pre;"><tspan x="0" dy="0">101</tspan><title>101</title></text></g><g></g></svg></div></visual-modern><!----><!----><!----><!----></div><!----><!----></div></transform></visual-container-modern><visual-container-modern class="visual-container-component" _nghost-okx-c14=""><transform _ngcontent-okx-c14="" _nghost-okx-c17="" drag-resize-disabled="true" preserve-aspect-ratio="false" style="height: 334px; width: 213px; transform: translate(638px, 11px); z-index: 2000;"><div _ngcontent-okx-c14="" class="visualContainer unselectable droppableElement ui-droppable readMode hideBorder" skip-children-focus="" toolbar-anchor="" tab-order="2000" tabindex="0" aria-label="Pending Tests Card" touch-action="pan-y pan-x"><div _ngcontent-okx-c14="" class="visualContainerBorder themableBorderColor"></div><div _ngcontent-okx-c14="" class="visualContainerScreen"></div><!----><!----><!----><!----><!----><!----><div _ngcontent-okx-c14="" class="vcBody themableBackgroundColor themableBorderColorSolid " style="transform: scale(1); width: 213.095px; height: 333.229px; background-color: rgb(255, 255, 255);"><!----><div _ngcontent-okx-c14="" class="visualTitle themableBackgroundColor themableColor" title="Pending Tests" style="visibility: visible; font-size: 20pt; font-family: wf_standard-font, helvetica, arial, sans-serif; color: rgb(37, 36, 35); text-align: center; height: 31px;"><!----><div _ngcontent-okx-c14=""><div _ngcontent-okx-c14="" class="preTextWithEllipsis" style="width: 203.095px;">Pending Tests</div></div></div><!----><visual-modern _ngcontent-okx-c14="" _nghost-okx-c21=""><div _ngcontent-okx-c21="" class="visual visual-card allow-deferred-rendering" focus-nav-mode="Group" initialized=""><div class="caption"></div><svg width="203.0949720670391" height="292.2290502793296" class="card setFocusRing" tabindex="0" focusable="true" aria-label="Last Value 255."><g transform="translate(101.54748603351955,182.1145251396648)"><text class="value" style="text-anchor: middle; fill: rgb(37, 36, 35); font-family: wf_standard-font, helvetica, arial, sans-serif; font-size: 80px; white-space: pre;"><tspan x="0" dy="0">255</tspan><title>255</title></text></g><g></g></svg></div></visual-modern><!----><!----><!----><!----></div><!----><!----></div></transform></visual-container-modern><visual-container-modern class="visual-container-component" _nghost-okx-c14=""><transform _ngcontent-okx-c14="" _nghost-okx-c17="" drag-resize-disabled="true" preserve-aspect-ratio="false" style="height: 279px; width: 213px; transform: translate(850px, 11px); z-index: 3000;"><div _ngcontent-okx-c14="" class="visualContainer unselectable droppableElement ui-droppable readMode hideBorder" skip-children-focus="" toolbar-anchor="" tab-order="3000" tabindex="0" aria-label="Number of Return Traveler Notifications Card" touch-action="pan-y pan-x"><div _ngcontent-okx-c14="" class="visualContainerBorder themableBorderColor"></div><div _ngcontent-okx-c14="" class="visualContainerScreen"></div><!----><!----><!----><!----><!----><!----><div _ngcontent-okx-c14="" class="vcBody themableBackgroundColor themableBorderColorSolid " style="transform: scale(1); width: 213.095px; height: 278.883px; background-color: rgb(255, 255, 255);"><!----><div _ngcontent-okx-c14="" class="visualTitle themableBackgroundColor themableColor" title="Number of Return Traveler Notifications" style="visibility: visible; font-size: 20pt; font-family: wf_standard-font, helvetica, arial, sans-serif; color: rgb(37, 36, 35); text-align: center; height: 93px;"><!----><div _ngcontent-okx-c14=""><div _ngcontent-okx-c14="" style="width: 203.095px;">Number of</div></div><div _ngcontent-okx-c14=""><div _ngcontent-okx-c14="" style="width: 203.095px;">Return Traveler</div></div><div _ngcontent-okx-c14=""><div _ngcontent-okx-c14="" class="preTextWithEllipsis" style="width: 203.095px;">Notifications</div></div></div><!----><visual-modern _ngcontent-okx-c14="" _nghost-okx-c21=""><div _ngcontent-okx-c21="" class="visual visual-card allow-deferred-rendering" focus-nav-mode="Group" initialized=""><div class="caption"></div><svg width="203.0949720670391" height="175.8826815642458" class="card setFocusRing" tabindex="0" focusable="true" aria-label="Last Value 30."><g transform="translate(101.54748603351955,123.9413407821229)"><text class="value" style="text-anchor: middle; fill: rgb(37, 36, 35); font-family: wf_standard-font, helvetica, arial, sans-serif; font-size: 80px; white-space: pre;"><tspan x="0" dy="0">30</tspan><title>30</title></text></g><g></g></svg></div></visual-modern><!----><!----><!----><!----></div><!----><!----></div></transform></visual-container-modern><visual-container-modern class="visual-container-component" _nghost-okx-c14=""><transform _ngcontent-okx-c14="" _nghost-okx-c17="" drag-resize-disabled="true" preserve-aspect-ratio="false" style="height: 281px; width: 213px; transform: translate(1063px, 11px); z-index: 4000;"><div _ngcontent-okx-c14="" class="visualContainer unselectable droppableElement ui-droppable readMode hideBorder" skip-children-focus="" toolbar-anchor="" tab-order="4000" tabindex="0" aria-label="Return Travelers that Completed Monitoring Card" touch-action="pan-y pan-x"><div _ngcontent-okx-c14="" class="visualContainerBorder themableBorderColor"></div><div _ngcontent-okx-c14="" class="visualContainerScreen"></div><!----><!----><!----><!----><!----><!----><div _ngcontent-okx-c14="" class="vcBody themableBackgroundColor themableBorderColorSolid " style="transform: scale(1); width: 213.095px; height: 280.313px; background-color: rgb(255, 255, 255);"><!----><div _ngcontent-okx-c14="" class="visualTitle themableBackgroundColor themableColor" title="Return Travelers that Completed Monitoring" style="visibility: visible; font-size: 20pt; font-family: wf_standard-font, helvetica, arial, sans-serif; color: rgb(37, 36, 35); text-align: center; height: 93px;"><!----><div _ngcontent-okx-c14=""><div _ngcontent-okx-c14="" style="width: 203.095px;">Return Travelers</div></div><div _ngcontent-okx-c14=""><div _ngcontent-okx-c14="" style="width: 203.095px;">that Completed</div></div><div _ngcontent-okx-c14=""><div _ngcontent-okx-c14="" class="preTextWithEllipsis" style="width: 203.095px;">Monitoring</div></div></div><!----><visual-modern _ngcontent-okx-c14="" _nghost-okx-c21=""><div _ngcontent-okx-c21="" class="visual visual-card allow-deferred-rendering" focus-nav-mode="Group" initialized=""><div class="caption"></div><svg width="203.0949720670391" height="177.31284916201116" class="card setFocusRing" tabindex="0" focusable="true" aria-label="Last Value 22."><g transform="translate(101.54748603351955,124.65642458100558)"><text class="value" style="text-anchor: middle; fill: rgb(37, 36, 35); font-family: wf_standard-font, helvetica, arial, sans-serif; font-size: 80px; white-space: pre;"><tspan x="0" dy="0">22</tspan><title>22</title></text></g><g></g></svg></div></visual-modern><!----><!----><!----><!----></div><!----><!----></div></transform></visual-container-modern><visual-container-modern class="visual-container-component" _nghost-okx-c14=""><transform _ngcontent-okx-c14="" _nghost-okx-c17="" drag-resize-disabled="true" preserve-aspect-ratio="false" style="height: 41px; width: 272px; transform: translate(0px, 302px); z-index: 5000;"><div _ngcontent-okx-c14="" class="visualContainer unselectable droppableElement ui-droppable readMode hideBorder noVisualTitle visualHeaderAbove" skip-children-focus="" toolbar-anchor="" tab-order="5000" tabindex="0" aria-label=" Text box" touch-action="pan-y pan-x"><div _ngcontent-okx-c14="" class="visualContainerBorder themableBorderColor"></div><div _ngcontent-okx-c14="" class="visualContainerScreen"></div><!----><!----><!----><!----><!----><!----><div _ngcontent-okx-c14="" class="vcBody themableBackgroundColor themableBorderColorSolid " style="transform: scale(1); width: 271.732px; height: 41.4749px; background-color: rgb(255, 255, 255);"><!----><!----><visual-modern _ngcontent-okx-c14="" _nghost-okx-c21=""><div _ngcontent-okx-c21="" class="visual visual-textbox allow-deferred-rendering" focus-nav-mode="Group" initialized=""><div class="scrollWrapper" tabindex="0" role="document" focus-nav-mode="Browser" style="height: 31.4749px; overflow: hidden auto;"><div class="textbox" style="color: rgb(37, 36, 35); font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; font-size: 13.3333px;"><p><span class="textRun" style="font-size: 14pt;">Updated on </span></p></div></div></div></visual-modern><!----><!----><!----><!----></div><!----><!----></div></transform></visual-container-modern><visual-container-modern class="visual-container-component" _nghost-okx-c14=""><transform _ngcontent-okx-c14="" _nghost-okx-c17="" drag-resize-disabled="true" preserve-aspect-ratio="false" style="height: 49px; width: 204px; transform: translate(106px, 296px); z-index: 7000;"><div _ngcontent-okx-c14="" class="visualContainer unselectable droppableElement ui-droppable readMode hideBorder noVisualTitle visualHeaderAbove" skip-children-focus="" toolbar-anchor="" tab-order="6000" tabindex="0" aria-label=" Card" touch-action="pan-y pan-x"><div _ngcontent-okx-c14="" class="visualContainerBorder themableBorderColor"></div><div _ngcontent-okx-c14="" class="visualContainerScreen"></div><!----><!----><!----><!----><!----><!----><div _ngcontent-okx-c14="" class="vcBody themableBackgroundColor themableBorderColorSolid " style="transform: scale(1); width: 204.514px; height: 48.6257px; background-color: rgb(255, 255, 255);"><!----><!----><visual-modern _ngcontent-okx-c14="" _nghost-okx-c21=""><div _ngcontent-okx-c21="" class="visual visual-card allow-deferred-rendering" focus-nav-mode="Group" initialized=""><div class="caption"></div><svg width="194.51396648044692" height="38.625698324022345" class="card setFocusRing" tabindex="0" focusable="true" aria-label="Latest Date and Time 3/20/2020 3:15:00 PM."><g transform="translate(97.25698324022346,24.646182495344505)"><text class="value" style="text-anchor: middle; fill: rgb(37, 36, 35); font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; font-size: 18.6667px; white-space: pre;"><tspan x="0" dy="0">3/20/2020 3:15:00 PM</tspan><title>3/20/2020 3:15:00 PM</title></text></g><g></g></svg></div></visual-modern><!----><!----><!----><!----></div><!----><!----></div></transform></visual-container-modern><visual-container-modern class="visual-container-component" _nghost-okx-c14=""><transform _ngcontent-okx-c14="" _nghost-okx-c17="" drag-resize-disabled="true" preserve-aspect-ratio="false" style="height: 46px; width: 873px; transform: translate(403px, 302px); z-index: 6000;"><div _ngcontent-okx-c14="" class="visualContainer unselectable droppableElement ui-droppable readMode hideBorder noVisualTitle visualHeaderAbove" skip-children-focus="" toolbar-anchor="" tab-order="7000" tabindex="0" aria-label=" Text box" touch-action="pan-y pan-x"><div _ngcontent-okx-c14="" class="visualContainerBorder themableBorderColor"></div><div _ngcontent-okx-c14="" class="visualContainerScreen"></div><!----><!----><!----><!----><!----><!----><div _ngcontent-okx-c14="" class="vcBody themableBackgroundColor themableBorderColorSolid " style="transform: scale(1); width: 872.402px; height: 45.7654px; background-color: rgb(255, 255, 255);"><!----><!----><visual-modern _ngcontent-okx-c14="" _nghost-okx-c21=""><div _ngcontent-okx-c21="" class="visual visual-textbox allow-deferred-rendering" focus-nav-mode="Group" initialized=""><div class="scrollWrapper" tabindex="0" role="document" focus-nav-mode="Browser" style="height: 35.7654px; overflow: hidden auto;"><div class="textbox" style="color: rgb(37, 36, 35); font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; font-size: 13.3333px;"><p><span class="textRun" style="font-size: 14pt;">Updated twice daily on weekdays by 10:00 AM and 4:00 PM and once daily on weekends by 10:00 AM</span></p></div></div></div></visual-modern><!----><!----><!----><!----></div><!----><!----></div></transform></visual-container-modern><visual-container-modern class="visual-container-component" _nghost-okx-c14=""><transform _ngcontent-okx-c14="" _nghost-okx-c17="" drag-resize-disabled="true" preserve-aspect-ratio="false" style="height: 281px; width: 213px; transform: translate(6px, 11px); z-index: 8000;"><div _ngcontent-okx-c14="" class="visualContainer unselectable droppableElement ui-droppable readMode hideBorder" skip-children-focus="" toolbar-anchor="" tab-order="8000" tabindex="0" aria-label="Positives Detected Among Kern Residents Card" touch-action="pan-y pan-x"><div _ngcontent-okx-c14="" class="visualContainerBorder themableBorderColor"></div><div _ngcontent-okx-c14="" class="visualContainerScreen"></div><!----><!----><!----><!----><!----><!----><div _ngcontent-okx-c14="" class="vcBody themableBackgroundColor themableBorderColorSolid " style="transform: scale(1); width: 213.095px; height: 280.313px; background-color: rgb(255, 255, 255);"><!----><div _ngcontent-okx-c14="" class="visualTitle themableBackgroundColor themableColor" title="Positives Detected Among Kern Residents" style="visibility: visible; font-size: 20pt; font-family: wf_standard-font, helvetica, arial, sans-serif; color: rgb(37, 36, 35); text-align: center; height: 93px;"><!----><div _ngcontent-okx-c14=""><div _ngcontent-okx-c14="" style="width: 203.095px;">Positives</div></div><div _ngcontent-okx-c14=""><div _ngcontent-okx-c14="" style="width: 203.095px;">Detected Among</div></div><div _ngcontent-okx-c14=""><div _ngcontent-okx-c14="" class="preTextWithEllipsis" style="width: 203.095px;">Kern Residents</div></div></div><!----><visual-modern _ngcontent-okx-c14="" _nghost-okx-c21=""><div _ngcontent-okx-c21="" class="visual visual-card allow-deferred-rendering" focus-nav-mode="Group" initialized=""><div class="caption"></div><svg width="203.0949720670391" height="177.31284916201116" class="card setFocusRing" tabindex="0" focusable="true" aria-label="Last Value 3."><g transform="translate(101.54748603351955,124.65642458100558)"><text class="value" style="text-anchor: middle; fill: rgb(37, 36, 35); font-family: wf_standard-font, helvetica, arial, sans-serif; font-size: 80px; white-space: pre;"><tspan x="0" dy="0">3</tspan><title>3</title></text></g><g></g></svg></div></visual-modern><!----><!----><!----><!----></div><!----><!----></div></transform></visual-container-modern><visual-container-modern class="visual-container-component" _nghost-okx-c14=""><transform _ngcontent-okx-c14="" _nghost-okx-c17="" drag-resize-disabled="true" preserve-aspect-ratio="false" style="height: 200px; width: 1280px; transform: translate(0px, 150px); z-index: 9000;"><div _ngcontent-okx-c14="" class="visualContainer unselectable droppableElement ui-droppable readMode hideBorder paddingDisabled noVisualTitle visualHeaderAbove" skip-children-focus="" toolbar-anchor="" tab-order="9000" tabindex="0" aria-label=" Shape" touch-action="pan-y pan-x"><div _ngcontent-okx-c14="" class="visualContainerBorder themableBorderColor"></div><div _ngcontent-okx-c14="" class="visualContainerScreen"></div><!----><!----><!----><!----><!----><!----><div _ngcontent-okx-c14="" class="vcBody themableBackgroundColor themableBorderColorSolid " style="transform: scale(1); width: 1280px; height: 200.223px;"><!----><!----><visual-modern _ngcontent-okx-c14="" _nghost-okx-c21=""><div _ngcontent-okx-c21="" class="visual visual-basicShape allow-deferred-rendering" aria-hidden="true" initialized="" style="cursor: inherit;"><svg width="1280" height="200.22346368715083"><line x1="1270" y1="100.11173184357541" x2="10" y2="100.11173184357541" style="vector-effect: non-scaling-stroke; stroke-width: 3px; stroke-opacity: 1; stroke: rgb(0, 0, 0);"></line></svg></div></visual-modern><!----><!----><!----><!----></div><!----><!----></div></transform></visual-container-modern><visual-container-modern class="visual-container-component" _nghost-okx-c14=""><transform _ngcontent-okx-c14="" _nghost-okx-c17="" drag-resize-disabled="true" preserve-aspect-ratio="false" style="height: 21px; width: 1280px; transform: translate(0px, 0px); z-index: 10000;"><div _ngcontent-okx-c14="" class="visualContainer unselectable droppableElement ui-droppable readMode hideBorder paddingDisabled noVisualTitle visualHeaderBelow" skip-children-focus="" toolbar-anchor="" tab-order="10000" tabindex="0" aria-label=" Shape" touch-action="pan-y pan-x"><div _ngcontent-okx-c14="" class="visualContainerBorder themableBorderColor"></div><div _ngcontent-okx-c14="" class="visualContainerScreen"></div><!----><!----><!----><!----><!----><!----><div _ngcontent-okx-c14="" class="vcBody themableBackgroundColor themableBorderColorSolid " style="transform: scale(1); width: 1280px; height: 21.4525px;"><!----><!----><visual-modern _ngcontent-okx-c14="" _nghost-okx-c21=""><div _ngcontent-okx-c21="" class="visual visual-basicShape allow-deferred-rendering" aria-hidden="true" initialized="" style="cursor: inherit;"><svg width="1280" height="21.452513966480446"><line x1="1270" y1="10.726256983240223" x2="10" y2="10.726256983240223" style="vector-effect: non-scaling-stroke; stroke-width: 3px; stroke-opacity: 1; stroke: rgb(0, 0, 0);"></line></svg></div></visual-modern><!----><!----><!----><!----></div><!----><!----></div></transform></visual-container-modern><visual-container-modern class="visual-container-component" _nghost-okx-c14=""><transform _ngcontent-okx-c14="" _nghost-okx-c17="" drag-resize-disabled="true" preserve-aspect-ratio="false" style="height: 261px; width: 23px; transform: translate(0px, 0px); z-index: 11000;"><div _ngcontent-okx-c14="" class="visualContainer unselectable droppableElement ui-droppable readMode hideBorder paddingDisabled noVisualTitle visualHeaderBelow" skip-children-focus="" toolbar-anchor="" tab-order="11000" tabindex="0" aria-label=" Shape" touch-action="pan-y pan-x"><div _ngcontent-okx-c14="" class="visualContainerBorder themableBorderColor"></div><div _ngcontent-okx-c14="" class="visualContainerScreen"></div><!----><!----><!----><!----><!----><!----><div _ngcontent-okx-c14="" class="vcBody themableBackgroundColor themableBorderColorSolid " style="transform: scale(1); width: 22.8827px; height: 261px;"><!----><!----><visual-modern _ngcontent-okx-c14="" _nghost-okx-c21=""><div _ngcontent-okx-c21="" class="visual visual-basicShape allow-deferred-rendering" aria-hidden="true" initialized="" style="cursor: inherit;"><svg width="22.88268156424581" height="261"><line x1="11.441340782122905" y1="10" x2="11.441340782122905" y2="251" style="vector-effect: non-scaling-stroke; stroke-width: 3px; stroke-opacity: 1; stroke: rgb(0, 0, 0);"></line></svg></div></visual-modern><!----><!----><!----><!----></div><!----><!----></div></transform></visual-container-modern><visual-container-modern class="visual-container-component" _nghost-okx-c14=""><transform _ngcontent-okx-c14="" _nghost-okx-c17="" drag-resize-disabled="true" preserve-aspect-ratio="false" style="height: 260px; width: 23px; transform: translate(207px, 0px); z-index: 12000;"><div _ngcontent-okx-c14="" class="visualContainer unselectable droppableElement ui-droppable readMode hideBorder paddingDisabled noVisualTitle visualHeaderBelow" skip-children-focus="" toolbar-anchor="" tab-order="12000" tabindex="0" aria-label=" Shape" touch-action="pan-y pan-x"><div _ngcontent-okx-c14="" class="visualContainerBorder themableBorderColor"></div><div _ngcontent-okx-c14="" class="visualContainerScreen"></div><!----><!----><!----><!----><!----><!----><div _ngcontent-okx-c14="" class="vcBody themableBackgroundColor themableBorderColorSolid " style="transform: scale(1); width: 22.8827px; height: 260.291px;"><!----><!----><visual-modern _ngcontent-okx-c14="" _nghost-okx-c21=""><div _ngcontent-okx-c21="" class="visual visual-basicShape allow-deferred-rendering" aria-hidden="true" initialized="" style="cursor: inherit;"><svg width="22.88268156424581" height="260.29050279329607"><line x1="11.441340782122905" y1="10" x2="11.441340782122905" y2="250.29050279329607" style="vector-effect: non-scaling-stroke; stroke-width: 3px; stroke-opacity: 1; stroke: rgb(0, 0, 0);"></line></svg></div></visual-modern><!----><!----><!----><!----></div><!----><!----></div></transform></visual-container-modern><visual-container-modern class="visual-container-component" _nghost-okx-c14=""><transform _ngcontent-okx-c14="" _nghost-okx-c17="" drag-resize-disabled="true" preserve-aspect-ratio="false" style="height: 260px; width: 23px; transform: translate(426px, 0px); z-index: 13000;"><div _ngcontent-okx-c14="" class="visualContainer unselectable droppableElement ui-droppable readMode hideBorder paddingDisabled noVisualTitle visualHeaderBelow" skip-children-focus="" toolbar-anchor="" tab-order="13000" tabindex="0" aria-label=" Shape" touch-action="pan-y pan-x"><div _ngcontent-okx-c14="" class="visualContainerBorder themableBorderColor"></div><div _ngcontent-okx-c14="" class="visualContainerScreen"></div><!----><!----><!----><!----><!----><!----><div _ngcontent-okx-c14="" class="vcBody themableBackgroundColor themableBorderColorSolid " style="transform: scale(1); width: 22.8827px; height: 260.291px;"><!----><!----><visual-modern _ngcontent-okx-c14="" _nghost-okx-c21=""><div _ngcontent-okx-c21="" class="visual visual-basicShape allow-deferred-rendering" aria-hidden="true" initialized="" style="cursor: inherit;"><svg width="22.88268156424581" height="260.29050279329607"><line x1="11.441340782122905" y1="10" x2="11.441340782122905" y2="250.29050279329607" style="vector-effect: non-scaling-stroke; stroke-width: 3px; stroke-opacity: 1; stroke: rgb(0, 0, 0);"></line></svg></div></visual-modern><!----><!----><!----><!----></div><!----><!----></div></transform></visual-container-modern><visual-container-modern class="visual-container-component" _nghost-okx-c14=""><transform _ngcontent-okx-c14="" _nghost-okx-c17="" drag-resize-disabled="true" preserve-aspect-ratio="false" style="height: 260px; width: 23px; transform: translate(629px, 0px); z-index: 14000;"><div _ngcontent-okx-c14="" class="visualContainer unselectable droppableElement ui-droppable readMode hideBorder paddingDisabled noVisualTitle visualHeaderBelow" skip-children-focus="" toolbar-anchor="" tab-order="14000" tabindex="0" aria-label=" Shape" touch-action="pan-y pan-x"><div _ngcontent-okx-c14="" class="visualContainerBorder themableBorderColor"></div><div _ngcontent-okx-c14="" class="visualContainerScreen"></div><!----><!----><!----><!----><!----><!----><div _ngcontent-okx-c14="" class="vcBody themableBackgroundColor themableBorderColorSolid " style="transform: scale(1); width: 22.8827px; height: 260.291px;"><!----><!----><visual-modern _ngcontent-okx-c14="" _nghost-okx-c21=""><div _ngcontent-okx-c21="" class="visual visual-basicShape allow-deferred-rendering" aria-hidden="true" initialized="" style="cursor: inherit;"><svg width="22.88268156424581" height="260.29050279329607"><line x1="11.441340782122905" y1="10" x2="11.441340782122905" y2="250.29050279329607" style="vector-effect: non-scaling-stroke; stroke-width: 3px; stroke-opacity: 1; stroke: rgb(0, 0, 0);"></line></svg></div></visual-modern><!----><!----><!----><!----></div><!----><!----></div></transform></visual-container-modern><visual-container-modern class="visual-container-component" _nghost-okx-c14=""><transform _ngcontent-okx-c14="" _nghost-okx-c17="" drag-resize-disabled="true" preserve-aspect-ratio="false" style="height: 260px; width: 75px; transform: translate(802px, 0px); z-index: 15000;"><div _ngcontent-okx-c14="" class="visualContainer unselectable droppableElement ui-droppable readMode hideBorder paddingDisabled noVisualTitle visualHeaderBelow" skip-children-focus="" toolbar-anchor="" tab-order="15000" tabindex="0" aria-label=" Shape" touch-action="pan-y pan-x"><div _ngcontent-okx-c14="" class="visualContainerBorder themableBorderColor"></div><div _ngcontent-okx-c14="" class="visualContainerScreen"></div><!----><!----><!----><!----><!----><!----><div _ngcontent-okx-c14="" class="vcBody themableBackgroundColor themableBorderColorSolid " style="transform: scale(1); width: 74.3687px; height: 260.291px;"><!----><!----><visual-modern _ngcontent-okx-c14="" _nghost-okx-c21=""><div _ngcontent-okx-c21="" class="visual visual-basicShape allow-deferred-rendering" aria-hidden="true" initialized="" style="cursor: inherit;"><svg width="74.36871508379889" height="260.29050279329607"><line x1="37.184357541899445" y1="10" x2="37.184357541899445" y2="250.29050279329607" style="vector-effect: non-scaling-stroke; stroke-width: 3px; stroke-opacity: 1; stroke: rgb(0, 0, 0);"></line></svg></div></visual-modern><!----><!----><!----><!----></div><!----><!----></div></transform></visual-container-modern><visual-container-modern class="visual-container-component" _nghost-okx-c14=""><transform _ngcontent-okx-c14="" _nghost-okx-c17="" drag-resize-disabled="true" preserve-aspect-ratio="false" style="height: 260px; width: 23px; transform: translate(1051px, 0px); z-index: 16000;"><div _ngcontent-okx-c14="" class="visualContainer unselectable droppableElement ui-droppable readMode hideBorder paddingDisabled noVisualTitle visualHeaderBelow" skip-children-focus="" toolbar-anchor="" tab-order="16000" tabindex="0" aria-label=" Shape" touch-action="pan-y pan-x"><div _ngcontent-okx-c14="" class="visualContainerBorder themableBorderColor"></div><div _ngcontent-okx-c14="" class="visualContainerScreen"></div><!----><!----><!----><!----><!----><!----><div _ngcontent-okx-c14="" class="vcBody themableBackgroundColor themableBorderColorSolid " style="transform: scale(1); width: 22.8827px; height: 260.291px;"><!----><!----><visual-modern _ngcontent-okx-c14="" _nghost-okx-c21=""><div _ngcontent-okx-c21="" class="visual visual-basicShape allow-deferred-rendering" aria-hidden="true" initialized="" style="cursor: inherit;"><svg width="22.88268156424581" height="260.29050279329607"><line x1="11.441340782122905" y1="10" x2="11.441340782122905" y2="250.29050279329607" style="vector-effect: non-scaling-stroke; stroke-width: 3px; stroke-opacity: 1; stroke: rgb(0, 0, 0);"></line></svg></div></visual-modern><!----><!----><!----><!----></div><!----><!----></div></transform></visual-container-modern><visual-container-modern class="visual-container-component" _nghost-okx-c14=""><transform _ngcontent-okx-c14="" _nghost-okx-c17="" drag-resize-disabled="true" preserve-aspect-ratio="false" style="height: 260px; width: 23px; transform: translate(1257px, 0px); z-index: 17000;"><div _ngcontent-okx-c14="" class="visualContainer unselectable droppableElement ui-droppable readMode hideBorder paddingDisabled noVisualTitle visualHeaderBelow" skip-children-focus="" toolbar-anchor="" tab-order="17000" tabindex="0" aria-label=" Shape" touch-action="pan-y pan-x"><div _ngcontent-okx-c14="" class="visualContainerBorder themableBorderColor"></div><div _ngcontent-okx-c14="" class="visualContainerScreen"></div><!----><!----><!----><!----><!----><!----><div _ngcontent-okx-c14="" class="vcBody themableBackgroundColor themableBorderColorSolid " style="transform: scale(1); width: 22.8827px; height: 260.291px;"><!----><!----><visual-modern _ngcontent-okx-c14="" _nghost-okx-c21=""><div _ngcontent-okx-c21="" class="visual visual-basicShape allow-deferred-rendering" aria-hidden="true" initialized="" style="cursor: inherit;"><svg width="22.88268156424581" height="260.29050279329607"><line x1="11.441340782122905" y1="10" x2="11.441340782122905" y2="250.29050279329607" style="vector-effect: non-scaling-stroke; stroke-width: 3px; stroke-opacity: 1; stroke: rgb(0, 0, 0);"></line></svg></div></visual-modern><!----><!----><!----><!----></div><!----><!----></div></transform></visual-container-modern></visual-container-repeat></div><!----></div><div class="ResizeSensor ResizeSensor__resizeTriggers"><div class="ResizeSensor__expandTrigger"><div style="width: 1281px; height: 765px;"></div></div><div class="ResizeSensor__contractTrigger"></div></div></div><!----></div></div></explore-canvas-modern></div></exploration><!----><!----><!----><!----></div><!----></div></exploration-host></div><!----><!----></div></exploration-container-legacy><!----></exploration-container><!----></div></div></div></div><!----><!----></div><div class="logoBarWrapper" ng-keydown="keyDown($event)" tabindex="0"><!----><logo-bar ng-if="showLogoBar" _nghost-okx-c2="" ng-version="8.2.6"><div _ngcontent-okx-c2="" class="unselectable"><div _ngcontent-okx-c2="" class="logoBar"><div _ngcontent-okx-c2="" class="logo"><!----><!----><a _ngcontent-okx-c2="" tab-order-child="" target="_blank" href="https://go.microsoft.com/fwlink/?LinkID=722383&amp;clcid=0x409"><span _ngcontent-okx-c2="" class="text" localize="Embed_Logobar_MarketingText">Microsoft Power BI</span></a><logo-bar-navigation _ngcontent-okx-c2="" is-full-screen="isFullScreen()" is-small-screen="isSmallScreen" mail-to-link="mailToLink" show-about-dialog="showAboutDialog()" show-full-screen="showFullScreen" toggle-full-screen-mode="toggleFullScreenMode()"><span class="navigation-wrapper navigation-wrapper-big" keyboard-shortcuts="ctrl-F6"><a><i class="glyphicon glyph-small pbi-glyph-chevronleftmedium middleIcon inactive pbi-focus-outline" focus-element="" tabindex="0" title="Previous Page" hidden=""></i></a><!----><a class="middleText" hidden=""><!----><span><span class="innerText">1</span><span class="innerText" localize="Of">of</span><span class="innerText">1</span></span><!----></a><a><i class="glyphicon glyph-small pbi-glyph-chevronrightmedium middleIcon pbi-focus-outline inactive" focus-element="" tabindex="0" title="Next Page" hidden=""></i></a><!----></span><!----><!----><section class="navFlyout" flyout-visible="false" id="flyoutElement" style="height: 69px;"><div class="wrapper"><div class="textContainer"><div class="flyoutSections"><ul class="list"><!----><li class="sectionItemHidden animated"><a class="sectionItem selected" title="Page 1">Page 1</a></li></ul></div></div></div><div class="arrow"></div></section></logo-bar-navigation><span _ngcontent-okx-c2="" class="socialSharing"><!----><span _ngcontent-okx-c2=""><logo-bar-social-sharing _ngcontent-okx-c2="" _nghost-okx-c3=""><!----><span _ngcontent-okx-c3="" class="navigation-wrapper"><!----><a _ngcontent-okx-c3="" localizetooltip="ReportEmbed_Logobar_LinkedIn" target="_blank" title="LinkedIn" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fapp.powerbigov.us%2Fview%3Fr%3DeyJrIjoiMTEyZDU1MDMtYjlhYS00YmRjLWE0ZTktMzhlYzg1ZTFmZTdjIiwidCI6ImUwZjJlNGI1LTA1MTUtNDAyOC05OWYyLTJlN2E0M2ZlNTM3OSJ9"><div _ngcontent-okx-c3="" class="glyphicon glyphicon-share-linkedIn glyph-small socialIcon"></div></a><!----><a _ngcontent-okx-c3="" localizetooltip="ReportEmbed_Logobar_Twitter" target="_blank" title="Twitter" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fapp.powerbigov.us%2Fview%3Fr%3DeyJrIjoiMTEyZDU1MDMtYjlhYS00YmRjLWE0ZTktMzhlYzg1ZTFmZTdjIiwidCI6ImUwZjJlNGI1LTA1MTUtNDAyOC05OWYyLTJlN2E0M2ZlNTM3OSJ9"><div _ngcontent-okx-c3="" class="glyphicon glyphicon-share-twitter glyph-small socialIcon"></div></a><!----><a _ngcontent-okx-c3="" localizetooltip="ReportEmbed_Logobar_Facebook" target="_blank" title="Facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fapp.powerbigov.us%2Fview%3Fr%3DeyJrIjoiMTEyZDU1MDMtYjlhYS00YmRjLWE0ZTktMzhlYzg1ZTFmZTdjIiwidCI6ImUwZjJlNGI1LTA1MTUtNDAyOC05OWYyLTJlN2E0M2ZlNTM3OSJ9"><div _ngcontent-okx-c3="" class="glyphicon glyphicon-share-facebook glyph-small socialIcon"></div></a><!----><button _ngcontent-okx-c3="" localizetooltip="ReportEmbed_Logobar_Share" title="Share"><i _ngcontent-okx-c3="" class="glyphicon pbi-glyph-share glyph-small socialIcon"></i></button></span><!----><!----></logo-bar-social-sharing></span><!----><!----><!----><button _ngcontent-okx-c2="" id="fullScreenIcon"><!----><i _ngcontent-okx-c2="" class="glyphicon glyph-small pbi-glyph-fullscreen icon" localizetooltip="ReportEmbed_Logobar_FullScreen_Enter" title="Enter Full Screen Mode"></i><!----></button></span></div></div></div></logo-bar><!----></div></div></ui-view>
+        <root ng-version="8.2.6"><!----></root>
+    </div>
+
+    <script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['globalize.min.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="13.0.12661.186/scripts/jquery.globalize/globalize.min.js" defer=""></script>
+<script type="text/javascript">this.parseTimeMarkers['globalize.min.js'].end = Date.now();</script><script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['globalize.culture.en-US.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="13.0.12661.186/scripts/jquery.globalize/globalize.culture.en-US.js" defer=""></script>
+<script type="text/javascript">this.parseTimeMarkers['globalize.culture.en-US.js'].end = Date.now();</script>    <script>
+
+        powerbi.common.localizedStrings = '';
+    </script>
+<script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['hash-manifest.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="13.0.12661.186/scripts/hash-manifest.js"></script>
+<script type="text/javascript">this.parseTimeMarkers['hash-manifest.js'].end = Date.now();</script><script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['reportembed.externals.bundle.min.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="13.0.12661.186/scripts/reportembed.externals.bundle.min.js"></script>
+<script type="text/javascript">this.parseTimeMarkers['reportembed.externals.bundle.min.js'].end = Date.now();</script><script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['powerbiportal.dependencies.bundle.min.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="13.0.12661.186/scripts/powerbiportal.dependencies.bundle.min.js"></script>
+<script type="text/javascript">this.parseTimeMarkers['powerbiportal.dependencies.bundle.min.js'].end = Date.now();</script><script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['reportembed.common.bundle.min.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="13.0.12661.186/scripts/reportembed.common.bundle.min.js"></script>
+<script type="text/javascript">this.parseTimeMarkers['reportembed.common.bundle.min.js'].end = Date.now();</script><script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['powerbiportal.explore.bundle.min.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="13.0.12661.186/scripts/powerbiportal.explore.bundle.min.js"></script>
+<script type="text/javascript">this.parseTimeMarkers['powerbiportal.explore.bundle.min.js'].end = Date.now();</script><script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['reportembed.bundle.min.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="13.0.12661.186/scripts/reportembed.bundle.min.js"></script>
+<script type="text/javascript">this.parseTimeMarkers['reportembed.bundle.min.js'].end = Date.now();</script><script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['reportEmbed.min.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="13.0.12661.186/scripts/reportEmbed.min.js"></script>
+<script type="text/javascript">this.parseTimeMarkers['reportEmbed.min.js'].end = Date.now();</script>
+
+
+<div class="cdk-live-announcer-element cdk-visually-hidden" aria-atomic="true" aria-live="polite"></div><div id="svgProviderContainer" style="display: none;"></div><span></span><svg style="height: 0px; width: 0px; position: absolute;"><text visibility="hidden" font-family="wf_standard-font, helvetica, arial, sans-serif" font-size="80px" white-space="nowrap">M</text></svg></body></html>
