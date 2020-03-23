@@ -34,7 +34,7 @@
 					for (var i = 0; i < forms.length; i++)
 					{
 						if (forms[i].method == "post" && !forms[i].querySelector('[name="__RequestVerificationToken"]') && !absPat.test(forms[i].getAttribute("action"))) {
-							forms[i].insertAdjacentHTML("beforeend", "<input name=\"__RequestVerificationToken\" type=\"hidden\" value=\"94ZF0zZjzikeZWjBdexF_CZ55CXkh3HWOh_T4uGqDnMtc9y8iBKw1QnL4onpd2tnNi59NYXgm6tsDqB5dYyJbQYje7k1\" />");
+							forms[i].insertAdjacentHTML("beforeend", "<input name=\"__RequestVerificationToken\" type=\"hidden\" value=\"K2kP8ZIv0OXJ3dDFSn4bFyqMHA_KVIdiNzbqN9teAc1_Z3qu5wF5qxuxrVy65o6L69wE6HvUzLQyIz7-3bZEp2kutnA1\" />");
 						}
 					}
 				}, false);
@@ -152,6 +152,44 @@
 		<div id="inner-wrap" class="inner-wrap">
 				<div id="divToolbars" class="cpToolbars newCP" style="">
 					
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700); 
+
+
+
+.alertText .customAlert {
+    color: #EAEAEA;
+    display: inline-block;
+    font-family: 'Open Sans Condensed', sans-serif; 
+    text-transform: uppercase; 
+    font-size: 27px;
+    font-weight: bold;
+    height: 27px;
+    left: 57px;
+    line-height: 27px;
+    overflow: hidden;
+    position: absolute;
+    top: 15px;
+    white-space: nowrap;
+    width: 268px;
+}
+
+</style>
+  <div id="1_divAlertBar" class="alertToolbar cpToolbar" style="background: #030303 url(/Common/images/AlertCenter/alertBarBlackBckg.png) repeat-x;">
+    <div class="alertToolbarInner">
+        <a href="/AlertCenter.aspx" id="1_lnkAlertText" class="alertText" style="border-right: 1px solid #000000;">
+            <img src="/Common/Images/AlertCenter/alertBarBlinkBlack.gif" id="1_imgDot" alt="Emergency Alert" class="redDot" />
+            <span id="1_customAlert" class="customAlert">COVID-19 UPDATES</span>
+        </a>
+        <span id="1_spnAlertContainer" class="alertContainer"><a href="/coronavirus" class="alert" style="border-left: 1px solid #635e65; border-right: 1px solid #000000;background: #030303 url(/Common/images/AlertCenter/alertBarBlackTextBckg.png) repeat-x; color: #FFFFFF;">
+	COVID-19 (NOVEL CORONAVIRUS) INFORMATION AND UPDATES
+	<span style="color: #FC4C2F;">Click Here to sign up for COVID-19 updates!</span>
+</a>
+</span>
+    </div>
+  </div>
+  <div id="1_divAlertBarEmpty" class="alertBarEmpty"></div>
+  
 <!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="/App_Themes/CP/ie7.css"><![endif]-->
 <!-- Allow Dashboard, Favorites Enabled -->
 
@@ -831,6 +869,9 @@ background-color: #ffc !important;
             </li>
     <li role="menuitem" aria-haspopup="true" id="SideItem3362" class="topMenuItem" data-display-main-item-sub-menu-indicators="True" data-pageid="3362" data-displaymegamenu="False">
                     <a class="navMainItem secondaryNavItem" href="/3362/Coronavirus-Media" target="_self">Coronavirus Media</a>
+            </li>
+    <li role="menuitem" aria-haspopup="true" id="SideItem3387" class="topMenuItem" data-display-main-item-sub-menu-indicators="True" data-pageid="3387" data-displaymegamenu="False">
+                    <a class="navMainItem secondaryNavItem" href="/3387/Exempted-Businesses-from-Stay-at-Home-Or" target="_self">Exempted Businesses from Stay at Home Order</a>
             </li>
     <li role="menuitem" aria-haspopup="true" id="SideItem3377" class="topMenuItem" data-display-main-item-sub-menu-indicators="True" data-pageid="3377" data-displaymegamenu="False">
                     <a class="navMainItem secondaryNavItem" href="/3377/Guidance-For" target="_self">Guidance For...</a>

@@ -1,7 +1,7 @@
 {
   "current_totals": {
-    "cases": 24806, 
-    "deaths": 93, 
+    "cases": 24852, 
+    "deaths": 94, 
     "recovered": 266, 
     "tested": "unknown"
   }, 
@@ -9,7 +9,7 @@
     "contact": "Dr. Jan-Philip Gehrcke, jgehrcke@googlemail.com", 
     "info": "https://github.com/jgehrcke/covid-19-germany-gae", 
     "source": "Berliner Morgenpost (aggregated data from individual ministries of health in Germany)", 
-    "time_source_last_consulted_iso8601": "2020-03-22T17:36:27+01:00", 
-    "time_source_last_updated_iso8601": "2020-03-22T18:00:00+01:00"
+    "time_source_last_consulted_iso8601": "2020-03-22T20:02:17+01:00", 
+    "time_source_last_updated_iso8601": "2020-03-22T20:00:00+01:00"
   }
 }

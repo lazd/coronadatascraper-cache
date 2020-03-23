@@ -53,7 +53,7 @@
       "attributes" : {
         "NAME" : "Bayfield", 
         "POSITIVE" : 1, 
-        "DATE" : "3/21/2020", 
+        "DATE" : "3/22/2020", 
         "CMNTY_SPRD" : null
       }, 
       "geometry" : 
@@ -66,7 +66,7 @@
       "attributes" : {
         "NAME" : "Brown", 
         "POSITIVE" : 3, 
-        "DATE" : "3/21/2020", 
+        "DATE" : "3/22/2020", 
         "CMNTY_SPRD" : "*"
       }, 
       "geometry" : 
@@ -79,7 +79,7 @@
       "attributes" : {
         "NAME" : "Calumet", 
         "POSITIVE" : 1, 
-        "DATE" : "3/21/2020", 
+        "DATE" : "3/22/2020", 
         "CMNTY_SPRD" : null
       }, 
       "geometry" : 
@@ -92,7 +92,7 @@
       "attributes" : {
         "NAME" : "Chippewa", 
         "POSITIVE" : 1, 
-        "DATE" : "3/21/2020", 
+        "DATE" : "3/22/2020", 
         "CMNTY_SPRD" : null
       }, 
       "geometry" : 
@@ -105,7 +105,7 @@
       "attributes" : {
         "NAME" : "Columbia", 
         "POSITIVE" : 5, 
-        "DATE" : "3/21/2020", 
+        "DATE" : "3/22/2020", 
         "CMNTY_SPRD" : "*"
       }, 
       "geometry" : 
@@ -117,8 +117,8 @@
     {
       "attributes" : {
         "NAME" : "Dane", 
-        "POSITIVE" : 49, 
-        "DATE" : "3/21/2020", 
+        "POSITIVE" : 61, 
+        "DATE" : "3/22/2020", 
         "CMNTY_SPRD" : "*"
       }, 
       "geometry" : 
@@ -131,7 +131,7 @@
       "attributes" : {
         "NAME" : "Douglas", 
         "POSITIVE" : 1, 
-        "DATE" : "3/21/2020", 
+        "DATE" : "3/22/2020", 
         "CMNTY_SPRD" : null
       }, 
       "geometry" : 
@@ -144,7 +144,7 @@
       "attributes" : {
         "NAME" : "Dunn", 
         "POSITIVE" : 1, 
-        "DATE" : "3/21/2020", 
+        "DATE" : "3/22/2020", 
         "CMNTY_SPRD" : null
       }, 
       "geometry" : 
@@ -156,8 +156,8 @@
     {
       "attributes" : {
         "NAME" : "Eau Claire", 
-        "POSITIVE" : 2, 
-        "DATE" : "3/21/2020", 
+        "POSITIVE" : 4, 
+        "DATE" : "3/22/2020", 
         "CMNTY_SPRD" : null
       }, 
       "geometry" : 
@@ -169,8 +169,8 @@
     {
       "attributes" : {
         "NAME" : "Fond du Lac", 
-        "POSITIVE" : 15, 
-        "DATE" : "3/21/2020", 
+        "POSITIVE" : 16, 
+        "DATE" : "3/22/2020", 
         "CMNTY_SPRD" : null
       }, 
       "geometry" : 
@@ -183,7 +183,7 @@
       "attributes" : {
         "NAME" : "Green", 
         "POSITIVE" : 1, 
-        "DATE" : "3/21/2020", 
+        "DATE" : "3/22/2020", 
         "CMNTY_SPRD" : null
       }, 
       "geometry" : 
@@ -195,8 +195,8 @@
     {
       "attributes" : {
         "NAME" : "Jefferson", 
-        "POSITIVE" : 1, 
-        "DATE" : "3/21/2020", 
+        "POSITIVE" : 2, 
+        "DATE" : "3/22/2020", 
         "CMNTY_SPRD" : null
       }, 
       "geometry" : 
@@ -208,8 +208,8 @@
     {
       "attributes" : {
         "NAME" : "Kenosha", 
-        "POSITIVE" : 5, 
-        "DATE" : "3/21/2020", 
+        "POSITIVE" : 10, 
+        "DATE" : "3/22/2020", 
         "CMNTY_SPRD" : "*"
       }, 
       "geometry" : 
@@ -222,7 +222,7 @@
       "attributes" : {
         "NAME" : "La Crosse", 
         "POSITIVE" : 5, 
-        "DATE" : "3/21/2020", 
+        "DATE" : "3/22/2020", 
         "CMNTY_SPRD" : null
       }, 
       "geometry" : 
@@ -235,7 +235,7 @@
       "attributes" : {
         "NAME" : "Marathon", 
         "POSITIVE" : 1, 
-        "DATE" : "3/21/2020", 
+        "DATE" : "3/22/2020", 
         "CMNTY_SPRD" : null
       }, 
       "geometry" : 
@@ -247,8 +247,8 @@
     {
       "attributes" : {
         "NAME" : "Milwaukee", 
-        "POSITIVE" : 126, 
-        "DATE" : "3/21/2020", 
+        "POSITIVE" : 182, 
+        "DATE" : "3/22/2020", 
         "CMNTY_SPRD" : "*"
       }, 
       "geometry" : 
@@ -261,7 +261,7 @@
       "attributes" : {
         "NAME" : "Outagamie", 
         "POSITIVE" : 2, 
-        "DATE" : "3/21/2020", 
+        "DATE" : "3/22/2020", 
         "CMNTY_SPRD" : null
       }, 
       "geometry" : 
@@ -273,8 +273,8 @@
     {
       "attributes" : {
         "NAME" : "Ozaukee", 
-        "POSITIVE" : 11, 
-        "DATE" : "3/21/2020", 
+        "POSITIVE" : 13, 
+        "DATE" : "3/22/2020", 
         "CMNTY_SPRD" : null
       }, 
       "geometry" : 
@@ -287,7 +287,7 @@
       "attributes" : {
         "NAME" : "Pierce", 
         "POSITIVE" : 1, 
-        "DATE" : "3/21/2020", 
+        "DATE" : "3/22/2020", 
         "CMNTY_SPRD" : null
       }, 
       "geometry" : 
@@ -300,7 +300,7 @@
       "attributes" : {
         "NAME" : "Racine", 
         "POSITIVE" : 4, 
-        "DATE" : "3/21/2020", 
+        "DATE" : "3/22/2020", 
         "CMNTY_SPRD" : null
       }, 
       "geometry" : 
@@ -313,7 +313,7 @@
       "attributes" : {
         "NAME" : "Rock", 
         "POSITIVE" : 3, 
-        "DATE" : "3/21/2020", 
+        "DATE" : "3/22/2020", 
         "CMNTY_SPRD" : null
       }, 
       "geometry" : 
@@ -326,7 +326,7 @@
       "attributes" : {
         "NAME" : "Sauk", 
         "POSITIVE" : 2, 
-        "DATE" : "3/21/2020", 
+        "DATE" : "3/22/2020", 
         "CMNTY_SPRD" : null
       }, 
       "geometry" : 
@@ -339,7 +339,7 @@
       "attributes" : {
         "NAME" : "Sheboygan", 
         "POSITIVE" : 6, 
-        "DATE" : "3/21/2020", 
+        "DATE" : "3/22/2020", 
         "CMNTY_SPRD" : null
       }, 
       "geometry" : 
@@ -352,7 +352,7 @@
       "attributes" : {
         "NAME" : "St. Croix", 
         "POSITIVE" : 2, 
-        "DATE" : "3/21/2020", 
+        "DATE" : "3/22/2020", 
         "CMNTY_SPRD" : null
       }, 
       "geometry" : 
@@ -365,7 +365,7 @@
       "attributes" : {
         "NAME" : "Walworth", 
         "POSITIVE" : 3, 
-        "DATE" : "3/21/2020", 
+        "DATE" : "3/22/2020", 
         "CMNTY_SPRD" : null
       }, 
       "geometry" : 
@@ -377,8 +377,8 @@
     {
       "attributes" : {
         "NAME" : "Washington", 
-        "POSITIVE" : 3, 
-        "DATE" : "3/21/2020", 
+        "POSITIVE" : 14, 
+        "DATE" : "3/22/2020", 
         "CMNTY_SPRD" : null
       }, 
       "geometry" : 
@@ -390,8 +390,8 @@
     {
       "attributes" : {
         "NAME" : "Waukesha", 
-        "POSITIVE" : 20, 
-        "DATE" : "3/21/2020", 
+        "POSITIVE" : 30, 
+        "DATE" : "3/22/2020", 
         "CMNTY_SPRD" : "*"
       }, 
       "geometry" : 
@@ -404,7 +404,7 @@
       "attributes" : {
         "NAME" : "Winnebago", 
         "POSITIVE" : 5, 
-        "DATE" : "3/21/2020", 
+        "DATE" : "3/22/2020", 
         "CMNTY_SPRD" : null
       }, 
       "geometry" : 
@@ -417,7 +417,7 @@
       "attributes" : {
         "NAME" : "Wood", 
         "POSITIVE" : 1, 
-        "DATE" : "3/21/2020", 
+        "DATE" : "3/22/2020", 
         "CMNTY_SPRD" : null
       }, 
       "geometry" : 
