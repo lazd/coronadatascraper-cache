@@ -1,0 +1,752 @@
+{
+  "objectIdFieldName" : "OBJECTID", 
+  "uniqueIdField" : 
+  {
+    "name" : "OBJECTID", 
+    "isSystemMaintained" : true
+  }, 
+  "globalIdFieldName" : "GlobalID", 
+  "serverGens" : {
+    "minServerGen" : 515378, 
+    "serverGen" : 515578
+  }, 
+  "geometryType" : "esriGeometryPoint", 
+  "spatialReference" : {
+    "wkid" : 26917, 
+    "latestWkid" : 26917
+  }, 
+  "fields" : [
+    {
+      "name" : "OBJECTID", 
+      "type" : "esriFieldTypeOID", 
+      "alias" : "OBJECTID", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "NAME", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "NAME", 
+      "sqlType" : "sqlTypeOther", 
+      "length" : 20, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "CFIPS", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "CFIPS", 
+      "sqlType" : "sqlTypeOther", 
+      "length" : 3, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "Areakey", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "Areakey", 
+      "sqlType" : "sqlTypeOther", 
+      "length" : 5, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "Confirmed", 
+      "type" : "esriFieldTypeSmallInteger", 
+      "alias" : "Positive", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "Recovered", 
+      "type" : "esriFieldTypeSmallInteger", 
+      "alias" : "Recovered", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "Death", 
+      "type" : "esriFieldTypeSmallInteger", 
+      "alias" : "Death", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "Age", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "Age", 
+      "sqlType" : "sqlTypeOther", 
+      "length" : 10, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "Gender", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "Gender", 
+      "sqlType" : "sqlTypeOther", 
+      "length" : 25, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "Active", 
+      "type" : "esriFieldTypeSmallInteger", 
+      "alias" : "Active", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "Date", 
+      "type" : "esriFieldTypeDate", 
+      "alias" : "Date", 
+      "sqlType" : "sqlTypeOther", 
+      "length" : 8, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "Lat", 
+      "type" : "esriFieldTypeDouble", 
+      "alias" : "Lat", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "Long", 
+      "type" : "esriFieldTypeDouble", 
+      "alias" : "Long", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "GlobalID", 
+      "type" : "esriFieldTypeGlobalID", 
+      "alias" : "GlobalID", 
+      "sqlType" : "sqlTypeOther", 
+      "length" : 38, 
+      "domain" : null
+    }
+  ], 
+  "features" : [
+    {
+      "attributes" : {
+        "OBJECTID" : 28, 
+        "NAME" : "Kershaw", 
+        "CFIPS" : "055", 
+        "Areakey" : "45055", 
+        "Confirmed" : 54, 
+        "Recovered" : 0, 
+        "Death" : 1, 
+        "Age" : null, 
+        "Gender" : null, 
+        "Active" : 25, 
+        "Date" : 1584990707830, 
+        "Lat" : 34.3386514876128, 
+        "Long" : -80.5904412512321, 
+        "GlobalID" : "bbeae238-f81a-4378-b119-01e290fd8e89"
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 40, 
+        "NAME" : "Richland", 
+        "CFIPS" : "079", 
+        "Areakey" : "45079", 
+        "Confirmed" : 43, 
+        "Recovered" : 0, 
+        "Death" : 0, 
+        "Age" : null, 
+        "Gender" : null, 
+        "Active" : 4, 
+        "Date" : 1584990707830, 
+        "Lat" : 34.0216733494146, 
+        "Long" : -80.9026766044141, 
+        "GlobalID" : "0437726d-0047-46ed-abcd-b8bbad4e5f58"
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 10, 
+        "NAME" : "Charleston", 
+        "CFIPS" : "019", 
+        "Areakey" : "45019", 
+        "Confirmed" : 31, 
+        "Recovered" : 0, 
+        "Death" : 1, 
+        "Age" : null, 
+        "Gender" : null, 
+        "Active" : 4, 
+        "Date" : 1584990707830, 
+        "Lat" : 32.6922440729303, 
+        "Long" : -80.159833889292, 
+        "GlobalID" : "286b9f2f-977e-45b3-8acf-aca20adae4d0"
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 23, 
+        "NAME" : "Greenville", 
+        "CFIPS" : "045", 
+        "Areakey" : "45045", 
+        "Confirmed" : 31, 
+        "Recovered" : 0, 
+        "Death" : 0, 
+        "Age" : null, 
+        "Gender" : null, 
+        "Active" : 3, 
+        "Date" : 1584990707830, 
+        "Lat" : 34.8939900877375, 
+        "Long" : -82.3704032711909, 
+        "GlobalID" : "237eb814-5b31-43c8-abc3-c0547776899c"
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 7, 
+        "NAME" : "Beaufort", 
+        "CFIPS" : "013", 
+        "Areakey" : "45013", 
+        "Confirmed" : 21, 
+        "Recovered" : 0, 
+        "Death" : 0, 
+        "Age" : null, 
+        "Gender" : null, 
+        "Active" : 6, 
+        "Date" : 1584990707830, 
+        "Lat" : 32.3815975838395, 
+        "Long" : -80.7286225458449, 
+        "GlobalID" : "49498f84-07dc-4b9d-891c-68003ed705fb"
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 32, 
+        "NAME" : "Lexington", 
+        "CFIPS" : "063", 
+        "Areakey" : "45063", 
+        "Confirmed" : 17, 
+        "Recovered" : 0, 
+        "Death" : 1, 
+        "Age" : null, 
+        "Gender" : null, 
+        "Active" : 4, 
+        "Date" : 1584990707830, 
+        "Lat" : 33.9021678245199, 
+        "Long" : -81.2720773115209, 
+        "GlobalID" : "5eaca418-a3bb-4a49-b7e5-894d2a04da56"
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 26, 
+        "NAME" : "Horry", 
+        "CFIPS" : "051", 
+        "Areakey" : "45051", 
+        "Confirmed" : 16, 
+        "Recovered" : 0, 
+        "Death" : 0, 
+        "Age" : null, 
+        "Gender" : null, 
+        "Active" : 5, 
+        "Date" : 1584990707830, 
+        "Lat" : 33.9213126145775, 
+        "Long" : -78.9964853499666, 
+        "GlobalID" : "b6d85f74-ac42-464d-bc82-ebf44f09820f"
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 4, 
+        "NAME" : "Anderson", 
+        "CFIPS" : "007", 
+        "Areakey" : "45007", 
+        "Confirmed" : 15, 
+        "Recovered" : 0, 
+        "Death" : 0, 
+        "Age" : null, 
+        "Gender" : null, 
+        "Active" : 2, 
+        "Date" : 1584990707830, 
+        "Lat" : 34.5190086523111, 
+        "Long" : -82.6379226439883, 
+        "GlobalID" : "1b4ba574-881c-4ee4-bd99-b7acb9edca3b"
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 38, 
+        "NAME" : "Orangeburg", 
+        "CFIPS" : "075", 
+        "Areakey" : "45075", 
+        "Confirmed" : 8, 
+        "Recovered" : 0, 
+        "Death" : 0, 
+        "Age" : null, 
+        "Gender" : null, 
+        "Active" : 0, 
+        "Date" : 1584990707830, 
+        "Lat" : 33.3866932906356, 
+        "Long" : -80.7974767552771, 
+        "GlobalID" : "53c2a12d-d07d-46d7-9224-f6df980bbfb7"
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 16, 
+        "NAME" : "Darlington", 
+        "CFIPS" : "031", 
+        "Areakey" : "45031", 
+        "Confirmed" : 7, 
+        "Recovered" : 0, 
+        "Death" : 0, 
+        "Age" : null, 
+        "Gender" : null, 
+        "Active" : 0, 
+        "Date" : 1584990707830, 
+        "Lat" : 34.3322877604185, 
+        "Long" : -79.9578060152117, 
+        "GlobalID" : "d78dd466-0579-402d-bbfb-121138c395e4"
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 29, 
+        "NAME" : "Lancaster", 
+        "CFIPS" : "057", 
+        "Areakey" : "45057", 
+        "Confirmed" : 7, 
+        "Recovered" : 0, 
+        "Death" : 0, 
+        "Age" : null, 
+        "Gender" : null, 
+        "Active" : 2, 
+        "Date" : 1584990707830, 
+        "Lat" : 34.6865734419249, 
+        "Long" : -80.7052952130382, 
+        "GlobalID" : "fe54ea8f-9dbd-4c62-b802-e4f96ef1f535"
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 46, 
+        "NAME" : "York", 
+        "CFIPS" : "091", 
+        "Areakey" : "45091", 
+        "Confirmed" : 7, 
+        "Recovered" : 0, 
+        "Death" : 0, 
+        "Age" : null, 
+        "Gender" : null, 
+        "Active" : 1, 
+        "Date" : 1584990707830, 
+        "Lat" : 34.9747560597479, 
+        "Long" : -81.1843491941034, 
+        "GlobalID" : "1821790e-3567-4f34-82a4-70850aec9de9"
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 8, 
+        "NAME" : "Berkeley", 
+        "CFIPS" : "015", 
+        "Areakey" : "45015", 
+        "Confirmed" : 4, 
+        "Recovered" : 0, 
+        "Death" : 0, 
+        "Age" : null, 
+        "Gender" : null, 
+        "Active" : 0, 
+        "Date" : 1584990707830, 
+        "Lat" : 33.1976595211557, 
+        "Long" : -79.950645999823, 
+        "GlobalID" : "81a63d48-c300-4e1d-8de6-9ed4395edff6"
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 14, 
+        "NAME" : "Clarendon", 
+        "CFIPS" : "027", 
+        "Areakey" : "45027", 
+        "Confirmed" : 4, 
+        "Recovered" : 0, 
+        "Death" : 1, 
+        "Age" : null, 
+        "Gender" : null, 
+        "Active" : 0, 
+        "Date" : 1584990707830, 
+        "Lat" : 33.665719280308, 
+        "Long" : -80.216625211915, 
+        "GlobalID" : "894bfc96-0ea7-495d-b9c1-39bbcfa7d617"
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 43, 
+        "NAME" : "Sumter", 
+        "CFIPS" : "085", 
+        "Areakey" : "45085", 
+        "Confirmed" : 4, 
+        "Recovered" : 0, 
+        "Death" : 0, 
+        "Age" : null, 
+        "Gender" : null, 
+        "Active" : 0, 
+        "Date" : 1584990707830, 
+        "Lat" : 33.9162014020286, 
+        "Long" : -80.3823486699653, 
+        "GlobalID" : "4699ed55-2ceb-4a2e-a8a9-a16ce2b3c7da"
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 21, 
+        "NAME" : "Florence", 
+        "CFIPS" : "041", 
+        "Areakey" : "45041", 
+        "Confirmed" : 3, 
+        "Recovered" : 0, 
+        "Death" : 1, 
+        "Age" : null, 
+        "Gender" : null, 
+        "Active" : 0, 
+        "Date" : 1584990707830, 
+        "Lat" : 34.0243081119694, 
+        "Long" : -79.7027258832435, 
+        "GlobalID" : "84b656d9-5375-45c0-a248-2fa75272ac8a"
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 42, 
+        "NAME" : "Spartanburg", 
+        "CFIPS" : "083", 
+        "Areakey" : "45083", 
+        "Confirmed" : 3, 
+        "Recovered" : 0, 
+        "Death" : 0, 
+        "Age" : null, 
+        "Gender" : null, 
+        "Active" : 1, 
+        "Date" : 1584990707830, 
+        "Lat" : 34.931125264268, 
+        "Long" : -81.9905462790612, 
+        "GlobalID" : "974895a9-1a2a-4f29-b643-94edca5837a6"
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 18, 
+        "NAME" : "Dorchester", 
+        "CFIPS" : "035", 
+        "Areakey" : "45035", 
+        "Confirmed" : 2, 
+        "Recovered" : 0, 
+        "Death" : 0, 
+        "Age" : null, 
+        "Gender" : null, 
+        "Active" : 0, 
+        "Date" : 1584990707830, 
+        "Lat" : 33.1555644429656, 
+        "Long" : -80.4335433199985, 
+        "GlobalID" : "c5eade68-805b-46ff-b3d7-f13cce79374a"
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 20, 
+        "NAME" : "Fairfield", 
+        "CFIPS" : "039", 
+        "Areakey" : "45039", 
+        "Confirmed" : 2, 
+        "Recovered" : 0, 
+        "Death" : 0, 
+        "Age" : null, 
+        "Gender" : null, 
+        "Active" : 1, 
+        "Date" : 1584990707830, 
+        "Lat" : 34.3950936013134, 
+        "Long" : -81.121208814615, 
+        "GlobalID" : "3b231e1e-7ac8-4245-b1ba-ff46a96f0eee"
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 22, 
+        "NAME" : "Georgetown", 
+        "CFIPS" : "043", 
+        "Areakey" : "45043", 
+        "Confirmed" : 2, 
+        "Recovered" : 0, 
+        "Death" : 0, 
+        "Age" : null, 
+        "Gender" : null, 
+        "Active" : 0, 
+        "Date" : 1584990707830, 
+        "Lat" : 33.4336385208458, 
+        "Long" : -79.3323294579175, 
+        "GlobalID" : "7e5a6d58-fbda-44ad-bd23-bf1abc822139"
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 24, 
+        "NAME" : "Greenwood", 
+        "CFIPS" : "047", 
+        "Areakey" : "45047", 
+        "Confirmed" : 2, 
+        "Recovered" : 0, 
+        "Death" : 0, 
+        "Age" : null, 
+        "Gender" : null, 
+        "Active" : 0, 
+        "Date" : 1584990707830, 
+        "Lat" : 34.1441453434843, 
+        "Long" : -82.0997967681752, 
+        "GlobalID" : "98ffaf86-6e11-429c-a87a-834a52b08e26"
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 31, 
+        "NAME" : "Lee", 
+        "CFIPS" : "061", 
+        "Areakey" : "45061", 
+        "Confirmed" : 2, 
+        "Recovered" : 0, 
+        "Death" : 0, 
+        "Age" : null, 
+        "Gender" : null, 
+        "Active" : 1, 
+        "Date" : 1584990707830, 
+        "Lat" : 34.1632315285461, 
+        "Long" : -80.2544455301373, 
+        "GlobalID" : "4ce442a4-e8ee-4cc2-9a20-ec5d917ba85e"
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 37, 
+        "NAME" : "Oconee", 
+        "CFIPS" : "073", 
+        "Areakey" : "45073", 
+        "Confirmed" : 2, 
+        "Recovered" : 0, 
+        "Death" : 0, 
+        "Age" : null, 
+        "Gender" : null, 
+        "Active" : 0, 
+        "Date" : 1584990707830, 
+        "Lat" : 34.7534392876709, 
+        "Long" : -83.0658053527939, 
+        "GlobalID" : "99c99074-3881-4d06-ab70-ac025f2a0890"
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 1, 
+        "NAME" : "Abbeville", 
+        "CFIPS" : "001", 
+        "Areakey" : "45001", 
+        "Confirmed" : 1, 
+        "Recovered" : 0, 
+        "Death" : 0, 
+        "Age" : null, 
+        "Gender" : null, 
+        "Active" : 0, 
+        "Date" : 1584990707830, 
+        "Lat" : 34.2224975123124, 
+        "Long" : -82.4588174972765, 
+        "GlobalID" : "10d9dcf0-9aff-437c-822f-dc098091ff1c"
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 2, 
+        "NAME" : "Aiken", 
+        "CFIPS" : "003", 
+        "Areakey" : "45003", 
+        "Confirmed" : 1, 
+        "Recovered" : 0, 
+        "Death" : 0, 
+        "Age" : null, 
+        "Gender" : null, 
+        "Active" : 0, 
+        "Date" : 1584990707830, 
+        "Lat" : 33.5441042329883, 
+        "Long" : -81.6351246526983, 
+        "GlobalID" : "d83949fe-882a-4d84-9cdb-83997ce5a4dc"
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 9, 
+        "NAME" : "Calhoun", 
+        "CFIPS" : "017", 
+        "Areakey" : "45017", 
+        "Confirmed" : 1, 
+        "Recovered" : 0, 
+        "Death" : 0, 
+        "Age" : null, 
+        "Gender" : null, 
+        "Active" : 1, 
+        "Date" : 1584990707830, 
+        "Lat" : 33.6748890944328, 
+        "Long" : -80.780119241829, 
+        "GlobalID" : "beaf65f0-df81-4637-ba48-53e99f8eb43c"
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 12, 
+        "NAME" : "Chester", 
+        "CFIPS" : "023", 
+        "Areakey" : "45023", 
+        "Confirmed" : 1, 
+        "Recovered" : 0, 
+        "Death" : 0, 
+        "Age" : null, 
+        "Gender" : null, 
+        "Active" : 0, 
+        "Date" : 1584990707830, 
+        "Lat" : 34.6920965157317, 
+        "Long" : -81.1594826358802, 
+        "GlobalID" : "d7113bd8-a647-4bd4-8226-25001e80f3ee"
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 15, 
+        "NAME" : "Colleton", 
+        "CFIPS" : "029", 
+        "Areakey" : "45029", 
+        "Confirmed" : 1, 
+        "Recovered" : 0, 
+        "Death" : 0, 
+        "Age" : null, 
+        "Gender" : null, 
+        "Active" : 0, 
+        "Date" : 1584990707830, 
+        "Lat" : 32.863144143081, 
+        "Long" : -80.6663227418126, 
+        "GlobalID" : "0b41babc-a79f-4e87-b2ef-9250fdf90260"
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 17, 
+        "NAME" : "Dillon", 
+        "CFIPS" : "033", 
+        "Areakey" : "45033", 
+        "Confirmed" : 1, 
+        "Recovered" : 0, 
+        "Death" : 0, 
+        "Age" : null, 
+        "Gender" : null, 
+        "Active" : 0, 
+        "Date" : 1584990707830, 
+        "Lat" : 34.3914973523797, 
+        "Long" : -79.3789180437387, 
+        "GlobalID" : "96bdecc0-a130-441e-a8c0-b6a6a493a47c"
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 19, 
+        "NAME" : "Edgefield", 
+        "CFIPS" : "037", 
+        "Areakey" : "45037", 
+        "Confirmed" : 1, 
+        "Recovered" : 0, 
+        "Death" : 0, 
+        "Age" : null, 
+        "Gender" : null, 
+        "Active" : 0, 
+        "Date" : 1584990707830, 
+        "Lat" : 33.7722317709237, 
+        "Long" : -81.9666157459824, 
+        "GlobalID" : "852a9b4a-2dea-491e-9f5e-269d5d17fad0"
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 27, 
+        "NAME" : "Jasper", 
+        "CFIPS" : "053", 
+        "Areakey" : "45053", 
+        "Confirmed" : 1, 
+        "Recovered" : 0, 
+        "Death" : 0, 
+        "Age" : null, 
+        "Gender" : null, 
+        "Active" : 0, 
+        "Date" : 1584990707830, 
+        "Lat" : 32.4359273043095, 
+        "Long" : -81.0313514535912, 
+        "GlobalID" : "508d54ce-4c55-4a02-9564-d7830dfb052a"
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 36, 
+        "NAME" : "Newberry", 
+        "CFIPS" : "071", 
+        "Areakey" : "45071", 
+        "Confirmed" : 1, 
+        "Recovered" : 0, 
+        "Death" : 0, 
+        "Age" : null, 
+        "Gender" : null, 
+        "Active" : 0, 
+        "Date" : 1584990707830, 
+        "Lat" : 34.2897589944683, 
+        "Long" : -81.6001470725068, 
+        "GlobalID" : "10ad30a6-ef8d-4367-b0ba-32a4a7ab25b7"
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 39, 
+        "NAME" : "Pickens", 
+        "CFIPS" : "077", 
+        "Areakey" : "45077", 
+        "Confirmed" : 1, 
+        "Recovered" : 0, 
+        "Death" : 0, 
+        "Age" : null, 
+        "Gender" : null, 
+        "Active" : 0, 
+        "Date" : 1584990707830, 
+        "Lat" : 34.8874906183487, 
+        "Long" : -82.7253099436564, 
+        "GlobalID" : "83a6b6a3-c2de-478e-9879-9321266328c4"
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 41, 
+        "NAME" : "Saluda", 
+        "CFIPS" : "081", 
+        "Areakey" : "45081", 
+        "Confirmed" : 1, 
+        "Recovered" : 0, 
+        "Death" : 0, 
+        "Age" : null, 
+        "Gender" : null, 
+        "Active" : 0, 
+        "Date" : 1584990707830, 
+        "Lat" : 34.006092533319, 
+        "Long" : -81.7268937204761, 
+        "GlobalID" : "297d7bdb-87cc-4abd-bdf5-ad3a9fe09a51"
+      }
+    }
+  ]
+}

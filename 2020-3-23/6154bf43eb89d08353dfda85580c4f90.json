@@ -1,0 +1,55 @@
+{
+  "objectIdFieldName" : "OBJECTID", 
+  "uniqueIdField" : 
+  {
+    "name" : "OBJECTID", 
+    "isSystemMaintained" : true
+  }, 
+  "globalIdFieldName" : "", 
+  "geometryType" : "esriGeometryPoint", 
+  "spatialReference" : {
+    "wkid" : 102100, 
+    "latestWkid" : 3857
+  }, 
+  "fields" : [
+    {
+      "name" : "NEGATIVE", 
+      "type" : "esriFieldTypeInteger", 
+      "alias" : "NEGATIVE", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "POSITIVE", 
+      "type" : "esriFieldTypeInteger", 
+      "alias" : "POSITIVE", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "DATE", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "DATE", 
+      "sqlType" : "sqlTypeOther", 
+      "length" : 10, 
+      "domain" : null, 
+      "defaultValue" : null
+    }
+  ], 
+  "features" : [
+    {
+      "attributes" : {
+        "NEGATIVE" : 7050, 
+        "POSITIVE" : 416, 
+        "DATE" : "3/23/2020"
+      }, 
+      "geometry" : 
+      {
+        "x" : -10020104.2447, 
+        "y" : 5564710.9676999971
+      }
+    }
+  ]
+}
