@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" dir="ltr">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../../src/css/theme.min.css">
+    <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+
+    <style>
+        .svg-container {
+            display: inline-block;
+            position: relative;
+            width: 100%;
+            padding-bottom: 100%;
+            /* aspect ratio */
+            vertical-align: top;
+            overflow: hidden;
+        }
+
+        .svg-content-responsive {
+            display: inline-block;
+            position: absolute;
+            top: 10px;
+            left: 0;
+        }
+
+        #searchResult .thumbnail img {
+            height: 150px;
+            width: auto;
+        }
+
+        .thumbnail {
+            background-color: #fff;
+        }
+
+        #live-search {
+            margin: 10px;
+        }
+
+        #filter {
+            padding-left: 5px;
+            padding-right: 20px;
+        }
+
+        #searchResult {
+            display: none;
+        }
+
+        .clearable {}
+
+        .close-icon {
+            border: 1px solid transparent;
+            background-color: transparent;
+            display: inline-block;
+            vertical-align: middle;
+            outline: 0;
+            cursor: pointer;
+        }
+
+        .close-icon:after {
+            content: "X";
+            width: 15px;
+            height: 15px;
+            background-color: #888;
+            z-index: 1;
+            margin: auto;
+            padding: 4px;
+            border-radius: 50%;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+            box-shadow: 0 0 2px #888;
+            cursor: pointer;
+        }
+
+        #filter:not(:valid)~.close-icon {
+            display: none;
+        }
+
+        .highlight {
+            font-weight: bold;
+        }
+
+        svg {
+            font: 10px sans-serif;
+        }
+
+        .axis path,
+        .axis line {
+            fill: none;
+            stroke: #000;
+            shape-rendering: crispEdges;
+        }
+
+        .bar {
+            fill: steelblue;
+        }
+
+        .parent:focus,
+        .parent rect:focus,
+        .parent rect:hover {
+            stroke: black!important;
+            stroke-width: 2px!important;
+        }
+
+        .legend rect:focus,
+        .legend rect:hover {
+            stroke: black;
+            stroke-width: 4px;
+        }
+
+        .legend rect.inactive {
+            stroke: none;
+            stroke-width: 0px;
+        }
+
+        #toolTip {
+            top: 0;
+            left: 0;
+            font-size: 12px;
+            white-space: nowrap;
+            font-weight: normal;
+            z-index: 200;
+            position: absolute;
+            display: none;
+            border-radius: 10px;
+            background-color: #000;
+            opacity: 0.9;
+            color: #fff;
+            padding: 5px 10px;
+            pointer-events: none;
+        }
+
+        figcaption {
+            background: #fff;
+            font-size: .9em;
+            padding-left: 5px;
+            color: #fff;
+            background-color: #333;
+        }
+
+        #ICD10sexIcon,
+        #ICD10yearIcon {
+            display: none;
+            position: absolute;
+            top: 48px;
+            left: 23px;
+        }
+
+        .descriptionText {
+            border-color: #f90;
+            border-radius: 0;
+            border-style: solid;
+            border-width: 0 0 0 10px;
+            padding-left: 15px;
+        }
+
+        #description,
+        #description2 {
+            height: 180px;
+            display: inline-block;
+            padding-left: 40px;
+        }
+
+        @media only screen and (max-width: 991px) {
+            #mainImg {
+                margin-bottom: 20px;
+            }
+            #legend {
+                display: none;
+            }
+            #textarea {
+                margin-top: 20px;
+            }
+        }
+
+        @media only screen and (max-width: 525px) {
+            .btn-success,
+            .btn-info {
+                margin: 5px 0px!important;
+                width: 100%!important;
+            }
+            #description,
+            #description2 {
+                padding-left: 10px;
+            }
+            #description .col-sm-12,
+            #description2 .col-sm-12 {
+                padding-left: 0px;
+            }
+            #description h4,
+            #description2 h4 {
+                display: none;
+                margin-top: 5px;
+            }
+        }
+
+        @media only screen and (min-width: 991px) {
+            .pathText {
+                display: none;
+            }
+            #textarea {
+                margin-top: 165px;
+            }
+        }
+
+        @media only screen and (max-width: 991px) {
+            .names {
+                display: none;
+            }
+        }
+
+        .axis path,
+        .axis line {
+            fill: none;
+            stroke: #000;
+            shape-rendering: crispEdges;
+        }
+
+        .x.axis path {
+            fill: none;
+            stroke: #000;
+            shape-rendering: crispEdges;
+        }
+
+        .line {
+            fill: none;
+            stroke-width: 3px;
+        }
+
+        .country:hover {
+            opacity: 1!important;
+            font-weight: bold;
+            cursor: pointer;
+            background-color: white;
+            stroke-width: 6;
+        }
+
+        #Zero path {
+            stroke: black!important;
+            stroke-width: 1px;
+        }
+
+        #Zero text {
+            display: none;
+        }
+
+        .dashed {
+            stroke-dasharray: 10, 5;
+        }
+
+        .col-md-3 select {
+            width: 100%;
+        }
+
+        .mortality .pattern {
+            display: none;
+        }
+
+        .dataTables_info:after {
+            display: none;
+        }
+
+        .selectionLabel {
+            margin-left: 5px;
+            margin-right: 5px;
+            font-weight: normal;
+        }
+
+        #dropdownsInc ul {
+            list-style: none;
+        }
+
+        .cTable {
+            margin-bottom: 13px;
+        }
+
+        .cTable table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .cTable th,
+        .cTable td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        .cTable tr:nth-child(even) {
+            background-color: #f2f2f2
+        }
+
+        .cTable th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        /*.axis text {*/
+
+        /*    font-size:20px;*/
+
+        /*}*/
+
+        /*#y-axis-title, #x-axis-title {*/
+
+        /*    font-size:24px!important;*/
+
+        /*}*/
+    </style>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+    <script>
+        function clearSearch() {
+            $('#filter').val("");
+        }
+    </script>
+</head>
+
+<body vocab="http://schema.org/" typeof="WebPage" style="background-color: white;">
+    <!-- Google Tag Manager DO NOT REMOVE OR MODIFY - NE PAS SUPPRIMER OU MODIFIER -->
+    <script>dataLayer1 = [];</script>
+	<script>dataLayerInfobase = [];</script>
+    <!-- End Google Tag Manager -->
+	<!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-TN3RPZ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayerInfobase'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayerInfobase','GTM-TN3RPZ');</script>
+    <!-- End Google Tag Manager -->
+    <!-- Google Tag Manager DO NOT REMOVE OR MODIFY - NE PAS SUPPRIMER OU MODIFIER -->
+    <noscript><iframe title="Google Tag Manager" src="//www.googletagmanager.com/ns.html?id=GTM-TLGQ9K" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer1'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer1','GTM-TLGQ9K');</script>
+    <!-- End Google Tag Manager -->
+    
+    
+    <div id ="covid19TableContent">
+        <table id="dataTable" class="table table-striped table-bordered table-hover">
+          <caption class="text-left">
+          Areas in Canada with cases of COVID-19 as of <span class="txtCurrentDate">March 25, 2020</span>
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Province, territory or other</th>
+              <th scope="col">Number of confirmed cases</th>
+              <th scope="col">Number of probable cases</th>
+              <th scope="col">Number of deaths</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+    </div>   
+        
+    <script src="../../src/js/polylabel.js"></script>
+	<script src="https://unpkg.com/textures@1.2.0/dist/textures.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-interpolate-path@2.0.0/build/d3-interpolate-path.min.js"></script>
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
+    <script src="../../src/js/provincesiframe.js"></script>
+</body>
+
+</html>
