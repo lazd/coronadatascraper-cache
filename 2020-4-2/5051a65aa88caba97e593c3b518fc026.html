@@ -1,0 +1,241 @@
+
+
+
+
+
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>Coronavirus Disease-19(COVID-19) &gt; Latest Updates &gt; Cases in Korea by City/Province</title>
+
+
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Pragma" content="no-cache">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+   
+<meta name="author" content="Ministry of Health and Welfare,  Coronavirus disease 19(COVID-19)">       
+<meta name="keywords" content=" Coronavirus disease 19(COVID-19),  Coronavirus disease 19, Ministry of Health and Welfare">
+<meta name="description" content=" Coronavirus disease 19 Guidelines after visiting an area affected with Coronavirus disease 19">	
+<meta name="copyright" content="Ministry of Health and Welfare">
+
+<meta property="og:url" content="http://ncov.mohw.go.kr/en/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content=" Coronavirus disease 19(COVID-19)">
+<meta property="og:locale" content="ko">
+<meta property="og:title" content=" Coronavirus disease 19(COVID-19)">
+<meta property="og:description" content=" Coronavirus disease 19, Guidelines after visiting an area affected with Coronavirus disease 19">
+<meta property="og:image" content="http://ncov.mohw.go.kr/static/image/header/homeimg.png">
+    
+<link rel="icon" type="image/png" sizes="64x64" href="/static/image/en/header/ROK.png">
+<link rel="stylesheet" href="/static/css/en/ne_base.css">
+<link rel="stylesheet" href="/static/css/en/ne_component.css">
+<link rel="stylesheet" href="/static/css/en/lightslider.min.css">
+
+<script src="/static/js/en/jquery-1.11.2.min.js"></script>
+<script src="/static/js/en/lightslider.min.js"></script>
+<script src="/static/js/en/ne_base.js"></script>
+<script src="/static/js/en/ne_chart.js"></script>
+
+<script type="text/javaScript" language="javascript">
+
+function fn_goMenu(url, brd_id, brd_gubun, data_Gubun){
+
+	$("#brdId").val(brd_id);
+	$("#brdGubun").val(brd_gubun);
+	$("#dataGubun").val(data_Gubun);
+
+	var frm = $("#menuFrm");
+	frm.attr("action", url);
+	frm.submit();
+}
+
+function fn_boardView(url, brdId, brdGubun, ncvContSeq, board_id){
+	
+	$("#brdId").val(brdId);
+	$("#brdGubun").val(brdGubun);
+	$("#ncvContSeq").val(ncvContSeq);
+	$("#contSeq").val(ncvContSeq);
+	$("#board_id").val(board_id);
+
+	var frm = $("#menuFrm");
+	frm.attr("action", url);
+	frm.submit();
+	
+}
+
+function fn_tcm_boardView(url, brdId, brdGubun, ncvContSeq, board_id, gubun){
+	
+	$("#brdId").val(brdId);
+	$("#brdGubun").val(brdGubun);
+	$("#ncvContSeq").val(ncvContSeq);
+	$("#contSeq").val(ncvContSeq);
+	$("#board_id").val(board_id);
+	$("#gubun").val(gubun);
+	
+	var frm = $("#menuFrm");
+	frm.attr("action", url);
+	frm.submit();
+	
+}
+
+</script>
+
+	<link rel="stylesheet" href="/static/css/en/chart_en.css" />
+	<script src="/static/js/en/Chart.min.js"></script>
+	<script src="/static/js/en/chartjs-plugin-datalabels.min.js"></script>
+	<script src="/static/js/en/chart_en.js"></script>
+	
+<form name="menuFrm" id="menuFrm" method="get">
+	<input name="brdId" id="brdId" type="hidden" />
+	<input name="brdGubun" id="brdGubun" type="hidden" />
+	<input name="dataGubun" id="dataGubun" type="hidden" />
+	<input name="ncvContSeq" id="ncvContSeq" type="hidden" />
+	<input name="contSeq" id="contSeq" type="hidden" />
+	<input name="board_id" id="board_id" type="hidden" />
+	<input name="gubun" id="gubun" type="hidden" />
+</form>
+
+
+
+
+<div class="wrap" id="header">
+
+	<div class="w_catch">
+		<div class="wc_p t_dp_n m_dp_n"><span class="hdn">너비 1180px 이상</span></div>
+		<div class="wc_t p_dp_n m_dp_n"><span class="hdn">너비 768px - 1179px</span></div>
+		<div class="wc_m p_dp_n t_dp_n"><span class="hdn">너비 767px 이하</span></div>
+       </div>
+       
+       <div class="e_header" id="header">
+           <div class="h_t">
+               <div>
+                   <div class="ht_l">
+                       <h1><a href="/en"><span>Coronavirus Disease-19, <br />Republic of Korea</span><em>(COVID-19)</em></a></h1>
+                   </div>
+                   <div class="ht_r">
+                       <div class="h_shim">
+                           <ul>
+                               <li><a href="http://www.mohw.go.kr/eng/index.jsp" target="_blank" title="새창"><span>Central Accident <br class="m_dp_n" />Investigation Headquarters</span></a></li>
+                     	       <li><a href="http://www.cdc.go.kr/cdc_eng/" target="_blank" title="새창"><span>Central Discharge <br class="m_dp_n" />Countermeasures Headquarters</span></a></li>
+                           </ul>
+                       </div>
+                       <div class="h_country">
+                           <ul>
+                               <li><a href="/" target="_blank" title="새창">Korean</a></li> 
+                               <li><a href="/cn/" target="_blank" title="새창">Chinese</a></li> 
+                           </ul>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="h_b t_dp_n m_dp_n">
+               <div>
+                   <div class="e_gnb">
+                       <ul>
+						<li><a href="javascript:void(0);" onclick="javascript:fn_goMenu('/en/baroView.do', '11', '111', '');">About COVID-19</a>
+							<div class="g_sub"><div><div>
+                                   <ul>
+                                       <li><a href="javascript:void(0);" onclick="javascript:fn_goMenu('/en/baroView.do', '11', '111', '');"><span>Quarantine System</span></a></li>
+                                       <li><a href="javascript:void(0);" onclick="javascript:fn_goMenu('/en/baroView.do', '11', '112', '');"><span>Patient Treatment & Management</span></a></li>
+                                       <li><a href="javascript:void(0);" onclick="javascript:fn_goMenu('/en/faqBoardList.do', '13', '131', '');"><span>Frequently Asked Questions</span></a></li>
+                                   </ul>
+                               </div></div></div>
+						</li>
+						<li><a href="javascript:void(0);" onclick="javascript:fn_goMenu('/en/bdBoardList.do', '16', '161', '');">Latest Updates</a>
+							<div class="g_sub"><div><div>
+                                   <ul>
+                                       <li><a href="javascript:void(0);" onclick="javascript:fn_goMenu('/en/bdBoardList.do', '16', '161', '');"><span>Cases in Korea</span></a></li>
+                                       <li><a href="javascript:void(0);" onclick="javascript:fn_goMenu('/en/bdBoardList.do', '16', '162', '');"><span>Cases in Korea by City/Province</span></a></li>
+                                       <li><a href="javascript:void(0);" onclick="javascript:fn_goMenu('/en/bdBoardList.do', '16', '163', '');"><span>Global Locations with COVID-19</span></a></li>
+                                   </ul>
+                               </div></div></div>
+						</li>
+                           <li>
+							<a href="javascript:void(0);" onclick="javascript:fn_goMenu('/en/tcmBoardList.do', '12', '125', '');">Media Resources</a>
+                               <div class="g_sub"><div><div>
+                                   <ul>
+                                       <li><a href="javascript:void(0);" onclick="javascript:fn_goMenu('/en/tcmBoardList.do', '12', '125', '');"><span>Press release
+									</span></a></li>
+                                       <li><a href="javascript:void(0);" onclick="javascript:fn_goMenu('/en/duBoardList.do', '12', '121', '');"><span>Graphics & Videos
+									</span></a></li>
+                                   </ul>
+                               </div></div></div>
+                           </li>
+                           <li>
+							<a href="javascript:void(0);" onclick="javascript:fn_goMenu('/en/infoBoardList.do', '14', '141', '');">Public Advice</a>
+                           </li>
+                           <li>
+							<a href="javascript:void(0);" onclick="javascript:fn_goMenu('/en/infoBoardList.do', '15', '151', '');">Notice</a>
+                           </li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+           <a class="btn_global_menu"><span class="hdn">전체메뉴</span></a>
+       </div>
+
+       <!-- Global_menu -->
+	<div class="global_menu">
+		<div>
+			<div class="gm_title">
+				<div class="gmt_site">
+					<ul>
+						<li><a href="/en">Home</a></li>
+					</ul>
+				</div>			
+			</div>
+			<div class="gm_content">
+				<div>
+                       <ul>
+						<li><a href="#none" class="gmc_title">About COVID-19</a>
+							<div class="gmc_list">
+								<ul>
+                                       <li><a href="javascript:void(0);" onclick="javascript:fn_goMenu('/en/baroView.do', '11', '111', '');">Quarantine System</a></li>
+                                       <li><a href="javascript:void(0);" onclick="javascript:fn_goMenu('/en/baroView.do', '11', '112', '');">Patient Treatment & Management</a></li>
+                                       <li><a href="javascript:void(0);" onclick="javascript:fn_goMenu('/en/faqBoardList.do', '13', '131', '');">Frequently Asked Questions</a></li>
+                                   </ul>
+                               </div>
+						</li>						
+						<li><a href="#none" class="gmc_title">Latest Updates</a>
+							<div class="gmc_list">
+                                   <ul>
+                                       <li><a href="javascript:void(0);" onclick="javascript:fn_goMenu('/en/bdBoardList.do', '16', '161', '');">Cases in Korea</a></li>
+                                       <li><a href="javascript:void(0);" onclick="javascript:fn_goMenu('/en/bdBoardList.do', '16', '162', '');">Cases in Korea by City/Province</a></li>
+                                       <li><a href="javascript:void(0);" onclick="javascript:fn_goMenu('/en/bdBoardList.do', '16', '163', '');">Global Locations with COVID-19</a></li>
+                                   </ul>
+                               </div>
+						</li>		
+                           <li><a href="#none" class="gmc_title">Media Resources</a>
+                               <div class="gmc_list">
+                                   <ul>
+                                       <li><a href="javascript:void(0);" onclick="javascript:fn_goMenu('/en/tcmBoardList.do', '12', '125', '');">Press release
+									</a></li>
+                                       <li><a href="javascript:void(0);" onclick="javascript:fn_goMenu('/en/duBoardList.do', '12', '121', '');">Graphics & Videos
+									</a></li>
+                                   </ul>
+                               </div>
+                           </li>
+                           <li><a href="javascript:void(0);" class="gmc_title" onclick="javascript:fn_goMenu('/en/infoBoardList.do', '14', '141', '');">Public Advice</a>
+                           </li>
+                           <li><a href="javascript:void(0);" class="gmc_title" onclick="javascript:fn_goMenu('/en/infoBoardList.do', '15', '151', '');">Notice</a>
+                           </li>
+                       </ul>
+				</div>
+			</div>
+			<a href="" class="btn_close"><span class="hdn">전체메뉴닫기</span></a>
+		</div>
+	</div>
+
+
+<script type="text/javaScript" language="javascript">
+
+function fn_search(pageNo){
+	$("#pageIndex").val(pageNo);
+	fn_submit();
+}
+<
