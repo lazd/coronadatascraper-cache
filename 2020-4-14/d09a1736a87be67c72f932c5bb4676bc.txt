@@ -1,0 +1,2 @@
+var dpBundesland = [{"label":"W","y":1427,"CSV":"W;1427"},{"label":"V","y":213,"CSV":"V;213"},{"label":"T","y":1211,"CSV":"T;1211"},{"label":"Stmk","y":951,"CSV":"Stmk;951"},{"label":"Sbg","y":406,"CSV":"Sbg;406"},{"label":"OÖ","y":578,"CSV":"OÖ;578"},{"label":"NÖ","y":1120,"CSV":"NÖ;1120"},{"label":"Ktn","y":136,"CSV":"Ktn;136"},{"label":"Bgld","y":126,"CSV":"Bgld;126"}];
+var BundeslandVersion = "15.04.2020 06:00:00 V 1.0.0.0"
