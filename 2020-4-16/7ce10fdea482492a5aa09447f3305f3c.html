@@ -1,0 +1,563 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head id="ContentPlaceHolderDefault_head"><meta name="X-UA-Compatible" content="IE=8"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>
+	Coronavirus Disease (COVID-19) - ACPHD
+            
+</title>
+
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="pragma" content="no-cache"><meta name="viewport" content="width=device-width, initial-scale=.5">    
+			<style type="text/css" media="screen">
+	
+				@import "/layouts/alameda/css/default.css";
+				@import "/layouts/alameda/css/alameda.css";
+				@import "/layouts/alameda/css/front.core.navigation.css";
+				@import "/layouts/alameda/css/alameda.navigation.css";
+				@import "/layouts/alameda/css/rad.navigation.css";
+				@import "/layouts/alameda/css/hidari.navigation.css";
+	
+			</style>
+
+		
+		
+		<script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script><script type="text/javascript" src="/layouts/alameda/js/EventListener.js"></script>
+		<script type="text/javascript" src="/layouts/alameda/js/Core.js"></script>
+		<script type="text/javascript" src="/layouts/alameda/js/js.js"></script>
+		<script type="text/javascript" src="/layouts/alameda/js/ClassFX.js"></script>
+		<script type="text/javascript" src="/layouts/alameda/js/lindatest.js"></script>
+		
+		<script type="text/javascript">
+	
+			function biscuits() {
+	
+			} biscuits.prototype = {
+				set:function ( id, value, expires ) {
+					if ( !expires ) {
+						expires = 7;
+					}
+					var date = new Date();
+					date.setTime( date.getTime( ) + ( expires * 24 * 60 * 60 * 1000 ) );
+					expires = "expires=" + date.toGMTString();
+					document.cookie = id + "=" + value + ";" + expires + "; path=/;";
+					return this.get(id);
+				},
+				get:function ( id ) {
+					var result = false;
+					var items = document.cookie.split(';');
+					var limit = items.length;
+					var item, id_value, item_id;
+					for(var i=0; i<limit; i++) {
+						item = items[i];
+						id_value = item.split('=');
+						item_id = id_value[0].replace( /\s/g, "" );
+						if(item_id==id) {
+							result = id_value[1];
+						}
+					}
+					return result;
+				},
+				eat:function ( id ) {
+					this.set( id, '', -1 );
+				}
+			} // * * *
+			
+			var twix = new biscuits();
+	
+			
+	
+			var mobile_site_rex = new RegExp('^m\.');
+			var redirect = false;
+	
+			var mobile_site = window.location.hostname;
+			mobile_site = mobile_site.replace(/^(www)\./i, 'm.');
+			mobile_site = mobile_site.replace(/^(build)\./i, 'm.build.');
+			mobile_site = 'http://' + mobile_site;
+	
+			var standard_site = window.location.href;
+			standard_site = standard_site.replace(/m\.build\./i, 'www.');
+			standard_site = standard_site.replace(/m\.www\./i, 'www.');
+			standard_site = standard_site.replace(/m\./i, 'www.');
+			console.log(standard_site);
+			//standard_site = 'http://www.' + standard_site;
+				
+			redirect = mobile_site_rex.test(window.location.hostname);
+	
+			var tea = twix.get('mobileview');
+			tea = (tea==1)?(true):(false);
+
+			var agent = navigator.userAgent;
+			var rex = new RegExp('(ip(hone|od|ad)|android|opera\ m(ob|in)i|blackberry|tablet|s(ymbian|eries60|amsung)|p(laybook|alm|rofile/midp|laystation\ portable)|nokia|fennec|htc[\-_]|mobile|up\.browser)', 'ig');
+			var mobile = rex.test(agent);
+		
+			if( mobile==true ) { //check cookie override
+				if( tea===false ) { //redirect to mobile site
+					if( redirect===false ) { //redirect to mobile site
+						//window.location.href = mobile_site + window.location.pathname;
+					}
+				}
+			} else { //do nothing
+	
+			}
+			
+		</script>
+		
+	</head>
+    <body>
+
+    	<script type="text/javascript">
+    		// PERCEPTICON CORESPIN Application Framework
+    		// architecture v1.0 +mlp. percepticon corp.
+    		// copyright 2007-2010 PERCEPTICON corporation, All Rights Reserved
+    		// http://www.percepticon.com, contact@percepticon.com
+    		// has to be loaded after body element or IE freaks out
+    		var Planetary = new Array();  //global interstitial window group
+    		var Dimensions; //generic browser dimensions
+    		var loDDFX_architecture;
+    		var core = new core();
+    		var WINDOW_LOADED = false; //set this to true to run ajax calls in sequence as window loads.
+    		window.onload = function() {
+    			Dimensions = new getDimensions();
+    			WINDOW_LOADED = true;
+    		}
+    		function ajaxEvent(lsUrl, loElement, llAppend, llQueued, lsFunction, laArguments, lsMethod) {
+    			if (WINDOW_LOADED) {
+    				Function.ajaxEvent(lsUrl, loElement, llAppend, llQueued, lsFunction, laArguments, lsMethod);
+    			} else {
+    				EventListener.addEvent(window, 'load', function() {
+    					Function.ajaxEvent(lsUrl, loElement, llAppend, llQueued, lsFunction, laArguments, lsMethod);
+    				});
+    			}
+    		};
+    		//navigation hover state...
+    		function ninout(oElement) {
+    			ClassFX.flipClass(oElement, 'over');
+    		}
+
+    		function minout(oElement) {
+    			ClassFX.flipClass(oElement, 'open');
+    		}
+
+    	</script>
+            	
+        <script type="text/javascript">
+        
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-16506747-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+    <div class="full_container top_full_small"><!--no touch-->
+      <div class="document_container top_main small"><!--no touch-->
+
+        <div class="haus top_inner small">
+
+          <div class="hall hidari">
+            <a href="/" title="home">
+              <img src="/layouts/alameda/images/logo_small.gif">
+            </a>
+          </div>
+
+          <div class="hall migi">
+            <div class="rad_nav">
+                
+
+
+<ul>
+    <li onmouseover="ninout(this);" onmouseout="ninout(this);" class="start_here">
+        <a href="#">
+            Start Here 
+        </a>
+        <ul class="start_here"><li class="top"><div></div></li><li onmouseover="ninout(this);" onmouseout="ninout(this);">
+                <div class="rad_nav_sublinks">
+
+					
+
+    <table>
+		<tbody><tr>
+			<td class="hidari_col">
+				<div class="chan bar">
+
+					<h3>I want...</h3>
+<div class="links"><a href="http://acgov.org/auditor/clerk/bdm/Birth.htm" target="_blank" title="Birth Certificate">a birth certificate</a></div>
+<div class="links"><a href="http://www.acgov.org/aceh/food/complaint.htm" target="_blank" title="report a restaurant">to report a restaurant<br></a><a href="http://www.acphd.org/clinics.aspx" target="_blank">an immunization</a></div>
+<div class="links"><a href="http://www.jobaps.com/alameda/" target="_blank" title="County jobs">a county job</a></div>
+<div class="links"><a href="http://www.epa.gov/mold/" target="_blank" title="I want to get rid of mold">to get rid of mold</a></div>
+<div class="links"><a href="http://acvcsd.org/request-service/" target="_blank" title="request an inspection for rodents">an inspection for rodents</a></div>
+<div class="links"><a href="https://syfphr.oshpd.ca.gov/" target="_blank" title="Help Paying Hospital Bill">help paying hospital bill</a></div>
+				
+				</div>
+			</td>
+			<td class="migi_col">
+				<div class="chan">
+
+					<h3>Categories</h3>
+<div class="links"><a href="http://www.alamedahealthsystem.org/" target="_blank">Alameda Health System</a></div>
+<div class="links"><a href="http://www.ci.berkeley.ca.us/publichealth/" target="_blank" title="Berkeley Public Health">Berkeley Public Health</a></div>
+<div class="links"><a href="http://www.alamedahealthconsortium.org/?doing_wp_cron=1355534176.1106979846954345703125" title="Community Health Centers">Community Health Centers</a></div>
+<div class="links"><a href="http://achealthcare.org" target="_blank" title="Health Care Services">Health Insurance</a></div>
+<div class="links"><a href="http://www.acbhcs.org/" target="_blank" title="Mental Health Website">Mental Health</a></div>
+<div class="links"><a href="http://www.alamedasocialservices.org/public/services/elders_and_disabled_adults/area_agency_on_aging.cfm" target="_blank" title="Senior Services">Senior Services</a></div>
+<div class="links"><a href="/media/378347/school-health-centers-directory-2018-2019.pdf" target="_blank" title="School Health Centers">School Health Centers</a></div>
+<div class="links"><a href="/need-help/quicklinks.aspx" title="Quicklinks">Quick Links</a></div>
+				
+				</div>
+			</td>
+    	</tr>
+	</tbody></table>
+	
+
+                    
+                </div>
+            </li><li class="bottom"><div></div></li>
+        </ul>
+    </li>
+    <li onmouseover="ninout(this);" onmouseout="ninout(this);" class="community_services">
+        <a href="#">
+            Health Alerts
+        </a>
+        <ul class="community_services">
+			<li class="top">
+				<div></div>
+			</li>
+			
+
+		<li onmouseover="ninout(this);" onmouseout="ninout(this);">
+
+			<p><a href="/health-alerts.aspx" title="Health Alerts">Health Alerts</a></p>
+<p><a href="/health-alerts/food-and-drug-recalls.aspx" title="Food and Drug Recalls">Food and Drug Recalls</a></p>
+				
+		</li>
+
+	
+			<li class="bottom">
+				<div></div>
+			</li>
+		</ul>	
+    </li>
+    <li onmouseover="ninout(this);" onmouseout="ninout(this);" class="start_here">
+        <a href="#" rel="12px Verdana" onclick="this.rel = (this.rel=='12px Verdana')?('16px Verdana'):('12px Verdana'); $('.board *').css('font',this.rel);">
+            Font Size (+/-)
+        </a>
+    </li>
+</ul>
+
+            </div>
+          </div>
+          
+        </div> <!-- haus top_inner-->
+
+      </div><!-- document_container top_main-->
+
+    </div><!-- full_container top_full-->
+    
+        <div class="full_container bottom_bar">
+        </div> <!-- bottom_bar -->
+
+		<div class="full_container top_nav_full"><!--no touch-->
+			<div class="document_container top_nav_main"><!--no touch-->
+				<div class="haus navigation_container center">
+					<div class="haus navigation">
+				
+						<ul><li onmouseover="ninout(this);" onmouseout="ninout(this);"><a href="/" class="nobg">
+					Home
+				</a></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/health-alerts.aspx">Health Alerts</a><ul><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/health-alerts/food-and-drug-recalls.aspx">Food and Drug Recalls</a><ul><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/health-alerts/food-and-drug-recalls/archive.aspx">Archive</a></li></ul></li></ul></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/programs-and-services.aspx">Programs &amp; Services</a></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/communicable-disease.aspx">Communicable Disease</a><ul><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/communicable-disease/communicable-diseases.aspx">List of Communicable Diseases</a></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/communicable-disease/disease-reporting-and-control.aspx">Disease Reporting and Control</a><ul><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/communicable-disease/disease-reporting-and-control/reportable-diseases-conditions.aspx">Reportable Diseases &amp; Conditions</a></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/communicable-disease/disease-reporting-and-control/reporting-forms.aspx">Reporting Forms</a></li></ul></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/communicable-disease/disease-prevention-programs.aspx">Immunization &amp; Disease Prevention Programs</a></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/communicable-disease/protect-yourself.aspx">Protect Yourself</a><ul><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/communicable-disease/protect-yourself/food-safety.aspx">Food Safety</a></li></ul></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/communicable-disease/bay-area-id-conference-2018.aspx">Bay Area ID Conference 2018</a></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/communicable-disease/contact-information.aspx">Contact Information</a></li></ul></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/clinics.aspx">Clinics</a></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/data-reports.aspx">Data &amp; Reports</a><ul><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/data-reports/reports-by-topic.aspx">Reports By Topic</a><ul><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/data-reports/reports-by-topic/chis.aspx">California Health Interview Survey (CHIS)</a></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/data-reports/reports-by-topic/chronic-disease.aspx">Chronic Disease</a></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/data-reports/reports-by-topic/city,-county,-and-regional-reports.aspx">City, County, and Regional Reports</a></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/data-reports/reports-by-topic/communicable-disease.aspx">Communicable Disease</a></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/data-reports/reports-by-topic/dental.aspx">Dental</a></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/data-reports/reports-by-topic/fact-sheets-presentations-health-impact-assessments.aspx">Fact Sheets, Presentations, and Health Impact Assessments</a></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/data-reports/reports-by-topic/health-care-and-health-care-reform.aspx">Health Care and Health Care Reform</a></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/data-reports/reports-by-topic/home-visiting.aspx">Home Visiting</a></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/data-reports/reports-by-topic/male-health.aspx">Male Health</a></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/data-reports/reports-by-topic/mpcah.aspx">Maternal, Paternal, Child, and Adolescent Health</a></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/data-reports/reports-by-topic/participatory-community-assessments.aspx">Participatory Community Assessments</a></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/data-reports/reports-by-topic/social-and-health-equity.aspx">Social and Health Equity</a></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/data-reports/reports-by-topic/violence.aspx">Violence</a></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/data-reports/reports-by-topic/youth.aspx">Youth</a></li></ul></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/data-reports/data-request-form.aspx">Data Request Form</a></li></ul></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/about-acphd.aspx">About ACPHD</a><ul><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/about-acphd/director-message.aspx">Message from our Director</a></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/about-acphd/our-mission.aspx">Our Mission, Vision &amp; Values</a></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/about-acphd/core-functions.aspx">CDC &amp; Public Health System</a></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/about-acphd/our-organization.aspx">Our Organization</a><ul><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/about-acphd/our-organization/admin.aspx">Administrative Services</a></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/about-acphd/our-organization/cape.aspx">Community Assessment, Planning, and Evaluation (CAPE)</a></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/about-acphd/our-organization/chs.aspx">Community Health Services</a></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/about-acphd/our-organization/dcdcp.aspx">Communicable Disease Control &amp; Prevention</a></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/about-acphd/our-organization/fhs.aspx">Family Health Services</a></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/about-acphd/our-organization/is.aspx">Information Systems</a></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/about-acphd/our-organization/phn.aspx">Public Health Nursing</a></li></ul></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/about-acphd/organizational-chart.aspx">Organization Chart</a></li></ul></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/contact-acphd.aspx">Contact ACPHD</a><ul><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/contact-acphd/office-locations.aspx">Office Locations</a></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/contact-acphd/phone-directory.aspx">Phone Directory</a></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/contact-acphd/directions.aspx">Map &amp; Directions to ACPHD Headquarters</a></li><li onmouseover="ninout(this);" onmouseout="ninout(this);" class=""><a href="/contact-acphd/contact-form.aspx">Contact Form</a></li></ul></li></ul>
+
+					</div><!-- haus -->
+				</div><!-- haus -->
+			</div><!-- document_container -->
+
+		</div><!-- full_container -->
+		<div class="clear"></div>
+
+
+        <div class="full_container img_bar_full"><!--no touch-->
+            <div class="document_container img_bar_main"><!--no touch-->
+                <div class="omnom">
+
+                    
+<img src="/layouts/alameda/images/programs_services/2019-ncov.jpg">
+
+                  
+                </div><!-- haus -->
+            </div><!-- document_container -->
+
+        </div><!-- full_container -->
+        <div class="clear"></div>
+
+        
+			<div class="full_container top_search_full" style="z-index:-10px;"><!--no touch-->
+				<div class="document_container top_search_main"><!--no touch-->
+					<div class="haus top_search right">
+						<form action="/search.aspx" method="get" name="search-form" id="search-form">
+							<table>
+								<tbody><tr>
+									<td style="width:100%;" class="left">
+										<div class="crumblies">Coronavirus Disease (COVID-19)</div>
+									</td>
+									<td style="padding-right:30px;">
+										
+									</td>
+									<td style="vertical-align:top;padding-top:6px;">
+										<input value="Search" onblur="if(this.value=='') { this.value='Search'; }" onfocus="if(this.value=='Search') { this.value=''; }" type="text" id="search" name="search" class="search_input">
+									</td>
+									<td style="padding-right:30px;vertical-align:top;padding-top:6px;">
+										<input type="submit" value="Search" class="search_submit" onclick="if(document.getElementById('search').value==''){return(false);}">
+									</td>
+								</tr>
+							</tbody></table>
+						</form>
+					</div><!-- haus -->
+				</div><!-- document_container -->
+			</div><!-- full_container top search full-->
+			<div class="clear"></div>
+			
+
+      
+		<div class="full_container middle_full"><!--no touch-->
+			<div class="document_container middle_main"><!--no touch-->
+
+				<div class="haus middle_inner">
+					
+	
+					<div class="hall hidari">
+
+                        <div class="content nav_hidari">
+					
+							<ul class="nav_list"><li onmouseover="$(this).addClass('over');" onmouseout="$(this).removeClass('over');" class=""><a href="/2019-ncov.aspx">Coronavirus Disease (COVID-19)	Home
+					</a></li><li onmouseover="$(this).addClass('over');" onmouseout="$(this).removeClass('over');"><a href="/2019-ncov/shelter-in-place.aspx">Shelter in Place</a></li><li onmouseover="$(this).addClass('over');" onmouseout="$(this).removeClass('over');"><a href="/2019-ncov/resources.aspx">Resources</a><ul><li onmouseover="$(this).addClass('over');" onmouseout="$(this).removeClass('over');"><a href="/2019-ncov/resources/community.aspx">Community</a></li><li onmouseover="$(this).addClass('over');" onmouseout="$(this).removeClass('over');"><a href="/2019-ncov/resources/mental-health-social-benefits.aspx">Mental Health &amp; Social Benefits</a></li><li onmouseover="$(this).addClass('over');" onmouseout="$(this).removeClass('over');"><a href="/2019-ncov/resources/quarantine-and-isolation.aspx">Quarantine and Isolation</a></li><li onmouseover="$(this).addClass('over');" onmouseout="$(this).removeClass('over');"><a href="/2019-ncov/resources/childcare-schools-colleges.aspx">Child Care, Schools, &amp; Colleges</a></li><li onmouseover="$(this).addClass('over');" onmouseout="$(this).removeClass('over');"><a href="/2019-ncov/resources/community-service-organizations.aspx">Community-Service Organizations</a></li><li onmouseover="$(this).addClass('over');" onmouseout="$(this).removeClass('over');"><a href="/2019-ncov/resources/businesses-and-employers.aspx">Businesses and Employers</a></li><li onmouseover="$(this).addClass('over');" onmouseout="$(this).removeClass('over');"><a href="/2019-ncov/resources/skilled-nursing-residential-care-facilities.aspx">Skilled Nursing &amp; Residential Care Facilities</a></li><li onmouseover="$(this).addClass('over');" onmouseout="$(this).removeClass('over');"><a href="/2019-ncov/resources/testing.aspx">Testing</a></li></ul></li><li onmouseover="$(this).addClass('over');" onmouseout="$(this).removeClass('over');"><a href="/2019-ncov/clinicians.aspx">For Clinicians</a><ul><li onmouseover="$(this).addClass('over');" onmouseout="$(this).removeClass('over');"><a href="/2019-ncov/clinicians/clinician-guidance.aspx">Clinician Guidance</a></li><li onmouseover="$(this).addClass('over');" onmouseout="$(this).removeClass('over');"><a href="/2019-ncov/clinicians/testing-guidance.aspx">Testing Guidance</a></li><li onmouseover="$(this).addClass('over');" onmouseout="$(this).removeClass('over');"><a href="/2019-ncov/clinicians/infection-control.aspx">Infection Control</a></li><li onmouseover="$(this).addClass('over');" onmouseout="$(this).removeClass('over');"><a href="/2019-ncov/clinicians/surge-planning.aspx">Surge Planning</a></li><li onmouseover="$(this).addClass('over');" onmouseout="$(this).removeClass('over');"><a href="/2019-ncov/clinicians/conference-calls-meetings.aspx">Conference Calls/Meetings</a></li></ul></li><li onmouseover="$(this).addClass('over');" onmouseout="$(this).removeClass('over');"><a href="/2019-ncov/isolation-housing.aspx">Isolation Housing</a></li><li onmouseover="$(this).addClass('over');" onmouseout="$(this).removeClass('over');"><a href="/2019-ncov/press-releases.aspx">Press Releases</a></li><li onmouseover="$(this).addClass('over');" onmouseout="$(this).removeClass('over');"><a href="/2019-ncov/contact-information.aspx">Contact Information</a></li></ul>
+
+							<table class="contacts_table" style="height:100%;margin-top:40px;">
+								<tbody><tr>
+									<td style="text-align:bottom;padding:0px 0px 0px 12px;">
+										<h2>Organizations Supporting<br>COVID-19 Response</h2>
+<p><a href="https://www.cdc.gov/coronavirus/2019-nCoV/index.html" target="_blank" title="CDC Covid-19 Website"><img src="/media/560777/cdc-logo.jpg" width="220" height="" alt="CDC Covid-19 Website"></a></p>
+<p><a href="https://www.cdph.ca.gov/Programs/CID/DCDC/Pages/Immunization/ncov2019.aspx" target="_blank" title="California Department of Public Health"><img src="/media/560782/cdph-logo.jpg" alt="California Department of Public Health"></a></p>
+<p><a href="http://www.acphd.org/2019-ncov.aspx" target="_self" title="Alameda County Public Health Department Covid-19 Resources"><img src="/media/560797/acphd-logo.jpg" alt="Alameda County Public Health Department"></a></p>
+<p><a href="http://edenir.org/" target="_blank" title="Text 211211 Registration"><img src="/media/560787/text-211211.jpg" width="220" height="80" alt="Text 211211 Registration"></a></p>
+<p><a href="https://communityin.wedid.it/campaigns/7407" target="_blank" title="COVID-19 Coronavirus Regional Response Fund-Alameda County"><img src="/media/560792/donate-now.jpg" width="220" height="80" alt="multi-ethnic teens"></a></p>
+										
+									</td>
+								</tr>
+							</tbody></table>			
+							
+                        </div><!-- nav hidari --> 
+
+					</div><!-- hall hidari -->
+
+					<div class="hall migi">
+
+                        <div class="content">
+
+							<h1>
+								Coronavirus Disease (COVID-19)
+							</h1>
+                            <div class="board">
+								<div class="rpuff">
+								
+									<!--main content-->
+									<div style="float: left; width: 96%; font: 1em Arial, Helvetica, sans-serif; background-color: #fff; border: thin #000 solid; margin: 5px 0px 0px 0px; padding: 5px 5px 5px 5px;">
+<p align="center"><strong>MAKE SURE YOU HAVE THE MOST UPDATED INFORMATION</strong></p>
+<table border="0" cellspacing="0" cellpadding="0" width="99%">
+<tbody>
+<tr valign="top">
+<td width="33%" valign="top">
+<p align="center"><strong>Windows PC:</strong><br>Press Ctrl + F5</p>
+</td>
+<td width="33%" valign="top">
+<p align="center"><strong>REFRESH PAGE</strong></p>
+<strong> </strong></td>
+<td width="33%" valign="top">
+<p align="center"><strong>Mac:<br></strong>Press Cmd button + Shift + R</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="float: left; width: 95%; font: 1em Arial, Helvetica, sans-serif; background-color: #e5e9f2; border: thin #000 solid; margin: 5px 0px 20px 0px; padding: 5px 5px 5px 15px;">
+<h2 align="center">Situation Update</h2>
+<p>&nbsp;</p>
+<!-- Begin Case table -->
+<div style="float: right; width: 290px; font: 1em Arial, Helvetica, sans-serif; background-color: #fff; margin: 5px 0px 20px 10px; padding: 5px 5px 5px 5px;"><!--
+<p align="center"><img src="/media/566219/alameda-county-seal.png" alt="Alameda County seal" align="middle"/></p>
+-->
+<p align="center"><strong><strong><a href="https://ac-hcsa.maps.arcgis.com/apps/opsdashboard/index.html#/948c67558cff414dbbee1a78fcbab1c9" target="_blank" title="Alameda County COVID-19 Dashboard">Alameda County COVID-19 Dashboard</a></strong></strong></p>
+<p align="center"><a href="https://ac-hcsa.maps.arcgis.com/apps/opsdashboard/index.html#/948c67558cff414dbbee1a78fcbab1c9" target="_blank" title="Alameda County COVID-19 Dashboard"><img src="/media/567455/covid-19-dashboard.png" alt="Dashboard graph" align="middle"></a></p>
+<p align="center">Updated daily, our dashboard includes cases<br>over time, by gender, age group, and city. <br>A collaboration with the City  of Berkeley.</p>
+</div>
+<!-- End Case table -->
+<h2>4/13/2020 - Alameda County Health Officer Issues Order Requiring All Licensed Facilities to Implement Guidance to Control the Spread of COVID-19</h2>
+<ul>
+<li><a href="/media/568186/press-release-2020.04.13.pdf" target="_blank" title="Press Release 4/13/20 Health Officer Issues Order Requiring All Licensed Facilities to Implement Guidance to Control the Spread of COVID-19">Press Release announcing Health Officer Order</a></li>
+<li><a href="/media/568207/health-officer-order-20-07-licensed-facilities-and-other-agencies-2020.04.13.pdf" target="_blank" title="Health Officer Order for Requiring All Licensed Facilities to Implement Guidance to Control the Spread of COVID-19 (ACPHD, 4/13/20)">Complete Health Officer Order</a></li>
+<li>Alameda County Health Officer Dr. Erica Pan issued an Order for all Licensed Facilities and Other Agencies, as well as their staff, contractors and any essential visitors entering those sites to comply with guidance to control the spread of COVID-19. The Order becomes effective at 12:01 a.m. on Tuesday, April 14, 2020.</li>
+<li>The Order applies to all long-term care facilities, skilled nursing facilities and other congregate living settings and agencies in the County.</li>
+</ul>
+<h2>4/10/20 - Alameda County Public Health Reminds Residents to Observe Religious Practices at Home during Shelter in Place Order</h2>
+<ul>
+<li>Community Letter: <a href="/media/567725/covid-19-holiday-celebrations-2020.04.10-english.pdf" target="_blank" title="COVID-19 Holiday Celebrations 4/10/20 English">English</a> | <a href="/media/567728/covid-19-holiday-celebrations-2020.04.10-spanish.pdf" target="_blank" title="COVID-19 Holiday Celebrations 4/10/20 Spanish">Spanish</a></li>
+<li><span><span>Press Release: <a href="/media/567386/alameda-county-press-release-2020.04.09.pdf" target="_blank" title="Press Release 4/9/2020 (English)">English</a><a href="/media/567407/alameda-county-press-release-2020.04.09-spanish.pdf" target="_blank" title="Press Release 4/9/2020 (English)"> </a>| <a href="/media/567407/alameda-county-press-release-2020.04.09-spanish.pdf" target="_blank" title="Press Release 4/9/2020 (Spanish)">Spanish</a></span></span></li>
+<li><a href="/2019-ncov/shelter-in-place.aspx" title="Shelter in Place">Shelter in Place Order</a> <span><span><span>| </span></span></span><a href="/media/564285/press-release-20200402.pdf" target="_blank" title="Press Release 4/2/20 New Bay Area Public Health Recommendation to Cover the Face">Recommendation to cover face</a></li>
+</ul>
+<h2><a href="http://www.acphd.org/2019-ncov/resources/quarantine-and-isolation.aspx" target="_blank" title="COVID-19 ACPHD Quarantine and Isolation Resources"><span>4/3/20 - Quarantine and Isolation Order</span></a></h2>
+<ul>
+</ul>
+<ul>
+</ul>
+<p>For general inquiries, please email <a href="mailto:ncov@acgov.org" title="Email ncov@acgov.org">ncov@acgov.org</a> or call (510) 268-2101</p>
+</div>
+<h2>Resources</h2>
+<ul>
+</ul>
+<ul>
+<li><a href="/media/565592/covid-19-alameda-county-rapid-response-resources-2020.04.12.pdf" target="_blank" title="COVID-19 Alameda County Rapid Response Resources">Alameda County Rapid Response Resources</a> (4/12/20)</li>
+<li><a href="/2019-ncov/isolation-housing.aspx" title="Isolation Housing">Alameda County COVID-19 Isolation and Social Distancing Emergency Housing</a></li>
+<li><a href="/media/565637/wellbeing-one-pager-alameda-county.pdf" target="_blank" title="Staying Well While Sheltering at Home (4/6/20)">Staying Well While Sheltering at Home</a> (ACPHD, 4/6/20)</li>
+<li><a href="/media/565634/job-loss-one-pager-alameda-county.pdf" target="_blank" title="Job Loss: Resources to Help (ACPHD, 4/6/20)">Job Loss: Resources to Help</a> (ACPHD, 4/6/20)</li>
+</ul>
+<ul>
+</ul>
+								
+								</div>
+                                
+                            </div><!--board-->
+                        </div><!--content-->
+					</div><!-- haus hall migi-->
+
+					
+				</div><!-- haus -->
+                <!--middle inner-->
+			</div><!-- document_container -->
+		</div><!-- full_container middle_full-->
+
+        <div class="full_container bottom_bar">
+        </div> <!-- bottom_bar -->
+
+        			<div class="full_container bottom_full"><!--no touch-->
+				<div class="document_container bottom_main"><!--no touch-->
+	
+	
+					<div class="haus bottom_inner left">
+
+    					<div class="hall hidari">
+                            <div class="oats section">
+
+                                <div class="copyright">
+
+									<div>Alameda County Public Health Department</div>
+<div>1000 Broadway, Suite 500,                                         <br> Oakland, CA 94607                                         <br> (510) 267-8000</div>
+<div></div>
+<div>
+<div>©2013 Alameda County Public Health Department, All rights reserved</div>
+</div>
+                                    
+                                </div>
+                                <a href="/terms-of-use">Terms of Use</a> &nbsp;|&nbsp; <a href="/privacy">Privacy</a>
+        					</div><!-- left -->
+                        </div>
+
+    					<div class="hall migi">
+
+							
+		<div class="oats section">
+			<div class="title">Contact Us</div>
+<p><a href="/contact-acphd.aspx" title="Contact Us">How to Contact Us</a> <a href="/contact-acphd/office-locations.aspx" title="Office Locations">Office Locations</a> <a href="/contact-acphd/directions.aspx" title="Directions">Driving Directions</a> <a href="/contact-acphd/phone-directory.aspx" title="Phone Directory">Phone Directory</a></p>
+		</div>
+	
+		<div class="oats section">
+			<div class="title">Data &amp; Reports</div>
+<p><a href="/data-reports.aspx" title="Data-Reports">Data &amp; Reports Web Site</a> <a href="/data-reports/reports-by-topic.aspx" title="Reports By Topic">Reports by Topic</a> <a href="/data-reports/data-request-form.aspx" title="Data Request Form">Data Request Form</a></p>
+		</div>
+	
+		<div class="oats section">
+			<div class="title">About ACPHD</div>
+<p><a href="/about-acphd/our-mission.aspx" title="Our Mission">Our Mission</a> <a href="/about-acphd/our-organization.aspx" title="Our Organization">Our Organization</a> <a href="/about-acphd/organizational-chart.aspx" target="_blank" title="Organizational Chart">Organization Chart</a></p>
+		</div>
+	
+		<div class="oats section">
+			
+		</div>
+	
+
+    					</div><!-- right -->
+
+					</div><!-- haus -->
+                    <!--bottom_inner-->
+
+				</div><!-- document_container -->
+			</div><!-- full_container bottom_full-->
+	
+			<div class="clear"></div>
+
+        <script type="text/javascript" charset="utf-8" src="/layouts/alameda/js/AjaxFX.1.2.js"></script>
+		<script type="text/javascript" charset="utf-8" src="/layouts/alameda/js/Interstitial.js"></script>
+		<!--script type="text/javascript" charset="utf-8" src="/layouts/alameda/js/jq/jquery-1.4.2.min.js" ></script-->
+ 		<script src="http://code.jquery.com/jquery-1.7.min.js"></script>		
+		
+		<script type="text/javascript" charset="utf-8" src="/layouts/alameda/js/cycle/jquery.cycle.all.min.js"></script>
+		
+		<script type="text/javascript">
+			
+			$(document).ready(function() {
+
+				//$('#content ul').attr('data-role', 'listview');
+				//$('#content ul').attr('data-inset', 'true');
+				//$('#content ul').addClass('ui-listview ui-listview-inset ui-corner-all ui-shadow');
+
+				//$('#content ul').append('<li><a href="#">hello</a></li>').listview('refresh');
+				//$("#content").listview("create");
+				//$("#content ul").listview();
+				//$("ul:jqmData(role='listview')").listview("refresh");
+				//$("#content").trigger( "create" );
+			
+				startCycle();
+				
+				$(".control").click(
+					function() {
+						if(this.id=='index') {
+							$('.control .section_heading').addClass("open");
+							$('.tab').addClass("open");
+						} else {
+							$('.control .section_heading').removeClass("open");
+							$('.tab').removeClass("open");
+							$("." + this.id).addClass("open");
+							$("#" + this.id + ' .section_heading').addClass("open");
+						}
+					}
+				);
+				
+			});
+			
+			function startCycle(index) {
+				var iStartingSlide = (index>0)?(index):(0);
+			    $('.slideshow').cycle(
+			    	{
+						fx: 'fade', //fade, scrollUp, shuffle
+						startingSlide: iStartingSlide,
+						after: afterSlide
+					}
+				);
+			} 
+			
+			function setActiveIndex(index) {
+				startCycle(index); //$('.slideshow').cycle(index);  
+			    $('.item_headline').removeClass('active');
+			    $('#item_headline'+index).addClass('active');
+				$('.slideshow').cycle('stop');  
+			} 
+			function afterSlide(curr, next, opts) {
+				//var caption = 'Image ' + (opts.currSlide + 1) + ' of ' + opts.slideCount;
+			    $('.item_headline').removeClass('active');
+			    $('#item_headline'+opts.currSlide).addClass('active');
+			}
+		</script>
+		
+    
+
+
+</body></html>
