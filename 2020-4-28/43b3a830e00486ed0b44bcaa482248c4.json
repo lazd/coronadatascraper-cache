@@ -1,0 +1,85 @@
+{
+  "objectIdFieldName" : "OBJECTID", 
+  "uniqueIdField" : 
+  {
+    "name" : "OBJECTID", 
+    "isSystemMaintained" : true
+  }, 
+  "globalIdFieldName" : "", 
+  "geometryType" : "esriGeometryPolygon", 
+  "spatialReference" : {
+    "wkid" : 4269, 
+    "latestWkid" : 4269
+  }, 
+  "fields" : [
+    {
+      "name" : "OBJECTID", 
+      "type" : "esriFieldTypeOID", 
+      "alias" : "OBJECTID", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "Total_Infections", 
+      "type" : "esriFieldTypeInteger", 
+      "alias" : "Total Infections", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "UnknownResidence_Infections", 
+      "type" : "esriFieldTypeInteger", 
+      "alias" : "Unknown Residence Infections", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "OutsideTN_Infections", 
+      "type" : "esriFieldTypeInteger", 
+      "alias" : "Outside of TN Residence Infections", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "Total_Deaths", 
+      "type" : "esriFieldTypeInteger", 
+      "alias" : "Total Deaths", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "Shape__Area", 
+      "type" : "esriFieldTypeDouble", 
+      "alias" : "Shape__Area", 
+      "sqlType" : "sqlTypeDouble", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "Shape__Length", 
+      "type" : "esriFieldTypeDouble", 
+      "alias" : "Shape__Length", 
+      "sqlType" : "sqlTypeDouble", 
+      "domain" : null, 
+      "defaultValue" : null
+    }
+  ], 
+  "features" : [
+    {
+      "attributes" : {
+        "OBJECTID" : 83, 
+        "Total_Infections" : 10052, 
+        "UnknownResidence_Infections" : 35, 
+        "OutsideTN_Infections" : 251, 
+        "Total_Deaths" : 188, 
+        "Shape__Area" : 10.8895046938981, 
+        "Shape__Length" : 22.6132559559441
+      }
+    }
+  ]
+}
