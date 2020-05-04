@@ -1,0 +1,4534 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+
+					<script type='text/javascript'>
+						var enableTelemetry = 'false'
+						var aiConfig = {
+						instrumentationKey: '1cde048e-3185-4906-aa46-c92a7312b60f'						
+						}
+						var appInsights = window.appInsights || function (a) { function b(a) { c[a] = function () { var b = arguments; c.queue.push(function () { c[a].apply(c, b) }) } } var c = { config: a }, d = document, e = window; setTimeout(function () { var b = d.createElement('script'); b.src = a.url || 'https://az416426.vo.msecnd.net/scripts/a/ai.0.js', d.getElementsByTagName('script')[0].parentNode.appendChild(b) }); try { c.cookie = d.cookie } catch (a) { } c.queue = []; for (var f = ['Event', 'Exception', 'Metric', 'PageView', 'Trace', 'Dependency']; f.length;)b('track' + f.pop()); if (b('setAuthenticatedUserContext'), b('clearAuthenticatedUserContext'), b('startTrackEvent'), b('stopTrackEvent'), b('startTrackPage'), b('stopTrackPage'), b('flush'), !a.disableExceptionTracking) { f = 'onerror', b('_' + f); var g = e[f]; e[f] = function (a, b, d, e, h) { var i = g && g(a, b, d, e, h); return !0 !== i && c['_' + f](a, b, d, e, h), i } } return c }(aiConfig);
+						window.appInsights = appInsights, appInsights.queue && 0 === appInsights.queue.length;
+						// Add telemetry initializer
+						appInsights.queue.push(function() {
+							appInsights.context.addTelemetryInitializer(function(envelope) {
+								var telemetryItem = envelope.data.baseData;
+								// To check the telemetry item’s type:
+								if (!false)
+								{
+									//If the telemetry is not enabled, we still want to capture Google map custom event, so only allow that
+									if (envelope.name.indexOf('.Event') == -1)
+										return false;
+								}
+							});
+						});						
+						appInsights.trackPageView();
+					</script>
+			<script>
+				document.addEventListener("DOMContentLoaded", function () {
+					var forms = document.getElementsByTagName("form");
+					var absPat = /^https?:\/\/|^\/\//i;
+					for (var i = 0; i < forms.length; i++)
+					{
+						if (forms[i].method == "post" && !forms[i].querySelector('[name="__RequestVerificationToken"]') && !absPat.test(forms[i].getAttribute("action"))) {
+							forms[i].insertAdjacentHTML("beforeend", "<input name=\"__RequestVerificationToken\" type=\"hidden\" value=\"M1Rb4ZtXEHru6qr6opLqIKyxs3sGH8W_QtrhOF4LEsZ8IgM3rqh34O_9OGZ0Hu1MTiByqnNcVowu6Hl060hJI0yk2ls1\" />");
+						}
+					}
+				}, false);
+			</script>
+			
+	
+	<script type="text/javascript">
+		window.isResponsiveEnabled = true;
+		window.isRemoveSetHeights= false;
+		if (window.isRemoveSetHeights) {
+			document.documentElement.className += ' removeSetHeights';
+		}
+		window.mainMenuMediaQuery = 'screen and (max-width: 48em)';
+		window.isMobileBrowserIncludingTablets = false;
+		window.fixedResponsiveMenu = false;
+		window.fullWidthResponsiveMenu = true;
+		window.responsiveMenuHeight = '';
+		window.responsiveMenuFontSize = '';
+		(function () {
+			window.devicePixelRatio = window.devicePixelRatio || Math.round(window.screen.availWidth / document.documentElement.clientWidth);
+			window.innerWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+			window.innerHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+			window.setSizeCookie = function () {
+				document.cookie = "dpi=" + window.devicePixelRatio + "; path=/";
+				document.cookie = "viewportWidth=" + window.innerWidth + "; path=/";
+				document.cookie = "viewportHeight=" + window.innerHeight + "; path=/";
+				if (screen && screen.width && screen.height) {
+					document.cookie = "screenWidth=" + screen.width + "; path=/";
+					document.cookie = "screenHeight=" + screen.height + "; path=/";
+				}
+				document.cookie = "responsiveGhost=1; path=/";
+			};
+
+			setSizeCookie();
+		}());
+	</script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<!--Universal-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119772598-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-119772598-1');
+</script>
+<!--Agency Specific - KDHE-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119772598-26"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-119772598-26');
+</script>
+	
+	<meta name="theme-color" content="#2e4e84">
+	<link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+	<title>KDHE COVID-19 | Official Website</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="Home,State of Kansas,Coronavirus,COVID-19">
+	<link rel="apple-touch-icon" sizes="180x180" href="https://ks-kdhecovid19.civicplus.com/ImageRepository/Document?documentID=59">
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://ks-kdhecovid19.civicplus.com/ImageRepository/Document?documentID=61">
+
+<link rel="icon" type="image/png" sizes="16x16" href="https://ks-kdhecovid19.civicplus.com/ImageRepository/Document?documentID=60">
+
+<link rel="manifest" href="/site.webmanifest">						<link rel="stylesheet" type="text/css" href="/Assets/Mystique/Shared/Scripts/froala_editor_2.8.4/css/froala_editor_2.8.4.min.css" />
+
+	<!--[if IE 6]><script language="JavaScript" type="text/javascript"> var isie6 = true; </script><![endif]-->
+	<!--[if IE 7]><script language="JavaScript" type="text/javascript"> var isie7 = true; </script><![endif]-->
+	<!--[if IE 8]><script language="JavaScript" type="text/javascript"> var isie8 = true; </script><![endif]-->
+	<!--[if IE 9]><script language="JavaScript" type="text/javascript"> var isie8 = true; </script><![endif]-->
+	<script type="text/javascript"><!--
+	var intCountryCode = 840;
+	var externalSiteDialogHeight = '390px';
+	var order = '';
+//--></script>
+	
+	<link href="/792681949.css" rel="stylesheet" type="text/css" />	<link href="/426724109.css" rel="stylesheet" type="text/css" />
+
+	<link rel="stylesheet" type="text/css" href="/Assets/Styles/Print.css" media="print">
+<script type="text/javascript" src="/Scripts/2011.3.1115/jquery-1.6.4.min.js"></script>
+	<script type="text/javascript">
+		window.Pages = window.Pages || {};
+		// FrontEnd RWD initialization
+		window.Pages.rwdReady = $.Deferred();
+		window.Pages.toolBarDeferred = $.Deferred();
+		window.Pages.rwdSetupComplete = $.Deferred();
+		window.Pages.megaMenuLoaded = $.Deferred();
+		window.Pages.angularToolbarComplete = $.Deferred();
+		window.Pages.frontEndToolbarComplete = $.Deferred();
+	</script>
+	<!--CPHeadContent-->
+	<script src="/-1138373007.js" type="text/javascript"></script>
+	
+	
+	
+	
+
+
+
+
+	<!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="/App_Themes/ie8.css"><![endif]-->
+	<!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="/App_Themes/ie7.css"><![endif]-->
+	<!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="/App_Themes/ie6.css"><![endif]-->
+	<!--[if lt IE 9]><script type="text/javascript" src="/Scripts/html5.js"></script><![endif]-->
+
+	<script type="text/javascript">
+		setEditorVariables(false, 840);
+		function getPrintPreviewType() { return 0; } function printPreview() {pPreview(getPrintPreviewType()); }
+	</script>
+	
+</head>
+<body class="wide " >
+
+	
+
+	<div id="fb-root"></div>
+<div id=skipToContentLinks>
+<a href="#cc9b263b9d-a7e2-4e23-b747-b6d686e76be0" target="_self" class="skipToContentLink">Skip to Main Content</a>
+</div>
+	<form id="frmReferenceFormForTelerikEditorDialogs"></form>
+
+		<input type="hidden" id="GoogleMapsKey" value="AIzaSyDWUuE-ifkbhxblF920N8MjpBdTg1Wt784" />
+	<input type="hidden" id="cpcDomain" value="https://cp-civicplusuniversity2.civicplus.com">
+	<input type="hidden" id="hdnStructureID" value="3" />
+	<input type="hidden" id="hdnContentCollectionID" value="4631f3c7-98a5-4cd4-a139-83b27f7d34e5" />
+	<input type="hidden" id="hdnWorkingCopyID" value="00000000-0000-0000-0000-000000000000" />
+	<input type="hidden" id="hdnThemeID" value="12" />
+	<input type="hidden" id="pageIsFrontEnd" value="true" />
+	<input type="hidden" id="pageModuleID" />
+	<input type="hidden" id="pagePageID" value="1" />
+	<input type="hidden" id="hdnModuleEligibleForJquery224Upgrade" value="true" />
+
+		<div id="stickyPlaceholder"></div>
+	<div id="outer-wrap" class="outer-wrap">
+		<div id="inner-wrap" class="inner-wrap">
+				<div id="divToolbars" class="cpToolbars newCP" style="">
+					
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="/App_Themes/CP/ie7.css"><![endif]-->
+<!-- Allow Dashboard, Favorites Enabled -->
+
+				</div>
+			<div id="bodyWrapper">
+				<div id="mainNavHolderMobile" class="mainNavHolderMobile"></div>
+				
+<!-- Parent structural container -->
+<div data-cpRole="structuralContainer" id="structuralContainer1"><div class="inner">
+<!-- Alert --><div data-cpRole="structuralContainer" id="structuralContainer16">
+<div class="siteWrap"><aside data-cpRole="contentContainer" id="contentContainer16a">	<div id="cc00a8e967-9c5b-41d7-80be-7be60525ed01" data-containerid="00a8e967-9c5b-41d7-80be-7be60525ed01" class="pageContent cpGrid cpGrid24 isLockedContainer showInMobile">
+				                
+
+
+
+	</div>
+</aside></div>
+</div><!-- Header Container --><div data-cpRole="structuralContainer" id="structuralContainer2">
+<div class="siteWrap"><!-- Logo/Site ID --><div data-cpRole="banner" id="banner2" class="logo empty">
+
+
+
+
+				<a style="			display: block; text-align: center;
+" class="bannerObject" href="/" target="_self"><img alt="Home page" class="bannerObject" height="174" src="/ImageRepository/Document?documentID=40" width="272" /></a>
+
+</div><!-- Search container --><aside data-cpRole="contentContainer" id="contentContainer2a" class="search_ts">	<div id="cc8f8f5f08-10fb-443f-99a6-5cec519f76b0" data-containerid="8f8f5f08-10fb-443f-99a6-5cec519f76b0" class="pageContent cpGrid cpGrid24 isLockedContainer showInMobile">
+				                
+
+		<div class="row outer wide"><!--
+--><div class="outer col col24 first last" style="" data-widgetcontainerid="821c48ad-14c5-487b-8da7-f8a6095cbfc0">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col24 first last id8fc28833-7b78-46ba-9fb0-e05f96e70f16" style="" data-widgetcontainerid="8fc28833-7b78-46ba-9fb0-e05f96e70f16">	
+<div data-widget-id="d435070a-23db-413f-b7ff-75a669e2636d" data-widget-controller-path="/Layout/WidgetSearch">
+	
+		<script defer type="text/javascript" src="/Common/Controls/jquery-ui/js/jquery.ui.autocomplete.min.js"></script>
+	<script defer src="/Areas/Layout/Assets/Scripts/Search.js" type="text/javascript"></script>
+	<script defer type="text/javascript">
+
+		$(document).ready(function () {
+			try {
+				$(".widgetSearchButton.widgetSearchButtond435070a-23db-413f-b7ff-75a669e2636d").click(function (e) {
+				e.preventDefault();
+					if ($("#ysnSearchOnlyDeptd435070a-23db-413f-b7ff-75a669e2636d").is(':checked')) {
+						doWidgetSearch($(this).siblings(".widgetSearchBox").val(), Number(0));
+					} else {
+						doWidgetSearch($(this).siblings(".widgetSearchBox").val(), 0);
+					}
+			});
+			$("#searchFieldd435070a-23db-413f-b7ff-75a669e2636d").keypress(function (e) {
+				if (window.clipboardData) {
+					if (e.keyCode == 13) {
+							if ($("#ysnSearchOnlyDeptd435070a-23db-413f-b7ff-75a669e2636d").is(':checked')) {
+								doWidgetSearch($(this).val(), Number(0));
+							} else {
+								doWidgetSearch($(this).val(), 0);
+							}
+						return false;
+					}
+				} else {
+					if (e.which == 13) {
+							if ($("#ysnSearchOnlyDeptd435070a-23db-413f-b7ff-75a669e2636d").is(':checked')) {
+								doWidgetSearch($(this).val(), Number(0));
+							} else {
+								doWidgetSearch($(this).val(), 0);
+							}
+						return false;
+					}
+				}
+				return true;
+			});
+
+				if (true) {
+					var currentRequest = null;
+
+					var $searchField = $("#searchFieldd435070a-23db-413f-b7ff-75a669e2636d").autocomplete({
+						source: function (request, response) {
+							currentRequest = $.ajax({
+								url: '/Search/AutoComplete',
+								dataType: "json",
+								timeout: 10000,
+								beforeSend: function () {
+									if (currentRequest != null) {
+										currentRequest.abort();
+									}
+								},
+								data:
+								{
+									term: request.term,
+								},
+								success: function (data) {
+									response(data);
+									$('.autoCompleteError').remove();
+								},
+								error: function (xmlhttprequest, textstatus, message) {
+									if (textstatus === "timeout") {
+										if ($("#searchFieldd435070a-23db-413f-b7ff-75a669e2636d").siblings('.autoCompleteError').length == 0)
+											$('<span class="autoCompleteError"><p class="alert error">Search autocomplete is currently not responding. Please try again later.</p></span>').insertAfter($("#searchFieldd435070a-23db-413f-b7ff-75a669e2636d"));
+									}
+								}
+							});
+						},
+						html: true,
+						delay: 500,
+						select: function (event, ui) {
+							$(this).val(ui.item.value);
+							$(this).next().click();
+						}
+					});
+
+					if (false && true) {
+						$searchField.data("ui-autocomplete")._renderItem = function (ul, item) {
+							return $("<li class=\"itemList\"></li>")
+								.data("ui-autocomplete-item", item)
+								.append("<a>" + item.label + "</a>")
+								.appendTo(ul);
+						};
+					}
+					else {
+						$searchField.data("autocomplete")._renderItem = function (ul, item) {
+							return $("<li></li>")
+								.data("item.autocomplete", item)
+								.append("<a>" + item.label + "</a>")
+								.appendTo(ul);
+						};
+					}
+}
+}
+			catch(e) {} //we're going to eat this error. Autocomplete won't work but we dont wan't to break anything else on the page.
+		});
+	</script>
+
+	<section id="widgetPreviewSearch" class="widget widgetSearch skin43 widgetOptionSet15" style="display: block;" aria-label="Search">
+				<!-- For the button right and inside -->
+		<div class="widgetBody buttonRightInside">
+			<input class="widgetSearchBox widgetSearchBoxd435070a-23db-413f-b7ff-75a669e2636d" cp5ph="true" id="searchFieldd435070a-23db-413f-b7ff-75a669e2636d" name="searchField" onchange="searchBtnApplyQuery();" placeholder="Search" title="Search" type="text" value="" />
+							<a href="/Search/Results" id="btnSearchIcon" class="widgetSearchButton widgetSearchButtond435070a-23db-413f-b7ff-75a669e2636d" role="button"><img alt="search" class="imageHover" data-hover="/ImageRepository/Document?documentID=54" data-image="/ImageRepository/Document?documentID=53" src="/ImageRepository/Document?documentID=53" /></a>
+
+			<label class="searchLabel" for="searchFieldd435070a-23db-413f-b7ff-75a669e2636d">Search</label>
+		</div>
+
+	</section>
+
+
+<style scoped>
+    
+        .widgetSearch ::-webkit-input-placeholder {
+        color: #838383;
+      }
+        .widgetSearch :-moz-placeholder { /* Firefox 18- */
+       color: #838383;
+    }
+        .widgetSearch ::-moz-placeholder {  /* Firefox 19+ */
+       color: #838383;
+    }
+    .widgetSearch :-ms-input-placeholder {
+       color: #838383;
+    }
+    
+
+	.widgetSearch .widgetBody .widgetSearchBoxd435070a-23db-413f-b7ff-75a669e2636d
+	{
+        color: #000000;
+		padding: 5px 40px 5px 10px;  border: 1px solid #d0d0d0;height:55px;border-radius:3px;margin-bottom:1em;
+	}
+	.widgetSearch .widgetBody .widgetSearchButtond435070a-23db-413f-b7ff-75a669e2636d
+	{
+		
+	}
+	.widgetSearch .widgetSearch-onlyDeptd435070a-23db-413f-b7ff-75a669e2636d
+	{
+		display: inline-block;
+		color: #333;
+		
+		
+		 padding-top: 10px;
+	}
+	#ysnSearchOnlyDeptd435070a-23db-413f-b7ff-75a669e2636d
+	{
+		position: relative;
+		top: .125em;
+	}
+
+</style>
+
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+
+
+	<script type="text/javascript">
+	//Updates search icons href to have the correct queryString
+	function searchBtnApplyQuery() {
+		document.getElementById("btnSearchIcon").href = "/Search?searchPhrase=" + document.getElementById("searchFieldd435070a-23db-413f-b7ff-75a669e2636d").value;
+    }
+	</script>
+
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!--		--></div> <!-- outer row -->
+
+
+	</div>
+</aside><!-- Navigation --><nav data-cpRole="nav" id="mainNav" class="siteNav mainNav" role="navigation">
+<ol id="mainNavMenu" data-parent="1" class="rootNavMenu" role="menu"><!--
+--><li id="MainItem170" class="topMenuItem" aria-haspopup="true" role="menuitem" data-pageid="170" data-displaymegamenu="False"><!--
+			--><!--
+			--><a id="mainNavHealthcareProviders" class="navMainItem mainNavItem mainNavItem1" href="/170/Healthcare-Providers" target="_self">Healthcare Providers</a><!--
+			--><!--
+			--></li><!----><li id="MainItem169" class="topMenuItem" aria-haspopup="true" role="menuitem" data-pageid="169" data-displaymegamenu="False"><!--
+			--><!--
+			--><a id="mainNavNewsroom" class="navMainItem mainNavItem mainNavItem2" href="/169/Newsroom" target="_self">Newsroom</a><!--
+			--><!--
+			--></li><!----><li id="MainItem9" class="topMenuItem" aria-haspopup="true" role="menuitem" data-pageid="9" data-displaymegamenu="True"><!--
+			--><!--
+			--><a id="mainNavHowDoI" class="navMainItem mainNavItem mainNavItem3" href="/9/How-Do-I" target="_self">How Do I...</a><!--
+			--><!--
+			--></li><!---->
+</ol>
+
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			var menuID = 'mainNavMenu';
+			var menuType = MAIN_MENU;
+
+			//setup menu manager properties for main menu
+			if (!menuManager.mobileMainNav && false)
+				menuManager.adjustMainItemsWidth('#' + menuID);
+			menuManager.isMainMenuEditable = false;
+			menuManager.mainMenuMaxSubMenuLevels = 4;
+			menuManager.setMOMMode(2, menuType);
+
+			//Init main menu
+			var setupDraggable = menuManager.isMainMenuEditable;
+			var urlToGetHiddenMenus = '/Pages/MenuMain/HiddenMainSubMenus?pageID=1&moduleID=&themeID=12&menuContainerID=mainNav';
+
+			menuManager.setupMenu(menuID, 'mainNav', menuType, setupDraggable, urlToGetHiddenMenus);
+			menuManager.mainMenuInit = true;
+			menuManager.mainMenuTextResizer = true;
+			if (0.90 > 0)
+				menuManager.mainMenuTextResizerRatio = 0.90;
+			if (window.isResponsiveEnabled)
+				menuManager.mainMenuReady.resolve();
+
+		});
+	</script>
+
+
+<!-- Mega Menu --><aside data-cpRole="megaMenu" id="megaMenu" class="megaMenu" style="display: none;"><input type="hidden" id="megaMenuPopupDirection" value="0"><input type="hidden" id="megaMenuWidthReference" value="1"><aside data-cpRole="contentContainer" id="mainNavMegaMenu9" class="contentTop mainNavMegaMenu megaMenuContainer pageID_9 hidden" data-orientation="horizontal">	<div id="cc405cbe80-58b7-46dc-9745-05cab3a2022e" data-containerid="405cbe80-58b7-46dc-9745-05cab3a2022e" class="pageContent cpGrid cpGrid24">
+				                
+
+
+
+	</div>
+</aside></aside></nav></div>
+</div><!-- Hero --><div data-cpRole="structuralContainer" id="structuralContainer3">
+<div class="siteWrap "><aside data-cpRole="contentContainer" id="contentContainer4a" class="">	<div id="cc9ce9c9dc-1fc9-423f-a76a-18d3afed2727" data-containerid="9ce9c9dc-1fc9-423f-a76a-18d3afed2727" class="pageContent cpGrid cpGrid24 showInMobile" data-contentcontainerbreakpoint="48">
+				                
+
+		<div class="row outer wide"><!--
+--><div class="outer col col11 first" style="" data-widgetcontainerid="d99851fe-3052-4ac6-8753-557476f4cc84">				
+	<div class="row nest first wide">
+	
+	<div class="inner col col11 first last id370c952a-3899-48f2-9b98-8b9098bd932d" style="" data-widgetcontainerid="370c952a-3899-48f2-9b98-8b9098bd932d">	
+    <div data-widget-id="4965db67-cd32-4cad-94a0-16e38a8d7ef9" data-widget-controller-path="/InfoAdvanced/Widget">
+
+
+
+
+
+	<section id="divInfoAdv4965db67-cd32-4cad-94a0-16e38a8d7ef9" class="widget widgetInfoAdvanced skin55 widgetOptionSet5 wide" data-modulewidgettype="infoAdv" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}' data-elementquerymatch='matchMultiColumn' data-elementqueryunmatch='unmatchMultiColumn' aria-label="Info Advanced">
+			<header class="widgetHeader" id="header4965db67-cd32-4cad-94a0-16e38a8d7ef9">
+		<div class="">
+								</div>
+	</header>
+	<div class="widgetBody  cpGrid cpGrid1 ">
+		<div class="row  wide">
+					<div class="col col1 first last">
+						<ol class="pageStyles semanticList">
+
+<li class="InfoAdvanced widgetItem ">
+	<h1 class="widgetTitle"><span style="font-size: 18pt;">KDHE Coronavirus (COVID-19) Response</span></h1>
+</li>						</ol>
+					</div>
+		</div>
+	</div>
+	<div class="widgetFooter">
+
+	</div>
+
+	</section>
+
+
+
+<script type="text/javascript">
+	//Render slideshow if info advacned items contain one.
+	$(document).ready(function (e) {
+		$('#divInfoAdv4965db67-cd32-4cad-94a0-16e38a8d7ef9 .InfoAdvanced.widgetItem').each(function () {
+			renderSlideshowIfApplicable($(this));		
+		});
+	});
+</script></div>	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+	<div class="row nest last wide">
+	
+	<div class="inner col col11 first last id29208ca4-9a6c-477c-9ba3-7472684adcff" style="" data-widgetcontainerid="29208ca4-9a6c-477c-9ba3-7472684adcff">	
+<div data-widget-id="02e20aa8-f748-4de9-a034-5ddffc914b39" data-widget-controller-path="/GraphicLinks/Widget">
+
+
+
+
+<div id="graphicLinkWidget02e20aa8-f748-4de9-a034-5ddffc914b39" class="widget widgetGraphicLinks skin45 widgetOptionSet27 wide" data-elementqueryclasses='{"wide-narrow":"min-width:48em"}' data-elementquerymatch='matchMultiColumn' data-elementqueryunmatch='unmatchMultiColumn' data-modulewidgettype="graphicLinks">
+	<div class="widgetHeader">
+		<div class="">
+				</div>
+	</div>
+	<div class="widgetBody cpGrid cpGrid1 ">	
+			<div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="/DocumentCenter/View/1070/5-3-20-update-numbers" target="_blank" class="fancyButton fancyButton119 "  aria-label="5,030 Confirmed Cases in Kansas (PDF) opens in new window">
+		<span>
+			<span><span class="text">5,030 Confirmed Cases in Kansas (PDF)</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton119.fancyButton:link,.fancyButton119.fancyButton:visited, .fancyButton119div.fancyButton{
+	background-image: url('/ImageRepository/Document?documentID=294');
+	background-repeat: no-repeat;
+	background-position: .5em  center;
+	border-top: 1px None #ffffff;
+	border-left: 1px None #ffffff;
+	border-right: 1px None #ffffff;
+	border-bottom: 1px None #ffffff;
+transition:.25s ease all;
+background-size:30px;
+border-radius:3px;}
+.fancyButton119.fancyButton:hover,.fancyButton119.fancyButton:focus,.fancyButton119.fancyButton:active,.fancyButton119.fancyButton.hover{
+	background-image: url('/ImageRepository/Document?documentID=293');
+	background-repeat: no-repeat;
+	background-position: .5em  center;
+	border-top: 1px None #ffffff;
+	border-left: 1px None #ffffff;
+	border-right: 1px None #ffffff;
+	border-bottom: 1px None #ffffff;
+}
+.fancyButton119.fancyButton:link > span,.fancyButton119.fancyButton:visited > span, .fancyButton119div.fancyButton > span{
+}
+.fancyButton119.fancyButton:hover > span,.fancyButton119.fancyButton:focus > span,.fancyButton119.fancyButton:active > span,.fancyButton119.fancyButton.hover > span{
+}
+.fancyButton119.fancyButton .text{
+	color: #ffffff;
+	font-size: 1.2em;
+	font-family: "Nunito Sans";
+	text-align: left;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	padding-right: .5em;
+	padding-left: 2.5em;
+	font-weight: 700;
+	text-decoration: none;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	padding-right: .5em;
+	padding-left: 2.5em;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+transition:.25s ease all;}
+.fancyButton119.fancyButton:hover .text,.fancyButton119.fancyButton:focus .text,.fancyButton119.fancyButton:active .text,.fancyButton119.fancyButton.hover .text{
+	color: #ffb400;
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+
+ </div><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="/160" target="_self" class="fancyButton fancyButton84 " >
+		<span>
+			<span><span class="text">Map of COVID-19 in Kansas</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton84.fancyButton:link,.fancyButton84.fancyButton:visited, .fancyButton84div.fancyButton{
+	-webkit-border-top-left-radius: 3px;
+	-moz-border-top-left-radius: 3px;
+	-khtml-border-top-left-radius: 3px;
+	border-top-left-radius: 3px;
+	-webkit-border-top-right-radius: 3px;
+	-moz-border-top-right-radius: 3px;
+	-khtml-border-top-right-radius: 3px;
+	border-top-right-radius: 3px;
+	-webkit-border-bottom-left-radius: 3px;
+	-moz-border-bottom-left-radius: 3px;
+	-khtml-border-bottom-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	-webkit-border-bottom-right-radius: 3px;
+	-moz-border-bottom-right-radius: 3px;
+	-khtml-border-bottom-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	background-image: url('/ImageRepository/Document?documentID=74');
+	background-repeat: no-repeat;
+	background-position: .5em  center;
+	border-top: 1px None #ffffff;
+	border-left: 1px None #ffffff;
+	border-right: 1px None #ffffff;
+	border-bottom: 1px None #ffffff;
+transition:.25s ease all;
+background-size:30px;}
+.fancyButton84.fancyButton:hover,.fancyButton84.fancyButton:focus,.fancyButton84.fancyButton:active,.fancyButton84.fancyButton.hover{
+	background-image: url('/ImageRepository/Document?documentID=75');
+	background-repeat: no-repeat;
+	background-position: .5em  center;
+	border-top: 1px None #ffffff;
+	border-left: 1px None #ffffff;
+	border-right: 1px None #ffffff;
+	border-bottom: 1px None #ffffff;
+}
+.fancyButton84.fancyButton:link > span,.fancyButton84.fancyButton:visited > span, .fancyButton84div.fancyButton > span{
+}
+.fancyButton84.fancyButton:hover > span,.fancyButton84.fancyButton:focus > span,.fancyButton84.fancyButton:active > span,.fancyButton84.fancyButton.hover > span{
+}
+.fancyButton84.fancyButton .text{
+	color: #ffffff;
+	font-size: 1.2em;
+	font-family: "Nunito Sans";
+	text-align: left;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	padding-right: .5em;
+	padding-left: 2.5em;
+	font-weight: 700;
+	text-decoration: none;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	padding-right: .5em;
+	padding-left: 2.5em;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+transition:.25s ease all;}
+.fancyButton84.fancyButton:hover .text,.fancyButton84.fancyButton:focus .text,.fancyButton84.fancyButton:active .text,.fancyButton84.fancyButton.hover .text{
+	color: #ffb400;
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+
+ </div><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="/255/Stay-at-home-order-FAQs" target="_self" class="fancyButton fancyButton29 " >
+		<span>
+			<span><span class="text">A Plan to Reopen Kansas</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton29.fancyButton:link,.fancyButton29.fancyButton:visited, .fancyButton29div.fancyButton{
+	-webkit-border-top-left-radius: 3px;
+	-moz-border-top-left-radius: 3px;
+	-khtml-border-top-left-radius: 3px;
+	border-top-left-radius: 3px;
+	-webkit-border-top-right-radius: 3px;
+	-moz-border-top-right-radius: 3px;
+	-khtml-border-top-right-radius: 3px;
+	border-top-right-radius: 3px;
+	-webkit-border-bottom-left-radius: 3px;
+	-moz-border-bottom-left-radius: 3px;
+	-khtml-border-bottom-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	-webkit-border-bottom-right-radius: 3px;
+	-moz-border-bottom-right-radius: 3px;
+	-khtml-border-bottom-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	background-image: url('/ImageRepository/Document?documentID=43');
+	background-repeat: no-repeat;
+	background-position: .5em  center;
+	border-top: 1px None #ffffff;
+	border-left: 1px None #ffffff;
+	border-right: 1px None #ffffff;
+	border-bottom: 1px None #ffffff;
+transition:.25s ease all;
+background-size:30px;}
+.fancyButton29.fancyButton:hover,.fancyButton29.fancyButton:focus,.fancyButton29.fancyButton:active,.fancyButton29.fancyButton.hover{
+	background-image: url('/ImageRepository/Document?documentID=44');
+	background-repeat: no-repeat;
+	background-position: .5em  center;
+	border-top: 1px None #ffffff;
+	border-left: 1px None #ffffff;
+	border-right: 1px None #ffffff;
+	border-bottom: 1px None #ffffff;
+}
+.fancyButton29.fancyButton:link > span,.fancyButton29.fancyButton:visited > span, .fancyButton29div.fancyButton > span{
+}
+.fancyButton29.fancyButton:hover > span,.fancyButton29.fancyButton:focus > span,.fancyButton29.fancyButton:active > span,.fancyButton29.fancyButton.hover > span{
+}
+.fancyButton29.fancyButton .text{
+	color: #ffffff;
+	font-size: 1.2em;
+	font-family: "Nunito Sans";
+	text-align: left;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	padding-right: .5em;
+	padding-left: 2.5em;
+	font-weight: 700;
+	text-decoration: none;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	padding-right: .5em;
+	padding-left: 2.5em;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+transition:.25s ease all;}
+.fancyButton29.fancyButton:hover .text,.fancyButton29.fancyButton:focus .text,.fancyButton29.fancyButton:active .text,.fancyButton29.fancyButton.hover .text{
+	color: #ffb400;
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+
+ </div><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="https://ks-kdhecovid19.civicplus.com/list.aspx" target="_self" class="fancyButton fancyButton28 " >
+		<span>
+			<span><span class="text">Subscribe to Updates</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton28.fancyButton:link,.fancyButton28.fancyButton:visited, .fancyButton28div.fancyButton{
+	-webkit-border-top-left-radius: 3px;
+	-moz-border-top-left-radius: 3px;
+	-khtml-border-top-left-radius: 3px;
+	border-top-left-radius: 3px;
+	-webkit-border-top-right-radius: 3px;
+	-moz-border-top-right-radius: 3px;
+	-khtml-border-top-right-radius: 3px;
+	border-top-right-radius: 3px;
+	-webkit-border-bottom-left-radius: 3px;
+	-moz-border-bottom-left-radius: 3px;
+	-khtml-border-bottom-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	-webkit-border-bottom-right-radius: 3px;
+	-moz-border-bottom-right-radius: 3px;
+	-khtml-border-bottom-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	background-image: url('/ImageRepository/Document?documentID=45');
+	background-repeat: no-repeat;
+	background-position: .5em  center;
+	border-top: 1px None #ffffff;
+	border-left: 1px None #ffffff;
+	border-right: 1px None #ffffff;
+	border-bottom: 1px None #ffffff;
+transition:.25s ease all;
+background-size:30px;}
+.fancyButton28.fancyButton:hover,.fancyButton28.fancyButton:focus,.fancyButton28.fancyButton:active,.fancyButton28.fancyButton.hover{
+	background-image: url('/ImageRepository/Document?documentID=46');
+	background-repeat: no-repeat;
+	background-position: .5em  center;
+	border-top: 1px None #ffffff;
+	border-left: 1px None #ffffff;
+	border-right: 1px None #ffffff;
+	border-bottom: 1px None #ffffff;
+}
+.fancyButton28.fancyButton:link > span,.fancyButton28.fancyButton:visited > span, .fancyButton28div.fancyButton > span{
+}
+.fancyButton28.fancyButton:hover > span,.fancyButton28.fancyButton:focus > span,.fancyButton28.fancyButton:active > span,.fancyButton28.fancyButton.hover > span{
+}
+.fancyButton28.fancyButton .text{
+	color: #ffffff;
+	font-size: 1.2em;
+	font-family: "Nunito Sans";
+	text-align: left;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	padding-right: .5em;
+	padding-left: 2.5em;
+	font-weight: 700;
+	text-decoration: none;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	padding-right: .5em;
+	padding-left: 2.5em;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+transition:.25s ease all;}
+.fancyButton28.fancyButton:hover .text,.fancyButton28.fancyButton:focus .text,.fancyButton28.fancyButton:active .text,.fancyButton28.fancyButton.hover .text{
+	color: #ffb400;
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+
+ </div><!--
+			--></div>
+	</div>
+	<div class="widgetFooter">
+			</div>
+</div>
+
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!----><div class="outer col col1" style="" data-widgetcontainerid="17f40b77-5afe-44c3-a397-6b6e6e6c21fb">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col1 first last ide0aa9775-f523-44d6-943c-993702477ff7" style="" data-widgetcontainerid="e0aa9775-f523-44d6-943c-993702477ff7">	
+
+<div class="widget widgetSpacer" id="2365428e-00b8-4c84-9234-01b37dbca554"></div>	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!----><div class="outer col col12 last" style="" data-widgetcontainerid="60ed699f-5e1b-4155-9314-136c5f157d79">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col12 first last id2b796f50-5053-413c-98ca-bc7ea3090db6" style="" data-widgetcontainerid="2b796f50-5053-413c-98ca-bc7ea3090db6">	
+ 
+	<div data-widget-id='42d1e1ac-8d11-4453-8bf0-1b14e1e82a00' data-moduleName="customHtml" id='widgetCustomHtml42d1e1ac-8d11-4453-8bf0-1b14e1e82a00' class="widget widgetCustomHtml skin55 narrow" >
+	<div class="widgetBody pageStyles" id="widgetBody42d1e1ac-8d11-4453-8bf0-1b14e1e82a00">
+		<div id="customHtml42d1e1ac-8d11-4453-8bf0-1b14e1e82a00"><div><div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/403467628?title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen=""></iframe></div><script src="https://player.vimeo.com/api/player.js"></script></div></div>
+	</div>
+	</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!--		--></div> <!-- outer row -->
+
+
+	</div>
+</aside></div>
+</div><!-- Latest Updates --><div data-cpRole="structuralContainer" id="structuralContainer12">
+<div class="siteWrap"><aside data-cpRole="contentContainer" id="contentContainer12a">	<div id="cce17467f7-30b1-4517-8bfe-95a4be2c8c61" data-containerid="e17467f7-30b1-4517-8bfe-95a4be2c8c61" class="pageContent cpGrid cpGrid24 showInMobile">
+				                
+
+		<div class="row outer wide"><!--
+--><div class="outer col col24 first last" style="" data-widgetcontainerid="fb65be0e-3aad-45dd-89eb-c09767f38ffd">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col24 first last id97c5c8a4-c6d6-49aa-b6e1-e0be0668c7e9" style="" data-widgetcontainerid="97c5c8a4-c6d6-49aa-b6e1-e0be0668c7e9">	
+<div data-widget-id="254df7cc-5655-45c3-81db-14802b75413c" data-widget-controller-path="/NewsFlash/Widget">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<section class="widget widgetNewsFlash skin56 widgetOptionSet24 wide" data-modulewidgettype="newsFlash" id="widgetNewsFlash254df7cc-5655-45c3-81db-14802b75413c" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}' data-elementquerymatch='matchMultiColumn' data-elementqueryunmatch='unmatchMultiColumn' aria-labelledby="newsFlashHeader254df7cc-5655-45c3-81db-14802b75413c">
+				<header class="widgetHeader" id="newsFlashHeader254df7cc-5655-45c3-81db-14802b75413c">
+			<div class="">
+						<h3><a  style="" href="/CivicAlerts.aspx?CID=1" >Latest Update</a></h3>
+											</div>
+		</header>
+	<div class="widgetBody cpGrid cpGrid1 ">
+	<div class="row  wide" style="">
+				<div class="col col1 first last">
+					<ol class="semanticList">
+			<li class="widgetItem inlineTitle" data-news-i-d="17">
+
+					<h4 id="newsFlashItemHeader17" class="widgetTitle"><a href="/CivicAlerts.aspx?AID=17">Watch the COVID-19 Weekday Press Conferences 		<span class="htmlChar">—</span>
+</a></h4>
+	<div class="widgetDesc">
+Want to know the latest news about COVID-19 in Kansas? Secretary Lee Norman, M.D. joins Governor Laura Kelly's weekday press conferences at 2 pm (CST) on Monday, Wednesday and Friday (subject to change). Watch it live on Facebook or later on Vimeo.						<a href="/CivicAlerts.aspx?AID=17" id="newsFlashReadOn17" aria-labelledby="newsFlashItemHeader17 newsFlashReadOn17" class="readOn sameLine">Read on...</a>
+	</div>
+
+			</li>
+					</ol>
+				</div>
+	</div>
+
+			</div>
+	<div class="widgetFooter">
+	</div>
+	<div class="addItemModal hidden">
+		<div class="url hidden">/CivicAlerts.aspx</div>
+	</div>
+
+	</section>
+
+
+
+
+
+
+
+
+</div>	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!--		--></div> <!-- outer row -->
+
+
+	</div>
+</aside></div>
+</div><!-- Main content container --><div data-cpRole="structuralContainer" id="structuralContainer5">
+<div class="siteWrap"><div data-cpRole="structuralContainer" id="structuralContainer6" class="mainWrap" role="main">
+<div data-cpRole="structuralContainer" id="structuralContainer7" class="outerContentWrap">
+<div data-cpRole="structuralContainer" id="structuralContainer8" class="contentWrap">
+<div data-cpRole="breadCrumbs" class="breadCrumbContainer" id="breadCrumbs"><script type='text/javascript'>$('#breadCrumbs').hide();</script></div><div data-cpRole="mainContentContainer" id="moduleContent">
+	
+	<div id="page" class="moduleContentNew">
+		
+
+	<input id="hdnPageID" name="hdnPageID" type="hidden" value="1" />
+	<input id="hdnParentID" name="hdnParentID" type="hidden" value="" />
+	<input id="hdnVersionID" name="hdnVersionID" type="hidden" value="1286" />
+	<input id="pageMenuTitle" name="pageMenuTitle" type="hidden" value="Home" />
+	<input id="pageShowFeatureColumn" name="pageShowFeatureColumn" type="hidden" value="True" />
+	<input id="hdnIsLayoutPage" name="hdnIsLayoutPage" type="hidden" value="False" />
+	<input id="hdnPageStatus" name="hdnPageStatus" type="hidden" value="Active" />
+
+					<div id="cc9b263b9d-a7e2-4e23-b747-b6d686e76be0" data-containerid="9b263b9d-a7e2-4e23-b747-b6d686e76be0" class="pageContent cpGrid cpGrid24"  data-contentcontainerbreakpoint="40" >
+			
+
+		<div class="row outer wide"><!--
+--><div class="outer col col24 first last" style="" data-widgetcontainerid="59a586f8-5a24-4225-bf77-cff15cab4cb6">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col24 first last idff902fac-ed42-4a25-a0b8-d2e83f117f19" style="" data-widgetcontainerid="ff902fac-ed42-4a25-a0b8-d2e83f117f19">	
+<div data-widget-id="9a681c14-02a2-40d6-9ffc-86fee740f865" data-widget-controller-path="/GraphicLinks/Widget">
+
+
+
+
+<div id="graphicLinkWidget9a681c14-02a2-40d6-9ffc-86fee740f865" class="widget widgetGraphicLinks skin45 widgetOptionSet29 wide" data-elementqueryclasses='{"wide-narrow":"min-width:48em"}' data-elementquerymatch='matchMultiColumn' data-elementqueryunmatch='unmatchMultiColumn' data-modulewidgettype="graphicLinks">
+	<div class="widgetHeader">
+		<div class="">
+				</div>
+	</div>
+	<div class="widgetBody cpGrid cpGrid4 ">	
+			<div class="row   wide"><!--
+--><div class="col col1 first "><div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="/170/Healthcare-Providers" target="_self" class="fancyButton fancyButton91 " >
+		<span>
+			<span><span class="text">Local Health Departments &amp; Healthcare Providers</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton91.fancyButton:link,.fancyButton91.fancyButton:visited, .fancyButton91div.fancyButton{
+	background-color: #ffffff;
+	padding-top: 10em;
+	padding-bottom: 2.5em;
+	padding-right: 2em;
+	padding-left: 2em;
+	background-image: url('/ImageRepository/Document?documentID=169');
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+transition: .2s ease all;
+border-radius:3px;
+box-shadow: 0 0 15px rgba(0,0,0,.1);
+min-height:235px;
+outline:2px solid #2e4e84;
+outline-offset:-10px;}
+.fancyButton91.fancyButton:hover,.fancyButton91.fancyButton:focus,.fancyButton91.fancyButton:active,.fancyButton91.fancyButton.hover{
+	background-color: #2e4e84;
+	background-image: url('/ImageRepository/Document?documentID=170');
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+box-shadow: 0 2px 5px rgba(0,0,0,.5);
+outline:2px solid #fff;
+outline-offset:-15px;}
+.fancyButton91.fancyButton:link > span,.fancyButton91.fancyButton:visited > span, .fancyButton91div.fancyButton > span{
+}
+.fancyButton91.fancyButton:hover > span,.fancyButton91.fancyButton:focus > span,.fancyButton91.fancyButton:active > span,.fancyButton91.fancyButton.hover > span{
+}
+.fancyButton91.fancyButton .text{
+	color: #253d66;
+	font-size: 1.3em;
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+
+
+}
+.fancyButton91.fancyButton:hover .text,.fancyButton91.fancyButton:focus .text,.fancyButton91.fancyButton:active .text,.fancyButton91.fancyButton.hover .text{
+	color: #ffffff;
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+
+
+}
+</style>
+
+ </div><!--
+--></div></div><!----><div class="col col1  "><div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="/225/How-to-protect-yourself-and-others" target="_self" class="fancyButton fancyButton116 " >
+		<span>
+			<span><span class="text">Protect Yourself &amp; Others</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton116.fancyButton:link,.fancyButton116.fancyButton:visited, .fancyButton116div.fancyButton{
+	background-color: #ffffff;
+	padding-top: 10em;
+	padding-bottom: 2.5em;
+	padding-right: 2em;
+	padding-left: 2em;
+	background-image: url('/ImageRepository/Document?documentID=94');
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+transition: .2s ease all;
+border-radius:3px;
+box-shadow: 0 0 15px rgba(0,0,0,.1);
+min-height:235px;
+outline:2px solid #2e4e84;
+outline-offset:-10px;
+}
+.fancyButton116.fancyButton:hover,.fancyButton116.fancyButton:focus,.fancyButton116.fancyButton:active,.fancyButton116.fancyButton.hover{
+	background-color: #2e4e84;
+	background-image: url('/ImageRepository/Document?documentID=95');
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+box-shadow: 0 2px 5px rgba(0,0,0,.5);
+outline:2px solid #fff;
+outline-offset:-15px;}
+.fancyButton116.fancyButton:link > span,.fancyButton116.fancyButton:visited > span, .fancyButton116div.fancyButton > span{
+}
+.fancyButton116.fancyButton:hover > span,.fancyButton116.fancyButton:focus > span,.fancyButton116.fancyButton:active > span,.fancyButton116.fancyButton.hover > span{
+}
+.fancyButton116.fancyButton .text{
+	color: #253d66;
+	font-size: 1.3em;
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+
+
+}
+.fancyButton116.fancyButton:hover .text,.fancyButton116.fancyButton:focus .text,.fancyButton116.fancyButton:active .text,.fancyButton116.fancyButton.hover .text{
+	color: #ffffff;
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+
+
+}
+</style>
+
+ </div><!--
+--></div></div><!----><div class="col col1  "><div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="/224/What-to-do-if-you-think-youre-sick" target="_self" class="fancyButton fancyButton117 " >
+		<span>
+			<span><span class="text">If You Think You Are Sick</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton117.fancyButton:link,.fancyButton117.fancyButton:visited, .fancyButton117div.fancyButton{
+	background-color: #ffffff;
+	padding-top: 10em;
+	padding-bottom: 2.5em;
+	padding-right: 2em;
+	padding-left: 2em;
+	background-image: url('/ImageRepository/Document?documentID=49');
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+transition: .2s ease all;
+border-radius:3px;
+box-shadow: 0 0 15px rgba(0,0,0,.1);
+min-height:235px;
+outline:2px solid #2e4e84;
+outline-offset:-10px;
+}
+.fancyButton117.fancyButton:hover,.fancyButton117.fancyButton:focus,.fancyButton117.fancyButton:active,.fancyButton117.fancyButton.hover{
+	background-color: #2e4e84;
+	background-image: url('/ImageRepository/Document?documentID=50');
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+box-shadow: 0 2px 5px rgba(0,0,0,.5);
+outline:2px solid #fff;
+outline-offset:-15px;}
+.fancyButton117.fancyButton:link > span,.fancyButton117.fancyButton:visited > span, .fancyButton117div.fancyButton > span{
+}
+.fancyButton117.fancyButton:hover > span,.fancyButton117.fancyButton:focus > span,.fancyButton117.fancyButton:active > span,.fancyButton117.fancyButton.hover > span{
+}
+.fancyButton117.fancyButton .text{
+	color: #253d66;
+	font-size: 1.3em;
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+
+
+}
+.fancyButton117.fancyButton:hover .text,.fancyButton117.fancyButton:focus .text,.fancyButton117.fancyButton:active .text,.fancyButton117.fancyButton.hover .text{
+	color: #ffffff;
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+
+
+}
+</style>
+
+ </div><!--
+--></div></div><!----><div class="col col1  last"><div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="https://ks-kdhecovid19.civicplus.com/faq.aspx" target="_self" class="fancyButton fancyButton118 " >
+		<span>
+			<span><span class="text">Frequently Asked Questions</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton118.fancyButton:link,.fancyButton118.fancyButton:visited, .fancyButton118div.fancyButton{
+	background-color: #ffffff;
+	padding-top: 10em;
+	padding-bottom: 2.5em;
+	padding-right: 2em;
+	padding-left: 2em;
+	background-image: url('/ImageRepository/Document?documentID=47');
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+transition: .2s ease all;
+border-radius:3px;
+box-shadow: 0 0 15px rgba(0,0,0,.1);
+min-height:235px;
+outline:2px solid #2e4e84;
+outline-offset:-10px;
+}
+.fancyButton118.fancyButton:hover,.fancyButton118.fancyButton:focus,.fancyButton118.fancyButton:active,.fancyButton118.fancyButton.hover{
+	background-color: #2e4e84;
+	background-image: url('/ImageRepository/Document?documentID=48');
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+box-shadow: 0 2px 5px rgba(0,0,0,.5);
+outline:2px solid #fff;
+outline-offset:-15px;}
+.fancyButton118.fancyButton:link > span,.fancyButton118.fancyButton:visited > span, .fancyButton118div.fancyButton > span{
+}
+.fancyButton118.fancyButton:hover > span,.fancyButton118.fancyButton:focus > span,.fancyButton118.fancyButton:active > span,.fancyButton118.fancyButton.hover > span{
+}
+.fancyButton118.fancyButton .text{
+	color: #253d66;
+	font-size: 1.3em;
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+
+
+}
+.fancyButton118.fancyButton:hover .text,.fancyButton118.fancyButton:focus .text,.fancyButton118.fancyButton:active .text,.fancyButton118.fancyButton.hover .text{
+	color: #ffffff;
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+
+
+}
+</style>
+
+ </div><!--
+--></div></div><!--			--></div>
+	</div>
+	<div class="widgetFooter">
+			</div>
+</div>
+
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!--		--></div> <!-- outer row -->
+
+
+		</div>
+
+	</div>
+
+	
+	<div class="newCP">
+
+	</div>
+</div>
+</div><aside data-cpRole="contentContainer" id="featureColumn" class="secondaryContent">	<div id="ccab764ffc-a54c-48ae-9f19-0dc8186cc06d" data-containerid="ab764ffc-a54c-48ae-9f19-0dc8186cc06d" class="pageContent cpGrid cpGrid24 showInMobile" data-contentcontainerbreakpoint="40">
+				                
+
+		<div class="row outer wide"><!--
+--><div class="outer col col24 first last" style="" data-widgetcontainerid="a068869a-8fb0-464a-93a2-d9dead9688e5">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col24 first last id56aa2afc-4d31-4a1d-a5eb-6565f8d3fac9" style="" data-widgetcontainerid="56aa2afc-4d31-4a1d-a5eb-6565f8d3fac9">	
+    <div data-widget-id="9a2e5025-4835-4c8c-96a5-6f0430ba15a3" data-widget-controller-path="/InfoAdvanced/Widget">
+
+
+
+
+
+	<section id="divInfoAdv9a2e5025-4835-4c8c-96a5-6f0430ba15a3" class="widget widgetInfoAdvanced skin54 widgetOptionSet5 wide" data-modulewidgettype="infoAdv" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}' data-elementquerymatch='matchMultiColumn' data-elementqueryunmatch='unmatchMultiColumn' aria-label="Info Advanced">
+			<header class="widgetHeader" id="header9a2e5025-4835-4c8c-96a5-6f0430ba15a3">
+		<div class="">
+								</div>
+	</header>
+	<div class="widgetBody  cpGrid cpGrid1 ">
+		<div class="row  wide">
+					<div class="col col1 first last">
+						<ol class="pageStyles semanticList">
+
+<li class="InfoAdvanced widgetItem ">
+	<div class="editor"><h1 class="headline">Toolkits</h1></div>
+</li>						</ol>
+					</div>
+		</div>
+	</div>
+	<div class="widgetFooter">
+
+	</div>
+
+	</section>
+
+
+
+<script type="text/javascript">
+	//Render slideshow if info advacned items contain one.
+	$(document).ready(function (e) {
+		$('#divInfoAdv9a2e5025-4835-4c8c-96a5-6f0430ba15a3 .InfoAdvanced.widgetItem').each(function () {
+			renderSlideshowIfApplicable($(this));		
+		});
+	});
+</script></div>	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!--		--></div> <!-- outer row -->
+		<div class="row outer wide"><!--
+--><div class="outer col col24 first last" style="" data-widgetcontainerid="413eb3ba-3655-450f-ac87-a30504a4d257">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col24 first last id30fce55d-0ebd-4925-ac6a-6eeb3105c5c4" style="" data-widgetcontainerid="30fce55d-0ebd-4925-ac6a-6eeb3105c5c4">	
+
+
+	<script defer src="/Areas/Layout/Assets/Scripts/CarouselWidget.js" type="text/javascript"></script>
+<section id="divCarousel80856595-2e93-42b0-91c9-292542d689a7" data-widgetid="80856595-2e93-42b0-91c9-292542d689a7" class="widget widgetCarousel wide" data-transition="slide" data-transitiontiming="1" aria-labelledby="header80856595-2e93-42b0-91c9-292542d689a7" aria-label="Carousel">
+	<div class="widgetBody">
+		<div class="widgetCarousel-container">
+			<div class="widgetCarousel-window">
+				<div class="widgetCarousel-slider">
+
+
+<div class="widgetCarousel-group" data-group="1">
+			<div class="widgetCarousel-item widgetCarousel-item--100 col" style="padding: 0 0.5em;">
+				
+<div data-widget-id="afc54af5-d572-48f4-a6f1-48cbbc2cfd1e" data-widget-controller-path="/GraphicLinks/Widget">
+
+
+
+
+<div id="graphicLinkWidgetafc54af5-d572-48f4-a6f1-48cbbc2cfd1e" class="widget widgetGraphicLinks skin62 widgetOptionSet29 wide" data-elementqueryclasses='{"wide-narrow":"min-width:48em"}' data-elementquerymatch='matchMultiColumn' data-elementqueryunmatch='unmatchMultiColumn' data-modulewidgettype="graphicLinks">
+	<div class="widgetHeader">
+		<div class="">
+				</div>
+	</div>
+	<div class="widgetBody cpGrid cpGrid4 ">	
+			<div class="row   wide"><!--
+--><div class="col col1 first "><div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="/253" target="_self" class="fancyButton fancyButton127 " >
+		<span>
+			<span><span class="text">Recursos en Español</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton127.fancyButton:link,.fancyButton127.fancyButton:visited, .fancyButton127div.fancyButton{
+	background-color: #ffffff;
+	padding-top: 6em;
+	padding-bottom: 1.2em;
+	padding-right: 1em;
+	padding-left: 1em;
+	background-image: url(/ImageRepository/Document?documentID=419);
+	background-repeat: no-repeat;
+	background-position: center 2.5em ;
+transition: .2s ease all;
+border-radius:3px;}
+.fancyButton127.fancyButton:hover,.fancyButton127.fancyButton:focus,.fancyButton127.fancyButton:active,.fancyButton127.fancyButton.hover{
+	background-color: #253d66;
+	background-image: url(/ImageRepository/Document?documentID=330);
+	background-repeat: no-repeat;
+	background-position: center 2.5em ;
+}
+.fancyButton127.fancyButton:link > span,.fancyButton127.fancyButton:visited > span, .fancyButton127div.fancyButton > span{
+}
+.fancyButton127.fancyButton:hover > span,.fancyButton127.fancyButton:focus > span,.fancyButton127.fancyButton:active > span,.fancyButton127.fancyButton.hover > span{
+}
+.fancyButton127.fancyButton .text{
+	color: #253d66;
+	font-size: .9em;
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+transition:.2s ease all;
+display:block;
+border-radius:3px;
+}
+.fancyButton127.fancyButton:hover .text,.fancyButton127.fancyButton:focus .text,.fancyButton127.fancyButton:active .text,.fancyButton127.fancyButton.hover .text{
+	color: #ffffff;
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+
+
+}
+</style>
+
+ </div><!--
+--></div></div><!----><div class="col col1  "><div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="/246" target="_self" class="fancyButton fancyButton62 " >
+		<span>
+			<span><span class="text">Individuals / Families</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton62.fancyButton:link,.fancyButton62.fancyButton:visited, .fancyButton62div.fancyButton{
+	background-color: #ffffff;
+	padding-top: 6em;
+	padding-bottom: 1.2em;
+	padding-right: 1em;
+	padding-left: 1em;
+	background-image: url(/ImageRepository/Document?documentID=396);
+	background-repeat: no-repeat;
+	background-position: center 2.5em ;
+transition: .2s ease all;
+border-radius:3px;}
+.fancyButton62.fancyButton:hover,.fancyButton62.fancyButton:focus,.fancyButton62.fancyButton:active,.fancyButton62.fancyButton.hover{
+	background-color: #253d66;
+	background-image: url(/ImageRepository/Document?documentID=287);
+	background-repeat: no-repeat;
+	background-position: center 2.5em ;
+}
+.fancyButton62.fancyButton:link > span,.fancyButton62.fancyButton:visited > span, .fancyButton62div.fancyButton > span{
+}
+.fancyButton62.fancyButton:hover > span,.fancyButton62.fancyButton:focus > span,.fancyButton62.fancyButton:active > span,.fancyButton62.fancyButton.hover > span{
+}
+.fancyButton62.fancyButton .text{
+	color: #253d66;
+	font-size: .9em;
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+transition:.2s ease all;
+display:block;
+border-radius:3px;
+}
+.fancyButton62.fancyButton:hover .text,.fancyButton62.fancyButton:focus .text,.fancyButton62.fancyButton:active .text,.fancyButton62.fancyButton.hover .text{
+	color: #ffffff;
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+
+
+}
+</style>
+
+ </div><!--
+--></div></div><!----><div class="col col1  "><div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="/227/Childcare-Foster-care" target="_self" class="fancyButton fancyButton63 " >
+		<span>
+			<span><span class="text">Child Care &amp; Foster Care</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton63.fancyButton:link,.fancyButton63.fancyButton:visited, .fancyButton63div.fancyButton{
+	background-color: #ffffff;
+	padding-top: 6em;
+	padding-bottom: 1.2em;
+	padding-right: 1em;
+	padding-left: 1em;
+	background-image: url(/ImageRepository/Document?documentID=408);
+	background-repeat: no-repeat;
+	background-position: center 2.5em ;
+transition: .2s ease all;
+border-radius:3px;}
+.fancyButton63.fancyButton:hover,.fancyButton63.fancyButton:focus,.fancyButton63.fancyButton:active,.fancyButton63.fancyButton.hover{
+	background-color: #253d66;
+	background-image: url(/ImageRepository/Document?documentID=283);
+	background-repeat: no-repeat;
+	background-position: center 2.5em ;
+}
+.fancyButton63.fancyButton:link > span,.fancyButton63.fancyButton:visited > span, .fancyButton63div.fancyButton > span{
+}
+.fancyButton63.fancyButton:hover > span,.fancyButton63.fancyButton:focus > span,.fancyButton63.fancyButton:active > span,.fancyButton63.fancyButton.hover > span{
+}
+.fancyButton63.fancyButton .text{
+	color: #253d66;
+	font-size: .9em;
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+transition:.2s ease all;
+display:block;
+border-radius:3px;
+}
+.fancyButton63.fancyButton:hover .text,.fancyButton63.fancyButton:focus .text,.fancyButton63.fancyButton:active .text,.fancyButton63.fancyButton.hover .text{
+	color: #ffffff;
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+
+
+}
+</style>
+
+ </div><!--
+--></div></div><!----><div class="col col1  last"><div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="/236/The-Law-Enforcement-EMS" target="_self" class="fancyButton fancyButton66 " >
+		<span>
+			<span><span class="text">Law Enforcement / EMS</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton66.fancyButton:link,.fancyButton66.fancyButton:visited, .fancyButton66div.fancyButton{
+	background-color: #ffffff;
+	padding-top: 6em;
+	padding-bottom: 1.2em;
+	padding-right: 1em;
+	padding-left: 1em;
+	background-image: url(/ImageRepository/Document?documentID=402);
+	background-repeat: no-repeat;
+	background-position: center 2.5em ;
+transition: .2s ease all;
+border-radius:3px;}
+.fancyButton66.fancyButton:hover,.fancyButton66.fancyButton:focus,.fancyButton66.fancyButton:active,.fancyButton66.fancyButton.hover{
+	background-color: #253d66;
+	background-image: url(/ImageRepository/Document?documentID=247);
+	background-repeat: no-repeat;
+	background-position: center 2.5em ;
+}
+.fancyButton66.fancyButton:link > span,.fancyButton66.fancyButton:visited > span, .fancyButton66div.fancyButton > span{
+}
+.fancyButton66.fancyButton:hover > span,.fancyButton66.fancyButton:focus > span,.fancyButton66.fancyButton:active > span,.fancyButton66.fancyButton.hover > span{
+}
+.fancyButton66.fancyButton .text{
+	color: #253d66;
+	font-size: .9em;
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+transition:.2s ease all;
+display:block;
+border-radius:3px;
+}
+.fancyButton66.fancyButton:hover .text,.fancyButton66.fancyButton:focus .text,.fancyButton66.fancyButton:active .text,.fancyButton66.fancyButton.hover .text{
+	color: #ffffff;
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+
+
+}
+</style>
+
+ </div><!--
+--></div></div><!--			--></div>
+	</div>
+	<div class="widgetFooter">
+			</div>
+</div>
+
+</div>
+
+			</div>
+	</div>
+
+
+<div class="widgetCarousel-group" data-group="2">
+			<div class="widgetCarousel-item widgetCarousel-item--100 col" style="padding: 0 0.5em;opacity:0;">
+				
+<div data-widget-id="0fb5a0dd-00cc-473f-9f4d-5ea1fa246550" data-widget-controller-path="/GraphicLinks/Widget">
+
+
+
+
+<div id="graphicLinkWidget0fb5a0dd-00cc-473f-9f4d-5ea1fa246550" class="widget widgetGraphicLinks skin62 widgetOptionSet30 wide" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}' data-elementquerymatch='matchMultiColumn' data-elementqueryunmatch='unmatchMultiColumn' data-modulewidgettype="graphicLinks">
+	<div class="widgetHeader">
+		<div class="">
+				</div>
+	</div>
+	<div class="widgetBody cpGrid cpGrid5 ">	
+			<div class="row   wide"><!--
+--><div class="col col1 first "><div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="/237/Long-Term-Care" target="_self" class="fancyButton fancyButton92 " >
+		<span>
+			<span><span class="text">Long-Term Care Facilities</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton92.fancyButton:link,.fancyButton92.fancyButton:visited, .fancyButton92div.fancyButton{
+	background-color: #ffffff;
+	padding-top: 6em;
+	padding-bottom: 1.2em;
+	padding-right: 1em;
+	padding-left: 1em;
+	background-image: url('/ImageRepository/Document?documentID=408');
+	background-repeat: no-repeat;
+	background-position: center 2.5em ;
+transition: .2s ease all;
+border-radius:3px;}
+.fancyButton92.fancyButton:hover,.fancyButton92.fancyButton:focus,.fancyButton92.fancyButton:active,.fancyButton92.fancyButton.hover{
+	background-color: #253d66;
+	background-image: url('/ImageRepository/Document?documentID=283');
+	background-repeat: no-repeat;
+	background-position: center 2.5em ;
+}
+.fancyButton92.fancyButton:link > span,.fancyButton92.fancyButton:visited > span, .fancyButton92div.fancyButton > span{
+}
+.fancyButton92.fancyButton:hover > span,.fancyButton92.fancyButton:focus > span,.fancyButton92.fancyButton:active > span,.fancyButton92.fancyButton.hover > span{
+}
+.fancyButton92.fancyButton .text{
+	color: #253d66;
+	font-size: .9em;
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+transition:.2s ease all;
+display:block;
+border-radius:3px;
+}
+.fancyButton92.fancyButton:hover .text,.fancyButton92.fancyButton:focus .text,.fancyButton92.fancyButton:active .text,.fancyButton92.fancyButton.hover .text{
+	color: #ffffff;
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+
+
+}
+</style>
+
+ </div><!--
+--></div></div><!----><div class="col col1  "><div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="/248" target="_self" class="fancyButton fancyButton94 " >
+		<span>
+			<span><span class="text">Businesses &amp; Employers</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton94.fancyButton:link,.fancyButton94.fancyButton:visited, .fancyButton94div.fancyButton{
+	background-color: #ffffff;
+	padding-top: 6em;
+	padding-bottom: 1.2em;
+	padding-right: 1em;
+	padding-left: 1em;
+	background-image: url('/ImageRepository/Document?documentID=415');
+	background-repeat: no-repeat;
+	background-position: center 2.5em ;
+transition: .2s ease all;
+border-radius:3px;}
+.fancyButton94.fancyButton:hover,.fancyButton94.fancyButton:focus,.fancyButton94.fancyButton:active,.fancyButton94.fancyButton.hover{
+	background-color: #253d66;
+	background-image: url('/ImageRepository/Document?documentID=257');
+	background-repeat: no-repeat;
+	background-position: center 2.5em ;
+}
+.fancyButton94.fancyButton:link > span,.fancyButton94.fancyButton:visited > span, .fancyButton94div.fancyButton > span{
+}
+.fancyButton94.fancyButton:hover > span,.fancyButton94.fancyButton:focus > span,.fancyButton94.fancyButton:active > span,.fancyButton94.fancyButton.hover > span{
+}
+.fancyButton94.fancyButton .text{
+	color: #253d66;
+	font-size: .9em;
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+transition:.2s ease all;
+display:block;
+border-radius:3px;
+}
+.fancyButton94.fancyButton:hover .text,.fancyButton94.fancyButton:focus .text,.fancyButton94.fancyButton:active .text,.fancyButton94.fancyButton.hover .text{
+	color: #ffffff;
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+
+
+}
+</style>
+
+ </div><!--
+--></div></div><!----><div class="col col1  "><div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="/250" target="_self" class="fancyButton fancyButton95 " >
+		<span>
+			<span><span class="text">Public Utilities</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton95.fancyButton:link,.fancyButton95.fancyButton:visited, .fancyButton95div.fancyButton{
+	background-color: #ffffff;
+	padding-top: 6em;
+	padding-bottom: 1.2em;
+	padding-right: 1em;
+	padding-left: 1em;
+	background-image: url('/ImageRepository/Document?documentID=417');
+	background-repeat: no-repeat;
+	background-position: center 2.5em ;
+transition: .2s ease all;
+border-radius:3px;}
+.fancyButton95.fancyButton:hover,.fancyButton95.fancyButton:focus,.fancyButton95.fancyButton:active,.fancyButton95.fancyButton.hover{
+	background-color: #253d66;
+	background-image: url('/ImageRepository/Document?documentID=255');
+	background-repeat: no-repeat;
+	background-position: center 2.5em ;
+}
+.fancyButton95.fancyButton:link > span,.fancyButton95.fancyButton:visited > span, .fancyButton95div.fancyButton > span{
+}
+.fancyButton95.fancyButton:hover > span,.fancyButton95.fancyButton:focus > span,.fancyButton95.fancyButton:active > span,.fancyButton95.fancyButton.hover > span{
+}
+.fancyButton95.fancyButton .text{
+	color: #253d66;
+	font-size: .9em;
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+transition:.2s ease all;
+display:block;
+border-radius:3px;
+}
+.fancyButton95.fancyButton:hover .text,.fancyButton95.fancyButton:focus .text,.fancyButton95.fancyButton:active .text,.fancyButton95.fancyButton.hover .text{
+	color: #ffffff;
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+
+
+}
+</style>
+
+ </div><!--
+--></div></div><!----><div class="col col1  "><div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="/257/Correctional-Detention-Facilities" target="_self" class="fancyButton fancyButton96 " >
+		<span>
+			<span><span class="text">Correctional &amp; Detention Facilities</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton96.fancyButton:link,.fancyButton96.fancyButton:visited, .fancyButton96div.fancyButton{
+	background-color: #ffffff;
+	padding-top: 6em;
+	padding-bottom: 1.2em;
+	padding-right: 1em;
+	padding-left: 1em;
+	background-image: url('/ImageRepository/Document?documentID=402');
+	background-repeat: no-repeat;
+	background-position: center 2.5em ;
+transition: .2s ease all;
+border-radius:3px;}
+.fancyButton96.fancyButton:hover,.fancyButton96.fancyButton:focus,.fancyButton96.fancyButton:active,.fancyButton96.fancyButton.hover{
+	background-color: #253d66;
+	background-image: url('/ImageRepository/Document?documentID=247');
+	background-repeat: no-repeat;
+	background-position: center 2.5em ;
+}
+.fancyButton96.fancyButton:link > span,.fancyButton96.fancyButton:visited > span, .fancyButton96div.fancyButton > span{
+}
+.fancyButton96.fancyButton:hover > span,.fancyButton96.fancyButton:focus > span,.fancyButton96.fancyButton:active > span,.fancyButton96.fancyButton.hover > span{
+}
+.fancyButton96.fancyButton .text{
+	color: #253d66;
+	font-size: .9em;
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+transition:.2s ease all;
+display:block;
+border-radius:3px;
+}
+.fancyButton96.fancyButton:hover .text,.fancyButton96.fancyButton:focus .text,.fancyButton96.fancyButton:active .text,.fancyButton96.fancyButton.hover .text{
+	color: #ffffff;
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+
+
+}
+</style>
+
+ </div><!--
+--></div></div><!----><div class="col col1  last"><div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="/238" target="_self" class="fancyButton fancyButton129 " >
+		<span>
+			<span><span class="text">Postmortem</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton129.fancyButton:link,.fancyButton129.fancyButton:visited, .fancyButton129div.fancyButton{
+	background-color: #ffffff;
+	padding-top: 6em;
+	padding-bottom: 1.2em;
+	padding-right: 1em;
+	padding-left: 1em;
+	background-image: url('/ImageRepository/Document?documentID=408');
+	background-repeat: no-repeat;
+	background-position: center 2.5em ;
+transition: .2s ease all;
+border-radius:3px;}
+.fancyButton129.fancyButton:hover,.fancyButton129.fancyButton:focus,.fancyButton129.fancyButton:active,.fancyButton129.fancyButton.hover{
+	background-color: #253d66;
+	background-image: url('/ImageRepository/Document?documentID=52');
+	background-repeat: no-repeat;
+	background-position: center 2.5em ;
+}
+.fancyButton129.fancyButton:link > span,.fancyButton129.fancyButton:visited > span, .fancyButton129div.fancyButton > span{
+}
+.fancyButton129.fancyButton:hover > span,.fancyButton129.fancyButton:focus > span,.fancyButton129.fancyButton:active > span,.fancyButton129.fancyButton.hover > span{
+}
+.fancyButton129.fancyButton .text{
+	color: #253d66;
+	font-size: .9em;
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+transition:.2s ease all;
+display:block;
+border-radius:3px;
+}
+.fancyButton129.fancyButton:hover .text,.fancyButton129.fancyButton:focus .text,.fancyButton129.fancyButton:active .text,.fancyButton129.fancyButton.hover .text{
+	color: #ffffff;
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+
+
+}
+</style>
+
+ </div><!--
+--></div></div><!--			--></div>
+	</div>
+	<div class="widgetFooter">
+			</div>
+</div>
+
+</div>
+
+			</div>
+	</div>
+
+
+<div class="widgetCarousel-group" data-group="3">
+			<div class="widgetCarousel-item widgetCarousel-item--100 col" style="padding: 0 0.5em;opacity:0;">
+				
+<div data-widget-id="3d376415-b562-4f9e-a2ed-2d81e37d6334" data-widget-controller-path="/GraphicLinks/Widget">
+
+
+
+
+<div id="graphicLinkWidget3d376415-b562-4f9e-a2ed-2d81e37d6334" class="widget widgetGraphicLinks skin62 widgetOptionSet29 wide" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}' data-elementquerymatch='matchMultiColumn' data-elementqueryunmatch='unmatchMultiColumn' data-modulewidgettype="graphicLinks">
+	<div class="widgetHeader">
+		<div class="">
+				</div>
+	</div>
+	<div class="widgetBody cpGrid cpGrid4 ">	
+			<div class="row   wide"><!--
+--><div class="col col1 first "><div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="/244/Mental-Health-Professionals" target="_self" class="fancyButton fancyButton107 " >
+		<span>
+			<span><span class="text">Mental Health Professionals</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton107.fancyButton:link,.fancyButton107.fancyButton:visited, .fancyButton107div.fancyButton{
+	background-color: #ffffff;
+	padding-top: 6em;
+	padding-bottom: 1.2em;
+	padding-right: 1em;
+	padding-left: 1em;
+	background-image: url('/ImageRepository/Document?documentID=411');
+	background-repeat: no-repeat;
+	background-position: center 2.5em ;
+transition: .2s ease all;
+border-radius:3px;}
+.fancyButton107.fancyButton:hover,.fancyButton107.fancyButton:focus,.fancyButton107.fancyButton:active,.fancyButton107.fancyButton.hover{
+	background-color: #253d66;
+	background-image: url('/ImageRepository/Document?documentID=275');
+	background-repeat: no-repeat;
+	background-position: center 2.5em ;
+}
+.fancyButton107.fancyButton:link > span,.fancyButton107.fancyButton:visited > span, .fancyButton107div.fancyButton > span{
+}
+.fancyButton107.fancyButton:hover > span,.fancyButton107.fancyButton:focus > span,.fancyButton107.fancyButton:active > span,.fancyButton107.fancyButton.hover > span{
+}
+.fancyButton107.fancyButton .text{
+	color: #253d66;
+	font-size: .9em;
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+transition:.2s ease all;
+display:block;
+border-radius:3px;
+}
+.fancyButton107.fancyButton:hover .text,.fancyButton107.fancyButton:focus .text,.fancyButton107.fancyButton:active .text,.fancyButton107.fancyButton.hover .text{
+	color: #ffffff;
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+
+
+}
+</style>
+
+ </div><!--
+--></div></div><!----><div class="col col1  "><div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="/240" target="_self" class="fancyButton fancyButton108 " >
+		<span>
+			<span><span class="text">Churches and Faith-Based Organizations</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton108.fancyButton:link,.fancyButton108.fancyButton:visited, .fancyButton108div.fancyButton{
+	background-color: #ffffff;
+	padding-top: 6em;
+	padding-bottom: 1.2em;
+	padding-right: 1em;
+	padding-left: 1em;
+	background-image: url('/ImageRepository/Document?documentID=439');
+	background-repeat: no-repeat;
+	background-position: center 2.5em ;
+transition: .2s ease all;
+border-radius:3px;}
+.fancyButton108.fancyButton:hover,.fancyButton108.fancyButton:focus,.fancyButton108.fancyButton:active,.fancyButton108.fancyButton.hover{
+	background-color: #253d66;
+	background-image: url('/ImageRepository/Document?documentID=321');
+	background-repeat: no-repeat;
+	background-position: center 2.5em ;
+}
+.fancyButton108.fancyButton:link > span,.fancyButton108.fancyButton:visited > span, .fancyButton108div.fancyButton > span{
+}
+.fancyButton108.fancyButton:hover > span,.fancyButton108.fancyButton:focus > span,.fancyButton108.fancyButton:active > span,.fancyButton108.fancyButton.hover > span{
+}
+.fancyButton108.fancyButton .text{
+	color: #253d66;
+	font-size: .9em;
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+transition:.2s ease all;
+display:block;
+border-radius:3px;
+}
+.fancyButton108.fancyButton:hover .text,.fancyButton108.fancyButton:focus .text,.fancyButton108.fancyButton:active .text,.fancyButton108.fancyButton.hover .text{
+	color: #ffffff;
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+
+
+}
+</style>
+
+ </div><!--
+--></div></div><!----><div class="col col1  "><div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="/242" target="_self" class="fancyButton fancyButton109 " >
+		<span>
+			<span><span class="text">Homeless Shelter and Food Pantry Services</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton109.fancyButton:link,.fancyButton109.fancyButton:visited, .fancyButton109div.fancyButton{
+	background-color: #ffffff;
+	padding-top: 6em;
+	padding-bottom: 1.2em;
+	padding-right: 1em;
+	padding-left: 1em;
+	background-image: url('/ImageRepository/Document?documentID=412');
+	background-repeat: no-repeat;
+	background-position: center 2.5em ;
+transition: .2s ease all;
+border-radius:3px;}
+.fancyButton109.fancyButton:hover,.fancyButton109.fancyButton:focus,.fancyButton109.fancyButton:active,.fancyButton109.fancyButton.hover{
+	background-color: #253d66;
+	background-image: url('/ImageRepository/Document?documentID=249');
+	background-repeat: no-repeat;
+	background-position: center 2.5em ;
+}
+.fancyButton109.fancyButton:link > span,.fancyButton109.fancyButton:visited > span, .fancyButton109div.fancyButton > span{
+}
+.fancyButton109.fancyButton:hover > span,.fancyButton109.fancyButton:focus > span,.fancyButton109.fancyButton:active > span,.fancyButton109.fancyButton.hover > span{
+}
+.fancyButton109.fancyButton .text{
+	color: #253d66;
+	font-size: .9em;
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+transition:.2s ease all;
+display:block;
+border-radius:3px;
+}
+.fancyButton109.fancyButton:hover .text,.fancyButton109.fancyButton:focus .text,.fancyButton109.fancyButton:active .text,.fancyButton109.fancyButton.hover .text{
+	color: #ffffff;
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+
+
+}
+</style>
+
+ </div><!--
+--></div></div><!----><div class="col col1  last"><div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="/258/Dental-Practices" target="_self" class="fancyButton fancyButton131 " >
+		<span>
+			<span><span class="text">Dental Practices</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton131.fancyButton:link,.fancyButton131.fancyButton:visited, .fancyButton131div.fancyButton{
+	background-color: #ffffff;
+	padding-top: 6em;
+	padding-bottom: 1.2em;
+	padding-right: 1em;
+	padding-left: 1em;
+	background-image: url('/ImageRepository/Document?documentID=411');
+	background-repeat: no-repeat;
+	background-position: center 2.5em ;
+transition: .2s ease all;
+border-radius:3px;}
+.fancyButton131.fancyButton:hover,.fancyButton131.fancyButton:focus,.fancyButton131.fancyButton:active,.fancyButton131.fancyButton.hover{
+	background-color: #253d66;
+	background-image: url('/ImageRepository/Document?documentID=275');
+	background-repeat: no-repeat;
+	background-position: center 2.5em ;
+}
+.fancyButton131.fancyButton:link > span,.fancyButton131.fancyButton:visited > span, .fancyButton131div.fancyButton > span{
+}
+.fancyButton131.fancyButton:hover > span,.fancyButton131.fancyButton:focus > span,.fancyButton131.fancyButton:active > span,.fancyButton131.fancyButton.hover > span{
+}
+.fancyButton131.fancyButton .text{
+	color: #253d66;
+	font-size: .9em;
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+transition:.2s ease all;
+display:block;
+border-radius:3px;
+}
+.fancyButton131.fancyButton:hover .text,.fancyButton131.fancyButton:focus .text,.fancyButton131.fancyButton:active .text,.fancyButton131.fancyButton.hover .text{
+	color: #ffffff;
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: center 2em ;
+
+
+}
+</style>
+
+ </div><!--
+--></div></div><!--			--></div>
+	</div>
+	<div class="widgetFooter">
+			</div>
+</div>
+
+</div>
+
+			</div>
+	</div>
+				</div>
+			</div>	
+				<a href="#" class="arrow next widgetCarousel-next disabled" style="display: none;"><span class="arrowBG"></span>Next<span class="arrowInner"></span></a>
+				<a href="#" class="arrow prev widgetCarousel-previous disabled" style="display: none;"><span class="arrowBG"></span>Previous<span class="arrowInner"></span></a>
+				<ol class="semanticList pager dots" style="display: none;"></ol>
+					<script type="text/javascript">
+						$.when(window.Pages.rwdReady).done(function () {
+							var mediaQuerySize = 48;
+							var carouselWidgetID = 'divCarousel80856595-2e93-42b0-91c9-292542d689a7';
+							var $carouselWidget = $('#' + carouselWidgetID);
+							var transition = 'slide';
+							var transitionTiming = 1;
+							var groupAdvance = 'manually';
+							var groupTiming = 5;
+							var showArrows = true;
+							var showPaging = true;
+							var showDots = true;
+
+							if (mediaQuerySize > 0) {
+								var mediaElementQuery = '#' + carouselWidgetID + ':media(this-min-width:' + mediaQuerySize + 'em)';
+								window.cpMedia.unregister(mediaElementQuery).register(mediaElementQuery, {
+									deferSetup: false,
+									setup: function () {
+										$carouselWidget.addClass('narrow').removeClass('wide');
+										cpMedia.diag('$(element).addClass("narrow"), mediaQuery: ' + mediaElementQuery);
+
+										$carouselWidget.carouselWidget({
+											transition: transition,
+											transitionTiming: transitionTiming,
+											groupAdvance: groupAdvance,
+											groupTiming: groupTiming,
+											showArrows: showArrows,
+											showPaging: showPaging,
+											showDots: showDots,
+											sliderSelector : 'div.widgetCarousel-slider',
+											groupSelector: 'div.widgetCarousel-group',
+											itemsSelector: 'div.widgetCarousel-item'
+										});
+									},
+									match: function () {
+										$carouselWidget.addClass('wide').removeClass('narrow');
+										cpMedia.diag('$(element).removeClass("narrow"), mediaQuery: ' + mediaElementQuery);
+
+										$carouselWidget.carouselWidget('destroy');
+										$carouselWidget.carouselWidget('init', {
+											transition: transition,
+											transitionTiming: transitionTiming,
+											groupAdvance: groupAdvance,
+											groupTiming: groupTiming,
+											showArrows: showArrows,
+											showPaging: showPaging,
+											showDots: showDots,
+											sliderSelector : 'div.widgetCarousel-slider',
+											groupSelector: 'div.widgetCarousel-group',
+											itemsSelector: ''
+										});
+									},
+									unmatch: function () {
+										$carouselWidget.addClass('narrow').removeClass('wide');
+										cpMedia.diag('$(element).addClass("narrow"), mediaQuery: ' + mediaElementQuery);
+
+										$carouselWidget.carouselWidget('destroy');
+										$carouselWidget.carouselWidget('init', {
+											transition: transition,
+											transitionTiming: transitionTiming,
+											groupAdvance: groupAdvance,
+											groupTiming: groupTiming,
+											showArrows: showArrows,
+											showPaging: showPaging,
+											showDots: showDots,
+											sliderSelector : 'div.widgetCarousel-slider',
+											groupSelector: 'div.widgetCarousel-group',
+											itemsSelector: 'div.widgetCarousel-item'
+										});
+									}
+								});
+							}
+						});
+
+					</script>
+		</div>
+	</div>
+</section>	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!--		--></div> <!-- outer row -->
+
+
+	</div>
+</aside>
+</div>
+</div></div>
+</div><!-- Healthcare Toolkits --><div data-cpRole="structuralContainer" id="structuralContainer10">
+<div class="siteWrap"><aside data-cpRole="contentContainer" id="contentContainer10a">	<div id="ccee8d9fdb-faa4-45ee-a4da-b04b6970be2e" data-containerid="ee8d9fdb-faa4-45ee-a4da-b04b6970be2e" class="pageContent cpGrid cpGrid24 showInMobile">
+				                
+
+		<div class="row outer wide"><!--
+--><div class="outer col col24 first last" style="" data-widgetcontainerid="04ba3098-b1f3-4c6d-b050-8d2efe3d840f">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col24 first last idc4a9ddfe-661d-4177-bba5-cb68a431bfeb" style="" data-widgetcontainerid="c4a9ddfe-661d-4177-bba5-cb68a431bfeb">	
+    <div data-widget-id="a1b2df70-e056-4df8-a9eb-c8ff773b1ba1" data-widget-controller-path="/InfoAdvanced/Widget">
+
+
+
+
+
+	<section id="divInfoAdva1b2df70-e056-4df8-a9eb-c8ff773b1ba1" class="widget widgetInfoAdvanced skin43 widgetOptionSet5 wide" data-modulewidgettype="infoAdv" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}' data-elementquerymatch='matchMultiColumn' data-elementqueryunmatch='unmatchMultiColumn' aria-label="Info Advanced">
+			<header class="widgetHeader" id="headera1b2df70-e056-4df8-a9eb-c8ff773b1ba1">
+		<div class="">
+								</div>
+	</header>
+	<div class="widgetBody  cpGrid cpGrid1 ">
+		<div class="row  wide">
+					<div class="col col1 first last">
+						<ol class="pageStyles semanticList">
+
+<li class="InfoAdvanced widgetItem ">
+	<div class="editor">
+<h1 class="headline" style="color: rgb(255, 255, 255);">Response &amp; Recovery Center</h1></div>
+</li>						</ol>
+					</div>
+		</div>
+	</div>
+	<div class="widgetFooter">
+
+	</div>
+
+	</section>
+
+
+
+<script type="text/javascript">
+	//Render slideshow if info advacned items contain one.
+	$(document).ready(function (e) {
+		$('#divInfoAdva1b2df70-e056-4df8-a9eb-c8ff773b1ba1 .InfoAdvanced.widgetItem').each(function () {
+			renderSlideshowIfApplicable($(this));		
+		});
+	});
+</script></div>	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!--		--></div> <!-- outer row -->
+		<div class="row outer wide"><!--
+--><div class="outer col col24 first last" style="" data-widgetcontainerid="1145dff0-b201-4d82-8cac-5cead5d10d49">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col24 first last id4dc9be9f-c07e-4881-9f4c-f932e2e5f258" style="" data-widgetcontainerid="4dc9be9f-c07e-4881-9f4c-f932e2e5f258">	
+<div class="widget editor pageStyles narrow" id="divEditor392a4d9b-648d-4d0a-9bc8-6a584b191d22" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}'>
+        <div class="fr-view">
+
+
+        <p><span style="color: rgb(255, 255, 255);">Visit the Kansas COVID-19 Response &amp; Recovery <a href="https://covid.ks.gov/" rel="noopener noreferrer" target="_blank">website</a>.</span></p>
+    </div>
+
+<script type="text/javascript">
+	$(document).ready(function (e) {		
+	    renderSlideshowIfApplicable($('#divEditor' + '392a4d9b-648d-4d0a-9bc8-6a584b191d22'));
+	});
+</script>
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!--		--></div> <!-- outer row -->
+		<div class="row outer wide"><!--
+--><div class="outer col col24 first last" style="" data-widgetcontainerid="25d1266d-2341-43f0-bb55-906f807f1370">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col24 first last id37ef77c6-3636-4a5c-9faa-6a249fbddb48" style="" data-widgetcontainerid="37ef77c6-3636-4a5c-9faa-6a249fbddb48">	
+
+	<div id="divTabbed871c65b7-785f-4555-a3d5-f294559f3547" class="widget widgetTabbed  wide skin43  " data-widgetid="871c65b7-785f-4555-a3d5-f294559f3547">
+		<ol class="tabbedWidget cpTabs  " style=" ">
+			<!--
+					--><li style="width: 19%;" class="active">	<a href="#tab871c65b7-785f-4555-a3d5-f294559f3547_0" onkeypress="this.onclick();" onclick="window.setTimeout(function(){reinitCarousels();},2);sizeTabbedContent(this);"><span class="tabName editable" data-sequence="0" data-tabname="Business" contenteditable="false">Business</span></a>
+</li><!--
+					--><li style="width: 19%;" class="">	<a href="#tab871c65b7-785f-4555-a3d5-f294559f3547_1" onkeypress="this.onclick();" onclick="window.setTimeout(function(){reinitCarousels();},2);sizeTabbedContent(this);"><span class="tabName editable" data-sequence="1" data-tabname="Education &amp; Childcare" contenteditable="false">Education & Childcare</span></a>
+</li><!--
+					--><li style="width: 19%;" class="">	<a href="#tab871c65b7-785f-4555-a3d5-f294559f3547_2" onkeypress="this.onclick();" onclick="window.setTimeout(function(){reinitCarousels();},2);sizeTabbedContent(this);"><span class="tabName editable" data-sequence="2" data-tabname="Employment &amp; Benefits" contenteditable="false">Employment & Benefits</span></a>
+</li><!--
+					--><li style="width: 19%;" class="">	<a href="#tab871c65b7-785f-4555-a3d5-f294559f3547_3" onkeypress="this.onclick();" onclick="window.setTimeout(function(){reinitCarousels();},2);sizeTabbedContent(this);"><span class="tabName editable" data-sequence="3" data-tabname="Residents" contenteditable="false">Residents</span></a>
+</li><!--
+					--><li style="width: 19%;" class="">	<a href="#tab871c65b7-785f-4555-a3d5-f294559f3547_4" onkeypress="this.onclick();" onclick="window.setTimeout(function(){reinitCarousels();},2);sizeTabbedContent(this);"><span class="tabName editable" data-sequence="4" data-tabname="Healthcare" contenteditable="false">Healthcare</span></a>
+</li><!--
+					-->
+		</ol>
+
+		<div class="cpTabPanels">
+			<ol class="tabbedWidgetNarrow cpTabs" style='display: none;'>
+						<li class="active"><a href="#tab871c65b7-785f-4555-a3d5-f294559f3547_0" onclick="window.setTimeout(function () { reinitCarousels(); }, 2);sizeTabbedContent(this);">Business</a></li>
+					</ol>
+				<div class="tabbedWidget cpTabPanel showing" style="" id="tab871c65b7-785f-4555-a3d5-f294559f3547_0">
+
+<div data-widget-id="b19376f1-b22b-4335-987d-f19d12136667" data-widget-controller-path="/GraphicLinks/Widget">
+
+
+
+
+<div id="graphicLinkWidgetb19376f1-b22b-4335-987d-f19d12136667" class="widget widgetGraphicLinks skin63 widgetOptionSet27 wide" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}' data-elementquerymatch='matchMultiColumn' data-elementqueryunmatch='unmatchMultiColumn' data-modulewidgettype="graphicLinks">
+	<div class="widgetHeader">
+		<div class="">
+				</div>
+	</div>
+	<div class="widgetBody cpGrid cpGrid1 ">	
+			<div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="https://www.kansascommerce.gov/" target="_self" class="fancyButton fancyButton41 " >
+		<span>
+			<span><span class="text">Businesses &amp; Employers</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton41.fancyButton:link,.fancyButton41.fancyButton:visited, .fancyButton41div.fancyButton{
+	background-color: #eeeeee;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	background-repeat: no-repeat;
+	background-position: left top;
+transition:.2s ease all;
+border-radius:3px;}
+.fancyButton41.fancyButton:hover,.fancyButton41.fancyButton:focus,.fancyButton41.fancyButton:active,.fancyButton41.fancyButton.hover{
+	background-color: #fbb621;
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.fancyButton41.fancyButton:link > span,.fancyButton41.fancyButton:visited > span, .fancyButton41div.fancyButton > span{
+}
+.fancyButton41.fancyButton:hover > span,.fancyButton41.fancyButton:focus > span,.fancyButton41.fancyButton:active > span,.fancyButton41.fancyButton.hover > span{
+}
+.fancyButton41.fancyButton .text{
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+.fancyButton41.fancyButton:hover .text,.fancyButton41.fancyButton:focus .text,.fancyButton41.fancyButton:active .text,.fancyButton41.fancyButton.hover .text{
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+
+ </div><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="http://www.dcf.ks.gov/Pages/default.aspx" target="_self" class="fancyButton fancyButton40 " >
+		<span>
+			<span><span class="text">Children &amp; Family Services</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton40.fancyButton:link,.fancyButton40.fancyButton:visited, .fancyButton40div.fancyButton{
+	background-color: #eeeeee;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	background-repeat: no-repeat;
+	background-position: left top;
+transition:.2s ease all;
+border-radius:3px;}
+.fancyButton40.fancyButton:hover,.fancyButton40.fancyButton:focus,.fancyButton40.fancyButton:active,.fancyButton40.fancyButton.hover{
+	background-color: #fbb621;
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.fancyButton40.fancyButton:link > span,.fancyButton40.fancyButton:visited > span, .fancyButton40div.fancyButton > span{
+}
+.fancyButton40.fancyButton:hover > span,.fancyButton40.fancyButton:focus > span,.fancyButton40.fancyButton:active > span,.fancyButton40.fancyButton.hover > span{
+}
+.fancyButton40.fancyButton .text{
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+.fancyButton40.fancyButton:hover .text,.fancyButton40.fancyButton:focus .text,.fancyButton40.fancyButton:active .text,.fancyButton40.fancyButton.hover .text{
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+
+ </div><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="https://www.ksrevenue.org/" target="_self" class="fancyButton fancyButton42 " >
+		<span>
+			<span><span class="text">Taxes</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton42.fancyButton:link,.fancyButton42.fancyButton:visited, .fancyButton42div.fancyButton{
+	background-color: #eeeeee;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	background-repeat: no-repeat;
+	background-position: left top;
+transition:.2s ease all;
+border-radius:3px;}
+.fancyButton42.fancyButton:hover,.fancyButton42.fancyButton:focus,.fancyButton42.fancyButton:active,.fancyButton42.fancyButton.hover{
+	background-color: #fbb621;
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.fancyButton42.fancyButton:link > span,.fancyButton42.fancyButton:visited > span, .fancyButton42div.fancyButton > span{
+}
+.fancyButton42.fancyButton:hover > span,.fancyButton42.fancyButton:focus > span,.fancyButton42.fancyButton:active > span,.fancyButton42.fancyButton.hover > span{
+}
+.fancyButton42.fancyButton .text{
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+.fancyButton42.fancyButton:hover .text,.fancyButton42.fancyButton:focus .text,.fancyButton42.fancyButton:active .text,.fancyButton42.fancyButton.hover .text{
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+
+ </div><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="https://www.kansascommerce.gov/covid-19-response/covid-19-response-business-incentives/" target="_self" class="fancyButton fancyButton43 " >
+		<span>
+			<span><span class="text">Apply for a Small Business Loan</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton43.fancyButton:link,.fancyButton43.fancyButton:visited, .fancyButton43div.fancyButton{
+	background-color: #eeeeee;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	background-repeat: no-repeat;
+	background-position: left top;
+transition:.2s ease all;
+border-radius:3px;}
+.fancyButton43.fancyButton:hover,.fancyButton43.fancyButton:focus,.fancyButton43.fancyButton:active,.fancyButton43.fancyButton.hover{
+	background-color: #fbb621;
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.fancyButton43.fancyButton:link > span,.fancyButton43.fancyButton:visited > span, .fancyButton43div.fancyButton > span{
+}
+.fancyButton43.fancyButton:hover > span,.fancyButton43.fancyButton:focus > span,.fancyButton43.fancyButton:active > span,.fancyButton43.fancyButton.hover > span{
+}
+.fancyButton43.fancyButton .text{
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+.fancyButton43.fancyButton:hover .text,.fancyButton43.fancyButton:focus .text,.fancyButton43.fancyButton:active .text,.fancyButton43.fancyButton.hover .text{
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+
+ </div><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="https://www.dol.ks.gov/employers" target="_self" class="fancyButton fancyButton44 " >
+		<span>
+			<span><span class="text">Unemployment Insurance</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton44.fancyButton:link,.fancyButton44.fancyButton:visited, .fancyButton44div.fancyButton{
+	background-color: #eeeeee;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	background-repeat: no-repeat;
+	background-position: left top;
+transition:.2s ease all;
+border-radius:3px;}
+.fancyButton44.fancyButton:hover,.fancyButton44.fancyButton:focus,.fancyButton44.fancyButton:active,.fancyButton44.fancyButton.hover{
+	background-color: #fbb621;
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.fancyButton44.fancyButton:link > span,.fancyButton44.fancyButton:visited > span, .fancyButton44div.fancyButton > span{
+}
+.fancyButton44.fancyButton:hover > span,.fancyButton44.fancyButton:focus > span,.fancyButton44.fancyButton:active > span,.fancyButton44.fancyButton.hover > span{
+}
+.fancyButton44.fancyButton .text{
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+.fancyButton44.fancyButton:hover .text,.fancyButton44.fancyButton:focus .text,.fancyButton44.fancyButton:active .text,.fancyButton44.fancyButton.hover .text{
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+
+ </div><!--
+			--></div>
+	</div>
+	<div class="widgetFooter">
+			</div>
+</div>
+
+</div>
+				</div>
+			<ol class="tabbedWidgetNarrow cpTabs" style='display: none;'>
+						<li class=""><a href="#tab871c65b7-785f-4555-a3d5-f294559f3547_1" onclick="window.setTimeout(function () { reinitCarousels(); }, 2);sizeTabbedContent(this);">Education &amp; Childcare</a></li>
+					</ol>
+				<div class="tabbedWidget cpTabPanel " style="display: none;" id="tab871c65b7-785f-4555-a3d5-f294559f3547_1">
+
+<div data-widget-id="db96e712-2bf3-47a3-a118-fae7c71ee575" data-widget-controller-path="/GraphicLinks/Widget">
+
+
+
+
+<div id="graphicLinkWidgetdb96e712-2bf3-47a3-a118-fae7c71ee575" class="widget widgetGraphicLinks skin63 widgetOptionSet27 wide" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}' data-elementquerymatch='matchMultiColumn' data-elementqueryunmatch='unmatchMultiColumn' data-modulewidgettype="graphicLinks">
+	<div class="widgetHeader">
+		<div class="">
+				</div>
+	</div>
+	<div class="widgetBody cpGrid cpGrid1 ">	
+			<div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="https://www.ksde.org/" target="_self" class="fancyButton fancyButton111 " >
+		<span>
+			<span><span class="text">Education</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton111.fancyButton:link,.fancyButton111.fancyButton:visited, .fancyButton111div.fancyButton{
+	background-color: #eeeeee;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	background-repeat: no-repeat;
+	background-position: left top;
+transition:.2s ease all;
+border-radius:3px;}
+.fancyButton111.fancyButton:hover,.fancyButton111.fancyButton:focus,.fancyButton111.fancyButton:active,.fancyButton111.fancyButton.hover{
+	background-color: #fbb621;
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.fancyButton111.fancyButton:link > span,.fancyButton111.fancyButton:visited > span, .fancyButton111div.fancyButton > span{
+}
+.fancyButton111.fancyButton:hover > span,.fancyButton111.fancyButton:focus > span,.fancyButton111.fancyButton:active > span,.fancyButton111.fancyButton.hover > span{
+}
+.fancyButton111.fancyButton .text{
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+.fancyButton111.fancyButton:hover .text,.fancyButton111.fancyButton:focus .text,.fancyButton111.fancyButton:active .text,.fancyButton111.fancyButton.hover .text{
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+
+ </div><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="https://sites.google.com/ksde.org/kansascontinuouslearning2020/home" target="_self" class="fancyButton fancyButton123 " >
+		<span>
+			<span><span class="text">K-12 Continuous Learning Guidelines</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton123.fancyButton:link,.fancyButton123.fancyButton:visited, .fancyButton123div.fancyButton{
+	background-color: #eeeeee;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	background-repeat: no-repeat;
+	background-position: left top;
+transition:.2s ease all;
+border-radius:3px;}
+.fancyButton123.fancyButton:hover,.fancyButton123.fancyButton:focus,.fancyButton123.fancyButton:active,.fancyButton123.fancyButton.hover{
+	background-color: #fbb621;
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.fancyButton123.fancyButton:link > span,.fancyButton123.fancyButton:visited > span, .fancyButton123div.fancyButton > span{
+}
+.fancyButton123.fancyButton:hover > span,.fancyButton123.fancyButton:focus > span,.fancyButton123.fancyButton:active > span,.fancyButton123.fancyButton.hover > span{
+}
+.fancyButton123.fancyButton .text{
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+.fancyButton123.fancyButton:hover .text,.fancyButton123.fancyButton:focus .text,.fancyButton123.fancyButton:active .text,.fancyButton123.fancyButton.hover .text{
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+
+ </div><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="/DocumentCenter/View/144/Interim-Guidance-for-Child-Care-Facilities-Licensed-by-the-Kansas-Department-of-Health-and-Environment-KDHE-PDF" target="_self" class="fancyButton fancyButton125 " >
+		<span>
+			<span><span class="text">Guidance for childcare providers</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton125.fancyButton:link,.fancyButton125.fancyButton:visited, .fancyButton125div.fancyButton{
+	background-color: #eeeeee;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	background-repeat: no-repeat;
+	background-position: left top;
+transition:.2s ease all;
+border-radius:3px;}
+.fancyButton125.fancyButton:hover,.fancyButton125.fancyButton:focus,.fancyButton125.fancyButton:active,.fancyButton125.fancyButton.hover{
+	background-color: #fbb621;
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.fancyButton125.fancyButton:link > span,.fancyButton125.fancyButton:visited > span, .fancyButton125div.fancyButton > span{
+}
+.fancyButton125.fancyButton:hover > span,.fancyButton125.fancyButton:focus > span,.fancyButton125.fancyButton:active > span,.fancyButton125.fancyButton.hover > span{
+}
+.fancyButton125.fancyButton .text{
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+.fancyButton125.fancyButton:hover .text,.fancyButton125.fancyButton:focus .text,.fancyButton125.fancyButton:active .text,.fancyButton125.fancyButton.hover .text{
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+
+ </div><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="http://www.dcf.ks.gov/services/ees/pages/child_care/childcaresubsidy.aspx" target="_self" class="fancyButton fancyButton126 " >
+		<span>
+			<span><span class="text">Apply for childcare benefits</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton126.fancyButton:link,.fancyButton126.fancyButton:visited, .fancyButton126div.fancyButton{
+	background-color: #eeeeee;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	background-repeat: no-repeat;
+	background-position: left top;
+transition:.2s ease all;
+border-radius:3px;}
+.fancyButton126.fancyButton:hover,.fancyButton126.fancyButton:focus,.fancyButton126.fancyButton:active,.fancyButton126.fancyButton.hover{
+	background-color: #fbb621;
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.fancyButton126.fancyButton:link > span,.fancyButton126.fancyButton:visited > span, .fancyButton126div.fancyButton > span{
+}
+.fancyButton126.fancyButton:hover > span,.fancyButton126.fancyButton:focus > span,.fancyButton126.fancyButton:active > span,.fancyButton126.fancyButton.hover > span{
+}
+.fancyButton126.fancyButton .text{
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+.fancyButton126.fancyButton:hover .text,.fancyButton126.fancyButton:focus .text,.fancyButton126.fancyButton:active .text,.fancyButton126.fancyButton.hover .text{
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+
+ </div><!--
+			--></div>
+	</div>
+	<div class="widgetFooter">
+			</div>
+</div>
+
+</div>
+				</div>
+			<ol class="tabbedWidgetNarrow cpTabs" style='display: none;'>
+						<li class=""><a href="#tab871c65b7-785f-4555-a3d5-f294559f3547_2" onclick="window.setTimeout(function () { reinitCarousels(); }, 2);sizeTabbedContent(this);">Employment &amp; Benefits</a></li>
+					</ol>
+				<div class="tabbedWidget cpTabPanel " style="display: none;" id="tab871c65b7-785f-4555-a3d5-f294559f3547_2">
+
+<div data-widget-id="a34e3a22-bb47-4b0c-a211-fd451e29c6fe" data-widget-controller-path="/GraphicLinks/Widget">
+
+
+
+
+<div id="graphicLinkWidgeta34e3a22-bb47-4b0c-a211-fd451e29c6fe" class="widget widgetGraphicLinks skin63 widgetOptionSet27 wide" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}' data-elementquerymatch='matchMultiColumn' data-elementqueryunmatch='unmatchMultiColumn' data-modulewidgettype="graphicLinks">
+	<div class="widgetHeader">
+		<div class="">
+				</div>
+	</div>
+	<div class="widgetBody cpGrid cpGrid1 ">	
+			<div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href=" https://www.kansascommerce.gov/covid-19-response/covid-19-jobs-and-hiring-portal/" target="_self" class="fancyButton fancyButton112 " >
+		<span>
+			<span><span class="text">Find A Job</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton112.fancyButton:link,.fancyButton112.fancyButton:visited, .fancyButton112div.fancyButton{
+	background-color: #eeeeee;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	background-repeat: no-repeat;
+	background-position: left top;
+transition:.2s ease all;
+border-radius:3px;}
+.fancyButton112.fancyButton:hover,.fancyButton112.fancyButton:focus,.fancyButton112.fancyButton:active,.fancyButton112.fancyButton.hover{
+	background-color: #fbb621;
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.fancyButton112.fancyButton:link > span,.fancyButton112.fancyButton:visited > span, .fancyButton112div.fancyButton > span{
+}
+.fancyButton112.fancyButton:hover > span,.fancyButton112.fancyButton:focus > span,.fancyButton112.fancyButton:active > span,.fancyButton112.fancyButton.hover > span{
+}
+.fancyButton112.fancyButton .text{
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+.fancyButton112.fancyButton:hover .text,.fancyButton112.fancyButton:focus .text,.fancyButton112.fancyButton:active .text,.fancyButton112.fancyButton.hover .text{
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+
+ </div><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="https://www.kdads.ks.gov/" target="_self" class="fancyButton fancyButton113 " >
+		<span>
+			<span><span class="text">Disability Services</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton113.fancyButton:link,.fancyButton113.fancyButton:visited, .fancyButton113div.fancyButton{
+	background-color: #eeeeee;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	background-repeat: no-repeat;
+	background-position: left top;
+transition:.2s ease all;
+border-radius:3px;}
+.fancyButton113.fancyButton:hover,.fancyButton113.fancyButton:focus,.fancyButton113.fancyButton:active,.fancyButton113.fancyButton.hover{
+	background-color: #fbb621;
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.fancyButton113.fancyButton:link > span,.fancyButton113.fancyButton:visited > span, .fancyButton113div.fancyButton > span{
+}
+.fancyButton113.fancyButton:hover > span,.fancyButton113.fancyButton:focus > span,.fancyButton113.fancyButton:active > span,.fancyButton113.fancyButton.hover > span{
+}
+.fancyButton113.fancyButton .text{
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+.fancyButton113.fancyButton:hover .text,.fancyButton113.fancyButton:focus .text,.fancyButton113.fancyButton:active .text,.fancyButton113.fancyButton.hover .text{
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+
+ </div><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="http://www.getkansasbenefits.gov/" target="_blank" class="fancyButton fancyButton115 "  aria-label="Get Unemployment Benefits opens in new window">
+		<span>
+			<span><span class="text">Get Unemployment Benefits</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton115.fancyButton:link,.fancyButton115.fancyButton:visited, .fancyButton115div.fancyButton{
+	background-color: #eeeeee;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	background-repeat: no-repeat;
+	background-position: left top;
+transition:.2s ease all;
+border-radius:3px;}
+.fancyButton115.fancyButton:hover,.fancyButton115.fancyButton:focus,.fancyButton115.fancyButton:active,.fancyButton115.fancyButton.hover{
+	background-color: #fbb621;
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.fancyButton115.fancyButton:link > span,.fancyButton115.fancyButton:visited > span, .fancyButton115div.fancyButton > span{
+}
+.fancyButton115.fancyButton:hover > span,.fancyButton115.fancyButton:focus > span,.fancyButton115.fancyButton:active > span,.fancyButton115.fancyButton.hover > span{
+}
+.fancyButton115.fancyButton .text{
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+.fancyButton115.fancyButton:hover .text,.fancyButton115.fancyButton:focus .text,.fancyButton115.fancyButton:active .text,.fancyButton115.fancyButton.hover .text{
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+
+ </div><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="http://www.dcf.ks.gov/services/ees/Pages/Cash/TANF.aspx" target="_self" class="fancyButton fancyButton120 " >
+		<span>
+			<span><span class="text">Cash Assistance (TANF)&nbsp;</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton120.fancyButton:link,.fancyButton120.fancyButton:visited, .fancyButton120div.fancyButton{
+	background-color: #eeeeee;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	background-repeat: no-repeat;
+	background-position: left top;
+transition:.2s ease all;
+border-radius:3px;}
+.fancyButton120.fancyButton:hover,.fancyButton120.fancyButton:focus,.fancyButton120.fancyButton:active,.fancyButton120.fancyButton.hover{
+	background-color: #fbb621;
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.fancyButton120.fancyButton:link > span,.fancyButton120.fancyButton:visited > span, .fancyButton120div.fancyButton > span{
+}
+.fancyButton120.fancyButton:hover > span,.fancyButton120.fancyButton:focus > span,.fancyButton120.fancyButton:active > span,.fancyButton120.fancyButton.hover > span{
+}
+.fancyButton120.fancyButton .text{
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+.fancyButton120.fancyButton:hover .text,.fancyButton120.fancyButton:focus .text,.fancyButton120.fancyButton:active .text,.fancyButton120.fancyButton.hover .text{
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+
+ </div><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="http://www.dcf.ks.gov/services/ees/Pages/Food/FoodAssistance.aspx" target="_self" class="fancyButton fancyButton121 " >
+		<span>
+			<span><span class="text">Food Assistance (SNAP)</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton121.fancyButton:link,.fancyButton121.fancyButton:visited, .fancyButton121div.fancyButton{
+	background-color: #eeeeee;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	background-repeat: no-repeat;
+	background-position: left top;
+transition:.2s ease all;
+border-radius:3px;}
+.fancyButton121.fancyButton:hover,.fancyButton121.fancyButton:focus,.fancyButton121.fancyButton:active,.fancyButton121.fancyButton.hover{
+	background-color: #fbb621;
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.fancyButton121.fancyButton:link > span,.fancyButton121.fancyButton:visited > span, .fancyButton121div.fancyButton > span{
+}
+.fancyButton121.fancyButton:hover > span,.fancyButton121.fancyButton:focus > span,.fancyButton121.fancyButton:active > span,.fancyButton121.fancyButton.hover > span{
+}
+.fancyButton121.fancyButton .text{
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+.fancyButton121.fancyButton:hover .text,.fancyButton121.fancyButton:focus .text,.fancyButton121.fancyButton:active .text,.fancyButton121.fancyButton.hover .text{
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+
+ </div><!--
+			--></div>
+	</div>
+	<div class="widgetFooter">
+			</div>
+</div>
+
+</div>
+				</div>
+			<ol class="tabbedWidgetNarrow cpTabs" style='display: none;'>
+						<li class=""><a href="#tab871c65b7-785f-4555-a3d5-f294559f3547_3" onclick="window.setTimeout(function () { reinitCarousels(); }, 2);sizeTabbedContent(this);">Residents</a></li>
+					</ol>
+				<div class="tabbedWidget cpTabPanel " style="display: none;" id="tab871c65b7-785f-4555-a3d5-f294559f3547_3">
+
+<div data-widget-id="0c71db49-0cc1-4175-a2f4-0cd93ba73dc7" data-widget-controller-path="/GraphicLinks/Widget">
+
+
+
+
+<div id="graphicLinkWidget0c71db49-0cc1-4175-a2f4-0cd93ba73dc7" class="widget widgetGraphicLinks skin63 widgetOptionSet27 wide" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}' data-elementquerymatch='matchMultiColumn' data-elementqueryunmatch='unmatchMultiColumn' data-modulewidgettype="graphicLinks">
+	<div class="widgetHeader">
+		<div class="">
+				</div>
+	</div>
+	<div class="widgetBody cpGrid cpGrid1 ">	
+			<div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="https://ksoutdoors.com/" target="_self" class="fancyButton fancyButton39 " >
+		<span>
+			<span><span class="text">Recreation</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton39.fancyButton:link,.fancyButton39.fancyButton:visited, .fancyButton39div.fancyButton{
+	background-color: #eeeeee;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	background-repeat: no-repeat;
+	background-position: left top;
+transition:.2s ease all;}
+.fancyButton39.fancyButton:hover,.fancyButton39.fancyButton:focus,.fancyButton39.fancyButton:active,.fancyButton39.fancyButton.hover{
+	background-color: #fbb621;
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.fancyButton39.fancyButton:link > span,.fancyButton39.fancyButton:visited > span, .fancyButton39div.fancyButton > span{
+}
+.fancyButton39.fancyButton:hover > span,.fancyButton39.fancyButton:focus > span,.fancyButton39.fancyButton:active > span,.fancyButton39.fancyButton.hover > span{
+}
+.fancyButton39.fancyButton .text{
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+.fancyButton39.fancyButton:hover .text,.fancyButton39.fancyButton:focus .text,.fancyButton39.fancyButton:active .text,.fancyButton39.fancyButton.hover .text{
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+
+ </div><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="https://www.ksrevenue.org/" target="_self" class="fancyButton fancyButton70 " >
+		<span>
+			<span><span class="text">Taxes</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton70.fancyButton:link,.fancyButton70.fancyButton:visited, .fancyButton70div.fancyButton{
+	background-color: #eeeeee;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	background-repeat: no-repeat;
+	background-position: left top;
+transition:.2s ease all;}
+.fancyButton70.fancyButton:hover,.fancyButton70.fancyButton:focus,.fancyButton70.fancyButton:active,.fancyButton70.fancyButton.hover{
+	background-color: #fbb621;
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.fancyButton70.fancyButton:link > span,.fancyButton70.fancyButton:visited > span, .fancyButton70div.fancyButton > span{
+}
+.fancyButton70.fancyButton:hover > span,.fancyButton70.fancyButton:focus > span,.fancyButton70.fancyButton:active > span,.fancyButton70.fancyButton.hover > span{
+}
+.fancyButton70.fancyButton .text{
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+.fancyButton70.fancyButton:hover .text,.fancyButton70.fancyButton:focus .text,.fancyButton70.fancyButton:active .text,.fancyButton70.fancyButton.hover .text{
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+
+ </div><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="https://agriculture.ks.gov/about-kda" target="_self" class="fancyButton fancyButton71 " >
+		<span>
+			<span><span class="text">Agriculture &amp; Food</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton71.fancyButton:link,.fancyButton71.fancyButton:visited, .fancyButton71div.fancyButton{
+	background-color: #eeeeee;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	background-repeat: no-repeat;
+	background-position: left top;
+transition:.2s ease all;}
+.fancyButton71.fancyButton:hover,.fancyButton71.fancyButton:focus,.fancyButton71.fancyButton:active,.fancyButton71.fancyButton.hover{
+	background-color: #fbb621;
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.fancyButton71.fancyButton:link > span,.fancyButton71.fancyButton:visited > span, .fancyButton71div.fancyButton > span{
+}
+.fancyButton71.fancyButton:hover > span,.fancyButton71.fancyButton:focus > span,.fancyButton71.fancyButton:active > span,.fancyButton71.fancyButton.hover > span{
+}
+.fancyButton71.fancyButton .text{
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+.fancyButton71.fancyButton:hover .text,.fancyButton71.fancyButton:focus .text,.fancyButton71.fancyButton:active .text,.fancyButton71.fancyButton.hover .text{
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+
+ </div><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="https://www.doc.ks.gov/" target="_self" class="fancyButton fancyButton72 " >
+		<span>
+			<span><span class="text">Department of Corrections</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton72.fancyButton:link,.fancyButton72.fancyButton:visited, .fancyButton72div.fancyButton{
+	background-color: #eeeeee;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	background-repeat: no-repeat;
+	background-position: left top;
+transition:.2s ease all;}
+.fancyButton72.fancyButton:hover,.fancyButton72.fancyButton:focus,.fancyButton72.fancyButton:active,.fancyButton72.fancyButton.hover{
+	background-color: #fbb621;
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.fancyButton72.fancyButton:link > span,.fancyButton72.fancyButton:visited > span, .fancyButton72div.fancyButton > span{
+}
+.fancyButton72.fancyButton:hover > span,.fancyButton72.fancyButton:focus > span,.fancyButton72.fancyButton:active > span,.fancyButton72.fancyButton.hover > span{
+}
+.fancyButton72.fancyButton .text{
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+.fancyButton72.fancyButton:hover .text,.fancyButton72.fancyButton:focus .text,.fancyButton72.fancyButton:active .text,.fancyButton72.fancyButton.hover .text{
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+
+ </div><!--
+			--></div>
+	</div>
+	<div class="widgetFooter">
+			</div>
+</div>
+
+</div>
+				</div>
+			<ol class="tabbedWidgetNarrow cpTabs" style='display: none;'>
+						<li class=""><a href="#tab871c65b7-785f-4555-a3d5-f294559f3547_4" onclick="window.setTimeout(function () { reinitCarousels(); }, 2);sizeTabbedContent(this);">Healthcare</a></li>
+					</ol>
+				<div class="tabbedWidget cpTabPanel " style="display: none;" id="tab871c65b7-785f-4555-a3d5-f294559f3547_4">
+
+<div data-widget-id="c0d681bd-68db-40f4-9d48-244399ab905e" data-widget-controller-path="/GraphicLinks/Widget">
+
+
+
+
+<div id="graphicLinkWidgetc0d681bd-68db-40f4-9d48-244399ab905e" class="widget widgetGraphicLinks skin63 widgetOptionSet27 wide" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}' data-elementquerymatch='matchMultiColumn' data-elementqueryunmatch='unmatchMultiColumn' data-modulewidgettype="graphicLinks">
+	<div class="widgetHeader">
+		<div class="">
+				</div>
+	</div>
+	<div class="widgetBody cpGrid cpGrid1 ">	
+			<div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="https://www.kdads.ks.gov/" target="_self" class="fancyButton fancyButton114 " >
+		<span>
+			<span><span class="text">Long-Term Care</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton114.fancyButton:link,.fancyButton114.fancyButton:visited, .fancyButton114div.fancyButton{
+	background-color: #eeeeee;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	background-repeat: no-repeat;
+	background-position: left top;
+transition:.2s ease all;
+border-radius:3px;}
+.fancyButton114.fancyButton:hover,.fancyButton114.fancyButton:focus,.fancyButton114.fancyButton:active,.fancyButton114.fancyButton.hover{
+	background-color: #fbb621;
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.fancyButton114.fancyButton:link > span,.fancyButton114.fancyButton:visited > span, .fancyButton114div.fancyButton > span{
+}
+.fancyButton114.fancyButton:hover > span,.fancyButton114.fancyButton:focus > span,.fancyButton114.fancyButton:active > span,.fancyButton114.fancyButton.hover > span{
+}
+.fancyButton114.fancyButton .text{
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+.fancyButton114.fancyButton:hover .text,.fancyButton114.fancyButton:focus .text,.fancyButton114.fancyButton:active .text,.fancyButton114.fancyButton.hover .text{
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+
+ </div><!--
+			--></div>
+	</div>
+	<div class="widgetFooter">
+			</div>
+</div>
+
+</div>
+				</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$.when(window.Pages.rwdReady).done(function () {
+			var tabbedWidgetID = 'divTabbed871c65b7-785f-4555-a3d5-f294559f3547';
+			var mediaQuerySize = 48;
+			if (mediaQuerySize > 0) {
+				var mediaElementQuery = '#' + tabbedWidgetID + ':media(this-min-width:' + mediaQuerySize + 'em)';
+				var $tabbedWidget = $('#' + tabbedWidgetID);
+				window.cpMedia.unregister(mediaElementQuery).register(mediaElementQuery, {
+					deferSetup: false,
+					setup: function () {
+						var liveEditEnabled = $.cookie("enableLiveEdit") === "true";
+						if (!liveEditEnabled) {
+							$tabbedWidget.addClass('narrow').removeClass('wide');
+							cpMedia.diag('$(element).addClass("narrow"), mediaQuery: ' + mediaElementQuery);
+							$tabbedWidget.find('.tabbedWidget.cpTabs').hide();
+							$tabbedWidget.find('.tabbedWidgetNarrow.cpTabs').show();
+							$tabbedWidget.data("tabHeightSet", false);
+						}
+					},
+					match: function () {
+						$tabbedWidget.addClass('wide').removeClass('narrow');
+						cpMedia.diag('$(element).removeClass("narrow"), mediaQuery: ' + mediaElementQuery);
+						$tabbedWidget.find('.tabbedWidget.cpTabs').show();
+						$tabbedWidget.find('.tabbedWidgetNarrow.cpTabs').hide();
+
+						if($tabbedWidget.data("tabHeightSet") == false)
+						{
+							$tabbedWidget.data("tabHeightSet", true);
+
+							var tabbedWidgetID = 'divTabbed871c65b7-785f-4555-a3d5-f294559f3547';
+					        setTabbedWidgetsTabHeight(tabbedWidgetID);
+						}
+						$('.cpTabPanels').unbind('click');
+					},
+					unmatch: function () {
+						var liveEditEnabled = $.cookie("enableLiveEdit") === "true";
+						if (!liveEditEnabled) {
+							$tabbedWidget.addClass('narrow').removeClass('wide');
+							cpMedia.diag('$(element).addClass("narrow"), mediaQuery: ' + mediaElementQuery);
+							$tabbedWidget.find('.tabbedWidget.cpTabs').hide();
+							$tabbedWidget.find('.tabbedWidgetNarrow.cpTabs').show();
+						}
+						$('.cpTabPanels').click(function() {
+							this.scrollIntoView();
+						});
+					}
+				});
+			}
+		});
+
+        //Used for when page is initially loaded
+        if($('#divTabbed871c65b7-785f-4555-a3d5-f294559f3547').hasClass('narrow'))
+        {
+            $('.cpTabPanels').click(function() {
+                this.scrollIntoView();
+            });
+        }
+
+		//If responsive not enabled, execute this after a timeout
+		if(!isResponsiveEnabled)
+		{
+			window.setTimeout(function(){
+				var tabbedWidgetID = 'divTabbed871c65b7-785f-4555-a3d5-f294559f3547';
+				setTabbedWidgetsTabHeight(tabbedWidgetID);
+			}, 1500);
+		}
+
+		function reinitCarousels() {
+			if (window.carouselsToInit) {
+				for (var i = 0; i < window.carouselsToInit.length; i++) {
+					carouselsToInit[i]();
+				}
+			}
+		}
+		function sizeTabbedContent(element){
+			if(window.Pages){
+				if(window.Pages.onResizeHandlers){
+					var setTabbedInterval = setInterval(function () {
+						window.Pages.onResizeHandlers.forEach(function(car){car();});
+					}, 25)
+
+
+					setTimeout(function () {
+						clearInterval(setTabbedInterval);
+						if ($.cookie("enableLiveEdit") === "true") {
+							setInterval(function () {
+								window.Pages.onResizeHandlers.forEach(function(car){car();});
+							}, 2000);
+						}
+					}, 2500);
+					element.onclick="window.setTimeout(function(){reinitCarousels();},2);"
+				}
+			}
+		}
+	</script>
+
+
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!--		--></div> <!-- outer row -->
+
+
+	</div>
+</aside></div>
+</div><!-- Additional Resources --><div data-cpRole="structuralContainer" id="structuralContainer13">
+<div class="siteWrap"><aside data-cpRole="contentContainer" id="contentContainer13a">	<div id="cc5524c2bd-23f5-40f8-95db-b21e7e047b49" data-containerid="5524c2bd-23f5-40f8-95db-b21e7e047b49" class="pageContent cpGrid cpGrid24 showInMobile" data-contentcontainerbreakpoint="48">
+				                
+
+		<div class="row outer wide"><!--
+--><div class="outer col col24 first last" style="" data-widgetcontainerid="8514bc60-1163-4f71-bf76-6f04be4204d9">				
+	<div class="row nest first wide">
+	
+	<div class="inner col col24 first last id03c23d64-b90f-4796-93b2-8bc2c89b0795" style="" data-widgetcontainerid="03c23d64-b90f-4796-93b2-8bc2c89b0795">	
+<div class="widget editor pageStyles narrow" id="divEditord48f64f1-c846-47c8-9137-13862923ece6" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}'>
+        <div class="fr-view">
+
+
+        <h1 class="headline ">Additional Resources</h1><p>Rumors and scams can easily circulate in times of crisis. Do your part to the stop the spread of misinformation and protect Kansans by relying on trusted sources of information. <a href="https://www.coronavirus.kdheks.gov/CivicAlerts.aspx?AID=18" rel="noopener noreferrer" target="_blank">Learn more</a> about how to protect yourself and your loved ones from the latest COVID-19 scams.</p>
+    </div>
+
+<script type="text/javascript">
+	$(document).ready(function (e) {		
+	    renderSlideshowIfApplicable($('#divEditor' + 'd48f64f1-c846-47c8-9137-13862923ece6'));
+	});
+</script>
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+	<div class="row nest last wide">
+	
+	<div class="inner col col24 first last id42ec6f36-ec31-4d8a-b1f8-109737ad1f6e" style="" data-widgetcontainerid="42ec6f36-ec31-4d8a-b1f8-109737ad1f6e">	
+<div data-widget-id="b49be833-6c77-40b5-b209-acd525c60d6d" data-widget-controller-path="/GraphicLinks/Widget">
+
+
+
+
+<div id="graphicLinkWidgetb49be833-6c77-40b5-b209-acd525c60d6d" class="widget widgetGraphicLinks skin45 widgetOptionSet26 wide" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}' data-elementquerymatch='matchMultiColumn' data-elementqueryunmatch='unmatchMultiColumn' data-modulewidgettype="graphicLinks">
+	<div class="widgetHeader">
+		<div class="">
+				</div>
+	</div>
+	<div class="widgetBody cpGrid cpGrid2 ">	
+			<div class="row   wide"><!--
+--><div class="col col1 first "><div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="https://www.cdc.gov/coronavirus/2019-nCoV/index.html" target="_self" class="fancyButton fancyButton34 " >
+		<span>
+			<span><span class="text">Learn the facts with CDC.gov</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton34.fancyButton:link,.fancyButton34.fancyButton:visited, .fancyButton34div.fancyButton{
+	background-image: url('/ImageRepository/Document?documentID=418');
+	background-repeat: no-repeat;
+	background-position: left center;
+transition:.25s ease all;
+background-size:35px;}
+.fancyButton34.fancyButton:hover,.fancyButton34.fancyButton:focus,.fancyButton34.fancyButton:active,.fancyButton34.fancyButton.hover{
+	background-image: url('/ImageRepository/Document?documentID=334');
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+.fancyButton34.fancyButton:link > span,.fancyButton34.fancyButton:visited > span, .fancyButton34div.fancyButton > span{
+}
+.fancyButton34.fancyButton:hover > span,.fancyButton34.fancyButton:focus > span,.fancyButton34.fancyButton:active > span,.fancyButton34.fancyButton.hover > span{
+}
+.fancyButton34.fancyButton .text{
+	color: #2e4e84;
+	font-family: "Nunito Sans";
+	text-align: left;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	padding-right: 2em;
+	padding-left: 3em;
+	font-weight: 700;
+	text-decoration: none;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	padding-right: 2em;
+	padding-left: 3em;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+transition:.25s ease all;}
+.fancyButton34.fancyButton:hover .text,.fancyButton34.fancyButton:focus .text,.fancyButton34.fancyButton:active .text,.fancyButton34.fancyButton.hover .text{
+	color: #253d66;
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+
+ </div><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="https://www.fema.gov/Coronavirus-Rumor-Control" target="_self" class="fancyButton fancyButton35 " >
+		<span>
+			<span><span class="text">Dispel rumors with FEMA.gov</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton35.fancyButton:link,.fancyButton35.fancyButton:visited, .fancyButton35div.fancyButton{
+	background-image: url('/ImageRepository/Document?documentID=419');
+	background-repeat: no-repeat;
+	background-position: left center;
+transition:.25s ease all;
+background-size:35px;}
+.fancyButton35.fancyButton:hover,.fancyButton35.fancyButton:focus,.fancyButton35.fancyButton:active,.fancyButton35.fancyButton.hover{
+	background-image: url('/ImageRepository/Document?documentID=330');
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+.fancyButton35.fancyButton:link > span,.fancyButton35.fancyButton:visited > span, .fancyButton35div.fancyButton > span{
+}
+.fancyButton35.fancyButton:hover > span,.fancyButton35.fancyButton:focus > span,.fancyButton35.fancyButton:active > span,.fancyButton35.fancyButton.hover > span{
+}
+.fancyButton35.fancyButton .text{
+	color: #2e4e84;
+	font-family: "Nunito Sans";
+	text-align: left;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	padding-right: 2em;
+	padding-left: 3em;
+	font-weight: 700;
+	text-decoration: none;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	padding-right: 2em;
+	padding-left: 3em;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+transition:.25s ease all;}
+.fancyButton35.fancyButton:hover .text,.fancyButton35.fancyButton:focus .text,.fancyButton35.fancyButton:active .text,.fancyButton35.fancyButton.hover .text{
+	color: #253d66;
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+
+ </div><!--
+--></div></div><!----><div class="col col1  last"><div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="https://oig.hhs.gov/coronavirus/fraud-alert-covid19.asp?utm_source=web&amp;utm_medium=web&amp;utm_campaign=covid19-fraud-alert" target="_self" class="fancyButton fancyButton36 " >
+		<span>
+			<span><span class="text">Identify &amp; report scams courtesy of HHS.gov</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton36.fancyButton:link,.fancyButton36.fancyButton:visited, .fancyButton36div.fancyButton{
+	background-image: url('/ImageRepository/Document?documentID=420');
+	background-repeat: no-repeat;
+	background-position: left center;
+transition:.25s ease all;
+background-size:35px;}
+.fancyButton36.fancyButton:hover,.fancyButton36.fancyButton:focus,.fancyButton36.fancyButton:active,.fancyButton36.fancyButton.hover{
+	background-image: url('/ImageRepository/Document?documentID=331');
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+.fancyButton36.fancyButton:link > span,.fancyButton36.fancyButton:visited > span, .fancyButton36div.fancyButton > span{
+}
+.fancyButton36.fancyButton:hover > span,.fancyButton36.fancyButton:focus > span,.fancyButton36.fancyButton:active > span,.fancyButton36.fancyButton.hover > span{
+}
+.fancyButton36.fancyButton .text{
+	color: #2e4e84;
+	font-family: "Nunito Sans";
+	text-align: left;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	padding-right: 2em;
+	padding-left: 3em;
+	font-weight: 700;
+	text-decoration: none;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	padding-right: 2em;
+	padding-left: 3em;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+transition:.25s ease all;}
+.fancyButton36.fancyButton:hover .text,.fancyButton36.fancyButton:focus .text,.fancyButton36.fancyButton:active .text,.fancyButton36.fancyButton.hover .text{
+	color: #253d66;
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+
+ </div><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="https://www.usa.gov/coronavirus" target="_self" class="fancyButton fancyButton37 " >
+		<span>
+			<span><span class="text">Learn more about the U.S. government response</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton37.fancyButton:link,.fancyButton37.fancyButton:visited, .fancyButton37div.fancyButton{
+	background-image: url('/ImageRepository/Document?documentID=414');
+	background-repeat: no-repeat;
+	background-position: left center;
+transition:.25s ease all;
+background-size:35px;}
+.fancyButton37.fancyButton:hover,.fancyButton37.fancyButton:focus,.fancyButton37.fancyButton:active,.fancyButton37.fancyButton.hover{
+	background-image: url('/ImageRepository/Document?documentID=273');
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+.fancyButton37.fancyButton:link > span,.fancyButton37.fancyButton:visited > span, .fancyButton37div.fancyButton > span{
+}
+.fancyButton37.fancyButton:hover > span,.fancyButton37.fancyButton:focus > span,.fancyButton37.fancyButton:active > span,.fancyButton37.fancyButton.hover > span{
+}
+.fancyButton37.fancyButton .text{
+	color: #2e4e84;
+	font-family: "Nunito Sans";
+	text-align: left;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	padding-right: 2em;
+	padding-left: 3em;
+	font-weight: 700;
+	text-decoration: none;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	padding-right: 2em;
+	padding-left: 3em;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+transition:.25s ease all;}
+.fancyButton37.fancyButton:hover .text,.fancyButton37.fancyButton:focus .text,.fancyButton37.fancyButton:active .text,.fancyButton37.fancyButton.hover .text{
+	color: #253d66;
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+
+ </div><!--
+--></div></div><!--			--></div>
+	</div>
+	<div class="widgetFooter">
+			</div>
+</div>
+
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!--		--></div> <!-- outer row -->
+
+
+	</div>
+</aside></div>
+</div><!-- Footer --><div data-cpRole="structuralContainer" id="structuralContainer14">
+<div class="siteWrap"><footer data-cpRole="contentContainer" id="contentContainer14a" class="siteFooter">	<div id="cc36510a32-f4c0-4f90-8651-9123af83543f" data-containerid="36510a32-f4c0-4f90-8651-9123af83543f" class="pageContent cpGrid cpGrid24 isLockedContainer showInMobile" data-contentcontainerbreakpoint="48">
+				                
+
+		<div class="row outer wide"><!--
+--><div class="outer col col12 first" style="" data-widgetcontainerid="db9f7f39-596c-4d57-bec2-1ffeb2f1877e">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col12 first last id2c96881e-f170-496f-a50d-78b5457de1df" style="" data-widgetcontainerid="2c96881e-f170-496f-a50d-78b5457de1df">	
+    <div data-widget-id="f5cceff1-f39a-402d-9294-a30b67b103b3" data-widget-controller-path="/InfoAdvanced/Widget">
+
+
+
+
+
+	<section id="divInfoAdvf5cceff1-f39a-402d-9294-a30b67b103b3" class="widget widgetInfoAdvanced skin37 widgetOptionSet5 wide" data-modulewidgettype="infoAdv" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}' data-elementquerymatch='matchMultiColumn' data-elementqueryunmatch='unmatchMultiColumn' aria-label="Info Advanced">
+			<header class="widgetHeader" id="headerf5cceff1-f39a-402d-9294-a30b67b103b3">
+		<div class="">
+								</div>
+	</header>
+	<div class="widgetBody  cpGrid cpGrid1 ">
+		<div class="row  wide">
+					<div class="col col1 first last">
+						<ol class="pageStyles semanticList">
+
+<li class="InfoAdvanced widgetItem ">
+	<img width="154" height="102" src="/ImageRepository/Document?documentID=55" alt="Kansas Department of Health and Environment" title="Kansas" class="floatLeft" style="text-align: left; padding: 1em 1em 1em 0;"><br>
+<h1 class="headline" style="clear: both; float: left; display: block; color: rgb(255, 255, 255);">
+Stay Home. Stay Safe. Save Lives.</h1>
+</li>						</ol>
+					</div>
+		</div>
+	</div>
+	<div class="widgetFooter">
+
+	</div>
+
+	</section>
+
+
+
+<script type="text/javascript">
+	//Render slideshow if info advacned items contain one.
+	$(document).ready(function (e) {
+		$('#divInfoAdvf5cceff1-f39a-402d-9294-a30b67b103b3 .InfoAdvanced.widgetItem').each(function () {
+			renderSlideshowIfApplicable($(this));		
+		});
+	});
+</script></div>	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!----><div class="outer col col12 last" style="" data-widgetcontainerid="fc4bd1b1-7de5-4f68-bc2f-911305f1215b">				
+	<div class="row nest first wide">
+	
+	<div class="inner col col12 first last id04ed29a3-33cc-425d-ba47-efeaa1ae8b23" style="" data-widgetcontainerid="04ed29a3-33cc-425d-ba47-efeaa1ae8b23">	
+    <div data-widget-id="b5d32aa9-1a3f-44df-aa57-c27b3748dd5d" data-widget-controller-path="/InfoAdvanced/Widget">
+
+
+
+
+
+	<section id="divInfoAdvb5d32aa9-1a3f-44df-aa57-c27b3748dd5d" class="widget widgetInfoAdvanced skin37 widgetOptionSet5 wide" data-modulewidgettype="infoAdv" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}' data-elementquerymatch='matchMultiColumn' data-elementqueryunmatch='unmatchMultiColumn' aria-labelledby="headerb5d32aa9-1a3f-44df-aa57-c27b3748dd5d">
+			<header class="widgetHeader" id="headerb5d32aa9-1a3f-44df-aa57-c27b3748dd5d">
+		<div class="">
+					<h3 >Kansas Department of Health and Environment</h3>
+								</div>
+	</header>
+	<div class="widgetBody  cpGrid cpGrid1 ">
+		<div class="row  wide">
+					<div class="col col1 first last">
+						<ol class="pageStyles semanticList">
+
+<li class="InfoAdvanced widgetItem ">
+	<em><abbr>KDHE</abbr> cannot provide lab test results or medical advice. Please contact your healthcare provider to discuss your needs.
+</em><br>
+<br>
+<strong>Phone: <a href="tel:8665343463" target="_self" class="Hyperlink">866-534-3463</a> (866-<abbr>KDHEINF</abbr>)</strong><br>
+Monday through Friday, 8:30 <abbr>am</abbr> to 5:30 <abbr>pm</abbr><br>
+Saturday, 10 <abbr>am</abbr> to 2 <abbr>pm</abbr><br>
+Sunday, 1 to 5 <abbr>pm</abbr>
+</li>						</ol>
+					</div>
+		</div>
+	</div>
+	<div class="widgetFooter">
+
+	</div>
+
+	</section>
+
+
+
+<script type="text/javascript">
+	//Render slideshow if info advacned items contain one.
+	$(document).ready(function (e) {
+		$('#divInfoAdvb5d32aa9-1a3f-44df-aa57-c27b3748dd5d .InfoAdvanced.widgetItem').each(function () {
+			renderSlideshowIfApplicable($(this));		
+		});
+	});
+</script></div>	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+	<div class="row nest last wide">
+	
+	<div class="inner col col12 first last id67e97593-a0de-4702-bf8e-08b7920926c0" style="" data-widgetcontainerid="67e97593-a0de-4702-bf8e-08b7920926c0">	
+<div data-widget-id="4ed350e5-e19d-4618-9eaa-85becc945561" data-widget-controller-path="/GraphicLinks/Widget">
+
+
+
+
+<div id="graphicLinkWidget4ed350e5-e19d-4618-9eaa-85becc945561" class="widget widgetGraphicLinks skin43 widgetOptionSet31 wide" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}' data-elementquerymatch='matchMultiColumn' data-elementqueryunmatch='unmatchMultiColumn' data-modulewidgettype="graphicLinks">
+	<div class="widgetHeader">
+		<div class="">
+				</div>
+	</div>
+	<div class="widgetBody cpGrid cpGrid1 ">	
+			<div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="/cdn-cgi/l/email-protection#472428312e236a767e072c3469202831" target="_self" class="fancyButton fancyButton132 ">
+		<span>
+			<span><span class="text">E-mail us your question</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton132.fancyButton:link,.fancyButton132.fancyButton:visited, .fancyButton132div.fancyButton{
+	background-color: #fbb621;
+	padding-top: .45em;
+	padding-bottom: .45em;
+	padding-right: .45em;
+	padding-left: .45em;
+	background-repeat: no-repeat;
+	background-position: left top;
+margin-top:.5em;
+margin-left: calc(100% - 200px);
+border-radius:3px;}
+.fancyButton132.fancyButton:hover,.fancyButton132.fancyButton:focus,.fancyButton132.fancyButton:active,.fancyButton132.fancyButton.hover{
+	background-color: #ffffff;
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.fancyButton132.fancyButton:link > span,.fancyButton132.fancyButton:visited > span, .fancyButton132div.fancyButton > span{
+}
+.fancyButton132.fancyButton:hover > span,.fancyButton132.fancyButton:focus > span,.fancyButton132.fancyButton:active > span,.fancyButton132.fancyButton.hover > span{
+}
+.fancyButton132.fancyButton .text{
+	font-size: .9em;
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: left top;
+transition:.2s ease all;
+}
+.fancyButton132.fancyButton:hover .text,.fancyButton132.fancyButton:focus .text,.fancyButton132.fancyButton:active .text,.fancyButton132.fancyButton.hover .text{
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+
+ </div><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="http://www.kdheks.gov/" target="_blank" class="fancyButton fancyButton69 "  aria-label="Visit the KDHE Homepage opens in new window">
+		<span>
+			<span><span class="text">Visit the KDHE Homepage</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton69.fancyButton:link,.fancyButton69.fancyButton:visited, .fancyButton69div.fancyButton{
+	background-color: #fbb621;
+	padding-top: .45em;
+	padding-bottom: .45em;
+	padding-right: .45em;
+	padding-left: .45em;
+	background-repeat: no-repeat;
+	background-position: left top;
+margin-top:.5em;
+margin-left: calc(100% - 200px);
+border-radius:3px;}
+.fancyButton69.fancyButton:hover,.fancyButton69.fancyButton:focus,.fancyButton69.fancyButton:active,.fancyButton69.fancyButton.hover{
+	background-color: #ffffff;
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.fancyButton69.fancyButton:link > span,.fancyButton69.fancyButton:visited > span, .fancyButton69div.fancyButton > span{
+}
+.fancyButton69.fancyButton:hover > span,.fancyButton69.fancyButton:focus > span,.fancyButton69.fancyButton:active > span,.fancyButton69.fancyButton.hover > span{
+}
+.fancyButton69.fancyButton .text{
+	font-size: .9em;
+	font-family: "Nunito Sans";
+	font-style: normal;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: left top;
+transition:.2s ease all;
+}
+.fancyButton69.fancyButton:hover .text,.fancyButton69.fancyButton:focus .text,.fancyButton69.fancyButton:active .text,.fancyButton69.fancyButton.hover .text{
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+
+ </div><!--
+			--></div>
+	</div>
+	<div class="widgetFooter">
+			</div>
+</div>
+
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!--		--></div> <!-- outer row -->
+
+
+	</div>
+</footer></div>
+</div><!-- Social --><div data-cpRole="structuralContainer" id="structuralContainer17">
+<div class="siteWrap"><aside data-cpRole="contentContainer" id="contentContainer17a">	<div id="cc7281771b-f943-4618-8114-5ed759c4ba25" data-containerid="7281771b-f943-4618-8114-5ed759c4ba25" class="pageContent cpGrid cpGrid24 isLockedContainer showInMobile" data-contentcontainerbreakpoint="48">
+				                
+
+		<div class="row outer wide"><!--
+--><div class="outer col col19 first" style="" data-widgetcontainerid="d7486d05-0284-44a1-a586-73f8621f4743">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col19 first last idec5eb22e-6216-4a94-8743-df29057f2e01" style="" data-widgetcontainerid="ec5eb22e-6216-4a94-8743-df29057f2e01">	
+<div data-widget-id="06bbcfde-3c8b-4ac5-af7a-9db4565c5284" data-widget-controller-path="/GraphicLinks/Widget">
+
+
+
+
+<div id="graphicLinkWidget06bbcfde-3c8b-4ac5-af7a-9db4565c5284" class="widget widgetGraphicLinks skin61 widgetOptionSet30 wide" data-elementqueryclasses='{"wide-narrow":"min-width:5em"}' data-elementquerymatch='matchMultiColumn' data-elementqueryunmatch='unmatchMultiColumn' data-modulewidgettype="graphicLinks">
+	<div class="widgetHeader">
+		<div class="">
+			<h3 >Social Media</h3>
+				</div>
+	</div>
+	<div class="widgetBody cpGrid cpGrid5 ">	
+			<div class="row   wide"><!--
+--><div class="col col1 first "><div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="/facebook" target="_self" class="fancyButton fancyButton74 " >
+		<span>
+			<span><span class="text">Facebook</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton74.fancyButton:link,.fancyButton74.fancyButton:visited, .fancyButton74div.fancyButton{
+	padding-top: 1em;
+	padding-bottom: 1em;
+	padding-right: 1em;
+	padding-left: 1em;
+	background-image: url('/ImageRepository/Document?documentID=66');
+	background-repeat: no-repeat;
+	background-position: center center;
+transition:.2s ease all;}
+.fancyButton74.fancyButton:hover,.fancyButton74.fancyButton:focus,.fancyButton74.fancyButton:active,.fancyButton74.fancyButton.hover{
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+.fancyButton74.fancyButton:link > span,.fancyButton74.fancyButton:visited > span, .fancyButton74div.fancyButton > span{
+}
+.fancyButton74.fancyButton:hover > span,.fancyButton74.fancyButton:focus > span,.fancyButton74.fancyButton:active > span,.fancyButton74.fancyButton.hover > span{
+}
+.fancyButton74.fancyButton .text{
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+color:rgba(0,0,0,0);
+transition:.2s ease all;
+transform:translateY(0);}
+.fancyButton74.fancyButton:hover .text,.fancyButton74.fancyButton:focus .text,.fancyButton74.fancyButton:active .text,.fancyButton74.fancyButton.hover .text{
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+color:rgba(37,61,102,1);
+transform:translateY(20px);}
+</style>
+
+ </div><!--
+--></div></div><!----><div class="col col1  "><div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="/twitter" target="_self" class="fancyButton fancyButton75 " >
+		<span>
+			<span><span class="text">Twitter</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton75.fancyButton:link,.fancyButton75.fancyButton:visited, .fancyButton75div.fancyButton{
+	padding-top: 1em;
+	padding-bottom: 1em;
+	padding-right: 1em;
+	padding-left: 1em;
+	background-image: url('/ImageRepository/Document?documentID=68');
+	background-repeat: no-repeat;
+	background-position: center center;
+transition:.2s ease all;}
+.fancyButton75.fancyButton:hover,.fancyButton75.fancyButton:focus,.fancyButton75.fancyButton:active,.fancyButton75.fancyButton.hover{
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+.fancyButton75.fancyButton:link > span,.fancyButton75.fancyButton:visited > span, .fancyButton75div.fancyButton > span{
+}
+.fancyButton75.fancyButton:hover > span,.fancyButton75.fancyButton:focus > span,.fancyButton75.fancyButton:active > span,.fancyButton75.fancyButton.hover > span{
+}
+.fancyButton75.fancyButton .text{
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+color:rgba(0,0,0,0);
+transition:.2s ease all;
+transform:translateY(0);}
+.fancyButton75.fancyButton:hover .text,.fancyButton75.fancyButton:focus .text,.fancyButton75.fancyButton:active .text,.fancyButton75.fancyButton.hover .text{
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+color:rgba(37,61,102,1);
+transform:translateY(20px);}
+</style>
+
+ </div><!--
+--></div></div><!----><div class="col col1  "><div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="/vimeo" target="_self" class="fancyButton fancyButton77 " >
+		<span>
+			<span><span class="text">Vimeo</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton77.fancyButton:link,.fancyButton77.fancyButton:visited, .fancyButton77div.fancyButton{
+	padding-top: 1em;
+	padding-bottom: 1em;
+	padding-right: 1em;
+	padding-left: 1em;
+	background-image: url('/ImageRepository/Document?documentID=69');
+	background-repeat: no-repeat;
+	background-position: center center;
+transition:.2s ease all;}
+.fancyButton77.fancyButton:hover,.fancyButton77.fancyButton:focus,.fancyButton77.fancyButton:active,.fancyButton77.fancyButton.hover{
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+.fancyButton77.fancyButton:link > span,.fancyButton77.fancyButton:visited > span, .fancyButton77div.fancyButton > span{
+}
+.fancyButton77.fancyButton:hover > span,.fancyButton77.fancyButton:focus > span,.fancyButton77.fancyButton:active > span,.fancyButton77.fancyButton.hover > span{
+}
+.fancyButton77.fancyButton .text{
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+color:rgba(0,0,0,0);
+transition:.2s ease all;
+transform:translateY(0);}
+.fancyButton77.fancyButton:hover .text,.fancyButton77.fancyButton:focus .text,.fancyButton77.fancyButton:active .text,.fancyButton77.fancyButton.hover .text{
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+color:rgba(37,61,102,1);
+transform:translateY(20px);}
+</style>
+
+ </div><!--
+--></div></div><!----><div class="col col1  "><div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks">
+
+<div>
+	<a href="/instagram" target="_self" class="fancyButton fancyButton78 " >
+		<span>
+			<span><span class="text">Instagram</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton78.fancyButton:link,.fancyButton78.fancyButton:visited, .fancyButton78div.fancyButton{
+	padding-top: 1em;
+	padding-bottom: 1em;
+	padding-right: 1em;
+	padding-left: 1em;
+	background-image: url('/ImageRepository/Document?documentID=67');
+	background-repeat: no-repeat;
+	background-position: center center;
+transition:.2s ease all;}
+.fancyButton78.fancyButton:hover,.fancyButton78.fancyButton:focus,.fancyButton78.fancyButton:active,.fancyButton78.fancyButton.hover{
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+.fancyButton78.fancyButton:link > span,.fancyButton78.fancyButton:visited > span, .fancyButton78div.fancyButton > span{
+}
+.fancyButton78.fancyButton:hover > span,.fancyButton78.fancyButton:focus > span,.fancyButton78.fancyButton:active > span,.fancyButton78.fancyButton.hover > span{
+}
+.fancyButton78.fancyButton .text{
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+color:rgba(0,0,0,0);
+transition:.2s ease all;
+transform:translateY(0);}
+.fancyButton78.fancyButton:hover .text,.fancyButton78.fancyButton:focus .text,.fancyButton78.fancyButton:active .text,.fancyButton78.fancyButton.hover .text{
+	text-decoration: none;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+color:rgba(37,61,102,1);
+transform:translateY(20px);}
+</style>
+
+ </div><!--
+--></div></div><!----><div class="col col1  last"><div class="semanticList"><!--
+--></div></div><!--			--></div>
+	</div>
+	<div class="widgetFooter">
+			</div>
+</div>
+
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!----><div class="outer col col3" style="" data-widgetcontainerid="8221ed30-d75a-41e0-9845-b39ed742b33c">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col3 first last id70ce3526-b953-4c4f-915c-199367374155" style="" data-widgetcontainerid="70ce3526-b953-4c4f-915c-199367374155">	
+<div data-widget-id="bdc7b499-f101-4092-8dff-a25f168140e1" data-widget-controller-path="/Layout/WidgetSiteTools">
+
+		<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript">
+			$(document).ready(function () {
+				setWidgetServiceClicking($("#widgetSiteToolsHeaderbdc7b499-f101-4092-8dff-a25f168140e1"), true, function () {
+					var $widgetBody = $('#widgetSiteToolsBodybdc7b499-f101-4092-8dff-a25f168140e1');
+
+					if ($widgetBody.is(':visible')) {
+						var menuItems = $('.widgetItem a', $widgetBody);
+
+						$(menuItems[0]).focus();
+
+						$('.widgetItem', $widgetBody).unbind("keydown").bind("keydown", function (e) {
+
+							if (e.which === 9) {
+								var index = menuItems.index(e.target);
+
+								if ((index === 0 && e.shiftKey) || (index === (menuItems.length - 1) && !e.shiftKey)) {
+									$("#widgetSiteToolsHeaderbdc7b499-f101-4092-8dff-a25f168140e1").trigger('click').focus();
+								}
+							}
+						});
+					} else {
+						$('.widgetItem', $widgetBody).unbind("keydown");
+					}
+				});
+			});
+		</script>
+
+	<section id="widgetSiteToolsbdc7b499-f101-4092-8dff-a25f168140e1" class="widget widgetSiteTools skin59 widgetOptionSet7 flyOutParent wide"  aria-label="Site Tools">
+				<header id="widgetSiteToolsHeaderbdc7b499-f101-4092-8dff-a25f168140e1" class="widgetHeader" tabindex="0" role="button" aria-haspopup="true">
+			<h3><img alt="Site Tools" class="imageHover" data-hover="/ImageRepository/Document?documentID=338" data-image="/ImageRepository/Document?documentID=337" src="/ImageRepository/Document?documentID=337" /></h3>
+		</header>
+	<div id="widgetSiteToolsBodybdc7b499-f101-4092-8dff-a25f168140e1" class="widgetBody blackIcons flyOut top leftEdge widget widgetSiteTools skin59 cpGrid cpGrid1" style="display:none;">
+         <div class="row                   
+ wide">
+	<div class="col col1 first last">
+		<ol class="semanticList">
+					<li class="widgetItem"><a tabindex="0" role="button" aria-label="Site Tools Home" class="widgetSiteToolsHome siteToolsService" href="/">Home</a></li>
+					<li id="PrinterFriendlybdc7b499-f101-4092-8dff-a25f168140e1" class="widgetItem"><a tabindex="0" aria-label="Site Tools Printer Friendly opens in new window" role="button" class="widgetSiteToolsPrinterFriendly siteToolsService" onkeypress="if (event.which == 13) { this.onclick(); }" onclick="Core.Layout.dynamicJavascript('printPreview();'); return false;" href="#PrinterFriendlybdc7b499-f101-4092-8dff-a25f168140e1">Printer Friendly</a></li>
+					<li class="widgetItem"><a tabindex="0" role="button" aria-label="Site Tools Email Page" class="widgetSiteToolsEmailPage siteToolsService" href="/EmailPage">Email Page</a></li>
+					<li id="TranslatePagebdc7b499-f101-4092-8dff-a25f168140e1" class="widgetItem"><a tabindex="0" aria-label="Site Tools Translate Page opens in new window" role="button" class="widgetSiteToolsTranslatePage siteToolsService" onkeypress="if (event.which == 13) { this.onclick(); }" onclick="Core.Layout.dynamicJavascript('window.open(\&#39;http://translate.google.com/translate?js=n&amp;sl=auto&amp;tl=es&amp;u=\&#39; + document.location.href, \&quot;TranslateWindow\&quot;);'); return false;" href="#TranslatePagebdc7b499-f101-4092-8dff-a25f168140e1">Translate Page</a></li>
+					<li class="widgetItem"><a tabindex="0" role="button" aria-label="Site Tools Notifications" class="widgetSiteToolsNotifications siteToolsService" href="/list.aspx">Notifications</a></li>
+		</ol>
+	</div>
+
+		 </div>
+	</div>
+
+	</section>
+
+
+
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!----><div class="outer col col2 last" style="" data-widgetcontainerid="2dfc0f42-9117-41ed-b22a-a43c48fa1185">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col2 first last idc657875e-87d0-4cc7-84ba-d1c86e8488b6" style="" data-widgetcontainerid="c657875e-87d0-4cc7-84ba-d1c86e8488b6">	
+<div data-widget-id="86cf75de-7695-44ab-a542-6b0bfdcd83e8" data-widget-controller-path="/Layout/WidgetShare">
+
+		<script type="text/javascript">
+			$(document).ready(function () {
+				setWidgetServiceClicking($("#widgetShareHeader86cf75de-7695-44ab-a542-6b0bfdcd83e8"), true, function () {
+					var $widgetBody = $('#widgetShareBody86cf75de-7695-44ab-a542-6b0bfdcd83e8');
+
+					if ($widgetBody.is(':visible')) {
+						var menuItems = $('.widgetItem a', $widgetBody);
+
+						$(menuItems[0]).focus();
+
+						$('.widgetItem', $widgetBody).unbind("keydown").bind("keydown", function (e) {
+
+							if (e.which === 9) {
+								var index = menuItems.index(e.target);
+
+								if ((index === 0 && e.shiftKey) || (index === (menuItems.length - 1) && !e.shiftKey)) {
+									$("#widgetShareHeader86cf75de-7695-44ab-a542-6b0bfdcd83e8").trigger('click').focus();
+								}
+							}
+			});
+					} else {
+						$('.widgetItem', $widgetBody).unbind("keydown");
+					}
+				});
+			});
+		</script>
+
+	<section id="widgetShare86cf75de-7695-44ab-a542-6b0bfdcd83e8" class="widget widgetShare skin59 widgetOptionSet14 flyOutParent wide"  aria-label="Share">
+			<header id="widgetShareHeader86cf75de-7695-44ab-a542-6b0bfdcd83e8" class="widgetHeader" tabindex="0" role="button" aria-haspopup="true">
+				<h3><img alt="Share" class="imageHover" data-hover="/ImageRepository/Document?documentID=336" data-image="/ImageRepository/Document?documentID=335" src="/ImageRepository/Document?documentID=335" /></h3>
+	</header>
+    <div id="widgetShareBody86cf75de-7695-44ab-a542-6b0bfdcd83e8" class="widgetBody flyOut top leftEdge widget widgetShare skin59 cpGrid cpGrid1" style="display:none;">
+        <div class="row                   
+ wide">
+	<div class="col col1 first last">
+		<ol class="semanticList">
+                <li class="widgetItem" ><a tabindex="0" role="button" class="widgetShareFacebook shareService" onkeypress="if(event.which == 13) { this.onclick(); }" href="/Layout/WidgetShare/ShareLink/Facebook" target="_blank" aria-label="Share on Facebook opens in new window">Facebook</a></li>
+                <li class="widgetItem" ><a tabindex="0" role="button" class="widgetShareTwitter shareService" onkeypress="if(event.which == 13) { this.onclick(); }" href="/Layout/WidgetShare/ShareLink/Twitter" target="_blank" aria-label="Share on Twitter opens in new window">Twitter</a></li>
+                <li class="widgetItem" ><a tabindex="0" role="button" class="widgetSharePinterest shareService" onkeypress="if(event.which == 13) { this.onclick(); }" href="/Layout/WidgetShare/ShareLink/Pinterest" target="_blank" aria-label="Share on Pinterest opens in new window">Pinterest</a></li>
+                <li class="widgetItem" ><a tabindex="0" role="button" class="widgetShareDelicious shareService" onkeypress="if(event.which == 13) { this.onclick(); }" href="/Layout/WidgetShare/ShareLink/Delicious" target="_blank" aria-label="Share on Delicious opens in new window">Delicious</a></li>
+                <li class="widgetItem" ><a tabindex="0" role="button" class="widgetShareBlogger shareService" onkeypress="if(event.which == 13) { this.onclick(); }" href="/Layout/WidgetShare/ShareLink/Blogger" target="_blank" aria-label="Share on Blogger opens in new window">Blogger</a></li>
+                <li class="widgetItem" ><a tabindex="0" role="button" class="widgetShareLinkedIn shareService" onkeypress="if(event.which == 13) { this.onclick(); }" href="/Layout/WidgetShare/ShareLink/LinkedIn" target="_blank" aria-label="Share on LinkedIn opens in new window">LinkedIn</a></li>
+		</ol>
+	</div>
+
+        </div>
+    </div>
+
+	</section>
+
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!--		--></div> <!-- outer row -->
+
+
+	</div>
+</aside></div>
+</div><!-- CP Byline --><div data-cpRole="structuralContainer" id="structuralContainer11">
+<div class="siteWrap"><div data-cpRole="contentContainer" id="contentContainer11a" class="">	<div id="cc48ee8ac5-3810-43fc-94ba-fd0eb0fb077b" data-containerid="48ee8ac5-3810-43fc-94ba-fd0eb0fb077b" class="pageContent cpGrid cpGrid24 isLockedContainer showInMobile" data-contentcontainerbreakpoint="40">
+				                
+
+		<div class="row outer wide"><!--
+--><div class="outer col col12 first" style="" data-widgetcontainerid="3edfd4a7-0c1d-43cc-8112-b4201a6f21c5">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col12 first last id1d599104-a324-4756-b6d0-d510af64c6fa" style="" data-widgetcontainerid="1d599104-a324-4756-b6d0-d510af64c6fa">	
+    <div data-widget-id="6f6f08e5-3ed4-48e7-a305-0ca33ab3c170" data-widget-controller-path="/InfoAdvanced/Widget">
+
+
+
+
+
+	<section id="divInfoAdv6f6f08e5-3ed4-48e7-a305-0ca33ab3c170" class="widget widgetInfoAdvanced skin43 widgetOptionSet5 wide" data-modulewidgettype="infoAdv" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}' data-elementquerymatch='matchMultiColumn' data-elementqueryunmatch='unmatchMultiColumn' aria-label="Info Advanced">
+			<header class="widgetHeader" id="header6f6f08e5-3ed4-48e7-a305-0ca33ab3c170">
+		<div class="">
+								</div>
+	</header>
+	<div class="widgetBody  cpGrid cpGrid1 ">
+		<div class="row  wide">
+					<div class="col col1 first last">
+						<ol class="pageStyles semanticList">
+
+<li class="InfoAdvanced widgetItem ">
+	<div class="alignWrapper">
+<style>
+    /* CP icon */
+    .cpBylineIconTS {
+    color: #000;
+    }
+    /* CP Text */
+    .cpBylineTextTS,
+    .cpBylineTextTS a:link {
+    color: #000;
+    }
+    .cpBylineTS {
+    text-align: center;
+    }
+    .cpBylineIconTS {
+    fill: currentColor;
+    width: 39px;
+    height: 26px;
+    display: inline;
+    vertical-align: middle;
+    }
+</style>
+<div class="widgetItem cpBylineTS" style="text-align: left;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="cpBylineIconTS">
+<path class="c" d="M73.4,23.2h-19v16.7h19c2.8,0,5,2.2,5,5c0,2.8-2.2,5-5,5h-19v28.4h5.5l11.3-11.7h2.2c11.9,0,21.6-9.7,21.6-21.6C95,33,85.3,23.2,73.4,23.2"></path>
+<path class="p" d="M45.8,66.5H26.6C14.7,66.5,5,56.8,5,44.9C5,33,14.7,23.2,26.6,23.2h19.1v16.7H26.6c-2.8,0-5,2.2-5,5c0,2.8,2.2,5,5,5h19.1V66.5z"></path>
+</svg>
+<span class="cpBylineTextTS">Government Websites by <a href="https://connect.civicplus.com/referral">CivicPlus®</a></span>
+</div>
+</div>
+</li>						</ol>
+					</div>
+		</div>
+	</div>
+	<div class="widgetFooter">
+
+	</div>
+
+	</section>
+
+
+
+<script type="text/javascript">
+	//Render slideshow if info advacned items contain one.
+	$(document).ready(function (e) {
+		$('#divInfoAdv6f6f08e5-3ed4-48e7-a305-0ca33ab3c170 .InfoAdvanced.widgetItem').each(function () {
+			renderSlideshowIfApplicable($(this));		
+		});
+	});
+</script></div>	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!----><div class="outer col col12 last" style="" data-widgetcontainerid="955725b2-c1c9-4198-8e02-f830de6389ca">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col12 first last id3c6f9bde-d424-425d-bd15-5622cc087ae4" style="" data-widgetcontainerid="3c6f9bde-d424-425d-bd15-5622cc087ae4">	
+	<div data-widget-id="8e2e5625-70da-4775-8bb4-019556f021f6" data-widget-controller-path="/QuickLinks/Widget">
+
+
+
+
+
+ 
+
+<style type="text/css">.widgetOptionSet28.widget {
+padding-top:.25em;}</style>
+	<section id="widgetQuicklink8e2e5625-70da-4775-8bb4-019556f021f6" class="widget widgetQuickLinks skin43 widgetOptionSet28 narrow" data-modulewidgettype="quickLinks" data-elementqueryclasses='{"wide-narrow":"min-width:15em"}' data-elementquerymatch='matchMultiColumn' data-elementqueryunmatch='unmatchMultiColumn' aria-label="Quick Links">
+			<header class="widgetHeader" id="quickLinksHeader8e2e5625-70da-4775-8bb4-019556f021f6">
+		<div class="">
+						</div>
+	</header>
+	<div class="widgetBody cpGrid cpGrid6 ">
+        <div class="row autoWidths right narrow">
+				<div class="col col1 first ">
+					<ol class="semanticList">
+
+    <li style="position:relative" class="widgetItem QuickLinks">
+        <a class="widgetDesc widgetQuickLinksLink" href="/accessibility" target="_self" >Accessibility</a>
+    </li>
+					</ol>
+				</div>
+				<div class="col col1  ">
+					<ol class="semanticList">
+
+    <li style="position:relative" class="widgetItem QuickLinks">
+        <a class="widgetDesc widgetQuickLinksLink" href="/site/copyright" target="_self" >Copyright</a>
+    </li>
+					</ol>
+				</div>
+				<div class="col col1  ">
+					<ol class="semanticList">
+
+    <li style="position:relative" class="widgetItem QuickLinks">
+        <a class="widgetDesc widgetQuickLinksLink" href="/faq" target="_self" >FAQs</a>
+    </li>
+					</ol>
+				</div>
+				<div class="col col1  ">
+					<ol class="semanticList">
+
+    <li style="position:relative" class="widgetItem QuickLinks">
+        <a class="widgetDesc widgetQuickLinksLink" href="/privacy" target="_blank"  aria-label="Privacy Policy opens in new window">Privacy Policy</a>
+    </li>
+					</ol>
+				</div>
+				<div class="col col1  last">
+					<ol class="semanticList">
+
+    <li style="position:relative" class="widgetItem QuickLinks">
+        <a class="widgetDesc widgetQuickLinksLink" href="/sitemap" target="_self" >Site Map</a>
+    </li>
+					</ol>
+				</div>
+				<div class="col col1  ">
+					<ol class="semanticList">
+					</ol>
+				</div>
+		</div>
+        
+	</div>
+	<div class="widgetFooter">
+	</div>
+	<div class="addItemModal hidden">
+		<div class="url hidden">/QuickLinks.aspx</div>
+	</div>
+
+	</section>
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!--		--></div> <!-- outer row -->
+
+
+	</div>
+</div></div>
+</div></div>
+</div>
+
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	
+	
+
+
+
+	<script type="text/javascript">function dynamicStretchContainers () {Core.Layout.stretchContainers('#featureColumn, #structuralContainer2, #structuralContainer3');}</script>
+
+
+
+
+
+
+	<script src="/502669845.js" type="text/javascript"></script>
+	<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['setCustomUrl', location.href.toLowerCase()]); _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  $(window).load(function(){
+    var u="//analytics.civicplus.com/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '6171']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  });
+</script>
+<noscript><p><img src="//analytics.civicplus.com/piwik.php?idsite=6171" style="border:0;" alt="Piwik" /></p></noscript>
+<!-- End Piwik Code -->
+
+
+<!----------Google Translate (Mobile Friendly)--------->
+
+<style>
+  #google-translate-container {
+    float: right;
+    padding: 3px 5px 0px 0px;
+    position: fixed; 
+    top: .8em;
+    right: 1.6em;
+    z-index: 5;
+  }
+  
+  .goog-te-combo, .goog-te-banner *, .goog-te-ftab *, .goog-te-menu *, .goog-te-menu2 *, .goog-te-balloon * {
+    font-family: arial;
+    font-size: 10pt;
+    background-image: url("https://www.gstatic.com/images/branding/product/2x/translate_24dp.png");
+    background-position: 5px 5px;
+    background-size: 18px;
+    background-repeat: no-repeat;
+    text-indent: 16px;
+    background-color: #fff;
+    color: #000 !important;
+  }
+  
+  .goog-logo-link {
+    display: none !important;
+  }
+  
+  .goog-te-gadget {
+    color: transparent !important;
+  }
+  
+  .goog-te-gadget .goog-te-combo {
+    margin: 2px 0 !important;
+    border-radius: 15px !important;
+    }
+  
+  .goog-te-combo{
+    border: 1px solid !important;
+    border-color: #bcc9d7 #96a3b1 #96a3b1 #bcc9d7 !important;
+    border-radius: 50px !important;
+    height:31px !important;
+    padding: 0 1px 0 .25rem !important;
+                width: 156px;
+  }
+
+  #launcher-wrapper {
+    bottom: 50px !important;
+  }
+
+</style>
+
+<div id="google-translate-container">
+  <div id="google_translate_element">
+  </div>
+</div>
+
+<script>
+
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({ pageLanguage: "en" }, "google_translate_element");
+    // begin accessibility compliance
+    $('img.goog-te-gadget-icon').attr('alt','Google Translate');
+    $('div#goog-gt-tt div.logo img').attr('alt','translate');
+    $('div#goog-gt-tt .original-text').css('text-align','left');
+    $('.goog-te-gadget-simple .goog-te-menu-value span').css('color','#000000');
+    $('.goog-te-combo').attr('aria-label','google translate languages');
+    $('svg.goog-te-spinner').attr('title','Google Translate Spinner');
+    $('.goog-te-gadget-simple .goog-te-menu-value span').css('color','#000000');
+  }
+
+  $(function() {
+    $.getScript("//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit");
+  });
+
+</script>
+
+<!--------------End Google Translate----------------->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-36673664-1"></script>
+
+<script>
+
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('js', new Date());
+
+ 
+
+  gtag('config', 'UA-36673664-1');
+
+</script>
+
+<!-- End Global site tag (gtag.js) - Google Analytics -->
+
+
+	<script type="text/javascript">
+		$(function () {
+			document.cookie = "responsiveGhost=0; path=/";
+		});
+		onOrLive($(window), function () {
+			$('body').addClass('doneLoading').removeClass('hideContent');
+
+			if ($('#404Content').length > 0)
+				$('div#bodyWrapper').css('padding', '0px');
+		}, 'load');		
+	</script>
+
+	<noscript>
+		<style>
+			body.hideContent {
+				opacity: 1 !important;
+			}
+		</style>
+	</noscript>
+
+		
+<div style="display: none;">
+	<svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
+
+		<symbol id="iconArrow--left" viewbox="0 0 25 25">
+			<title>Arrow Left</title>
+			<polygon style="fill:currentcolor" points="18.044,25 19.498,23.545 8.409,12.454 19.408,1.455 17.954,0 5.502,12.452"></polygon>
+		</symbol>
+
+		<symbol id="iconArrow--right" viewbox="0 0 25 25">
+			<title>Arrow Right</title>
+			<polygon style="fill:currentcolor" points="6.957,0 5.502,1.455 16.591,12.546 5.592,23.545 7.047,25 19.498,12.548"></polygon>
+		</symbol>
+
+	</svg>
+</div>
+	<script type="text/javascript">loadCSS('//fonts.googleapis.com/css?family=Nunito+Sans:700,800,regular|');</script>
+	
+
+	<div class="hidden activeWidgetSkinComponentsOnPageJson">[]</div>
+		<div style="display: none;">
+			<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+				<symbol id="iconSlideshowArrowLeft" viewBox="0 0 22.68 40">
+					<title>Slideshow Left Arrow</title>
+					<g>
+						<path style="fill:currentcolor;" d="M20,40a2.67,2.67,0,0,1-1.9-.79L.79,21.9a2.68,2.68,0,0,1,0-3.79L18.1.79a2.68,2.68,0,1,1,3.79,3.79L6.47,20,21.89,35.42A2.68,2.68,0,0,1,20,40Z"></path>
+					</g>
+				</symbol>
+				<symbol id="iconSlideshowArrowRight" viewBox="0 0 22.68 40">
+					<title>Slideshow Right Arrow</title>
+					<g>
+						<path style="fill:currentcolor;" d="M2.68,0a2.67,2.67,0,0,1,1.9.79L21.89,18.1a2.68,2.68,0,0,1,0,3.79L4.58,39.21A2.68,2.68,0,0,1,.79,35.42L16.21,20,.79,4.58A2.68,2.68,0,0,1,2.68,0Z"></path>
+					</g>
+				</symbol>
+			</svg>
+		</div>
+	
+
+</body>
+</html>
