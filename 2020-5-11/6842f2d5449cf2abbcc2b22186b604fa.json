@@ -1,0 +1,103 @@
+{
+ "objectIdFieldName": "OBJECTID_1",
+ "globalIdFieldName": "",
+ "geometryType": "esriGeometryPoint",
+ "spatialReference": {
+  "wkid": 102100,
+  "latestWkid": 3857
+ },
+ "fields": [
+  {
+   "name": "OBJECTID_1",
+   "alias": "OBJECTID_1",
+   "type": "esriFieldTypeOID"
+  },
+  {
+   "name": "OBJECTID",
+   "alias": "OBJECTID",
+   "type": "esriFieldTypeInteger"
+  },
+  {
+   "name": "Name_EN",
+   "alias": "Name_EN",
+   "type": "esriFieldTypeString",
+   "length": 254
+  },
+  {
+   "name": "Name_TH",
+   "alias": "Name_TH",
+   "type": "esriFieldTypeString",
+   "length": 254
+  },
+  {
+   "name": "POINT_X",
+   "alias": "POINT_X",
+   "type": "esriFieldTypeDouble"
+  },
+  {
+   "name": "POINT_Y",
+   "alias": "POINT_Y",
+   "type": "esriFieldTypeDouble"
+  },
+  {
+   "name": "Confirmed",
+   "alias": "Confirmed",
+   "type": "esriFieldTypeInteger"
+  },
+  {
+   "name": "Recovered",
+   "alias": "Recovered",
+   "type": "esriFieldTypeInteger"
+  },
+  {
+   "name": "Deaths",
+   "alias": "Deaths",
+   "type": "esriFieldTypeInteger"
+  },
+  {
+   "name": "Critical",
+   "alias": "Critical",
+   "type": "esriFieldTypeInteger"
+  },
+  {
+   "name": "NewConfirmed",
+   "alias": "NewConfirmed",
+   "type": "esriFieldTypeInteger"
+  },
+  {
+   "name": "NewDeaths",
+   "alias": "NewDeaths",
+   "type": "esriFieldTypeInteger"
+  },
+  {
+   "name": "NewRecovered",
+   "alias": "NewRecovered",
+   "type": "esriFieldTypeInteger"
+  },
+  {
+   "name": "NewCritical",
+   "alias": "NewCritical",
+   "type": "esriFieldTypeInteger"
+  }
+ ],
+ "features": [
+  {
+   "attributes": {
+    "OBJECTID_1": 1,
+    "OBJECTID": 2,
+    "Name_EN": "Thailand",
+    "Name_TH": "Bangkok",
+    "POINT_X": 100.501,
+    "POINT_Y": 13.756302,
+    "Confirmed": 3015,
+    "Recovered": 2796,
+    "Deaths": 56,
+    "Critical": 61,
+    "NewConfirmed": 6,
+    "NewDeaths": 1,
+    "NewRecovered": 2,
+    "NewCritical": 0
+   }
+  }
+ ]
+}
