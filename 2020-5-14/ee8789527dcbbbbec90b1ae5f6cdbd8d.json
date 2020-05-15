@@ -1,0 +1,1308 @@
+{
+  "objectIdFieldName" : "OBJECTID", 
+  "uniqueIdField" : 
+  {
+    "name" : "OBJECTID", 
+    "isSystemMaintained" : true
+  }, 
+  "globalIdFieldName" : "", 
+  "fields" : [
+    {
+      "name" : "OBJECTID", 
+      "type" : "esriFieldTypeOID", 
+      "alias" : "OBJECTID", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "date", 
+      "type" : "esriFieldTypeDate", 
+      "alias" : "date", 
+      "sqlType" : "sqlTypeOther", 
+      "length" : 8, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "positive_cases", 
+      "type" : "esriFieldTypeInteger", 
+      "alias" : "positive_cases", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "cumulative_positives", 
+      "type" : "esriFieldTypeInteger", 
+      "alias" : "cumulative_positives", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "total_tests", 
+      "type" : "esriFieldTypeInteger", 
+      "alias" : "total_tests", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "total_deaths", 
+      "type" : "esriFieldTypeInteger", 
+      "alias" : "total_deaths", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "daily_deaths", 
+      "type" : "esriFieldTypeInteger", 
+      "alias" : "daily_deaths", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "daily_recovered", 
+      "type" : "esriFieldTypeInteger", 
+      "alias" : "daily_recovered", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "total_recovered", 
+      "type" : "esriFieldTypeInteger", 
+      "alias" : "total_recovered", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "people_monitored", 
+      "type" : "esriFieldTypeInteger", 
+      "alias" : "people_monitored", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "completed_monitoring", 
+      "type" : "esriFieldTypeInteger", 
+      "alias" : "completed_monitoring", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "current_hospitalizations", 
+      "type" : "esriFieldTypeDouble", 
+      "alias" : "current_hospitalizations", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "hosp_pui", 
+      "type" : "esriFieldTypeDouble", 
+      "alias" : "hosp_pui", 
+      "sqlType" : "sqlTypeOther", 
+      "domain" : null, 
+      "defaultValue" : null
+    }
+  ], 
+  "features" : [
+    {
+      "attributes" : {
+        "OBJECTID" : 1, 
+        "date" : 1583384400000, 
+        "positive_cases" : 0, 
+        "cumulative_positives" : 0, 
+        "total_tests" : 0, 
+        "total_deaths" : 0, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 0, 
+        "total_recovered" : 0, 
+        "people_monitored" : 170, 
+        "completed_monitoring" : 20, 
+        "current_hospitalizations" : null, 
+        "hosp_pui" : null
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 2, 
+        "date" : 1583470800000, 
+        "positive_cases" : 0, 
+        "cumulative_positives" : 0, 
+        "total_tests" : 0, 
+        "total_deaths" : 0, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 0, 
+        "total_recovered" : 0, 
+        "people_monitored" : 0, 
+        "completed_monitoring" : 0, 
+        "current_hospitalizations" : null, 
+        "hosp_pui" : null
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 3, 
+        "date" : 1583557200000, 
+        "positive_cases" : 1, 
+        "cumulative_positives" : 1, 
+        "total_tests" : 0, 
+        "total_deaths" : 0, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 0, 
+        "total_recovered" : 0, 
+        "people_monitored" : 213, 
+        "completed_monitoring" : 23, 
+        "current_hospitalizations" : null, 
+        "hosp_pui" : null
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 4, 
+        "date" : 1583643600000, 
+        "positive_cases" : 0, 
+        "cumulative_positives" : 1, 
+        "total_tests" : 0, 
+        "total_deaths" : 0, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 0, 
+        "total_recovered" : 0, 
+        "people_monitored" : 223, 
+        "completed_monitoring" : 39, 
+        "current_hospitalizations" : null, 
+        "hosp_pui" : null
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 5, 
+        "date" : 1583730000000, 
+        "positive_cases" : 0, 
+        "cumulative_positives" : 1, 
+        "total_tests" : 0, 
+        "total_deaths" : 0, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 0, 
+        "total_recovered" : 0, 
+        "people_monitored" : 226, 
+        "completed_monitoring" : 52, 
+        "current_hospitalizations" : null, 
+        "hosp_pui" : null
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 6, 
+        "date" : 1583816400000, 
+        "positive_cases" : 0, 
+        "cumulative_positives" : 1, 
+        "total_tests" : 0, 
+        "total_deaths" : 0, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 0, 
+        "total_recovered" : 0, 
+        "people_monitored" : 215, 
+        "completed_monitoring" : 59, 
+        "current_hospitalizations" : null, 
+        "hosp_pui" : null
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 7, 
+        "date" : 1583902800000, 
+        "positive_cases" : 1, 
+        "cumulative_positives" : 2, 
+        "total_tests" : 0, 
+        "total_deaths" : 0, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 0, 
+        "total_recovered" : 0, 
+        "people_monitored" : 212, 
+        "completed_monitoring" : 70, 
+        "current_hospitalizations" : null, 
+        "hosp_pui" : null
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 8, 
+        "date" : 1583989200000, 
+        "positive_cases" : 0, 
+        "cumulative_positives" : 2, 
+        "total_tests" : 0, 
+        "total_deaths" : 0, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 0, 
+        "total_recovered" : 0, 
+        "people_monitored" : 208, 
+        "completed_monitoring" : 90, 
+        "current_hospitalizations" : null, 
+        "hosp_pui" : null
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 9, 
+        "date" : 1584075600000, 
+        "positive_cases" : 3, 
+        "cumulative_positives" : 5, 
+        "total_tests" : 0, 
+        "total_deaths" : 0, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 0, 
+        "total_recovered" : 0, 
+        "people_monitored" : 191, 
+        "completed_monitoring" : 131, 
+        "current_hospitalizations" : null, 
+        "hosp_pui" : null
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 10, 
+        "date" : 1584162000000, 
+        "positive_cases" : 3, 
+        "cumulative_positives" : 8, 
+        "total_tests" : 0, 
+        "total_deaths" : 0, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 1, 
+        "total_recovered" : 1, 
+        "people_monitored" : 241, 
+        "completed_monitoring" : 132, 
+        "current_hospitalizations" : null, 
+        "hosp_pui" : null
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 11, 
+        "date" : 1584248400000, 
+        "positive_cases" : 4, 
+        "cumulative_positives" : 12, 
+        "total_tests" : 0, 
+        "total_deaths" : 0, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 1, 
+        "total_recovered" : 2, 
+        "people_monitored" : 274, 
+        "completed_monitoring" : 143, 
+        "current_hospitalizations" : null, 
+        "hosp_pui" : null
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 12, 
+        "date" : 1584334800000, 
+        "positive_cases" : 5, 
+        "cumulative_positives" : 17, 
+        "total_tests" : 0, 
+        "total_deaths" : 0, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 1, 
+        "total_recovered" : 3, 
+        "people_monitored" : 241, 
+        "completed_monitoring" : 215, 
+        "current_hospitalizations" : null, 
+        "hosp_pui" : null
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 13, 
+        "date" : 1584421200000, 
+        "positive_cases" : 2, 
+        "cumulative_positives" : 19, 
+        "total_tests" : 0, 
+        "total_deaths" : 0, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 1, 
+        "total_recovered" : 4, 
+        "people_monitored" : 246, 
+        "completed_monitoring" : 262, 
+        "current_hospitalizations" : null, 
+        "hosp_pui" : null
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 14, 
+        "date" : 1584507600000, 
+        "positive_cases" : 2, 
+        "cumulative_positives" : 21, 
+        "total_tests" : 0, 
+        "total_deaths" : 0, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 1, 
+        "total_recovered" : 5, 
+        "people_monitored" : 282, 
+        "completed_monitoring" : 274, 
+        "current_hospitalizations" : null, 
+        "hosp_pui" : null
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 15, 
+        "date" : 1584594000000, 
+        "positive_cases" : 7, 
+        "cumulative_positives" : 28, 
+        "total_tests" : 0, 
+        "total_deaths" : 2, 
+        "daily_deaths" : 2, 
+        "daily_recovered" : 3, 
+        "total_recovered" : 8, 
+        "people_monitored" : 264, 
+        "completed_monitoring" : 288, 
+        "current_hospitalizations" : null, 
+        "hosp_pui" : null
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 16, 
+        "date" : 1584680400000, 
+        "positive_cases" : 16, 
+        "cumulative_positives" : 44, 
+        "total_tests" : 0, 
+        "total_deaths" : 2, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 3, 
+        "total_recovered" : 11, 
+        "people_monitored" : 288, 
+        "completed_monitoring" : 290, 
+        "current_hospitalizations" : null, 
+        "hosp_pui" : null
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 17, 
+        "date" : 1584766800000, 
+        "positive_cases" : 8, 
+        "cumulative_positives" : 52, 
+        "total_tests" : 0, 
+        "total_deaths" : 3, 
+        "daily_deaths" : 1, 
+        "daily_recovered" : 5, 
+        "total_recovered" : 16, 
+        "people_monitored" : 307, 
+        "completed_monitoring" : 310, 
+        "current_hospitalizations" : null, 
+        "hosp_pui" : null
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 18, 
+        "date" : 1584853200000, 
+        "positive_cases" : 24, 
+        "cumulative_positives" : 76, 
+        "total_tests" : 0, 
+        "total_deaths" : 5, 
+        "daily_deaths" : 2, 
+        "daily_recovered" : 5, 
+        "total_recovered" : 21, 
+        "people_monitored" : 336, 
+        "completed_monitoring" : 316, 
+        "current_hospitalizations" : null, 
+        "hosp_pui" : null
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 19, 
+        "date" : 1584939600000, 
+        "positive_cases" : 21, 
+        "cumulative_positives" : 97, 
+        "total_tests" : 0, 
+        "total_deaths" : 7, 
+        "daily_deaths" : 2, 
+        "daily_recovered" : 7, 
+        "total_recovered" : 28, 
+        "people_monitored" : 339, 
+        "completed_monitoring" : 316, 
+        "current_hospitalizations" : null, 
+        "hosp_pui" : null
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 20, 
+        "date" : 1585026000000, 
+        "positive_cases" : 28, 
+        "cumulative_positives" : 125, 
+        "total_tests" : 0, 
+        "total_deaths" : 9, 
+        "daily_deaths" : 2, 
+        "daily_recovered" : 3, 
+        "total_recovered" : 31, 
+        "people_monitored" : 342, 
+        "completed_monitoring" : 317, 
+        "current_hospitalizations" : 19, 
+        "hosp_pui" : 19
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 21, 
+        "date" : 1585112400000, 
+        "positive_cases" : 35, 
+        "cumulative_positives" : 160, 
+        "total_tests" : 0, 
+        "total_deaths" : 9, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 6, 
+        "total_recovered" : 37, 
+        "people_monitored" : 325, 
+        "completed_monitoring" : 371, 
+        "current_hospitalizations" : 17, 
+        "hosp_pui" : 20
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 22, 
+        "date" : 1585198800000, 
+        "positive_cases" : 25, 
+        "cumulative_positives" : 185, 
+        "total_tests" : 0, 
+        "total_deaths" : 11, 
+        "daily_deaths" : 2, 
+        "daily_recovered" : 4, 
+        "total_recovered" : 41, 
+        "people_monitored" : 331, 
+        "completed_monitoring" : 376, 
+        "current_hospitalizations" : 14, 
+        "hosp_pui" : 14
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 23, 
+        "date" : 1585285200000, 
+        "positive_cases" : 28, 
+        "cumulative_positives" : 213, 
+        "total_tests" : 0, 
+        "total_deaths" : 12, 
+        "daily_deaths" : 1, 
+        "daily_recovered" : 8, 
+        "total_recovered" : 49, 
+        "people_monitored" : 304, 
+        "completed_monitoring" : 425, 
+        "current_hospitalizations" : 16, 
+        "hosp_pui" : 34
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 24, 
+        "date" : 1585371600000, 
+        "positive_cases" : 21, 
+        "cumulative_positives" : 234, 
+        "total_tests" : 0, 
+        "total_deaths" : 12, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 17, 
+        "total_recovered" : 66, 
+        "people_monitored" : 301, 
+        "completed_monitoring" : 428, 
+        "current_hospitalizations" : 16, 
+        "hosp_pui" : 34
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 25, 
+        "date" : 1585458000000, 
+        "positive_cases" : 22, 
+        "cumulative_positives" : 256, 
+        "total_tests" : 0, 
+        "total_deaths" : 13, 
+        "daily_deaths" : 1, 
+        "daily_recovered" : 5, 
+        "total_recovered" : 71, 
+        "people_monitored" : 219, 
+        "completed_monitoring" : 546, 
+        "current_hospitalizations" : 16, 
+        "hosp_pui" : 47
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 26, 
+        "date" : 1585544400000, 
+        "positive_cases" : 37, 
+        "cumulative_positives" : 293, 
+        "total_tests" : 0, 
+        "total_deaths" : 16, 
+        "daily_deaths" : 3, 
+        "daily_recovered" : 11, 
+        "total_recovered" : 82, 
+        "people_monitored" : 237, 
+        "completed_monitoring" : 556, 
+        "current_hospitalizations" : 21, 
+        "hosp_pui" : 52
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 27, 
+        "date" : 1585630800000, 
+        "positive_cases" : 27, 
+        "cumulative_positives" : 320, 
+        "total_tests" : 0, 
+        "total_deaths" : 16, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 15, 
+        "total_recovered" : 97, 
+        "people_monitored" : 153, 
+        "completed_monitoring" : 645, 
+        "current_hospitalizations" : 30, 
+        "hosp_pui" : 52
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 28, 
+        "date" : 1585717200000, 
+        "positive_cases" : 39, 
+        "cumulative_positives" : 359, 
+        "total_tests" : 0, 
+        "total_deaths" : 17, 
+        "daily_deaths" : 1, 
+        "daily_recovered" : 17, 
+        "total_recovered" : 114, 
+        "people_monitored" : 127, 
+        "completed_monitoring" : 677, 
+        "current_hospitalizations" : 29, 
+        "hosp_pui" : 42
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 29, 
+        "date" : 1585803600000, 
+        "positive_cases" : 31, 
+        "cumulative_positives" : 390, 
+        "total_tests" : 0, 
+        "total_deaths" : 18, 
+        "daily_deaths" : 1, 
+        "daily_recovered" : 10, 
+        "total_recovered" : 124, 
+        "people_monitored" : 102, 
+        "completed_monitoring" : 705, 
+        "current_hospitalizations" : 30, 
+        "hosp_pui" : 42
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 30, 
+        "date" : 1585890000000, 
+        "positive_cases" : 70, 
+        "cumulative_positives" : 460, 
+        "total_tests" : 5844, 
+        "total_deaths" : 21, 
+        "daily_deaths" : 3, 
+        "daily_recovered" : 9, 
+        "total_recovered" : 133, 
+        "people_monitored" : 89, 
+        "completed_monitoring" : 718, 
+        "current_hospitalizations" : 32, 
+        "hosp_pui" : 44
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 31, 
+        "date" : 1585976400000, 
+        "positive_cases" : 52, 
+        "cumulative_positives" : 512, 
+        "total_tests" : 6582, 
+        "total_deaths" : 22, 
+        "daily_deaths" : 1, 
+        "daily_recovered" : 10, 
+        "total_recovered" : 143, 
+        "people_monitored" : 62, 
+        "completed_monitoring" : 745, 
+        "current_hospitalizations" : 31, 
+        "hosp_pui" : 59
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 32, 
+        "date" : 1586062800000, 
+        "positive_cases" : 31, 
+        "cumulative_positives" : 543, 
+        "total_tests" : 6633, 
+        "total_deaths" : 23, 
+        "daily_deaths" : 1, 
+        "daily_recovered" : 6, 
+        "total_recovered" : 149, 
+        "people_monitored" : 68, 
+        "completed_monitoring" : 745, 
+        "current_hospitalizations" : 27, 
+        "hosp_pui" : 56
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 33, 
+        "date" : 1586149200000, 
+        "positive_cases" : 32, 
+        "cumulative_positives" : 575, 
+        "total_tests" : 7129, 
+        "total_deaths" : 23, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 13, 
+        "total_recovered" : 162, 
+        "people_monitored" : 46, 
+        "completed_monitoring" : 767, 
+        "current_hospitalizations" : 29, 
+        "hosp_pui" : 51
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 34, 
+        "date" : 1586235600000, 
+        "positive_cases" : 33, 
+        "cumulative_positives" : 608, 
+        "total_tests" : 7749, 
+        "total_deaths" : 24, 
+        "daily_deaths" : 1, 
+        "daily_recovered" : 15, 
+        "total_recovered" : 177, 
+        "people_monitored" : 48, 
+        "completed_monitoring" : 773, 
+        "current_hospitalizations" : 35, 
+        "hosp_pui" : 40
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 35, 
+        "date" : 1586322000000, 
+        "positive_cases" : 23, 
+        "cumulative_positives" : 631, 
+        "total_tests" : 8181, 
+        "total_deaths" : 25, 
+        "daily_deaths" : 1, 
+        "daily_recovered" : 18, 
+        "total_recovered" : 195, 
+        "people_monitored" : 47, 
+        "completed_monitoring" : 777, 
+        "current_hospitalizations" : 33, 
+        "hosp_pui" : 44
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 36, 
+        "date" : 1586408400000, 
+        "positive_cases" : 49, 
+        "cumulative_positives" : 680, 
+        "total_tests" : 8657, 
+        "total_deaths" : 27, 
+        "daily_deaths" : 2, 
+        "daily_recovered" : 15, 
+        "total_recovered" : 210, 
+        "people_monitored" : 44, 
+        "completed_monitoring" : 781, 
+        "current_hospitalizations" : 32, 
+        "hosp_pui" : 43
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 37, 
+        "date" : 1586494800000, 
+        "positive_cases" : 33, 
+        "cumulative_positives" : 713, 
+        "total_tests" : 9258, 
+        "total_deaths" : 29, 
+        "daily_deaths" : 2, 
+        "daily_recovered" : 22, 
+        "total_recovered" : 232, 
+        "people_monitored" : 40, 
+        "completed_monitoring" : 785, 
+        "current_hospitalizations" : 32, 
+        "hosp_pui" : 45
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 38, 
+        "date" : 1586581200000, 
+        "positive_cases" : 20, 
+        "cumulative_positives" : 733, 
+        "total_tests" : 9841, 
+        "total_deaths" : 32, 
+        "daily_deaths" : 3, 
+        "daily_recovered" : 11, 
+        "total_recovered" : 243, 
+        "people_monitored" : 39, 
+        "completed_monitoring" : 786, 
+        "current_hospitalizations" : 34, 
+        "hosp_pui" : 33
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 39, 
+        "date" : 1586667600000, 
+        "positive_cases" : 21, 
+        "cumulative_positives" : 754, 
+        "total_tests" : 10365, 
+        "total_deaths" : 33, 
+        "daily_deaths" : 1, 
+        "daily_recovered" : 26, 
+        "total_recovered" : 269, 
+        "people_monitored" : 38, 
+        "completed_monitoring" : 793, 
+        "current_hospitalizations" : 33, 
+        "hosp_pui" : 33
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 40, 
+        "date" : 1586754000000, 
+        "positive_cases" : 7, 
+        "cumulative_positives" : 761, 
+        "total_tests" : 10585, 
+        "total_deaths" : 33, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 25, 
+        "total_recovered" : 294, 
+        "people_monitored" : 35, 
+        "completed_monitoring" : 796, 
+        "current_hospitalizations" : 31, 
+        "hosp_pui" : 33
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 41, 
+        "date" : 1586840400000, 
+        "positive_cases" : 9, 
+        "cumulative_positives" : 770, 
+        "total_tests" : 11081, 
+        "total_deaths" : 35, 
+        "daily_deaths" : 2, 
+        "daily_recovered" : 15, 
+        "total_recovered" : 309, 
+        "people_monitored" : 32, 
+        "completed_monitoring" : 800, 
+        "current_hospitalizations" : 33, 
+        "hosp_pui" : 30
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 42, 
+        "date" : 1586926800000, 
+        "positive_cases" : 9, 
+        "cumulative_positives" : 779, 
+        "total_tests" : 11507, 
+        "total_deaths" : 36, 
+        "daily_deaths" : 1, 
+        "daily_recovered" : 23, 
+        "total_recovered" : 332, 
+        "people_monitored" : 30, 
+        "completed_monitoring" : 803, 
+        "current_hospitalizations" : 33, 
+        "hosp_pui" : 25
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 43, 
+        "date" : 1587013200000, 
+        "positive_cases" : 13, 
+        "cumulative_positives" : 792, 
+        "total_tests" : 12116, 
+        "total_deaths" : 36, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 16, 
+        "total_recovered" : 348, 
+        "people_monitored" : 29, 
+        "completed_monitoring" : 804, 
+        "current_hospitalizations" : 32, 
+        "hosp_pui" : 24
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 44, 
+        "date" : 1587099600000, 
+        "positive_cases" : 10, 
+        "cumulative_positives" : 802, 
+        "total_tests" : 12566, 
+        "total_deaths" : 38, 
+        "daily_deaths" : 2, 
+        "daily_recovered" : 23, 
+        "total_recovered" : 371, 
+        "people_monitored" : 29, 
+        "completed_monitoring" : 805, 
+        "current_hospitalizations" : 32, 
+        "hosp_pui" : 24
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 45, 
+        "date" : 1587186000000, 
+        "positive_cases" : 11, 
+        "cumulative_positives" : 813, 
+        "total_tests" : 12726, 
+        "total_deaths" : 38, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 17, 
+        "total_recovered" : 388, 
+        "people_monitored" : 25, 
+        "completed_monitoring" : 808, 
+        "current_hospitalizations" : 27, 
+        "hosp_pui" : 26
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 46, 
+        "date" : 1587272400000, 
+        "positive_cases" : 4, 
+        "cumulative_positives" : 817, 
+        "total_tests" : 12981, 
+        "total_deaths" : 39, 
+        "daily_deaths" : 1, 
+        "daily_recovered" : 25, 
+        "total_recovered" : 413, 
+        "people_monitored" : 28, 
+        "completed_monitoring" : 813, 
+        "current_hospitalizations" : 24, 
+        "hosp_pui" : 25
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 47, 
+        "date" : 1587358800000, 
+        "positive_cases" : 3, 
+        "cumulative_positives" : 820, 
+        "total_tests" : 13111, 
+        "total_deaths" : 40, 
+        "daily_deaths" : 1, 
+        "daily_recovered" : 25, 
+        "total_recovered" : 438, 
+        "people_monitored" : 25, 
+        "completed_monitoring" : 817, 
+        "current_hospitalizations" : 21, 
+        "hosp_pui" : 20
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 48, 
+        "date" : 1587445200000, 
+        "positive_cases" : 8, 
+        "cumulative_positives" : 828, 
+        "total_tests" : 13462, 
+        "total_deaths" : 43, 
+        "daily_deaths" : 3, 
+        "daily_recovered" : 17, 
+        "total_recovered" : 455, 
+        "people_monitored" : 23, 
+        "completed_monitoring" : 819, 
+        "current_hospitalizations" : 18, 
+        "hosp_pui" : 19
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 49, 
+        "date" : 1587531600000, 
+        "positive_cases" : 3, 
+        "cumulative_positives" : 831, 
+        "total_tests" : 13852, 
+        "total_deaths" : 46, 
+        "daily_deaths" : 3, 
+        "daily_recovered" : 21, 
+        "total_recovered" : 476, 
+        "people_monitored" : 21, 
+        "completed_monitoring" : 821, 
+        "current_hospitalizations" : 15, 
+        "hosp_pui" : 29
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 50, 
+        "date" : 1587618000000, 
+        "positive_cases" : 3, 
+        "cumulative_positives" : 834, 
+        "total_tests" : 14310, 
+        "total_deaths" : 48, 
+        "daily_deaths" : 2, 
+        "daily_recovered" : 23, 
+        "total_recovered" : 499, 
+        "people_monitored" : 19, 
+        "completed_monitoring" : 823, 
+        "current_hospitalizations" : 12, 
+        "hosp_pui" : 20
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 51, 
+        "date" : 1587704400000, 
+        "positive_cases" : 9, 
+        "cumulative_positives" : 843, 
+        "total_tests" : 14682, 
+        "total_deaths" : 48, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 26, 
+        "total_recovered" : 525, 
+        "people_monitored" : 17, 
+        "completed_monitoring" : 826, 
+        "current_hospitalizations" : 12, 
+        "hosp_pui" : 25
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 52, 
+        "date" : 1587790800000, 
+        "positive_cases" : 9, 
+        "cumulative_positives" : 852, 
+        "total_tests" : 14797, 
+        "total_deaths" : 48, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 16, 
+        "total_recovered" : 541, 
+        "people_monitored" : 17, 
+        "completed_monitoring" : 826, 
+        "current_hospitalizations" : 11, 
+        "hosp_pui" : 23
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 53, 
+        "date" : 1587877200000, 
+        "positive_cases" : 3, 
+        "cumulative_positives" : 855, 
+        "total_tests" : 15073, 
+        "total_deaths" : 48, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 19, 
+        "total_recovered" : 560, 
+        "people_monitored" : 13, 
+        "completed_monitoring" : 830, 
+        "current_hospitalizations" : 11, 
+        "hosp_pui" : 22
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 54, 
+        "date" : 1587963600000, 
+        "positive_cases" : 7, 
+        "cumulative_positives" : 862, 
+        "total_tests" : 15215, 
+        "total_deaths" : 48, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 7, 
+        "total_recovered" : 567, 
+        "people_monitored" : 16, 
+        "completed_monitoring" : 831, 
+        "current_hospitalizations" : 12, 
+        "hosp_pui" : 17
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 55, 
+        "date" : 1588050000000, 
+        "positive_cases" : 0, 
+        "cumulative_positives" : 862, 
+        "total_tests" : 15429, 
+        "total_deaths" : 49, 
+        "daily_deaths" : 1, 
+        "daily_recovered" : 19, 
+        "total_recovered" : 586, 
+        "people_monitored" : 18, 
+        "completed_monitoring" : 832, 
+        "current_hospitalizations" : 11, 
+        "hosp_pui" : 15
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 56, 
+        "date" : 1588136400000, 
+        "positive_cases" : 4, 
+        "cumulative_positives" : 866, 
+        "total_tests" : 15652, 
+        "total_deaths" : 49, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 22, 
+        "total_recovered" : 608, 
+        "people_monitored" : 18, 
+        "completed_monitoring" : 832, 
+        "current_hospitalizations" : 10, 
+        "hosp_pui" : 13
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 57, 
+        "date" : 1588222800000, 
+        "positive_cases" : 13, 
+        "cumulative_positives" : 879, 
+        "total_tests" : 16233, 
+        "total_deaths" : 51, 
+        "daily_deaths" : 2, 
+        "daily_recovered" : 18, 
+        "total_recovered" : 626, 
+        "people_monitored" : 20, 
+        "completed_monitoring" : 833, 
+        "current_hospitalizations" : 11, 
+        "hosp_pui" : 8
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 58, 
+        "date" : 1588309200000, 
+        "positive_cases" : 6, 
+        "cumulative_positives" : 885, 
+        "total_tests" : 16591, 
+        "total_deaths" : 52, 
+        "daily_deaths" : 1, 
+        "daily_recovered" : 19, 
+        "total_recovered" : 645, 
+        "people_monitored" : 15, 
+        "completed_monitoring" : 838, 
+        "current_hospitalizations" : 11, 
+        "hosp_pui" : 9
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 59, 
+        "date" : 1588395600000, 
+        "positive_cases" : 11, 
+        "cumulative_positives" : 896, 
+        "total_tests" : 16954, 
+        "total_deaths" : 52, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 17, 
+        "total_recovered" : 662, 
+        "people_monitored" : 12, 
+        "completed_monitoring" : 841, 
+        "current_hospitalizations" : 10, 
+        "hosp_pui" : 9
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 60, 
+        "date" : 1588482000000, 
+        "positive_cases" : 5, 
+        "cumulative_positives" : 901, 
+        "total_tests" : 17332, 
+        "total_deaths" : 52, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 26, 
+        "total_recovered" : 688, 
+        "people_monitored" : 12, 
+        "completed_monitoring" : 841, 
+        "current_hospitalizations" : 8, 
+        "hosp_pui" : 7
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 61, 
+        "date" : 1588568400000, 
+        "positive_cases" : 5, 
+        "cumulative_positives" : 906, 
+        "total_tests" : 17518, 
+        "total_deaths" : 52, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 14, 
+        "total_recovered" : 702, 
+        "people_monitored" : 20, 
+        "completed_monitoring" : 840, 
+        "current_hospitalizations" : 8, 
+        "hosp_pui" : 25
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 62, 
+        "date" : 1588654800000, 
+        "positive_cases" : 3, 
+        "cumulative_positives" : 909, 
+        "total_tests" : 17876, 
+        "total_deaths" : 53, 
+        "daily_deaths" : 1, 
+        "daily_recovered" : 15, 
+        "total_recovered" : 717, 
+        "people_monitored" : 20, 
+        "completed_monitoring" : 841, 
+        "current_hospitalizations" : 6, 
+        "hosp_pui" : 20
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 63, 
+        "date" : 1588741200000, 
+        "positive_cases" : 5, 
+        "cumulative_positives" : 914, 
+        "total_tests" : 18451, 
+        "total_deaths" : 53, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 8, 
+        "total_recovered" : 725, 
+        "people_monitored" : 23, 
+        "completed_monitoring" : 841, 
+        "current_hospitalizations" : 5, 
+        "hosp_pui" : 9
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 64, 
+        "date" : 1588827600000, 
+        "positive_cases" : 2, 
+        "cumulative_positives" : 916, 
+        "total_tests" : 19008, 
+        "total_deaths" : 53, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 17, 
+        "total_recovered" : 742, 
+        "people_monitored" : 24, 
+        "completed_monitoring" : 842, 
+        "current_hospitalizations" : 5, 
+        "hosp_pui" : 10
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 65, 
+        "date" : 1588914000000, 
+        "positive_cases" : 2, 
+        "cumulative_positives" : 918, 
+        "total_tests" : 19527, 
+        "total_deaths" : 53, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 5, 
+        "total_recovered" : 747, 
+        "people_monitored" : 27, 
+        "completed_monitoring" : 842, 
+        "current_hospitalizations" : 5, 
+        "hosp_pui" : 16
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 66, 
+        "date" : 1589000400000, 
+        "positive_cases" : 8, 
+        "cumulative_positives" : 926, 
+        "total_tests" : 20048, 
+        "total_deaths" : 53, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 33, 
+        "total_recovered" : 780, 
+        "people_monitored" : 24, 
+        "completed_monitoring" : 845, 
+        "current_hospitalizations" : 5, 
+        "hosp_pui" : 11
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 67, 
+        "date" : 1589086800000, 
+        "positive_cases" : 0, 
+        "cumulative_positives" : 926, 
+        "total_tests" : 20871, 
+        "total_deaths" : 53, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 8, 
+        "total_recovered" : 788, 
+        "people_monitored" : 23, 
+        "completed_monitoring" : 846, 
+        "current_hospitalizations" : 5, 
+        "hosp_pui" : 9
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 68, 
+        "date" : 1589173200000, 
+        "positive_cases" : 1, 
+        "cumulative_positives" : 927, 
+        "total_tests" : 21262, 
+        "total_deaths" : 53, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 2, 
+        "total_recovered" : 790, 
+        "people_monitored" : 25, 
+        "completed_monitoring" : 849, 
+        "current_hospitalizations" : 5, 
+        "hosp_pui" : 13
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 69, 
+        "date" : 1589259600000, 
+        "positive_cases" : 2, 
+        "cumulative_positives" : 929, 
+        "total_tests" : 21676, 
+        "total_deaths" : 53, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 2, 
+        "total_recovered" : 792, 
+        "people_monitored" : 27, 
+        "completed_monitoring" : 849, 
+        "current_hospitalizations" : 5, 
+        "hosp_pui" : 12
+      }
+    }, 
+    {
+      "attributes" : {
+        "OBJECTID" : 70, 
+        "date" : 1589346000000, 
+        "positive_cases" : 3, 
+        "cumulative_positives" : 932, 
+        "total_tests" : 22505, 
+        "total_deaths" : 53, 
+        "daily_deaths" : 0, 
+        "daily_recovered" : 0, 
+        "total_recovered" : 792, 
+        "people_monitored" : 27, 
+        "completed_monitoring" : 851, 
+        "current_hospitalizations" : 5, 
+        "hosp_pui" : 13
+      }
+    }
+  ]
+}
