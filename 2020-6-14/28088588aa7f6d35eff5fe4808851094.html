@@ -1,0 +1,1536 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+
+					<script type='text/javascript'>
+						var enableTelemetry = 'false'
+						var aiConfig = {
+						instrumentationKey: '1cde048e-3185-4906-aa46-c92a7312b60f'						
+						}
+						var appInsights = window.appInsights || function (a) { function b(a) { c[a] = function () { var b = arguments; c.queue.push(function () { c[a].apply(c, b) }) } } var c = { config: a }, d = document, e = window; setTimeout(function () { var b = d.createElement('script'); b.src = a.url || 'https://az416426.vo.msecnd.net/scripts/a/ai.0.js', d.getElementsByTagName('script')[0].parentNode.appendChild(b) }); try { c.cookie = d.cookie } catch (a) { } c.queue = []; for (var f = ['Event', 'Exception', 'Metric', 'PageView', 'Trace', 'Dependency']; f.length;)b('track' + f.pop()); if (b('setAuthenticatedUserContext'), b('clearAuthenticatedUserContext'), b('startTrackEvent'), b('stopTrackEvent'), b('startTrackPage'), b('stopTrackPage'), b('flush'), !a.disableExceptionTracking) { f = 'onerror', b('_' + f); var g = e[f]; e[f] = function (a, b, d, e, h) { var i = g && g(a, b, d, e, h); return !0 !== i && c['_' + f](a, b, d, e, h), i } } return c }(aiConfig);
+						window.appInsights = appInsights, appInsights.queue && 0 === appInsights.queue.length;
+						// Add telemetry initializer
+						appInsights.queue.push(function() {
+							appInsights.context.addTelemetryInitializer(function(envelope) {
+								var telemetryItem = envelope.data.baseData;
+								// To check the telemetry item’s type:
+								if (!false)
+								{
+									//If the telemetry is not enabled, we still want to capture Google map custom event, so only allow that
+									if (envelope.name.indexOf('.Event') == -1)
+										return false;
+								}
+							});
+						});						
+						appInsights.trackPageView();
+					</script>
+			<script>
+				document.addEventListener("DOMContentLoaded", function () {
+					var forms = document.getElementsByTagName("form");
+					var absPat = /^https?:\/\/|^\/\//i;
+					for (var i = 0; i < forms.length; i++)
+					{
+						if (forms[i].method == "post" && !forms[i].querySelector('[name="__RequestVerificationToken"]') && !absPat.test(forms[i].getAttribute("action"))) {
+							forms[i].insertAdjacentHTML("beforeend", "<input name=\"__RequestVerificationToken\" type=\"hidden\" value=\"d25gjsZpXQrv37Rs6cz10IBYmkfpNMrJMyM3Vk4Uw4wX7IqjR68FZzUztLnwDiwB5ZPA18EJ0GS55kPZwtaMU62I_Lo1\" />");
+						}
+					}
+				}, false);
+			</script>
+			
+	<script type="text/javascript">
+        window.isResponsiveEnabled = true;
+		window.isRemoveSetHeights= false;
+		if (window.isRemoveSetHeights) {
+			document.documentElement.className += ' removeSetHeights';
+		}
+		window.mainMenuMediaQuery = 'screen and (max-width: 40em)';
+		window.isMobileBrowserIncludingTablets = false;
+		window.fixedResponsiveMenu = false;
+		window.fullWidthResponsiveMenu = false;
+		window.responsiveMenuHeight = '';
+		window.responsiveMenuFontSize = '';
+		(function () {
+			window.devicePixelRatio = window.devicePixelRatio || Math.round(window.screen.availWidth / document.documentElement.clientWidth);
+			window.innerWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+			window.innerHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+			window.setSizeCookie = function () {
+				document.cookie = "dpi=" + window.devicePixelRatio + "; path=/";
+				document.cookie = "viewportWidth=" + window.innerWidth + "; path=/";
+				document.cookie = "viewportHeight=" + window.innerHeight + "; path=/";
+				if (screen && screen.width && screen.height) {
+					document.cookie = "screenWidth=" + screen.width + "; path=/";
+					document.cookie = "screenHeight=" + screen.height + "; path=/";
+				}
+				document.cookie = "responsiveGhost=1; path=/";
+			};
+
+			setSizeCookie();
+		}());
+	</script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	
+	<meta name="theme-color" content="#102e5f">
+	<link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+	<title>Coronavirus (COVID-19) Information | Nye County, NV Official Website</title>
+		<meta name="description" content="The latest information gathered within and outside the county regarding the Coronavirus (COVID-19) preparation and any response by the County Department of Emergency Management and County Administration.">
+		<meta name="keywords" content="Coronavirus,COVID19,">
+							<link rel="stylesheet" type="text/css" href="/Assets/Mystique/Shared/Scripts/froala_editor_2.8.4/css/froala_editor_2.8.4.min.css" />
+
+	<!--[if IE 6]><script language="JavaScript" type="text/javascript"> var isie6 = true; </script><![endif]-->
+	<!--[if IE 7]><script language="JavaScript" type="text/javascript"> var isie7 = true; </script><![endif]-->
+	<!--[if IE 8]><script language="JavaScript" type="text/javascript"> var isie8 = true; </script><![endif]-->
+	<!--[if IE 9]><script language="JavaScript" type="text/javascript"> var isie8 = true; </script><![endif]-->
+	<script type="text/javascript"><!--
+	var intCountryCode = 840;
+	var externalSiteDialogHeight = '350px';
+	var order = '';
+//--></script>
+	
+	<link href="/2059828931.css" rel="stylesheet" type="text/css" />	<link href="/-1920704119.css" rel="stylesheet" type="text/css" />
+
+	<link rel="stylesheet" type="text/css" href="/Assets/Styles/Print.css" media="print">
+<script type="text/javascript" src="/Scripts/2011.3.1115/jquery-1.6.4.min.js"></script>
+	<script type="text/javascript">
+		window.Pages = window.Pages || {};
+		// FrontEnd RWD initialization
+		window.Pages.rwdReady = $.Deferred();
+		window.Pages.toolBarDeferred = $.Deferred();
+		window.Pages.rwdSetupComplete = $.Deferred();
+		window.Pages.megaMenuLoaded = $.Deferred();
+		window.Pages.angularToolbarComplete = $.Deferred();
+		window.Pages.frontEndToolbarComplete = $.Deferred();
+	</script>
+	<!--CPHeadContent-->
+	<script src="/429101359.js" type="text/javascript"></script>
+	
+	
+	
+	
+
+
+
+
+	<!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="/App_Themes/ie8.css"><![endif]-->
+	<!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="/App_Themes/ie7.css"><![endif]-->
+	<!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="/App_Themes/ie6.css"><![endif]-->
+	<!--[if lt IE 9]><script type="text/javascript" src="/Scripts/html5.js"></script><![endif]-->
+
+	<script type="text/javascript">
+		setEditorVariables(false, 840);
+		function getPrintPreviewType() { return 0; } function printPreview() {pPreview(getPrintPreviewType()); }
+	</script>
+	
+</head>
+<body class="wide " >
+
+	
+
+	<div id="fb-root"></div>
+<div id=skipToContentLinks>
+<a href="#cc9ff79fe6-b077-45eb-9be8-f54c0f7ab582" target="_self" class="skipToContentLink">Skip to Main Content</a>
+</div>
+	<form id="frmReferenceFormForTelerikEditorDialogs"></form>
+
+		<input type="hidden" id="GoogleMapsKey" value="AIzaSyDWUuE-ifkbhxblF920N8MjpBdTg1Wt784" />
+
+
+
+
+
+	<input type="hidden" id="cpcDomain" value="https://cp-civicplusuniversity2.civicplus.com">
+	<input type="hidden" id="hdnStructureID" value="1" />
+	<input type="hidden" id="hdnContentCollectionID" value="b0cff46f-0095-40f9-bb40-4077586e717e" />
+	<input type="hidden" id="hdnWorkingCopyID" value="00000000-0000-0000-0000-000000000000" />
+	<input type="hidden" id="hdnThemeID" value="1" />
+	<input type="hidden" id="pageIsFrontEnd" value="true" />
+	<input type="hidden" id="pageModuleID" />
+	<input type="hidden" id="pagePageID" value="1066" />
+	<input type="hidden" id="hdnModuleEligibleForJquery224Upgrade" value="true" />
+
+		<div id="stickyPlaceholder"></div>
+	<div id="outer-wrap" class="outer-wrap">
+		<div id="inner-wrap" class="inner-wrap">
+				<div id="divToolbars" class="cpToolbars newCP" style="">
+					
+<style>
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700); 
+.alertText .customAlert {
+    color: #EAEAEA;
+    display: inline-block;
+    font-family: 'Open Sans Condensed', sans-serif; 
+    text-transform: uppercase;
+    font-weight: bold;
+    height: 27px;
+    left: 57px;
+    line-height: 27px;
+    overflow: hidden;
+    position: absolute;
+    top: 15px;
+    white-space: nowrap;
+    width: 268px;
+}
+</style>
+  <div id="1_divAlertBar" class="alertToolbar cpToolbar">
+    <div id="1_divAlertToolbarInner" class="alertToolbarInner" style="font-size: 16px;">
+        <a href="/AlertCenter.aspx" id="1_lnkAlertText" class="alertText" style="border-right: 1px solid #000000;">
+            <img src="/Common/Images/AlertCenter/alertBarBlink.svg" id="1_imgDot" alt="Emergency Alert" class="redDot" />
+            <span id="1_customAlert" class="customAlert">COVID-19 UPDATES</span>
+        </a>
+        <span id="1_spnAlertContainer" class="alertContainer"><a href="https://www.nyecounty.net/1081/12409/Reopening-Nevada-Guidance" class="alert" style="border-left: 1px solid #635e65; border-right: 1px solid #000000;background: #030303 url(/Common/images/AlertCenter/alertBarBlackTextBckg.png) repeat-x; color: #FFFFFF;">
+	REOPENING NEVADA AND NYE GUIDANCE
+	<span style="color: #FC4C2F;">Read On...</span>
+</a>
+<a href="http://nyecounty.net/CivicAlerts.aspx?AID=921" class="alert" style="border-left: 1px solid #635e65; border-right: 1px solid #000000;background: #030303 url(/Common/images/AlertCenter/alertBarBlackTextBckg.png) repeat-x; color: #FFFFFF;">
+	COUNTY OFFICES, COURTS OPERATIONS COVID-19
+	<span style="color: #FC4C2F;">Read On...</span>
+</a>
+</span>
+    </div>
+  </div>
+  <div id="1_divAlertBarEmpty" class="alertBarEmpty"></div>
+  
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="/App_Themes/CP/ie7.css"><![endif]-->
+<!-- Allow Dashboard, Favorites Enabled -->
+
+				</div>
+			<div id="bodyWrapper">
+				<div id="mainNavHolderMobile" class="mainNavHolderMobile"></div>
+				
+<div data-cpRole="structuralContainer" id="structuralContainer5">
+<div data-cpRole="structuralContainer" id="structuralContainer8">
+<div class="siteWrap"><nav data-cpRole="nav" id="mainNav" class="siteNav mainNav" role="navigation">
+<ol id="mainNavMenu" data-parent="1" class="rootNavMenu" role="menu"><!--
+--><li id="MainItem31" class="topMenuItem" aria-haspopup="true" role="menuitem" data-pageid="31" data-displaymegamenu="True"><!--
+			--><!--
+			--><a id="mainNavAboutUs" class="navMainItem mainNavItem mainNavItem1" href="/31/About-Us" target="_self">About Us</a><!--
+			--><!--
+			--></li><!----><li id="MainItem27" class="topMenuItem" aria-haspopup="true" role="menuitem" data-pageid="27" data-displaymegamenu="True"><!--
+			--><!--
+			--><a id="mainNavGovernment" class="navMainItem mainNavItem mainNavItem2" href="/27/Government" target="_self">Government</a><!--
+			--><!--
+			--></li><!----><li id="MainItem8" class="topMenuItem" aria-haspopup="true" role="menuitem" data-pageid="8" data-displaymegamenu="True"><!--
+			--><!--
+			--><a id="mainNavDepartments" class="navMainItem mainNavItem mainNavItem3" href="/8/Departments" target="_self">Departments</a><!--
+			--><!--
+			--></li><!---->
+</ol>
+
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			var menuID = 'mainNavMenu';
+			var menuType = MAIN_MENU;
+
+			//setup menu manager properties for main menu
+			if (!menuManager.mobileMainNav && true)
+				menuManager.adjustMainItemsWidth('#' + menuID);
+			menuManager.isMainMenuEditable = false;
+			menuManager.mainMenuMaxSubMenuLevels = 4;
+			menuManager.setMOMMode(2, menuType);
+
+			//Init main menu
+			var setupDraggable = menuManager.isMainMenuEditable;
+			var urlToGetHiddenMenus = '/Pages/MenuMain/HiddenMainSubMenus?pageID=1&moduleID=&themeID=1&menuContainerID=mainNav';
+
+			menuManager.setupMenu(menuID, 'mainNav', menuType, setupDraggable, urlToGetHiddenMenus);
+			menuManager.mainMenuInit = true;
+			menuManager.mainMenuTextResizer = true;
+			if (1.00 > 0)
+				menuManager.mainMenuTextResizerRatio = 1.00;
+			if (window.isResponsiveEnabled)
+				menuManager.mainMenuReady.resolve();
+
+		});
+	</script>
+
+
+<aside data-cpRole="megaMenu" id="megaMenu" class="megaMenu" style="display: none;"><input type="hidden" id="megaMenuPopupDirection" value="0"><input type="hidden" id="megaMenuWidthReference" value="1"><aside data-cpRole="contentContainer" id="mainNavMegaMenu31" class="contentTop mainNavMegaMenu megaMenuContainer pageID_31 hidden" data-orientation="horizontal">	<div id="cce96fc72e-097c-40af-9d8a-bb06ba27b9cd" data-containerid="e96fc72e-097c-40af-9d8a-bb06ba27b9cd" class="pageContent cpGrid cpGrid24">
+				                
+
+
+
+	</div>
+</aside><aside data-cpRole="contentContainer" id="mainNavMegaMenu27" class="contentTop mainNavMegaMenu megaMenuContainer pageID_27 hidden" data-orientation="horizontal">	<div id="cc4635b4c6-4fc7-4cec-9211-f4b8f639f31a" data-containerid="4635b4c6-4fc7-4cec-9211-f4b8f639f31a" class="pageContent cpGrid cpGrid24">
+				                
+
+
+
+	</div>
+</aside><aside data-cpRole="contentContainer" id="mainNavMegaMenu8" class="contentTop mainNavMegaMenu megaMenuContainer pageID_8 hidden" data-orientation="horizontal">	<div id="cc50a3e925-bbbb-4c6f-91b9-67605ef8efd2" data-containerid="50a3e925-bbbb-4c6f-91b9-67605ef8efd2" class="pageContent cpGrid cpGrid24">
+				                
+
+
+
+	</div>
+</aside></aside></nav></div>
+</div><div data-cpRole="structuralContainer" id="structuralContainer6">
+<div data-cpRole="banner" id="banner1"><div data-cpRole="structuralContainer" id="structuralContainer10">
+<div class="siteWrap"><header class="siteHeader"><div data-cpRole="banner" id="banner2" class="logo empty">
+
+
+
+
+				<a style="			display: block; text-align: center;
+" class="bannerObject" href="/" target="_self"><img alt="Click to Home" class="bannerObject" height="132" src="/ImageRepository/Document?documentID=31109" width="406" /></a>
+
+</div><aside data-cpRole="contentContainer" id="contentContainer2" class="search">	<div id="cc1b8a0410-4a00-4cf0-9a1b-51838a21b25b" data-containerid="1b8a0410-4a00-4cf0-9a1b-51838a21b25b" class="pageContent cpGrid cpGrid24 isLockedContainer showInMobile">
+				                
+
+		<div class="row outer wide"><!--
+--><div class="outer col col24 first last" style="" data-widgetcontainerid="b7d02745-1686-4a0f-9066-fb30ab8cbb3a">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col24 first last id37b8702c-9462-40ed-8555-7431aac8bad9" style="" data-widgetcontainerid="37b8702c-9462-40ed-8555-7431aac8bad9">	
+<div data-widget-id="0a4e86f1-db7e-4884-8607-e5f1e496133e" data-widget-controller-path="/Layout/WidgetSearch">
+	
+		<script defer type="text/javascript" src="/Common/Controls/jquery-ui/js/jquery.ui.autocomplete.min.js"></script>
+	<script defer src="/Areas/Layout/Assets/Scripts/Search.js" type="text/javascript"></script>
+	<script defer type="text/javascript">
+
+		$(document).ready(function () {
+			try {
+				$(".widgetSearchButton.widgetSearchButton0a4e86f1-db7e-4884-8607-e5f1e496133e").click(function (e) {
+				e.preventDefault();
+					if ($("#ysnSearchOnlyDept0a4e86f1-db7e-4884-8607-e5f1e496133e").is(':checked')) {
+						doWidgetSearch($(this).siblings(".widgetSearchBox").val(), Number(0));
+					} else {
+						doWidgetSearch($(this).siblings(".widgetSearchBox").val(), 0);
+					}
+			});
+			$("#searchField0a4e86f1-db7e-4884-8607-e5f1e496133e").keypress(function (e) {
+				if (window.clipboardData) {
+					if (e.keyCode == 13) {
+							if ($("#ysnSearchOnlyDept0a4e86f1-db7e-4884-8607-e5f1e496133e").is(':checked')) {
+								doWidgetSearch($(this).val(), Number(0));
+							} else {
+								doWidgetSearch($(this).val(), 0);
+							}
+						return false;
+					}
+				} else {
+					if (e.which == 13) {
+							if ($("#ysnSearchOnlyDept0a4e86f1-db7e-4884-8607-e5f1e496133e").is(':checked')) {
+								doWidgetSearch($(this).val(), Number(0));
+							} else {
+								doWidgetSearch($(this).val(), 0);
+							}
+						return false;
+					}
+				}
+				return true;
+			});
+
+				if (true) {
+					var currentRequest = null;
+
+					var $searchField = $("#searchField0a4e86f1-db7e-4884-8607-e5f1e496133e").autocomplete({
+						source: function (request, response) {
+							currentRequest = $.ajax({
+								url: '/Search/AutoComplete',
+								dataType: "json",
+								timeout: 10000,
+								beforeSend: function () {
+									if (currentRequest != null) {
+										currentRequest.abort();
+									}
+								},
+								data:
+								{
+									term: request.term,
+								},
+								success: function (data) {
+									response(data);
+									$('.autoCompleteError').remove();
+								},
+								error: function (xmlhttprequest, textstatus, message) {
+									if (textstatus === "timeout") {
+										if ($("#searchField0a4e86f1-db7e-4884-8607-e5f1e496133e").siblings('.autoCompleteError').length == 0)
+											$('<span class="autoCompleteError"><p class="alert error">Search autocomplete is currently not responding. Please try again later.</p></span>').insertAfter($("#searchField0a4e86f1-db7e-4884-8607-e5f1e496133e"));
+									}
+								}
+							});
+						},
+						html: true,
+						delay: 500,
+						select: function (event, ui) {
+							$(this).val(ui.item.value);
+							$(this).next().click();
+						}
+					});
+
+					if (false && true) {
+						$searchField.data("ui-autocomplete")._renderItem = function (ul, item) {
+							return $("<li class=\"itemList\"></li>")
+								.data("ui-autocomplete-item", item)
+								.append("<a>" + item.label + "</a>")
+								.appendTo(ul);
+						};
+					}
+					else {
+						$searchField.data("autocomplete")._renderItem = function (ul, item) {
+							return $("<li></li>")
+								.data("item.autocomplete", item)
+								.append("<a>" + item.label + "</a>")
+								.appendTo(ul);
+						};
+					}
+}
+}
+			catch(e) {} //we're going to eat this error. Autocomplete won't work but we dont wan't to break anything else on the page.
+		});
+	</script>
+
+	<section id="widgetPreviewSearch" class="widget widgetSearch skin4 widgetOptionSet12" style="display: block;" aria-label="Search">
+				<!-- For the button right and inside -->
+		<div class="widgetBody buttonRightInside">
+			<input class="widgetSearchBox widgetSearchBox0a4e86f1-db7e-4884-8607-e5f1e496133e" cp5ph="true" id="searchField0a4e86f1-db7e-4884-8607-e5f1e496133e" name="searchField" onchange="searchBtnApplyQuery();" placeholder="Search..." title="Search..." type="text" value="" />
+							<a href="/Search/Results" id="btnSearchIcon" class="widgetSearchButton widgetSearchButton0a4e86f1-db7e-4884-8607-e5f1e496133e" role="button"><img alt="Go to Site Search" class="imageHover" data-hover="/ImageRepository/Document?documentID=31115" data-image="/ImageRepository/Document?documentID=31114" src="/ImageRepository/Document?documentID=31114" /></a>
+
+			<label class="searchLabel" for="searchField0a4e86f1-db7e-4884-8607-e5f1e496133e">Search</label>
+		</div>
+
+	</section>
+
+
+<style scoped>
+    
+        .widgetSearch ::-webkit-input-placeholder {
+        color: #414042;
+      }
+        .widgetSearch :-moz-placeholder { /* Firefox 18- */
+       color: #414042;
+    }
+        .widgetSearch ::-moz-placeholder {  /* Firefox 19+ */
+       color: #414042;
+    }
+    .widgetSearch :-ms-input-placeholder {
+       color: #414042;
+    }
+    
+
+	.widgetSearch .widgetBody .widgetSearchBox0a4e86f1-db7e-4884-8607-e5f1e496133e
+	{
+        color: #414042;
+		background: #ffffff; border: 0; padding: 18px 110px 17px 20px; font-family: Montserrat; font-weight: 600; text-transform: uppercase;
+	}
+	.widgetSearch .widgetBody .widgetSearchButton0a4e86f1-db7e-4884-8607-e5f1e496133e
+	{
+		margin: 0;
+	}
+	.widgetSearch .widgetSearch-onlyDept0a4e86f1-db7e-4884-8607-e5f1e496133e
+	{
+		display: inline-block;
+		color: #333;
+		
+		
+		 padding-top: 10px;
+	}
+	#ysnSearchOnlyDept0a4e86f1-db7e-4884-8607-e5f1e496133e
+	{
+		position: relative;
+		top: .125em;
+	}
+
+</style>
+
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+
+
+	<script type="text/javascript">
+	//Updates search icons href to have the correct queryString
+	function searchBtnApplyQuery() {
+		document.getElementById("btnSearchIcon").href = "/Search?searchPhrase=" + document.getElementById("searchField0a4e86f1-db7e-4884-8607-e5f1e496133e").value;
+    }
+	</script>
+
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!--		--></div> <!-- outer row -->
+
+
+	</div>
+</aside></header></div>
+</div>
+
+
+
+
+			<div id="banner1-1" style="display: none"></div>
+				<script type="text/javascript">
+					onOrLive($(window), function () {
+							$.when(window.Pages.rwdSetupComplete)
+								.done(function () {
+									renderBanner('banner1-1',
+										'banner1',
+										{"BannerOptionID":1,"ThemeID":1,"SlotName":"banner1","Name":"Default","IsDefault":true,"BannerMode":1,"SlideShowSlideTiming":"5","SlideshowTransition":0,"SlideShowTransitionTiming":"1","ImageScale":true,"ImageAlignment":1,"ImageScroll":true,"MuteSound":true,"VideoType":0,"Status":40,"SlideshowControlsPosition":0,"SlideshowControlsAlignment":0,"SlideshowBannerControlsColorScheme":0,"BannerImages":[{"BannerImageID":8,"BannerOptionID":1,"FileName":"/ImageRepository/Document?documentID=31111","Height":349,"Width":1830,"StartingOn":null,"StoppingOn":null,"IsLink":false,"LinkAddress":null,"Sequence":1,"RecordStatus":0,"ModifiedBy":0,"ModifiedOn":"\/Date(-62135575200000)\/","AltText":null}],"BannerVideos":[{"BannerVideoID":1,"BannerOptionID":1,"VideoFileName":"","ImageFileName":"EmptyBannerBkg201712041032087051.png","IsLink":false,"LinkAddress":null,"ModifiedBy":0,"ModifiedOn":"\/Date(-62135575200000)\/","VideoFileID":"00000000-0000-0000-0000-000000000000","ImageFileID":"00000000-0000-0000-0000-000000000000","VideoWidth":0,"VideoHeight":0,"ImageWidth":0,"ImageHeight":0,"LinkedVideoUrl":"","RecordStatus":0,"AltText":null}],"RecordStatus":0,"ModifiedBy":0,"ModifiedOn":"\/Date(-62135575200000)\/"},
+										{"BannerImageID":8,"BannerOptionID":1,"FileName":"/ImageRepository/Document?documentID=31111","Height":349,"Width":1830,"StartingOn":null,"StoppingOn":null,"IsLink":false,"LinkAddress":null,"Sequence":1,"RecordStatus":0,"ModifiedBy":0,"ModifiedOn":"\/Date(-62135575200000)\/","AltText":null},
+										'/App_Themes/Interior/Images/',
+										'<img alt="" class="bannerObject" src="/ImageRepository/Document?documentID=31111" />');
+								});
+						}, "load");
+				</script>
+
+
+</div>
+</div><div data-cpRole="structuralContainer" id="structuralContainer4">
+<div class="siteWrap"><div data-cpRole="structuralContainer" id="structuralContainer1" class="mainWrap" role="main">
+<div data-cpRole="structuralContainer" id="structuralContainer12" class="outerContentWrap">
+<div data-cpRole="structuralContainer" id="structuralContainer2" class="contentWrap">
+<div data-cpRole="breadCrumbs" class="breadCrumbContainer" id="breadCrumbs">		<ol class="semanticList breadCrumbs">
+			<li><a class="breadCrumb" href="/">Home</a></li><li><a class="breadCrumb" href="/8/Departments">Departments</a></li><li><a class="breadCrumb" href="/179/Department-of-Emergency-Management">Department of Emergency Management</a></li><li id="currentBCPage" data-pageid="1066">Coronavirus (COVID-19) Information</li>
+		</ol>
+
+	   
+    
+</div><div data-cpRole="mainContentContainer" id="moduleContent">
+	
+	<div id="page" class="moduleContentNew">
+		
+
+	<input id="hdnPageID" name="hdnPageID" type="hidden" value="1066" />
+	<input id="hdnParentID" name="hdnParentID" type="hidden" value="179" />
+	<input id="hdnVersionID" name="hdnVersionID" type="hidden" value="12084" />
+	<input id="pageMenuTitle" name="pageMenuTitle" type="hidden" value="Coronavirus (COVID-19) Information" />
+	<input id="pageShowFeatureColumn" name="pageShowFeatureColumn" type="hidden" value="False" />
+	<input id="hdnIsLayoutPage" name="hdnIsLayoutPage" type="hidden" value="False" />
+	<input id="hdnPageStatus" name="hdnPageStatus" type="hidden" value="Active" />
+
+				<h1 id="versionHeadLine" class="headline">
+Coronavirus (COVID-19) Information		</h1>
+			<div id="cc9ff79fe6-b077-45eb-9be8-f54c0f7ab582" data-containerid="9ff79fe6-b077-45eb-9be8-f54c0f7ab582" class="pageContent cpGrid cpGrid24"  data-contentcontainerbreakpoint="30" >
+			
+
+		<div class="row outer wide"><!--
+--><div class="outer col col13 first" style="" data-widgetcontainerid="0b34be45-56f7-46bd-81de-67f2e960d968">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col13 first last idefaa9e95-c7f1-410c-998f-dd56b147d82c" style="" data-widgetcontainerid="efaa9e95-c7f1-410c-998f-dd56b147d82c">	
+
+<div data-widget-id="e363ceef-d130-47ed-bfcb-999cbff8bf0f" data-widget-controller-path="/Layout/WidgetTable">
+	
+
+	<section id="tableWidgete363ceef-d130-47ed-bfcb-999cbff8bf0f" class="widget widgetTable pageStyles narrow" style="display: block;" data-elementqueryclasses='{"narrow-wide":"max-width:25em"}' aria-labelledby="headere363ceef-d130-47ed-bfcb-999cbff8bf0f">
+				<header class="widgetHeader" id="headere363ceef-d130-47ed-bfcb-999cbff8bf0f">
+			<h2 class="subhead1" >Latest Case Count, COVID-19, June 8, 2020</h2>
+		</header>
+	<div class="widgetBody">
+			<table >
+					<caption >TESTS REPORTED TO THE COUNTY: Approximately 1,700. 
+The reported number of tests administered is the best information received by the County from the State and private clinics.
+
+</caption>
+									<thead>
+						<tr>
+								<th scope="col" id="te363ceef-d130-47ed-bfcb-999cbff8bf0fc1">Town or Area</th>
+								<th scope="col" id="te363ceef-d130-47ed-bfcb-999cbff8bf0fc2">Reported Positives</th>
+								<th scope="col" id="te363ceef-d130-47ed-bfcb-999cbff8bf0fc3">Recovered</th>
+						</tr>
+					</thead>
+									<tbody>
+							<tr class="textContent">
+										<td  headers="te363ceef-d130-47ed-bfcb-999cbff8bf0fc1" data-th="Town or Area">Pahrump</td>
+										<td  headers="te363ceef-d130-47ed-bfcb-999cbff8bf0fc2" data-th="Reported Positives">54</td>
+										<td  headers="te363ceef-d130-47ed-bfcb-999cbff8bf0fc3" data-th="Recovered">34</td>
+							</tr>
+							<tr class="alt textContent">
+										<td  headers="te363ceef-d130-47ed-bfcb-999cbff8bf0fc1" data-th="Town or Area">Tonopah</td>
+										<td  headers="te363ceef-d130-47ed-bfcb-999cbff8bf0fc2" data-th="Reported Positives">4</td>
+										<td  headers="te363ceef-d130-47ed-bfcb-999cbff8bf0fc3" data-th="Recovered">4</td>
+							</tr>
+							<tr class="textContent">
+										<td  headers="te363ceef-d130-47ed-bfcb-999cbff8bf0fc1" data-th="Town or Area">Amargosa Valley</td>
+										<td  headers="te363ceef-d130-47ed-bfcb-999cbff8bf0fc2" data-th="Reported Positives">8</td>
+										<td  headers="te363ceef-d130-47ed-bfcb-999cbff8bf0fc3" data-th="Recovered">3</td>
+							</tr>
+							<tr class="alt textContent">
+										<td  headers="te363ceef-d130-47ed-bfcb-999cbff8bf0fc1" data-th="Town or Area">Beatty</td>
+										<td  headers="te363ceef-d130-47ed-bfcb-999cbff8bf0fc2" data-th="Reported Positives">3</td>
+										<td  headers="te363ceef-d130-47ed-bfcb-999cbff8bf0fc3" data-th="Recovered">1</td>
+							</tr>
+							<tr class="textContent">
+										<td  headers="te363ceef-d130-47ed-bfcb-999cbff8bf0fc1" data-th="Town or Area">Antibody Positive</td>
+										<td  headers="te363ceef-d130-47ed-bfcb-999cbff8bf0fc2" data-th="Reported Positives">1</td>
+										<td  headers="te363ceef-d130-47ed-bfcb-999cbff8bf0fc3" data-th="Recovered">1</td>
+							</tr>
+							<tr class="alt textContent">
+										<td  headers="te363ceef-d130-47ed-bfcb-999cbff8bf0fc1" data-th="Town or Area">Deaths</td>
+										<td  headers="te363ceef-d130-47ed-bfcb-999cbff8bf0fc2" data-th="Reported Positives">2</td>
+										<td  headers="te363ceef-d130-47ed-bfcb-999cbff8bf0fc3" data-th="Recovered">n/a</td>
+							</tr>
+					</tbody>
+			</table>
+	</div>
+
+	</section>
+
+
+</div>	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!----><div class="outer col col11 last" style="" data-widgetcontainerid="1891ce0b-5360-46aa-9bed-af88fb5351bf">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col11 first last idc2d24331-533a-4a4b-8a37-be39e12516c9" style="" data-widgetcontainerid="c2d24331-533a-4a4b-8a37-be39e12516c9">	
+<div class="widget image pageStyles" id="divImageOutere5a9ed64-941b-4809-979d-832422326bf5" data-widget-id="e5a9ed64-941b-4809-979d-832422326bf5">
+    
+	<div class="widgetBody imageBorder" id="divImagee5a9ed64-941b-4809-979d-832422326bf5">				<a href="https://www.nevada211.org/seniors-covid19-resources/" target="_blank"><img src="/ImageRepository/Document?documentID=36365" alt="COVID-19 Information Help Line (jpeg)" title="COVID-19 Information Help Line (jpeg)"/></a>
+	</div></div>
+
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!--		--></div> <!-- outer row -->
+		<div class="row outer wide"><!--
+--><div class="outer col col14 first" style="" data-widgetcontainerid="ad9c62a1-aa5b-40c5-9018-26169965b2c7">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col14 first last id16e2f2d2-2621-489c-bf8a-a0d0c5528f6f" style="" data-widgetcontainerid="16e2f2d2-2621-489c-bf8a-a0d0c5528f6f">	
+<div class="widget editor pageStyles narrow" id="divEditor31808b39-0f31-4d9b-9ff4-3230f533abe3" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}'>
+        <div class="fr-view">
+
+
+        <h2 class="subhead1" style="margin-left: 20px;"><strong>COVID-19 Testing&nbsp;</strong><strong>in Nye County &amp; Nevada</strong></h2><p style="text-align: center;"><a aria-label="State’s COVID-19 Test Site Finder Opens in new window" href="https://nvhealthresponse.nv.gov/find-covid-19-testing-in-nevada/" rel="noopener noreferrer" target="_blank"><strong><span class="hyperlink">State&rsquo;s COVID-19 Test Site Finder</span></strong></a></p>
+    </div>
+
+<script type="text/javascript">
+	$(document).ready(function (e) {		
+	    renderSlideshowIfApplicable($('#divEditor' + '31808b39-0f31-4d9b-9ff4-3230f533abe3'));
+	});
+</script>
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!----><div class="outer col col10 last" style="" data-widgetcontainerid="5fb1e9e4-9444-4956-a868-11260a648098">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col10 first last id5a75ad72-c4d7-4f4e-90a7-7b07914e479b" style="" data-widgetcontainerid="5a75ad72-c4d7-4f4e-90a7-7b07914e479b">	
+
+<div class="widget widgetSpacer" id="947de071-e5b6-47a5-b549-6e0d4baaa825"></div>	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!--		--></div> <!-- outer row -->
+		<div class="row outer wide"><!--
+--><div class="outer col col24 first last" style="" data-widgetcontainerid="d1654560-1154-4f19-9c2c-b32ad644bcda">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col24 first last id31ae955e-0374-416d-a0d8-14c10822f613" style="" data-widgetcontainerid="31ae955e-0374-416d-a0d8-14c10822f613">	
+
+<div class="widget widgetSpacer" id="328c9ecd-a422-4133-ab62-b1ba94430296"></div>	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!--		--></div> <!-- outer row -->
+		<div class="row outer wide"><!--
+--><div class="outer col col24 first last" style="" data-widgetcontainerid="964e9b6b-0e5d-4bc7-b549-9a6557eb3dac">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col13 first id76c74c11-1806-48af-a363-bfc80e13dc2f" style="" data-widgetcontainerid="76c74c11-1806-48af-a363-bfc80e13dc2f">	
+<div class="widget editor pageStyles narrow" id="divEditorfbf8ba8c-98d1-4bb3-b891-47c049a726ab" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}'>
+        <div class="fr-view">
+
+
+        <h2 class="subhead1 " style="text-align: center;"><a href="http://nyecounty.net/CivicAlerts.aspx?AID=921"><span class="hyperlink"><strong>County, Towns and Courts operations for COVID-19 (link)</strong></span></a></h2><p>This webpage is set up to keep the public informed that Nye County officials are closely monitoring the novel Coronavirus (COVID-19) developments in coordination with state, local and federal health officials. Organizations throughout Nevada are working collaboratively to implement enhanced safety measures, and to keep the public informed of this evolving situation and preventative measures people can take to limit the spread of any communicable disease.</p><p><strong>Please read the procedures below on seeking medical attention:</strong></p><ul><li>Do not go to the emergency department unless it is essential. Emergency departments need to be able to serve those with the most critical needs.</li><li>If you have a mild cough, fever, or other respiratory symptoms, contact your doctor first you are sick.</li><li>The Division of Public and Behavioral Health at the Nevada Department of Health and Human Services acts as the health authority for all regions in Nevada without a local health authority.</li></ul><p><strong>Precautions you can take include</strong><strong>:</strong></p><ul><li>Practicing basic hygiene is the single most effective way to prevent the spread of all communicable diseases, including COVID-19.&nbsp;</li><li>Wash your hands frequently with soap and water for at least 20 seconds.</li><li>If soap and water are not available, use an alcohol-based hand sanitizer.</li><li>Avoid touching your eyes, nose, and mouth with your hands.</li><li>Avoid close contact with people who are sick.</li><li>Cover your mouth when coughing.</li><li>Sneeze using tissue and throw the tissue in the trash immediately following use.</li><li>Get a flu shot.</li><li>If you get sick, please stay home from work, school or other places where you are in close frequent contact with other people.</li><li>Clean and disinfect frequently touched &quot;community&quot; objects and surfaces.<a href="https://nvhealthresponse.nv.gov/wp-content/uploads/2020/03/COVID-19-Prevention-Tips.pdf" target="_blank" rel="noopener noreferrer"></a><a href="https://nvhealthresponse.nv.gov/wp-content/uploads/2020/03/COVID-19-Prevention-Tips.pdf" rel="noopener noreferrer" target="_blank"></a></li><li><a href="https://nvhealthresponse.nv.gov/wp-content/uploads/2020/03/COVID-19-Prevention-Tips.pdf" rel="noopener noreferrer" target="_blank"><strong><span class="hyperlink">COVID-19 Prevention Tips (downloadable pdf)</span></strong></a>&nbsp;</li></ul>
+    </div>
+
+<script type="text/javascript">
+	$(document).ready(function (e) {		
+	    renderSlideshowIfApplicable($('#divEditor' + 'fbf8ba8c-98d1-4bb3-b891-47c049a726ab'));
+	});
+</script>
+</div>
+	</div> <!-- inner column -->
+	<div class="inner col col11 last id615731a9-063c-4ab6-a119-32e74172f649" style="" data-widgetcontainerid="615731a9-063c-4ab6-a119-32e74172f649">	
+
+
+
+	<section class="widget widgetRelatedDocuments skin1 narrow" id="widgetRelDoc4cb5e982-6735-495f-9e04-cc4b91bbb43f" data-widgetid="4cb5e982-6735-495f-9e04-cc4b91bbb43f" data-sections="[{&quot;Title&quot;:&quot;&quot;,&quot;DocumentIDs&quot;:&quot;36116,36133,36152,36203,36248,36256,36306,36303,36328,36329,36332,36356,36539,36760,&quot;,&quot;FolderIds&quot;:&quot;,&quot;,&quot;SortedDocumentIds&quot;:&quot;36760,36539,36332,36356,36329,36328,36303,36306,36248,36203,36256,36152,36133,36116,&quot;}]" data-columncount="1" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}' data-elementquerymatch='matchMultiColumn' data-elementqueryunmatch='unmatchMultiColumn' aria-labelledby="header4cb5e982-6735-495f-9e04-cc4b91bbb43f">
+			<div id="divRelatedDocuments_4cb5e982-6735-495f-9e04-cc4b91bbb43f" class="relatedDocuments">
+				<header class="widgetHeader" id="header4cb5e982-6735-495f-9e04-cc4b91bbb43f"><div><h3>County COVID-19 Press Releases</h3></div></header>
+		<div class="widgetBody cpGrid cpGrid1">
+			
+<div class="row narrow sortableWidgetTitle">
+        <div class="relatedDocumentsSection selfClear" data-documentids="36116,36133,36152,36203,36248,36256,36306,36303,36328,36329,36332,36356,36539,36760," data-folderids="," data-sorteddocumentids="36760,36539,36332,36356,36329,36328,36303,36306,36248,36203,36256,36152,36133,36116,">
+        
+	<div class=" first last">
+		<ol class="semanticList bullets" style="min-height:8px;">
+					<li class="widgetItem" data-documentid="36760"><a target="_blank" href="/DocumentCenter/View/36760/Opening-up-Nye-County-Government-Again---Public-Meeting-Procedures-pdf" class="fileType pdf" aria-label="Opening up Nye County Government Again - Public Meeting Procedures (pdf) pdf file">Opening up Nye County Government Again - Public Meeting Procedures (pdf)</a>
+					</li>
+					<li class="widgetItem" data-documentid="36539"><a target="_blank" href="/DocumentCenter/View/36539/Nye-County-Evaluation-of-Readiness-for-Phase-I-May-1-2020-pdf" class="fileType pdf" aria-label="Nye County Evaluation of Readiness for Phase I, May 1, 2020 (pdf) pdf file">Nye County Evaluation of Readiness for Phase I, May 1, 2020 (pdf)</a>
+					</li>
+					<li class="widgetItem" data-documentid="36332"><a target="_blank" href="/DocumentCenter/View/36332/Letter-from-Commission-Chair-and-County-Manager-April-2nd-pdf" class="fileType pdf" aria-label="Letter from Commission Chair and County Manager, April 2nd (pdf) pdf file">Letter from Commission Chair and County Manager, April 2nd (pdf)</a>
+					</li>
+					<li class="widgetItem" data-documentid="36356"><a target="_blank" href="/DocumentCenter/View/36356/County-Commission-Materials-and-Participation-during-Declaration-of-Emergency-update-pdf" class="fileType pdf" aria-label="County Commission Materials and Participation during Declaration of Emergency (update) (pdf) pdf file">County Commission Materials and Participation during Declaration of Emergency (update) (pdf)</a>
+					</li>
+					<li class="widgetItem" data-documentid="36329"><a target="_blank" href="/DocumentCenter/View/36329/COVID-19-two-positives-in-Pahrump-March-31-2020-pdf" class="fileType pdf" aria-label="COVID-19 two positives in Pahrump, March 31, 2020 (pdf) pdf file">COVID-19 two positives in Pahrump, March 31, 2020 (pdf)</a>
+					</li>
+					<li class="widgetItem" data-documentid="36328"><a target="_blank" href="/DocumentCenter/View/36328/COVID-19-positive-in-Amargosa-Valley-March-31-2020-pdf" class="fileType pdf" aria-label="COVID-19 positive in Amargosa Valley, March 31, 2020 (pdf) pdf file">COVID-19 positive in Amargosa Valley, March 31, 2020 (pdf)</a>
+					</li>
+					<li class="widgetItem" data-documentid="36303"><a target="_blank" href="/DocumentCenter/View/36303/COVID-19-Drive-Up-Testing-Flyer-for-Pahrump-Beatty-and-Tonopah-March-30th-pdf" class="fileType pdf" aria-label="COVID-19 Drive-Up Testing Flyer for Pahrump, Beatty and Tonopah, March 30th (pdf) pdf file">COVID-19 Drive-Up Testing Flyer for Pahrump, Beatty and Tonopah, March 30th (pdf)</a>
+					</li>
+					<li class="widgetItem" data-documentid="36306"><a target="_blank" href="/DocumentCenter/View/36306/UPDATED-County-Towns-and-Court-Operations-as-of-March-26-2020-pdf" class="fileType pdf" aria-label="UPDATED: County, Towns and Court Operations as of March 26, 2020 (pdf) pdf file">UPDATED: County, Towns and Court Operations as of March 26, 2020 (pdf)</a>
+					</li>
+					<li class="widgetItem" data-documentid="36248"><a target="_blank" href="/DocumentCenter/View/36248/UPDATE-County-Government-Courts-adjusting-operations-March-17-pdf" class="fileType pdf" aria-label="UPDATE: County Government, Courts adjusting operations, March 17 (pdf) pdf file">UPDATE: County Government, Courts adjusting operations, March 17 (pdf)</a>
+					</li>
+					<li class="widgetItem" data-documentid="36203"><a target="_blank" href="/DocumentCenter/View/36203/Many-County-Government-Offices-closing-to-walk-in-traffic-March-16-2020-pdf" class="fileType pdf" aria-label="Many County Government Offices closing to walk-in traffic, March 16, 2020 (pdf) pdf file">Many County Government Offices closing to walk-in traffic, March 16, 2020 (pdf)</a>
+					</li>
+					<li class="widgetItem" data-documentid="36256"><a target="_blank" href="/DocumentCenter/View/36256/County-COVID-19-Emergency-Declaration-March-15-2020-pdf" class="fileType pdf" aria-label="County COVID-19 Emergency Declaration, March 15, 2020 (pdf) pdf file">County COVID-19 Emergency Declaration, March 15, 2020 (pdf)</a>
+					</li>
+					<li class="widgetItem" data-documentid="36152"><a target="_blank" href="/DocumentCenter/View/36152/Emergency-Management-release-on-Coronavirus-March-11-2020-pdf" class="fileType pdf" aria-label="Emergency Management release on Coronavirus, March 11, 2020 (pdf) pdf file">Emergency Management release on Coronavirus, March 11, 2020 (pdf)</a>
+					</li>
+					<li class="widgetItem" data-documentid="36133"><a target="_blank" href="/DocumentCenter/View/36133/Emergency-Management-release-on-Coronavirus-March-9-2020-pdf" class="fileType pdf" aria-label="Emergency Management release on Coronavirus, March 9, 2020 (pdf) pdf file">Emergency Management release on Coronavirus, March 9, 2020 (pdf)</a>
+					</li>
+					<li class="widgetItem" data-documentid="36116"><a target="_blank" href="/DocumentCenter/View/36116/Emergency-Management-release-on-Coronavirus-March-3rd-pdf" class="fileType pdf" aria-label="Emergency Management release on Coronavirus, March 3rd (pdf) pdf file">Emergency Management release on Coronavirus, March 3rd (pdf)</a>
+					</li>
+
+		</ol>
+	</div>
+                    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        //Remove section heading when it is empty and live edit is off.
+        if ('false' === 'false') {
+            var jqh4Selector = $('#widgetRelDoc' + '4cb5e982-6735-495f-9e04-cc4b91bbb43f').find('div.widgetBody div.row div.relatedDocumentsSection h4.widgetTitle');
+    		if (jqh4Selector.val() == "") {
+    			jqh4Selector
+                    .filter(function () {
+                        return $.trim($(this).text()) === ''
+                    })
+                    .remove();
+            }
+        }
+    });
+</script>
+		</div>
+
+</div>
+
+	</section>
+
+
+<script type="text/javascript">
+    var documentsToInsert = [];
+    var foldersToInsert = [];
+
+    $(document).ready(function () {
+        var hasEditRights = false;        
+        if (window.File && window.FileList && window.FileReader && hasEditRights) {
+            var RelatedDocumentsWidget = 5;
+            makeWidgetAreaDroppable('4cb5e982-6735-495f-9e04-cc4b91bbb43f', $('#widgetRelDoc' + '4cb5e982-6735-495f-9e04-cc4b91bbb43f'), RelatedDocumentsWidget, true, RelatedDocumentsCallback);
+        }
+
+		if(hasEditRights)
+    		browserVersionNotCompatibleWithDragDropTextUpdate($('#addFile' + '4cb5e982-6735-495f-9e04-cc4b91bbb43f'), 'Add a new file');
+    });
+
+    function RelatedDocumentsCallback(widgetID, response)
+    {
+        if (window.ContentCollectionInstance.IsWorkingCopy) {
+        	$('#widgetRelDoc' + widgetID).replaceWith(response);            
+            contentUpdated();
+            attachRelatedDocumentsHandlers();            
+        }
+        else {
+            ContentCollectionInstance.reloadContent();
+        }      
+    }
+</script>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!--		--></div> <!-- outer row -->
+		<div class="row outer wide"><!--
+--><div class="outer col col12 first" style="" data-widgetcontainerid="084e343e-4daf-4fad-808e-a810d0951b14">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col12 first last id7243cc60-a22f-46da-800a-81ebeb2d969f" style="" data-widgetcontainerid="7243cc60-a22f-46da-800a-81ebeb2d969f">	
+<div class="widget editor pageStyles narrow" id="divEditor84bafb96-1045-441d-bcef-93a81f3df5b9" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}'>
+        <div class="fr-view">
+
+
+        <h2 class="subhead1" style="text-align: center;">Click photos below for latest from:&nbsp;</h2><h2 class="subhead1 " style="text-align: center;">Nevada Health Response</h2><h2 class="subhead1 " style="text-align: center;"><a href="https://nvhealthresponse.nv.gov/" rel="noopener noreferrer" target="_blank"><img src="/ImageRepository/Document?documentId=36195" class="fr-fil fr-dib" alt="State Widget (jpeg Opens in new window" style="width: 276px;"></a></h2><p><br></p><h2 class="subhead1" style="text-align: center;">the U.S. Centers FOR DISEASE CONTROL AND PREVENTION<a href="https://www.cdc.gov/coronavirus/2019-ncov/index.html"></a><br></h2><p style="text-align: center;"><a aria-label="Coronavirus Center for Disease Control info (jpeg) Opens in new window" href="https://www.cdc.gov/coronavirus/2019-nCoV/summary.html" rel="noopener noreferrer" target="_blank"><img src="/ImageRepository/Document?documentId=35890" class="fr-dib" alt="Coronavirus Center for Disease Control info (jpeg) Opens in new window" style="width: 238px;"></a></p><h2 class="subhead1 " style="text-align: center;">Neighboring Health Districts</h2><ul><li><span class="hyperlink"><a aria-label="Southern Nevada Health District (Clark County) Opens in new window" href="https://www.southernnevadahealthdistrict.org/coronavirus" rel="noopener noreferrer" target="_blank"><span class="hyperlink"><strong><span class="hyperlink">Southern Nevada Health District (Clark County)</span></strong></span></a></span></li><li><span class="hyperlink"><a aria-label="Inyo County (Bishop) COVID-19 Response Opens in new window" href="https://www.inyocounty.us/covid-19" rel="noopener noreferrer" target="_blank"><strong><span class="hyperlink">Inyo County (Bishop) COVID-19 Response</span></strong></a></span></li></ul><p style="text-align: center;"><br></p><p style="text-align: center;"><br></p>
+    </div>
+
+<script type="text/javascript">
+	$(document).ready(function (e) {		
+	    renderSlideshowIfApplicable($('#divEditor' + '84bafb96-1045-441d-bcef-93a81f3df5b9'));
+	});
+</script>
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!----><div class="outer col col12 last" style="" data-widgetcontainerid="100ab554-8d83-460d-9027-4a0e6e133a8f">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col12 first last ide3a45b5a-767e-4a64-be41-339f54355567" style="" data-widgetcontainerid="e3a45b5a-767e-4a64-be41-339f54355567">	
+<div class="widget editor pageStyles narrow" id="divEditore175782c-df24-4821-9e21-31ef78ea13a6" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}'>
+        <div class="fr-view">
+
+
+        <h2 class="subhead1" style="text-align: center;">Additional Resources Links</h2><h3 class="subhead2 ">Nye County</h3><ul><li><strong><a aria-label="List of Pahrump food pantries (pdf) Opens in new window" href="https://www.nyecounty.net/DocumentCenter/View/36279/Pahrump-Food-Pantries-March-2020-pdf" rel="noopener" tabindex="0" target="_blank">List of Pahrump food pantries (pdf)</a></strong></li><li><strong><a aria-label="List of Tonopah food pantries (pdf) Opens in new window" href="https://www.nyecounty.net/DocumentCenter/View/36280/Tonopah-Food-Pantries-March-2020-pdf" rel="noopener" tabindex="0" target="_blank"><strong>List of Tonopah food pantries (pdf)</strong></a></strong></li><li><a aria-label="NyE Communities Coalition COVID-19 Resources Opens in new window" href="https://nyecc.org/" rel="noopener noreferrer" target="_blank"><span class="hyperlink"><strong><span class="hyperlink">NyE Communities Coalition COVID-19 Resources</span></strong></span></a></li><li><span class="hyperlink"><strong><a aria-label="Nye County School Distric Opens in new window" href="https://www.nye.k12.nv.us/" rel="noopener noreferrer" target="_blank">Nye County School Distric</a>t</strong></span></li></ul><h3 class="subhead2 ">State of Nevada</h3><ul><li><strong><span class="hyperlink"><a href="https://nvhealthresponse.nv.gov/news-reources/governor-directives-and-declarations" rel="noopener noreferrer" target="_blank"><span class="hyperlink"><strong><span class="hyperlink">Governor Directives and Declarations</span></strong></span></a></span></strong></li><li><strong><span class="hyperlink"><strong><a aria-label="All State of Nevada press releases Opens in new window" href="https://nvhealthresponse.nv.gov/news-resources/press-releases/" rel="noopener noreferrer" target="_blank"><span class="hyperlink"><strong>All State of Nevada press releases</strong></span></a></strong></span></strong></li><li><strong><span class="hyperlink"><strong><a aria-label="Division of Public and Behavioral Health Opens in new window" href="http://dpbh.nv.gov/Programs/OPHIE/dta/Hot_Topics/Coronavirus/" rel="noopener noreferrer" target="_blank">Division of Public and Behavioral Health</a></strong></span></strong></li><li><strong><a aria-label="Coping and Managing Mental Health Opens in new window" href="https://nvhealthresponse.nv.gov/info/coping/" rel="noopener noreferrer" target="_blank"><span class="hyperlink"><strong>Coping and Managing Mental Health</strong></span></a></strong></li><li><strong><a aria-label="Nevada 211 COVID-19 Emergency Resources Opens in new window" href="https://www.nevada211.org/" rel="noopener noreferrer" target="_blank"><strong><span class="hyperlink">Nevada 211 COVID-19 Emergency Resources</span></strong></a></strong></li><li><strong><span class="hyperlink"><a href="https://www.nevada211.org/seniors-covid19-resources/">Nevada COVID-19 Aging Network - Senior Services</a></span></strong></li><li><strong><a aria-label="Mental Health and COVID-19: Information and Resources Opens in new window" href="https://mhanational.org/covid19" rel="noopener noreferrer" target="_blank"><span class="hyperlink"><strong>Mental Health and COVID-19: Information and Resources</strong></span></a></strong></li><li><strong><span class="hyperlink"><strong><span class="hyperlink">Daily <a aria-label="State COVID-19 Pandemic Daily Situation Reports Opens in new window" href="https://nvhealthresponse.nv.gov/news-resources/daily-situation-reports/" rel="noopener noreferrer" target="_blank">State COVID-19 Pandemic Daily Situation Reports</a></span></strong></span></strong></li><li><a href="https://guides.library.unlv.edu/COVID-19" rel="noopener noreferrer" target="_blank"><span class="hyperlink"><strong>UNLV COVID-19 Policy Resources and Responses Guide</strong></span></a></li><li><strong><a aria-label="Battle Born Medical Corps Opens in new window" href="https://nvhealthresponse.nv.gov/battle-born-medical-corps/" rel="noopener noreferrer" target="_blank"><span class="hyperlink"><strong>Battle Born Medical Corps</strong></span></a></strong></li><li><strong><span class="hyperlink"><strong><a aria-label="Department of Motor Vehicles COVID-19 Operations Opens in new window" href="https://dmvnv.com/covid.htm" rel="noopener noreferrer" target="_blank"><strong><span class="hyperlink">Department of Motor Vehicles COVID-19 Operations</span></strong></a></strong></span></strong></li><li><strong><span class="hyperlink"><strong><span class="hyperlink"><strong><span class="hyperlink"><a aria-label="Social Media Graphics Resources Opens in new window" href="https://nvhealthresponse.nv.gov/news-resources/social-media/" rel="noopener noreferrer" target="_blank"><strong><span class="hyperlink">Social Media Graphics Resources</span></strong></a></span></strong></span></strong></span></strong></li></ul><h3 class="subhead2 ">National&nbsp;</h3><ul><li><strong><span class="hyperlink"><a aria-label="National Association of Counties Response and Efforts Opens in new window" href="https://www.naco.org/resources/featured/coronavirus-disease-2019" rel="noopener noreferrer" target="_blank"><strong><span class="hyperlink">National Association of Counties Response and Efforts</span></strong></a></span></strong></li><li><strong><span class="hyperlink"><a aria-label="John Hopkins Coronavirus Resource Center Opens in new window" href="https://coronavirus.jhu.edu/" rel="noopener noreferrer" target="_blank"><strong><span class="hyperlink">John Hopkins Coronavirus Resource Center</span></strong></a></span></strong></li><li><strong><span class="hyperlink"><a href="https://www.sba.gov/page/coronavirus-covid-19-small-business-guidance-loan-resources" rel="noopener noreferrer" target="_blank"><strong><span class="hyperlink">Small Business Guidance &amp; Loan Resources (SBA)</span></strong></a></span></strong></li><li><strong><a href="https://www.rd.usda.gov/coronavirus" rel="noopener noreferrer" target="_blank"><strong><span class="hyperlink">Rural USDA COVID-19 Information</span></strong></a></strong></li></ul><p><br></p>
+    </div>
+
+<script type="text/javascript">
+	$(document).ready(function (e) {		
+	    renderSlideshowIfApplicable($('#divEditor' + 'e175782c-df24-4821-9e21-31ef78ea13a6'));
+	});
+</script>
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!--		--></div> <!-- outer row -->
+		<div class="row outer wide"><!--
+--><div class="outer col col3 first" style="" data-widgetcontainerid="bdff412e-96ea-4a94-a6b3-43a0da56bb5d">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col3 first last id95edbfb1-f3d8-4715-8006-b4dd205b3606" style="" data-widgetcontainerid="95edbfb1-f3d8-4715-8006-b4dd205b3606">	
+<div data-widget-id="ed7bd3ef-fcd1-4cd4-9ef0-7d20322ca7fa" data-widget-controller-path="/Layout/WidgetShare">
+
+		<script type="text/javascript">
+			$(document).ready(function () {
+				setWidgetServiceClicking($("#widgetShareHeadered7bd3ef-fcd1-4cd4-9ef0-7d20322ca7fa"), true, function () {
+					var $widgetBody = $('#widgetShareBodyed7bd3ef-fcd1-4cd4-9ef0-7d20322ca7fa');
+
+					if ($widgetBody.is(':visible')) {
+						var menuItems = $('.widgetItem a', $widgetBody);
+
+						$(menuItems[0]).focus();
+
+						$('.widgetItem', $widgetBody).unbind("keydown").bind("keydown", function (e) {
+
+							if (e.which === 9) {
+								var index = menuItems.index(e.target);
+
+								if ((index === 0 && e.shiftKey) || (index === (menuItems.length - 1) && !e.shiftKey)) {
+									$("#widgetShareHeadered7bd3ef-fcd1-4cd4-9ef0-7d20322ca7fa").trigger('click').focus();
+								}
+							}
+			});
+					} else {
+						$('.widgetItem', $widgetBody).unbind("keydown");
+					}
+				});
+			});
+		</script>
+
+	<section id="widgetShareed7bd3ef-fcd1-4cd4-9ef0-7d20322ca7fa" class="widget widgetShare skin10 widgetOptionSet6 flyOutParent wide"  aria-label="Share">
+			<header id="widgetShareHeadered7bd3ef-fcd1-4cd4-9ef0-7d20322ca7fa" class="widgetHeader" tabindex="0" role="button" aria-haspopup="true">
+				<h3><img alt="Share" class="imageHover" data-hover="/ImageRepository/Document?documentID=31117" data-image="/ImageRepository/Document?documentID=31116" src="/ImageRepository/Document?documentID=31116" /></h3>
+	</header>
+    <div id="widgetShareBodyed7bd3ef-fcd1-4cd4-9ef0-7d20322ca7fa" class="widgetBody flyOut top leftEdge widget widgetShare skin10 cpGrid cpGrid1" style="display:none;">
+        <div class="row                   
+ wide">
+	<div class="col col1 first last">
+		<ol class="semanticList">
+                <li class="widgetItem" ><a tabindex="0" role="button" class="widgetShareFacebook shareService" onkeypress="if(event.which == 13) { this.onclick(); }" href="/Layout/WidgetShare/ShareLink/Facebook" target="_blank" aria-label="Share on Facebook opens in new window">Facebook</a></li>
+                <li class="widgetItem" ><a tabindex="0" role="button" class="widgetShareTwitter shareService" onkeypress="if(event.which == 13) { this.onclick(); }" href="/Layout/WidgetShare/ShareLink/Twitter" target="_blank" aria-label="Share on Twitter opens in new window">Twitter</a></li>
+                <li class="widgetItem" ><a tabindex="0" role="button" class="widgetSharePinterest shareService" onkeypress="if(event.which == 13) { this.onclick(); }" href="/Layout/WidgetShare/ShareLink/Pinterest" target="_blank" aria-label="Share on Pinterest opens in new window">Pinterest</a></li>
+                <li class="widgetItem" ><a tabindex="0" role="button" class="widgetShareDelicious shareService" onkeypress="if(event.which == 13) { this.onclick(); }" href="/Layout/WidgetShare/ShareLink/Delicious" target="_blank" aria-label="Share on Delicious opens in new window">Delicious</a></li>
+                <li class="widgetItem" ><a tabindex="0" role="button" class="widgetShareBlogger shareService" onkeypress="if(event.which == 13) { this.onclick(); }" href="/Layout/WidgetShare/ShareLink/Blogger" target="_blank" aria-label="Share on Blogger opens in new window">Blogger</a></li>
+                <li class="widgetItem" ><a tabindex="0" role="button" class="widgetShareLinkedIn shareService" onkeypress="if(event.which == 13) { this.onclick(); }" href="/Layout/WidgetShare/ShareLink/LinkedIn" target="_blank" aria-label="Share on LinkedIn opens in new window">LinkedIn</a></li>
+		</ol>
+	</div>
+
+        </div>
+    </div>
+
+	</section>
+
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!----><div class="outer col col21 last" style="" data-widgetcontainerid="e284b0e0-ca8f-4c00-b5e7-863da1850ddc">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col21 first last ide3ee83d1-99eb-47b2-91fd-b6d4bea9b7a0" style="" data-widgetcontainerid="e3ee83d1-99eb-47b2-91fd-b6d4bea9b7a0">	
+
+<div class="widget widgetSpacer" id="68ba53a3-66b2-4417-b1a1-b2109aeed5fa"></div>	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!--		--></div> <!-- outer row -->
+
+
+		</div>
+
+	</div>
+
+	
+	<div class="newCP">
+
+	</div>
+</div>
+</div><aside data-cpRole="contentContainer" id="featureColumn" class="secondaryContent">	<div id="cc29535794-bbec-47d7-a52a-99ef0184d392" data-containerid="29535794-bbec-47d7-a52a-99ef0184d392" class="pageContent cpGrid cpGrid24 showInMobile">
+				                
+
+
+
+	</div>
+</aside>
+</div><div data-cpRole="structuralContainer" id="structuralContainer3" class="siteSidebar">
+<aside data-cpRole="contentContainer" id="contentContainer3">	<div id="cc4a9f9511-549c-463b-93b5-a9671f847189" data-containerid="4a9f9511-549c-463b-93b5-a9671f847189" class="pageContent cpGrid cpGrid24 showInMobile">
+				                
+
+
+
+	</div>
+</aside><nav data-cpRole="nav" id="secondaryNav" class="siteNav secondaryNav">
+
+
+
+
+	<ol role="menu" id="secondaryMenusecondaryNav" data-parent="179" class="rootNavMenu flyoutNav">
+	<li role="menuitem" aria-haspopup="true" id="SideItem1066" class="topMenuItem" data-display-main-item-sub-menu-indicators="True" data-pageid="1066" data-displaymegamenu="False">
+					<a onclick="return false;" class="navMainItem secondaryNavItem" href="/1066/Coronavirus-COVID-19-Information" target="_self">Coronavirus (COVID-19) Information</a>
+			</li>
+	<li role="menuitem" aria-haspopup="true" id="SideItem1081" class="topMenuItem" data-display-main-item-sub-menu-indicators="True" data-pageid="1081" data-displaymegamenu="False">
+					<a class="navMainItem secondaryNavItem" href="/1081/Reopening-Nevada-Guidance" target="_self">Reopening Nevada Guidance</a>
+			</li>
+	<li role="menuitem" aria-haspopup="true" id="SideItem1027" class="topMenuItem" data-display-main-item-sub-menu-indicators="True" data-pageid="1027" data-displaymegamenu="False">
+					<a class="navMainItem secondaryNavItem" href="http://dem.nv.gov/Resources/SITREP_Narrative/" target="_self">Weekly Situation Report</a>
+			</li>
+	<li role="menuitem" aria-haspopup="true" id="SideItem230" class="topMenuItem" data-display-main-item-sub-menu-indicators="True" data-pageid="230" data-displaymegamenu="False">
+					<a class="navMainItem secondaryNavItem" href="/230/Current-Events" target="_self">Current Events</a>
+			</li>
+	<li role="menuitem" aria-haspopup="true" id="SideItem122" class="topMenuItem" data-display-main-item-sub-menu-indicators="True" data-pageid="122" data-displaymegamenu="False">
+					<a class="navMainItem secondaryNavItem" href="/122/Fire-Services" target="_self">Fire Services</a>
+			</li>
+	<li role="menuitem" aria-haspopup="true" id="SideItem123" class="topMenuItem" data-display-main-item-sub-menu-indicators="True" data-pageid="123" data-displaymegamenu="False">
+					<a class="navMainItem secondaryNavItem" href="/123/Hazmat" target="_self">Hazmat</a>
+			</li>
+	<li role="menuitem" aria-haspopup="true" id="SideItem121" class="topMenuItem" data-display-main-item-sub-menu-indicators="True" data-pageid="121" data-displaymegamenu="False">
+					<a class="navMainItem secondaryNavItem" href="/121/EMS" target="_self">E.M.S.</a>
+			</li>
+	<li role="menuitem" aria-haspopup="true" id="SideItem856" class="topMenuItem" data-display-main-item-sub-menu-indicators="True" data-pageid="856" data-displaymegamenu="False">
+					<a class="navMainItem secondaryNavItem" href="/856/LEPC" target="_self">L.E.P.C.</a>
+			</li>
+	<li role="menuitem" aria-haspopup="true" id="SideItem131" class="topMenuItem" data-display-main-item-sub-menu-indicators="True" data-pageid="131" data-displaymegamenu="False">
+					<a class="navMainItem secondaryNavItem" href="/131/Training-Events" target="_self">Training Events</a>
+			</li>
+	<li role="menuitem" aria-haspopup="true" id="SideItem120" class="topMenuItem" data-display-main-item-sub-menu-indicators="True" data-pageid="120" data-displaymegamenu="False">
+					<a class="navMainItem secondaryNavItem" href="/120/Emergency-Preparedness" target="_self">Emergency Preparedness</a>
+			</li>
+
+	</ol>
+
+
+	<script type="text/javascript">
+        $(document).ready(function () {
+            //setup menu manager properties for secondary menu
+            menuManager.isSideMenuEditable = false;
+		    menuManager.sideMenuMaxSubMenuLevels = 4;
+            menuManager.sideMenuHasCustomLinks = false;
+        });
+	</script>
+	<script type="text/javascript">
+        $(document).ready(function () {
+            //Init secondary menu
+            var setupDraggable = menuManager.isSideMenuEditable;
+			var urlToGetHiddenMenus = '/Pages/MenuSecondary/HiddenSecondarySubMenus?pageID=1066&moduleID=&themeID=1&menuContainerID=secondaryNav';
+            var menuID = 'secondaryMenusecondaryNav';
+            menuManager.setMOMMode(2, SIDE_MENU);
+            menuManager.setupMenu(menuID, 'secondaryNav', SIDE_MENU, setupDraggable, urlToGetHiddenMenus);
+        });
+	</script>
+
+
+
+
+</nav><aside data-cpRole="contentContainer" id="contentContainer4">	<div id="cc71cb3166-eaf3-44e0-bfd3-64716db4e5ad" data-containerid="71cb3166-eaf3-44e0-bfd3-64716db4e5ad" class="pageContent cpGrid cpGrid24 showInMobile">
+				                
+
+
+
+	</div>
+</aside>
+</div>
+</div></div>
+</div><div data-cpRole="structuralContainer" id="structuralContainer7">
+<div class="siteWrap"><footer data-cpRole="contentContainer" id="contentContainer6" class="siteFooter">	<div id="ccc15df141-4f21-46c0-9329-c548535a1b51" data-containerid="c15df141-4f21-46c0-9329-c548535a1b51" class="pageContent cpGrid cpGrid24 isLockedContainer showInMobile" data-contentcontainerbreakpoint="60">
+				                
+
+		<div class="row outer wide"><!--
+--><div class="outer col col4 first" style="" data-widgetcontainerid="11fad25b-01e4-40ed-b0fb-f589a3b93dc2">				
+	<div class="row nest first wide">
+	
+	<div class="inner col col4 first last idcb87cfcb-e80a-4b1e-9443-98e674d7e783" style="" data-widgetcontainerid="cb87cfcb-e80a-4b1e-9443-98e674d7e783">	
+<div data-widget-id="8f85ec0c-2c71-4eb3-a74f-265e65c0eefa" data-widget-controller-path="/GraphicLinks/Widget">
+
+
+
+
+<div id="graphicLinkWidget8f85ec0c-2c71-4eb3-a74f-265e65c0eefa" class="widget widgetGraphicLinks skin8 widgetOptionSet4 wide" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}' data-elementquerymatch='matchMultiColumn' data-elementqueryunmatch='unmatchMultiColumn' data-modulewidgettype="graphicLinks">
+	<div class="widgetHeader">
+		<div class="">
+				</div>
+	</div>
+	<div class="widgetBody cpGrid cpGrid1 ">	
+			<div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks"><a class="widgetDesc widgetGraphicLinksLink" href="/" target="_self"  aria-label="Nye County Seal graphic"><img src="/ImageRepository/Document?documentID=31141" 
+     class="graphicButtonLink" alt="Nye County Seal" 
+     onmouseover="this.src='/ImageRepository/Document?documentID=31141'" 
+	onmouseout="this.src='/ImageRepository/Document?documentID=31141'"
+     onfocus="this.src='/ImageRepository/Document?documentID=31141'" 
+	onblur="this.src='/ImageRepository/Document?documentID=31141'"> </a></div><!--
+			--></div>
+	</div>
+	<div class="widgetFooter">
+			</div>
+</div>
+
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+	<div class="row nest last wide">
+	
+	<div class="inner col col4 first last idc6d97de6-1fd0-47a6-8e5d-7980080ab9dd" style="" data-widgetcontainerid="c6d97de6-1fd0-47a6-8e5d-7980080ab9dd">	
+<div data-widget-id="cd9fca06-eecf-45ef-9b19-9e805ea67c9d" data-widget-controller-path="/GraphicLinks/Widget">
+
+
+
+
+<div id="graphicLinkWidgetcd9fca06-eecf-45ef-9b19-9e805ea67c9d" class="widget widgetGraphicLinks skin8 widgetOptionSet17 wide" data-elementqueryclasses='{"wide-narrow":"min-width:1em"}' data-elementquerymatch='matchMultiColumn' data-elementqueryunmatch='unmatchMultiColumn' data-modulewidgettype="graphicLinks">
+	<div class="widgetHeader">
+		<div class="">
+				</div>
+	</div>
+	<div class="widgetBody cpGrid cpGrid4 ">	
+			<div class="row   wide"><!--
+--><div class="col col1 first "><div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks"><a class="widgetDesc widgetGraphicLinksLink" href="https://www.facebook.com/nyecounty" target="_self"  aria-label="Facebook graphic"><img src="/ImageRepository/Document?documentID=31121" 
+     class="graphicButtonLink" alt="Facebook" 
+     onmouseover="this.src='/ImageRepository/Document?documentID=31122'" 
+	onmouseout="this.src='/ImageRepository/Document?documentID=31121'"
+     onfocus="this.src='/ImageRepository/Document?documentID=31122'" 
+	onblur="this.src='/ImageRepository/Document?documentID=31121'"> </a></div><!--
+--></div></div><!----><div class="col col1  "><div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks"><a class="widgetDesc widgetGraphicLinksLink" href="https://twitter.com/nyecounty" target="_self"  aria-label="Twitter graphic"><img src="/ImageRepository/Document?documentID=31125" 
+     class="graphicButtonLink" alt="Twitter" 
+     onmouseover="this.src='/ImageRepository/Document?documentID=31126'" 
+	onmouseout="this.src='/ImageRepository/Document?documentID=31125'"
+     onfocus="this.src='/ImageRepository/Document?documentID=31126'" 
+	onblur="this.src='/ImageRepository/Document?documentID=31125'"> </a></div><!--
+--></div></div><!----><div class="col col1  "><div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks"><a class="widgetDesc widgetGraphicLinksLink" href="https://instagram.com/nyecounty" target="_self"  aria-label="Instagram graphic"><img src="/ImageRepository/Document?documentID=31123" 
+     class="graphicButtonLink" alt="Instagram" 
+     onmouseover="this.src='/ImageRepository/Document?documentID=31124'" 
+	onmouseout="this.src='/ImageRepository/Document?documentID=31123'"
+     onfocus="this.src='/ImageRepository/Document?documentID=31124'" 
+	onblur="this.src='/ImageRepository/Document?documentID=31123'"> </a></div><!--
+--></div></div><!----><div class="col col1  last"><div class="semanticList"><!--
+	    --><div class="widgetItem GraphicLinks"><a class="widgetDesc widgetGraphicLinksLink" href="https://www.youtube.com/channel/UC1MD2cAq9AEv7PKnz3Mt0fg" target="_blank"  aria-label="YouTube graphic opens in new window"><img src="/ImageRepository/Document?documentID=31127" 
+     class="graphicButtonLink" alt="YouTube" 
+     onmouseover="this.src='/ImageRepository/Document?documentID=31128'" 
+	onmouseout="this.src='/ImageRepository/Document?documentID=31127'"
+     onfocus="this.src='/ImageRepository/Document?documentID=31128'" 
+	onblur="this.src='/ImageRepository/Document?documentID=31127'"> </a></div><!--
+--></div></div><!--			--></div>
+	</div>
+	<div class="widgetFooter">
+			</div>
+</div>
+
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!----><div class="outer col col1" style="" data-widgetcontainerid="154b53d3-cc1b-46d6-b68a-9f323948c5e5">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col1 first last idfa5514e7-f51d-44a0-9ff1-daed8bb73eda" style="" data-widgetcontainerid="fa5514e7-f51d-44a0-9ff1-daed8bb73eda">	
+
+<div class="widget widgetSpacer" id="c300c9c1-c3b9-4718-9187-37356fc8501a"></div>	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!----><div class="outer col col5" style="" data-widgetcontainerid="ee91e2ca-8f19-45f2-9efb-dec24ecb0c22">				
+	<div class="row nest first wide">
+	
+	<div class="inner col col5 first last id89d0dd3e-b820-4aac-a140-3d444d98270a" style="" data-widgetcontainerid="89d0dd3e-b820-4aac-a140-3d444d98270a">	
+    <div data-widget-id="44a87c72-7011-45ea-a1c3-943212ff8786" data-widget-controller-path="/InfoAdvanced/Widget">
+
+
+
+
+
+	<section id="divInfoAdv44a87c72-7011-45ea-a1c3-943212ff8786" class="widget widgetInfoAdvanced skin6 widgetOptionSet5 wide" data-modulewidgettype="infoAdv" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}' data-elementquerymatch='matchMultiColumn' data-elementqueryunmatch='unmatchMultiColumn' aria-labelledby="header44a87c72-7011-45ea-a1c3-943212ff8786">
+			<header class="widgetHeader" id="header44a87c72-7011-45ea-a1c3-943212ff8786">
+		<div class="">
+					<h3 >Contact Us</h3>
+								</div>
+	</header>
+	<div class="widgetBody  cpGrid cpGrid1 ">
+		<div class="row  wide">
+					<div class="col col1 first last">
+						<ol class="pageStyles semanticList">
+
+<li class="InfoAdvanced widgetItem ">
+	101 Radar Road <br>
+P.O. Box 153<br>
+Tonopah,&nbsp;Nevada 89049<br>
+Phone: <a href="tel:775-482-8191" target="_self" class="Hyperlink">775-482-8191</a><br>
+<a href="/" target="_self" class="Hyperlink">Email Us</a>
+</li>						</ol>
+					</div>
+		</div>
+	</div>
+	<div class="widgetFooter">
+
+	</div>
+
+	</section>
+
+
+
+<script type="text/javascript">
+	//Render slideshow if info advacned items contain one.
+	$(document).ready(function (e) {
+		$('#divInfoAdv44a87c72-7011-45ea-a1c3-943212ff8786 .InfoAdvanced.widgetItem').each(function () {
+			renderSlideshowIfApplicable($(this));		
+		});
+	});
+</script></div>	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+	<div class="row nest last wide">
+	
+	<div class="inner col col1 first idc509e498-4b23-490e-af06-1273faa74a60" style="" data-widgetcontainerid="c509e498-4b23-490e-af06-1273faa74a60">	
+<div data-widget-id="50003912-0db5-4afd-95ff-6de9090563d5" data-widget-controller-path="/Layout/WidgetShare">
+
+		<script type="text/javascript">
+			$(document).ready(function () {
+				setWidgetServiceClicking($("#widgetShareHeader50003912-0db5-4afd-95ff-6de9090563d5"), true, function () {
+					var $widgetBody = $('#widgetShareBody50003912-0db5-4afd-95ff-6de9090563d5');
+
+					if ($widgetBody.is(':visible')) {
+						var menuItems = $('.widgetItem a', $widgetBody);
+
+						$(menuItems[0]).focus();
+
+						$('.widgetItem', $widgetBody).unbind("keydown").bind("keydown", function (e) {
+
+							if (e.which === 9) {
+								var index = menuItems.index(e.target);
+
+								if ((index === 0 && e.shiftKey) || (index === (menuItems.length - 1) && !e.shiftKey)) {
+									$("#widgetShareHeader50003912-0db5-4afd-95ff-6de9090563d5").trigger('click').focus();
+								}
+							}
+			});
+					} else {
+						$('.widgetItem', $widgetBody).unbind("keydown");
+					}
+				});
+			});
+		</script>
+
+	<section id="widgetShare50003912-0db5-4afd-95ff-6de9090563d5" class="widget widgetShare skin7 widgetOptionSet6 flyOutParent wide"  aria-label="Share">
+			<header id="widgetShareHeader50003912-0db5-4afd-95ff-6de9090563d5" class="widgetHeader" tabindex="0" role="button" aria-haspopup="true">
+				<h3><img alt="Share" class="imageHover" data-hover="/ImageRepository/Document?documentID=31117" data-image="/ImageRepository/Document?documentID=31116" src="/ImageRepository/Document?documentID=31116" /></h3>
+	</header>
+    <div id="widgetShareBody50003912-0db5-4afd-95ff-6de9090563d5" class="widgetBody flyOut top leftEdge widget widgetShare skin7 cpGrid cpGrid1" style="display:none;">
+        <div class="row                   
+ wide">
+	<div class="col col1 first last">
+		<ol class="semanticList">
+                <li class="widgetItem" ><a tabindex="0" role="button" class="widgetShareFacebook shareService" onkeypress="if(event.which == 13) { this.onclick(); }" href="/Layout/WidgetShare/ShareLink/Facebook" target="_blank" aria-label="Share on Facebook opens in new window">Facebook</a></li>
+                <li class="widgetItem" ><a tabindex="0" role="button" class="widgetShareTwitter shareService" onkeypress="if(event.which == 13) { this.onclick(); }" href="/Layout/WidgetShare/ShareLink/Twitter" target="_blank" aria-label="Share on Twitter opens in new window">Twitter</a></li>
+                <li class="widgetItem" ><a tabindex="0" role="button" class="widgetSharePinterest shareService" onkeypress="if(event.which == 13) { this.onclick(); }" href="/Layout/WidgetShare/ShareLink/Pinterest" target="_blank" aria-label="Share on Pinterest opens in new window">Pinterest</a></li>
+                <li class="widgetItem" ><a tabindex="0" role="button" class="widgetShareDelicious shareService" onkeypress="if(event.which == 13) { this.onclick(); }" href="/Layout/WidgetShare/ShareLink/Delicious" target="_blank" aria-label="Share on Delicious opens in new window">Delicious</a></li>
+                <li class="widgetItem" ><a tabindex="0" role="button" class="widgetShareBlogger shareService" onkeypress="if(event.which == 13) { this.onclick(); }" href="/Layout/WidgetShare/ShareLink/Blogger" target="_blank" aria-label="Share on Blogger opens in new window">Blogger</a></li>
+                <li class="widgetItem" ><a tabindex="0" role="button" class="widgetShareLinkedIn shareService" onkeypress="if(event.which == 13) { this.onclick(); }" href="/Layout/WidgetShare/ShareLink/LinkedIn" target="_blank" aria-label="Share on LinkedIn opens in new window">LinkedIn</a></li>
+		</ol>
+	</div>
+
+        </div>
+    </div>
+
+	</section>
+
+</div>
+	</div> <!-- inner column -->
+	<div class="inner col col4 last idd9834a5d-12ea-4ec0-86ea-289bd072dc58" style="" data-widgetcontainerid="d9834a5d-12ea-4ec0-86ea-289bd072dc58">	
+<div data-widget-id="96f6dfb7-1cc0-40ae-bbeb-f8074e68a2fa" data-widget-controller-path="/Layout/WidgetSiteTools">
+
+		<script type="text/javascript">
+			$(document).ready(function () {
+				setWidgetServiceClicking($("#widgetSiteToolsHeader96f6dfb7-1cc0-40ae-bbeb-f8074e68a2fa"), true, function () {
+					var $widgetBody = $('#widgetSiteToolsBody96f6dfb7-1cc0-40ae-bbeb-f8074e68a2fa');
+
+					if ($widgetBody.is(':visible')) {
+						var menuItems = $('.widgetItem a', $widgetBody);
+
+						$(menuItems[0]).focus();
+
+						$('.widgetItem', $widgetBody).unbind("keydown").bind("keydown", function (e) {
+
+							if (e.which === 9) {
+								var index = menuItems.index(e.target);
+
+								if ((index === 0 && e.shiftKey) || (index === (menuItems.length - 1) && !e.shiftKey)) {
+									$("#widgetSiteToolsHeader96f6dfb7-1cc0-40ae-bbeb-f8074e68a2fa").trigger('click').focus();
+								}
+							}
+						});
+					} else {
+						$('.widgetItem', $widgetBody).unbind("keydown");
+					}
+				});
+			});
+		</script>
+
+	<section id="widgetSiteTools96f6dfb7-1cc0-40ae-bbeb-f8074e68a2fa" class="widget widgetSiteTools skin7 widgetOptionSet8 flyOutParent wide"  aria-label="Site Tools">
+				<header id="widgetSiteToolsHeader96f6dfb7-1cc0-40ae-bbeb-f8074e68a2fa" class="widgetHeader" tabindex="0" role="button" aria-haspopup="true">
+			<h3><img alt="Site Tools" class="imageHover" data-hover="/ImageRepository/Document?documentID=31119" data-image="/ImageRepository/Document?documentID=31118" src="/ImageRepository/Document?documentID=31118" /></h3>
+		</header>
+	<div id="widgetSiteToolsBody96f6dfb7-1cc0-40ae-bbeb-f8074e68a2fa" class="widgetBody whiteIcons flyOut top leftEdge widget widgetSiteTools skin7 cpGrid cpGrid1" style="display:none;">
+         <div class="row                   
+ wide">
+	<div class="col col1 first last">
+		<ol class="semanticList">
+					<li class="widgetItem"><a tabindex="0" role="button" aria-label="Site Tools Home" class="widgetSiteToolsHome siteToolsService" href="/">Home</a></li>
+					<li class="widgetItem"><a tabindex="0" role="button" aria-label="Site Tools My Account" class="widgetSiteToolsMyAccount siteToolsService" href="/MyAccount">My Account</a></li>
+					<li id="PrinterFriendly96f6dfb7-1cc0-40ae-bbeb-f8074e68a2fa" class="widgetItem"><a tabindex="0" aria-label="Site Tools Printer Friendly opens in new window" role="button" class="widgetSiteToolsPrinterFriendly siteToolsService" onkeypress="if (event.which == 13) { this.onclick(); }" onclick="Core.Layout.dynamicJavascript('printPreview();'); return false;" href="#PrinterFriendly96f6dfb7-1cc0-40ae-bbeb-f8074e68a2fa">Printer Friendly</a></li>
+					<li class="widgetItem"><a tabindex="0" role="button" aria-label="Site Tools Email Page" class="widgetSiteToolsEmailPage siteToolsService" href="/EmailPage">Email Page</a></li>
+					<li class="widgetItem"><a tabindex="0" role="button" aria-label="Site Tools Contact Us" class="widgetSiteToolsContactUs siteToolsService" href="/directory.aspx">Contact Us</a></li>
+					<li class="widgetItem"><a tabindex="0" role="button" aria-label="Site Tools RSS" class="widgetSiteToolsRSS siteToolsService" href="/rss.aspx">RSS</a></li>
+					<li class="widgetItem"><a tabindex="0" role="button" aria-label="Site Tools Site Map" class="widgetSiteToolsSiteMap siteToolsService" href="/SiteMap">Site Map</a></li>
+					<li id="TranslatePage96f6dfb7-1cc0-40ae-bbeb-f8074e68a2fa" class="widgetItem"><a tabindex="0" aria-label="Site Tools Translate Page opens in new window" role="button" class="widgetSiteToolsTranslatePage siteToolsService" onkeypress="if (event.which == 13) { this.onclick(); }" onclick="Core.Layout.dynamicJavascript('window.open(\&#39;http://translate.google.com/translate?js=n&amp;sl=auto&amp;tl=es&amp;u=\&#39; + document.location.href, \&quot;TranslateWindow\&quot;);'); return false;" href="#TranslatePage96f6dfb7-1cc0-40ae-bbeb-f8074e68a2fa">Translate Page</a></li>
+					<li class="widgetItem"><a tabindex="0" role="button" aria-label="Site Tools Notifications" class="widgetSiteToolsNotifications siteToolsService" href="/list.aspx">Notifications</a></li>
+					<li class="widgetItem"><a tabindex="0" role="button" aria-label="Site Tools Documents" class="widgetSiteToolsDocuments siteToolsService" href="/DocumentCenter">Documents</a></li>
+		</ol>
+	</div>
+
+		 </div>
+	</div>
+
+	</section>
+
+
+
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!----><div class="outer col col1" style="" data-widgetcontainerid="b2d893ae-d849-4609-9558-1fa86e9b7a60">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col1 first last idae9ebcce-dcca-4773-a568-93cd333bf12b" style="" data-widgetcontainerid="ae9ebcce-dcca-4773-a568-93cd333bf12b">	
+
+<div class="widget widgetSpacer" id="9fce851e-dd3c-45e4-b6a2-64ba13163c39"></div>	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!----><div class="outer col col6" style="" data-widgetcontainerid="22a28680-863b-452d-9089-54e91e6b2a23">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col6 first last idb511452b-7b39-4971-ab1b-f513958eae2f" style="" data-widgetcontainerid="b511452b-7b39-4971-ab1b-f513958eae2f">	
+	<div data-widget-id="65350eb6-7f76-49a0-9080-65031f5d902f" data-widget-controller-path="/QuickLinks/Widget">
+
+
+
+
+
+ 
+
+
+	<section id="widgetQuicklink65350eb6-7f76-49a0-9080-65031f5d902f" class="widget widgetQuickLinks skin6 widgetOptionSet15 narrow" data-modulewidgettype="quickLinks" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}' data-elementquerymatch='matchMultiColumn' data-elementqueryunmatch='unmatchMultiColumn' aria-labelledby="quickLinksHeader65350eb6-7f76-49a0-9080-65031f5d902f">
+			<header class="widgetHeader" id="quickLinksHeader65350eb6-7f76-49a0-9080-65031f5d902f">
+		<div class="">
+					<h3><a  style="" href="/QuickLinks.aspx?CID=56," >Helpful Links</a></h3>
+						</div>
+	</header>
+	<div class="widgetBody cpGrid cpGrid1 ">
+        <div class="row  narrow">
+				<div class="col col1 first last">
+					<ol class="semanticList">
+
+    <li style="position:relative" class="widgetItem QuickLinks">
+        <a class="widgetDesc widgetQuickLinksLink" href="/AgendaCenter" target="_self" >Meeting Center</a>
+    </li>
+
+    <li style="position:relative" class="widgetItem QuickLinks">
+        <a class="widgetDesc widgetQuickLinksLink" href="http://nyenv-assessor.devnetwedge.com/" target="_self" >Property Information</a>
+    </li>
+
+    <li style="position:relative" class="widgetItem QuickLinks">
+        <a class="widgetDesc widgetQuickLinksLink" href="https://mail.co.nye.nv.us/owa" target="_self" >Nye County Webmail</a>
+    </li>
+
+    <li style="position:relative" class="widgetItem QuickLinks">
+        <a class="widgetDesc widgetQuickLinksLink" href="http://www.nyecountywaterdistrict.net/" target="_self" >Nye County Water District</a>
+    </li>
+
+    <li style="position:relative" class="widgetItem QuickLinks">
+        <a class="widgetDesc widgetQuickLinksLink" href="https://myeden.co.nye.nv.us/" target="_self" >MyEden</a>
+    </li>
+					</ol>
+				</div>
+		</div>
+        
+	</div>
+	<div class="widgetFooter">
+	</div>
+	<div class="addItemModal hidden">
+		<div class="url hidden">/QuickLinks.aspx</div>
+	</div>
+
+	</section>
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!----><div class="outer col col1" style="" data-widgetcontainerid="76766470-f897-4dfe-93f7-f10d06f7fc84">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col1 first last id7baecf31-bc0a-4493-85eb-d9e62287bf9a" style="" data-widgetcontainerid="7baecf31-bc0a-4493-85eb-d9e62287bf9a">	
+
+<div class="widget widgetSpacer" id="65b83856-16b4-49ec-954d-9902f5a40d2e"></div>	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!----><div class="outer col col6 last" style="" data-widgetcontainerid="2b32b44a-62c0-4605-8cf4-4b4f56338de7">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col6 first last id71fd8b7f-1b7d-4353-a936-8a9ed8ba7a0c" style="" data-widgetcontainerid="71fd8b7f-1b7d-4353-a936-8a9ed8ba7a0c">	
+	<div data-widget-id="c3c2aa28-f1a1-4ec7-88a4-55a824c2310c" data-widget-controller-path="/QuickLinks/Widget">
+
+
+
+
+
+ 
+
+
+	<section id="widgetQuicklinkc3c2aa28-f1a1-4ec7-88a4-55a824c2310c" class="widget widgetQuickLinks skin6 widgetOptionSet15 narrow" data-modulewidgettype="quickLinks" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}' data-elementquerymatch='matchMultiColumn' data-elementqueryunmatch='unmatchMultiColumn' aria-labelledby="quickLinksHeaderc3c2aa28-f1a1-4ec7-88a4-55a824c2310c">
+			<header class="widgetHeader" id="quickLinksHeaderc3c2aa28-f1a1-4ec7-88a4-55a824c2310c">
+		<div class="">
+					<h3><a  style="" href="/QuickLinks.aspx?CID=57," >Using This Site</a></h3>
+						</div>
+	</header>
+	<div class="widgetBody cpGrid cpGrid1 ">
+        <div class="row  narrow">
+				<div class="col col1 first last">
+					<ol class="semanticList">
+
+    <li style="position:relative" class="widgetItem QuickLinks">
+        <a class="widgetDesc widgetQuickLinksLink" href="/" target="_self" >Home</a>
+    </li>
+
+    <li style="position:relative" class="widgetItem QuickLinks">
+        <a class="widgetDesc widgetQuickLinksLink" href="/Accessibility" target="_self" >Accessibility</a>
+    </li>
+
+    <li style="position:relative" class="widgetItem QuickLinks">
+        <a class="widgetDesc widgetQuickLinksLink" href="/" target="_self" >Privacy</a>
+    </li>
+
+    <li style="position:relative" class="widgetItem QuickLinks">
+        <a class="widgetDesc widgetQuickLinksLink" href="/site/copyright" target="_self" >Copyright Notices</a>
+    </li>
+
+    <li style="position:relative" class="widgetItem QuickLinks">
+        <a class="widgetDesc widgetQuickLinksLink" href="/directory.aspx" target="_self" >Contact Us</a>
+    </li>
+
+    <li style="position:relative" class="widgetItem QuickLinks">
+        <a class="widgetDesc widgetQuickLinksLink" href="http://www.civicplus.com" target="_self" >Government Websites by CivicPlus®</a>
+    </li>
+					</ol>
+				</div>
+		</div>
+        
+	</div>
+	<div class="widgetFooter">
+	</div>
+	<div class="addItemModal hidden">
+		<div class="url hidden">/QuickLinks.aspx</div>
+	</div>
+
+	</section>
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div><!-- outer column --><!--		--></div> <!-- outer row -->
+
+
+	</div>
+</footer></div>
+</div><div data-cpRole="structuralContainer" id="structuralContainer9" class="fixedButtons_ts">
+<div class="siteWrap"><aside data-cpRole="contentContainer" id="contentContainer5">	<div id="ccb373edaa-e9f0-49ce-8f33-3a3fcafb835d" data-containerid="b373edaa-e9f0-49ce-8f33-3a3fcafb835d" class="pageContent cpGrid cpGrid24 showInMobile" data-contentcontainerbreakpoint="60">
+				                
+
+
+
+	</div>
+</aside></div>
+</div>
+</div>
+
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	
+	
+
+
+
+	<script type="text/javascript">function dynamicStretchContainers () {Core.Layout.stretchContainers('#structuralContainer12, #structuralContainer3');}</script>
+
+
+
+
+
+
+	<script src="/1080685674.js" type="text/javascript"></script>
+	<!-- Piwik -->
+<script type="text/javascript"> 
+  var _paq = _paq || [];
+  _paq.push(['setCustomUrl', location.href.toLowerCase()]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  $(window).load(function(){
+    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://analytics.civicplus.com//";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', 354]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+    g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  });
+
+</script>
+<noscript><p><img src="http://analytics.civicplus.com/piwik.php?idsite=354" style="border:0" alt="Piwik" /></p></noscript>
+<!-- End Piwik Code -->
+
+
+<!-- Google Translate -->
+<script type="text/javascript">
+	var translateActiveCookie = getCookieValue('translateActive');
+
+	if (translateActiveCookie == 'true') {
+		enableGoogleTranslate();
+	} else {
+		var button = '<a class="translateWidget" title="Enable Google Translate" style="background-color: #FFF;border-color: #9b9b9b #d5d5d5 transparent #d5d5d5;border-style: solid;border-width: 1px 1px 0 1px;bottom: 0px;color: #000;cursor: pointer;font-size: .9em;padding: 2px 6px 3px 4px;position: fixed;right: 20px;z-index: 5;">';
+		button += '<img alt="Google Translate Icon" src="/Assets/Images/GoogleTranslate.gif" style="box-sizing: content-box !important;height:19px;margin: -2px 0 0 -2px;padding-right: 5px;width:19px;">Enable Google Translate</a>';
+		$('div[data-cprole="structuralContainer"]').last().after(button);
+	}
+
+	function googleTranslateElementInit() {
+  		new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+	}
+
+	function enableGoogleTranslate() {
+		$('#google_translate_element').show();
+		var sz = document.createElement('script'); sz.type = 'text/javascript'; sz.async = true;
+		sz.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sz, s);
+		$('div[data-cprole="structuralContainer"]').last().after('<div id="google_translate_element" style="position: fixed; bottom: 0px; right: 20px; z-index: 5;"></div>');
+	        document.cookie = "translateActive=true; expires=12/31/2999; path=/";
+	}
+
+	$('a.translateWidget').unbind('click').click(function (e) {
+		$(this).hide();
+		enableGoogleTranslate();
+	});
+</script>
+<!-- End Google Translate -->
+
+
+
+
+
+
+
+	<script type="text/javascript">
+		$(function () {
+			document.cookie = "responsiveGhost=0; path=/";
+		});
+		onOrLive($(window), function () {
+			$('body').addClass('doneLoading').removeClass('hideContent');
+
+			if ($('#404Content').length > 0)
+				$('div#bodyWrapper').css('padding', '0px');
+		}, 'load');
+	</script>
+
+	<noscript>
+		<style>
+			body.hideContent {
+				opacity: 1 !important;
+			}
+		</style>
+	</noscript>
+
+		
+<div style="display: none;">
+	<svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
+
+		<symbol id="iconArrow--left" viewbox="0 0 25 25">
+			<title>Arrow Left</title>
+			<polygon style="fill:currentcolor" points="18.044,25 19.498,23.545 8.409,12.454 19.408,1.455 17.954,0 5.502,12.452"></polygon>
+		</symbol>
+
+		<symbol id="iconArrow--right" viewbox="0 0 25 25">
+			<title>Arrow Right</title>
+			<polygon style="fill:currentcolor" points="6.957,0 5.502,1.455 16.591,12.546 5.592,23.545 7.047,25 19.498,12.548"></polygon>
+		</symbol>
+
+	</svg>
+</div>
+	<script type="text/javascript">loadCSS('//fonts.googleapis.com/css?family=Montserrat:500,600,700,regular|Niconne:regular|');</script>
+	
+
+	<div class="hidden activeWidgetSkinComponentsOnPageJson">[]</div>
+		<div style="display: none;">
+			<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+				<symbol id="iconSlideshowArrowLeft" viewBox="0 0 22.68 40">
+					<title>Slideshow Left Arrow</title>
+					<g>
+						<path style="fill:currentcolor;" d="M20,40a2.67,2.67,0,0,1-1.9-.79L.79,21.9a2.68,2.68,0,0,1,0-3.79L18.1.79a2.68,2.68,0,1,1,3.79,3.79L6.47,20,21.89,35.42A2.68,2.68,0,0,1,20,40Z"></path>
+					</g>
+				</symbol>
+				<symbol id="iconSlideshowArrowRight" viewBox="0 0 22.68 40">
+					<title>Slideshow Right Arrow</title>
+					<g>
+						<path style="fill:currentcolor;" d="M2.68,0a2.67,2.67,0,0,1,1.9.79L21.89,18.1a2.68,2.68,0,0,1,0,3.79L4.58,39.21A2.68,2.68,0,0,1,.79,35.42L16.21,20,.79,4.58A2.68,2.68,0,0,1,2.68,0Z"></path>
+					</g>
+				</symbol>
+			</svg>
+		</div>
+	
+	
+
+</body>
+</html>
