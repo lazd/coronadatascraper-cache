@@ -1,0 +1,17 @@
+<html>
+    <script>
+    //Fetch the URL and split the URL based on "/"
+    var myUrl = window.location.href.split("/");
+    //Fetch the hostname from the URL
+    var myHostname = window.location.hostname;
+
+      // Check whether the request is coming from Non Public URL
+        if(myUrl[6] != null && myUrl[6].trim() != ""){
+    if (myUrl[6].toLowerCase() == "non-public+content".toLowerCase()) {
+        window.location.href = "http://"+myHostname+"/wps/wcm/connect/non-public+content/sa+health+intranet/home/page+unavailable";
+    } else {
+        window.location.href = "http://"+myHostname+"/wps/wcm/connect/public+content/sa+health+internet/home/404+error+page";
+    }
+    }
+    </script>
+</html>
