@@ -1,0 +1,1059 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" class="cdk-focused cdk-program-focused" data-focus-source="key"><head><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <title>Microsoft Power BI</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;">
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery-ui" src="https://content.powerapps.com/resource/powerbiwfe/externals/jquery-ui.min.93a880490c16935b4aff.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="powerbi-models" src="https://content.powerapps.com/resource/powerbiwfe/externals/powerbi-models.min.2fad2061bc01ed3c6997.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jsonFilter" src="https://content.powerapps.com/resource/powerbiwfe/scripts/jsonfilter.min.b845c4a5542363355958.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="resizeSensor" src="https://content.powerapps.com/resource/powerbiwfe/externals/resizeSensor.min.56762a5b2b8cb523372e.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="textboxVisual" src="https://content.powerapps.com/resource/powerbiwfe/scripts/textboxVisual.min.1e3abd5733234642d1bc.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="multiRowCardVisual" src="https://content.powerapps.com/resource/powerbiwfe/scripts/multiRowCardVisual.min.5098b0dc7b5bd6f1cc0b.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="cartesianVisuals" src="https://content.powerapps.com/resource/powerbiwfe/scripts/cartesianVisuals.min.0e0fb03e7415dd27282c.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="donutChartVisuals" src="https://content.powerapps.com/resource/powerbiwfe/scripts/donutChartVisuals.min.1dae7c58751e5c3d5895.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="slicerVisual" src="https://content.powerapps.com/resource/powerbiwfe/scripts/slicerVisual.min.96062d18292f7101ff83.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="basicShapeVisual" src="https://content.powerapps.com/resource/powerbiwfe/scripts/basicShapeVisual.min.c348042961045ae2c602.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="imageVisual" src="https://content.powerapps.com/resource/powerbiwfe/scripts/imageVisual.min.5130c893baea9ca02c7b.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="exploreActions" src="https://content.powerapps.com/resource/powerbiwfe/scripts/exploreActions.min.c8a7850ff338ebbbe2b2.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pivotTableVisuals" src="https://content.powerapps.com/resource/powerbiwfe/scripts/pivotTableVisuals.min.81e95142d35594f60ee8.js"></script><base href="/">
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="shortcut icon" href="/images/PowerBI_Favicon.ico">
+
+    <link rel="stylesheet" href="https://content.powerapps.com/resource/powerbiwfe/externals/jquery-ui.min.1401cd3a99bfb13b5079.css"><link rel="stylesheet" href="https://content.powerapps.com/resource/powerbiwfe/styles/pivotTableVisuals.min.b7175036b58767eb8e38.css"><script>
+        var viewLoadingStarted = Date.now();
+
+
+
+        var skipCheckPowerBIAccessToken = true;
+        var powerBIAccessToken = 'any';
+        var reportId = 'any';
+        var getExplorationUrl = '/public/';
+        var getConceptualSchemaUrl = '/public/reports/conceptualschema';
+        var queryDataUrl = '/public/reports/querydata';
+        var resourceLoaderUrl = '/public/reports/resourcePackage/';
+        var routingUrl = '/public/routing/cluster/';
+        var resourceLoaderIncludePackageId = true;
+        var isLoadReportMessagePending = false;
+        var isReportControllerInitialized = false;
+        var isAnonymousEmbed = true;
+        var accessToken;
+        var oDataFilter;
+        var resolvedClusterUri = 'https://wabi-us-north-central-redirect.analysis.windows.net/';
+        var resourceKey;
+        var resolveClusterError;
+        var modelsAndExplorationPromise;
+        var modelsAndExplorationResponse;
+        var frontLoadStatus;
+        var frontLoadError;
+        var conceptualSchemaPromise;
+        var conceptualSchemaResponse;
+        var loadingState = "#Loading#";
+        var errorState = "#Error#";
+        var isConceptualSchemaCached;
+        var isModelsAndExplorationCached;
+        var conceptualSchemaDuration;
+        var clusterResolutionFrontLoadStartTime = null;
+        var clusterResolutionFrontLoadEndTime = null;
+        var modelsAndExplorationFrontLoadStartTime = null;
+        var modelsAndExplorationFrontLoadEndTime = null;
+        var conceptualSchemaFrontLoadStartTime = null;
+        var conceptualSchemaFrontLoadEndTime = null;
+        var reportThumbnailPromise;
+        var reportThumbnailResponse;
+        var reportThumbnailFrontLoadStartTime;
+        var reportThumbnailFrontLoadEndTime;
+        var reportThumbnailDuration;
+        var reportThumbnailRequestId;
+        var reportThumbnailResponseRequestId;
+        var responseRequestId;
+        var conceptualSchemaRequestId;
+        var conceptualSchemaResponseRequestId;
+        var modelsAndExplorationRequestId;
+        var modernEmbed = '' === "true";
+        var isOptimizePublishToWebEnabled = '' === "true";
+
+        var reportThumbnailPrefix = "ReportThumbnail";
+        var modelsAndExplorationPrefix = "ModelsAndExploration";
+        var conceptualSchemaPrefix = "conceptualSchema";
+
+        var reportThumbnailPrefix = "ReportThumbnail";
+        var modelsAndExplorationPrefix = "ModelsAndExploration";
+        var conceptualSchemaPrefix = "conceptualSchema";
+
+        //register for messages from parent window
+        window.addEventListener("message", receiveMessage, false);
+
+        //handle message from parent window
+        function receiveMessage(event) {
+            if (event.data) {
+                try {
+                    var messageData = jsCommon.JsonExtensions.isJsonString(event.data) ? JSON.parse(event.data) : event.data;
+                    if (messageData.action === 'setPage') {
+                        if (!messageData.pageName) {
+                            return;
+                        }
+
+                        var pageName = messageData.pageName;
+                        if (isReportControllerInitialized) {
+                            setPage(pageName);
+                        }
+                    }
+                }
+                catch (e) {
+                    var embedReportLoadMessage = {
+                        event: 'error',
+                        error: 'Invalid message data:' + e.message,
+                    };
+                    window.parent.postMessage(JSON.stringify(embedReportLoadMessage), '*');
+                    return;
+                }
+            }
+        }
+
+        function resolveCluster() {
+            try {
+                var activityId = telemetrySessionId;
+                var requestId = '27fc924f-4c3e-43d2-ab8d-64e2cac56c0c';
+
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    try {
+                        if(xhr.readyState == XMLHttpRequest.DONE) {
+                            clusterResolutionFrontLoadEndTime = Date.now();
+                            var response = JSON.parse(xhr.responseText);
+                            if(response.FixedClusterUri) {
+                                resolvedClusterUri = response.FixedClusterUri;
+                                if(allowPublishToWebPreLoadFlag) {
+                                getModelsAndExplorationAndConceptualSchema();
+                                }
+                            }
+                            else {
+                                resolveClusterError = "FixedClusterUri is empty, activityid:" + activityId + "requestid:" + requestId;
+                            }
+                        }
+                    }
+                    catch(e) {
+                        resolveClusterError = "Exception:"+e.message +", activityid:" + activityId + "requestid:" + requestId;
+                    }
+                }
+
+                var apimClusterUri = getAPIMUrl(clusterUri);
+                xhr.open("GET", apimClusterUri + routingUrl + tenantId);
+                setGETRequestHeaders(xhr, telemetrySessionId, requestId, resourceKey);
+                clusterResolutionFrontLoadStartTime = Date.now();
+                xhr.send();
+            }
+            catch(e) {
+                resolveClusterError = "Exception:"+e.message +", activityid:" + activityId + "requestid:" + requestId;
+            }
+        }
+
+        function getModelsAndExploration() {
+            try {
+                var activityId = telemetrySessionId;
+                var requestId = '3258366b-5e47-4e0a-a62e-308c9e235148';
+
+                if(!resolvedClusterUri) {
+                    return;
+                }
+
+                var resolvedAPIMCluster = getAPIMUrl(resolvedClusterUri);
+                url = resolvedAPIMCluster + "/public/reports/" + resourceKey + "/modelsAndExploration?preferReadOnlySession=true";
+
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    try{
+                        var status = xhr.status;
+                        if(xhr.readyState == XMLHttpRequest.DONE) {
+                            modelsAndExplorationFrontLoadEndTime = Date.now();
+                            var isSuccess = status >= 200 && status < 300 || status === 304;
+                            frontLoadStatus = status;
+                            if(isSuccess) {
+                                var response = xhrBuildResponse(xhr, activityId, requestId);
+                                modelsAndExplorationPromise.resolve(response);
+                                var data = JSON.parse(response.responseText);
+                                responseRequestId =  xhr.getResponseHeader('requestId');
+                                isModelsAndExplorationCached = responseRequestId && responseRequestId !== requestId ? true: false;
+                                modelsAndExplorationRequestId = responseRequestId ? responseRequestId : requestId;
+                            }
+                            else {
+                                try {
+                                    var data = JSON.parse(xhr.response);
+                                    if (data && data.error) {
+                                    modelsAndExplorationPromise.reject(xhrBuildResponse(xhr, activityId, requestId, true /*isError*/));
+                                    }
+                                }
+                                catch (e) {
+                                     modelsAndExplorationPromise.reject(buildExceptionResponse(activityId, requestId, e, modelsAndExplorationPrefix));
+                                }
+                            }
+                        }
+                    }
+                    catch(e) {
+                        console.error(e);
+                        modelsAndExplorationPromise.reject(buildExceptionResponse(activityId, requestId, e, modelsAndExplorationPrefix));
+                    }
+                }
+
+                xhr.open("GET", url);
+                setGETRequestHeaders(xhr, telemetrySessionId, requestId, resourceKey);
+                modelsAndExplorationFrontLoadStartTime = Date.now();
+                xhr.send();
+            }
+            catch(e) {
+                console.error(e);
+                modelsAndExplorationPromise.reject(buildExceptionResponse(activityId, requestId, e, modelsAndExplorationPrefix));
+            }
+        }
+
+        function getConceptualSchema() {
+            try {
+                conceptualSchemaFrontLoadStartTime = Date.now();
+                conceptualSchemaResponse = loadingState;
+
+                var activityId = telemetrySessionId;
+                var requestId = '07090896-bbf8-44ee-b256-58c25491c912';
+
+                var resolvedAPIMCluster = getAPIMUrl(resolvedClusterUri);
+                url = resolvedAPIMCluster + "/public/reports/" + resourceKey + "/conceptualschema";
+
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    try {
+                        conceptualSchemaFrontLoadEndTime = Date.now();
+                        var status = xhr.status;
+                        if(xhr.readyState == XMLHttpRequest.DONE) {
+                            var isSuccess = status >= 200 && status < 300 || status === 304;
+                            if(isSuccess) {
+                                var response = xhrBuildResponse(xhr, activityId, requestId);
+                                conceptualSchemaPromise.resolve(response);
+                                var data = JSON.parse(response.responseText);
+                                conceptualSchemaDuration = conceptualSchemaFrontLoadEndTime - conceptualSchemaFrontLoadStartTime;
+                                responseRequestId =  xhr.getResponseHeader('requestId');
+                                isConceptualSchemaCached = responseRequestId && responseRequestId !== requestId ? true: false;
+                                conceptualSchemaRequestId = requestId;
+                                conceptualSchemaResponseRequestId = responseRequestId ? responseRequestId : requestId;
+                                setConceptualSchema(data);
+                            }
+                            else {
+                                setConceptualSchema(errorState);
+                            }
+                        }
+                    }
+                    catch(e) {
+                        setConceptualSchema(errorState);
+                    }
+                }
+
+                xhr.open("GET", url);
+                setGETRequestHeaders(xhr, telemetrySessionId, requestId, resourceKey);
+                xhr.send();
+            }catch(e) {
+                setConceptualSchema(errorState);
+            }
+        }
+
+        function getReportThumbnail() {
+            try {
+                reportThumbnailFrontLoadStartTime = Date.now();
+
+                var activityId = telemetrySessionId;
+                var requestId = '25944012-090e-4e7a-8c86-90d815bb6073';
+
+                var resolvedAPIMCluster = getAPIMUrl(resolvedClusterUri);
+                url = resolvedAPIMCluster + "/public/reports/" + resourceKey + "/thumbnail";
+
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    try {
+                        reportThumbnailFrontLoadEndTime = Date.now();
+                        var status = xhr.status;
+                        if(xhr.readyState == XMLHttpRequest.DONE) {
+                            var isSuccess = status >= 200 && status < 300 || status === 304;
+                            if(isSuccess) {
+                                var response = xhrBuildResponse(xhr, activityId, requestId);
+                                reportThumbnailPromise.resolve(response);
+                                var data = JSON.parse(response.responseText);
+                                reportThumbnailDuration = reportThumbnailFrontLoadEndTime - reportThumbnailFrontLoadStartTime;
+                                responseRequestId =  xhr.getResponseHeader('requestId');
+                                reportThumbnailRequestId = requestId;
+                                reportThumbnailResponseRequestId = responseRequestId ? responseRequestId : requestId;
+                            } 
+                            // This is when customer has changed the thumbnail to report from the UI but forgot to change the iframe url in the webside it is embedded in.
+                            // on recieving 404 on getThumnail call, we want to load the report instead of rejecting the promise as customer expected.
+                            else if(status == 404)
+                                {
+                                var response = xhrBuildResponse(xhr, activityId, requestId);
+                                reportThumbnailPromise.resolve(response);
+                                }                            
+                            else  {
+                                    if (reportThumbnailPromise) {
+                                    try {
+                                        reportThumbnailPromise.reject(xhrBuildResponse(xhr, activityId, requestId, true /*isError*/));
+                                    }
+                                    catch (e) {
+                                        console.error(e);
+                                        // Cannot parse an error out of the response
+                                        reportThumbnailPromise.reject(buildExceptionResponse(activityId, requestId, e, reportThumbnailPrefix));
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    catch(e) {
+                        console.error(e);
+                        if (reportThumbnailPromise) {
+                            reportThumbnailPromise.reject(buildExceptionResponse(activityId, requestId, e, reportThumbnailPrefix));
+                        }
+                    }
+                }
+
+                xhr.open("GET", url);
+                setGETRequestHeaders(xhr, telemetrySessionId, requestId, resourceKey);
+                xhr.send();
+            }catch(e) {
+                    console.error(e);
+                    if (reportThumbnailPromise) {
+                        reportThumbnailPromise.reject(buildExceptionResponse(activityId, requestId, e, reportThumbnailPrefix));
+                    }
+            }
+        }
+
+        function setGETRequestHeaders(xhr, activityId, requestId, resourceKey) {
+            xhr.setRequestHeader('Accept', 'application/json');
+            xhr.setRequestHeader('ActivityId', activityId);
+            xhr.setRequestHeader('RequestId', requestId);
+            xhr.setRequestHeader('X-PowerBI-ResourceKey', resourceKey);
+        }
+
+        function setPOSTRequestHeaders(xhr, activityId, requestId, resourceKey) {
+            setGETRequestHeaders(xhr, activityId, requestId, resourceKey);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+        }
+
+        function setConceptualSchema(data) {
+            // TODO - Waiting for New API to make the decision if data will be array or single schema
+            conceptualSchemaResponse = data;
+        }
+
+        function getAPIMUrl(clusterUri) {
+            var parser = document.createElement('a');
+            parser.href = clusterUri;
+
+            var protocol =  parser.protocol;
+            var hostname =  parser.hostname;
+
+            var hostNameTakens = hostname.split(".");
+            hostNameTakens[0] = hostNameTakens[0].replace("-redirect", "");
+            hostNameTakens[0] = hostNameTakens[0].replace("global-", "");
+            hostNameTakens[0] += "-api";
+            var apiHostName = hostNameTakens.join(".");
+            return protocol + "//" + apiHostName;
+        }
+
+        function isResponseCached(responseRequestId, requestId) {
+            if(responseRequestId && responseRequestId !== requestId) {
+                return true;
+            }
+            return false;
+        }
+
+        function defer() {
+            var res, rej;
+
+            var promise = new Promise(function (resolve, reject) {
+                res = resolve;
+                rej = reject;
+            });
+
+            promise.resolve = function (result) {
+                res(result);
+            };
+
+            promise.reject = function (error) {
+                rej(error);
+            };
+
+            return promise;
+        }
+
+        function xhrBuildResponse(xhr, activityId, requestId, isError) {
+            var response = {
+                activityId: activityId,
+                requestId: requestId,
+                status: xhr.status,
+                responseText: xhr.responseText
+            };
+
+            xhrResponse = xhr.response && JSON.parse(xhr.response);
+            if (!isError)
+                response["data"] = xhrResponse;
+            else
+                response["error"] = xhrResponse && xhrResponse.error;
+
+            return response;
+        }
+
+        function buildExceptionResponse(activityId, requestId, exception, prefix) {
+            return {
+                activityId: activityId,
+                requestId: requestId,
+                status: unknownErrorCode,
+                error: {
+                    message: prefix + " Exception: " + exception.message,
+                    code: "FrontLoadException",
+                },
+            }
+        }
+
+        function getModelsAndExplorationAndConceptualSchema() {
+            if (isOptimizePublishToWebEnabled) {
+                reportThumbnailPromise = defer();
+                getReportThumbnail();
+            } else {
+                modelsAndExplorationPromise = defer();
+                conceptualSchemaPromise = defer();
+                getModelsAndExploration();
+                getConceptualSchema();
+           }
+        }
+
+        var baseUrl = window.location.protocol + '//' + window.location.host;
+        var powerbi = {
+            session : {
+                userInfo: {
+                    alternateEmail: '',
+                }
+            }
+        };
+
+        powerbi.telemetrySamplingRules = 'embed';
+        powerbi.build = '13.0.13913.66';
+        powerbi.buildDetails = '13.0.13913.66';
+        powerbi.clientVersion = '2007.2.01968-train';
+        powerbi.customVisualsUrl = 'https://visuals.azureedge.net/;https://visuals2.azureedge.net/;https://extendcustomvisual.blob.core.windows.net/';
+        powerbi.visualCDNBlobContainerUrl = 'prod';
+        powerbi.common = {};
+        powerbi.common.cultureInfo = 'en-US';
+        powerbi.common.formattingLocale = 'en-US';
+        var useCDN = 'True';
+        var clusterUri =  'https://api.powerbi.com';
+        var cdnUrl = 'https://content.powerapps.com/resource/powerbiwfe';
+        var previousTenantId = '';
+        var telemetrySessionId =  'fe2d1fe7-56b3-42ca-b55e-32226e5cdb84';
+        var sessionSource = "Embed";
+        var allowTelemetry = true;
+        var appInsightsV2InstrKey = '00406067-1af3-44c5-a2c1-4a57dd50194c';
+        var appInsightsV2EndpointUrl = '';
+        var initialDashboardContainer = undefined;
+        var appLoadError = undefined;
+        var allowPublishToWebPreLoadFlag =  false;
+
+        var reportQueryString = new RegExp('[\\?&]r=([^&#]*)').exec(window.location.href);
+        if (reportQueryString) {
+            try {
+                var embedCode = decodeURIComponent(reportQueryString[1]);
+                var encodedReport = JSON.parse(atob(embedCode));
+                var tenantId = encodedReport.t;
+                resourceKey = encodedReport.k;
+                if (resolvedClusterUri == '') {
+                    resolvedClusterUri = undefined;
+                    resolveCluster();
+                } else if(allowPublishToWebPreLoadFlag) {
+                    getModelsAndExplorationAndConceptualSchema();
+                }
+            }
+            catch(e) {
+                resolveClusterError = "Exception: " + e.message + ", activityid: " + telemetrySessionId;
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="https://content.powerapps.com/resource/powerbiwfe/styles/reportembed.bundle.min.159ceb997ca3d66a9a9f.css" onerror="cdnFallback(event)">
+
+<style>[touch-action="none"]{ -ms-touch-action: none; touch-action: none; touch-action-delay: none; }
+[touch-action="auto"]{ -ms-touch-action: auto; touch-action: auto; touch-action-delay: none; }
+[touch-action="pan-x"]{ -ms-touch-action: pan-x; touch-action: pan-x; touch-action-delay: none; }
+[touch-action="pan-y"]{ -ms-touch-action: pan-y; touch-action: pan-y; touch-action-delay: none; }
+[touch-action="pan-x pan-y"],[touch-action="pan-y pan-x"]{ -ms-touch-action: pan-x pan-y; touch-action: pan-x pan-y; touch-action-delay: none; }
+</style><style></style><script src="13.0.13913.66/scripts/ai.0.js"></script><script charset="utf-8" src="https://content.powerapps.com/resource/powerbiwfe/scripts/reportEmbed.json-contracts.min.1fd4734cf6c3f866a64f.js"></script><style>.logoBar[_ngcontent-bpw-c2]   .logo[_ngcontent-bpw-c2]   a[_ngcontent-bpw-c2] {
+  border: transparent;
+  background: none;
+  padding: 0;
+  margin-left: 24px;
+}
+.logoBar[_ngcontent-bpw-c2]   .logo[_ngcontent-bpw-c2]   a[_ngcontent-bpw-c2]:focus {
+  box-shadow: 0 0 5px #51caee;
+  outline: 1px solid #51cbee;
+}
+.logoBar[_ngcontent-bpw-c2]   .logo[_ngcontent-bpw-c2]   a[_ngcontent-bpw-c2]   .icon[_ngcontent-bpw-c2] {
+  margin: 0;
+}
+.logoBar[_ngcontent-bpw-c2]   .logo[_ngcontent-bpw-c2]   .socialSharing[_ngcontent-bpw-c2] {
+  float: right;
+}</style><style>.navigation-wrapper[_ngcontent-bpw-c3]   button[_ngcontent-bpw-c3] {
+  border: transparent;
+  background: none;
+  padding: 0;
+  margin-left: 24px;
+}
+.navigation-wrapper[_ngcontent-bpw-c3]   button[_ngcontent-bpw-c3]:focus {
+  box-shadow: 0 0 5px #51caee;
+  outline: 1px solid #51cbee;
+}
+.navigation-wrapper[_ngcontent-bpw-c3]   button[_ngcontent-bpw-c3]   .icon[_ngcontent-bpw-c3] {
+  margin: 0;
+}
+.navigation-wrapper[_ngcontent-bpw-c3]   .socialIcon[_ngcontent-bpw-c3] {
+  padding: 0;
+  cursor: pointer;
+}</style><style>.position-static[_nghost-bpw-c6]   .notification-bar[_ngcontent-bpw-c6] {
+  position: initial;
+}
+.notification-bar[_ngcontent-bpw-c6] {
+  display: flex;
+  justify-content: space-between;
+  background: #777777;
+  width: auto;
+  height: 32px;
+  position: absolute;
+  top: 40px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 59;
+  border-bottom: 1px solid #E1DFDD;
+}
+@keyframes infiniteLoading {
+  from {
+    left: -200px;
+    width: 30%;
+  }
+  50% {
+    width: 30%;
+  }
+  70% {
+    width: 70%;
+  }
+  80% {
+    left: 50%;
+  }
+  95% {
+    left: 120%;
+  }
+  to {
+    left: 100%;
+  }
+}
+@keyframes progressBarState1 {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 90%;
+  }
+}
+@keyframes progressBarState2 {
+  0% {
+    width: 90%;
+  }
+  100% {
+    width: 95%;
+  }
+}
+@keyframes progressBarState3 {
+  0% {
+    width: 95%;
+  }
+  100% {
+    width: 98%;
+  }
+}
+@keyframes progressBarState4 {
+  0% {
+    width: 98%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+.notification-bar[_ngcontent-bpw-c6]   .infiniteLoader[_ngcontent-bpw-c6] {
+  height: 6px;
+  width: 200px;
+  position: relative;
+  overflow: hidden;
+  background-color: #FFF;
+  float: left;
+  top: 22px;
+}
+.notification-bar[_ngcontent-bpw-c6]   .infiniteLoader[_ngcontent-bpw-c6]:before {
+  display: block;
+  position: absolute;
+  content: '';
+  left: -200px;
+  width: 200px;
+  height: 6px;
+  background-color: #F2C811;
+  animation: infiniteLoading 2s linear infinite;
+}
+.notification-bar[_ngcontent-bpw-c6]   .progressBarLoader[_ngcontent-bpw-c6] {
+  width: 100%;
+  height: 2px;
+  display: block;
+  background-color: #F2C811;
+  animation-name: progressBarState1, progressBarState2, progressBarState3, progressBarState4;
+  animation-timing-function: linear;
+}
+.notification-bar[_ngcontent-bpw-c6]   .bar-actions[_ngcontent-bpw-c6] {
+  display: flex;
+  padding: 0 8px;
+}
+.notification-bar[_ngcontent-bpw-c6]   .bar-actions[_ngcontent-bpw-c6]   button[_ngcontent-bpw-c6] {
+  display: block;
+  height: 24px;
+  margin: 4px 0;
+}
+.notification-bar[_ngcontent-bpw-c6]   .bar-actions[_ngcontent-bpw-c6]   button.primary[_ngcontent-bpw-c6] {
+  padding: 2px 16px;
+  background-color: #FFF;
+  border: 1px solid #8A8886;
+  box-sizing: border-box;
+  border-radius: 2px;
+}
+.notification-bar[_ngcontent-bpw-c6]   .bar-actions[_ngcontent-bpw-c6]   button.last[_ngcontent-bpw-c6] {
+  margin-right: 0;
+}
+.notification-bar[_ngcontent-bpw-c6]   .bar-actions[_ngcontent-bpw-c6]   button.dismissBtn[_ngcontent-bpw-c6] {
+  background: none;
+  border: none;
+  margin-right: 0;
+  margin-left: 8px;
+  color: #605E5C;
+}
+.notification-bar[_ngcontent-bpw-c6]   .bar-content[_ngcontent-bpw-c6] {
+  flex-grow: 1;
+  box-sizing: border-box;
+  padding: 0 8px;
+  line-height: 32px;
+}
+.notification-bar[_ngcontent-bpw-c6]   .bar-content[_ngcontent-bpw-c6]   .icon[_ngcontent-bpw-c6], .notification-bar[_ngcontent-bpw-c6]   .bar-content[_ngcontent-bpw-c6]   spinner[_ngcontent-bpw-c6] {
+  color: #605E5C;
+  float: left;
+  box-sizing: border-box;
+  padding-right: 8px;
+}
+.notification-bar[_ngcontent-bpw-c6]   .bar-content[_ngcontent-bpw-c6]   .powerbi-spinner[_ngcontent-bpw-c6]   .spinner[_ngcontent-bpw-c6]   .circle[_ngcontent-bpw-c6]:after {
+  background: #FFF !important;
+}
+.notification-bar[_ngcontent-bpw-c6]   .bar-content[_ngcontent-bpw-c6]   .message[_ngcontent-bpw-c6] {
+  color: #323130;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+.notification-bar[_ngcontent-bpw-c6]   .bar-content[_ngcontent-bpw-c6]   a.actionLink[_ngcontent-bpw-c6] {
+  padding: 0 8px;
+  color: #005A9E;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.notification-bar[_ngcontent-bpw-c6]   .bar-content[_ngcontent-bpw-c6]   .embeddedActionLink[_ngcontent-bpw-c6] {
+  padding: 0;
+}
+.notification-bar.error[_ngcontent-bpw-c6] {
+  background-color: #FDE7E9;
+}
+.notification-bar.info[_ngcontent-bpw-c6] {
+  background-color: #F3F2F1;
+}
+.notification-bar.warning[_ngcontent-bpw-c6], .notification-bar.sampleDataLoad[_ngcontent-bpw-c6] {
+  background-color: #FFF4CE;
+}
+.notification-bar.sampleDataLoad[_ngcontent-bpw-c6]   .progressBarLoader[_ngcontent-bpw-c6] {
+  display: none;
+  background-color: unset;
+}
+@media print {
+  body[_nghost-bpw-c6]   div.notification-bar[_ngcontent-bpw-c6], body   div.notification-bar   [_nghost-bpw-c6] {
+    display: none !important;
+  }
+}</style><style></style><style>[_nghost-bpw-c13] {
+  position: absolute;
+  z-index: 10000003;
+}
+.accessibility-info[_ngcontent-bpw-c13] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 10px;
+  padding: 10px 6px;
+  background: white;
+  border: #CCCCCC solid 1px;
+  box-shadow: 0px 0px 20px #CCCCCC;
+  outline: none;
+  font-family: 'Segoe UI', 'wf_segoe-ui_normal', helvetica, arial, sans-serif;
+  font-size: 14px;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+}
+.accessibility-info.accessibility-info-collapsed[_ngcontent-bpw-c13] {
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0px;
+  overflow: hidden;
+  padding: 0;
+}
+.accessibility-info[_ngcontent-bpw-c13]   a[_ngcontent-bpw-c13], .accessibility-info[_ngcontent-bpw-c13]   span.link[_ngcontent-bpw-c13] {
+  color: #1F3A93;
+  text-decoration: underline;
+}
+.accessibility-info[_ngcontent-bpw-c13]   span[_ngcontent-bpw-c13]:focus, .accessibility-info[_ngcontent-bpw-c13]   a[_ngcontent-bpw-c13]:focus {
+  outline: none;
+  border: 1px dashed #333333;
+}
+.accessibility-info[_ngcontent-bpw-c13]   a[_ngcontent-bpw-c13]:visited {
+  color: #551A8B;
+}
+.accessibility-info[_ngcontent-bpw-c13]   span[_ngcontent-bpw-c13] {
+  color: #212121;
+}</style><style>.centered[_nghost-bpw-c12] {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  margin-top: -60px;
+}
+[_nghost-bpw-c12]   .dataLoaderSpinner[_ngcontent-bpw-c12] {
+  height: 120px;
+  text-align: center;
+  animation: dataLoaderFadeIn 1s ease;
+}
+@keyframes dataLoaderFadeIn {
+  0%,
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+[_nghost-bpw-c12]   .dataLoaderSpinner[_ngcontent-bpw-c12]   .powerbi-spinner[_ngcontent-bpw-c12] {
+  margin: 20px;
+}
+[_nghost-bpw-c12]   .dataLoaderSpinner[_ngcontent-bpw-c12]   h3[_ngcontent-bpw-c12] {
+  margin: 0;
+  font-family: 'Segoe UI Semilight', 'wf_segoe-ui_semilight', helvetica, arial, sans-serif;
+  font-weight: normal;
+}</style><style>.powerbi-spinner[_ngcontent-bpw-c11] {
+  display: inline-block !important;
+  width: 20px;
+  height: 20px;
+  text-align: initial !important;
+  vertical-align: middle;
+}
+.powerbi-spinner[_ngcontent-bpw-c11]   .spinner[_ngcontent-bpw-c11] {
+  transform: scale(0.35714286);
+}
+.powerbi-spinner.centered[_ngcontent-bpw-c11] {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -10px;
+  margin-left: -10px;
+}
+.powerbi-spinner.xlarge[_ngcontent-bpw-c11] {
+  width: 48px;
+  height: 48px;
+}
+.powerbi-spinner.xlarge[_ngcontent-bpw-c11]   .spinner[_ngcontent-bpw-c11] {
+  transform: scale(0.85714286);
+}
+.powerbi-spinner.xlarge.centered[_ngcontent-bpw-c11] {
+  margin-top: -24px;
+  margin-left: -24px;
+}
+.powerbi-spinner.large[_ngcontent-bpw-c11] {
+  width: 32px;
+  height: 32px;
+}
+.powerbi-spinner.large[_ngcontent-bpw-c11]   .spinner[_ngcontent-bpw-c11] {
+  transform: scale(0.57142857);
+}
+.powerbi-spinner.large.centered[_ngcontent-bpw-c11] {
+  margin-top: -16px;
+  margin-left: -16px;
+}
+.powerbi-spinner.small[_ngcontent-bpw-c11] {
+  width: 20px;
+  height: 20px;
+}
+.powerbi-spinner.small[_ngcontent-bpw-c11]   .spinner[_ngcontent-bpw-c11] {
+  transform: scale(0.35714286);
+}
+.powerbi-spinner.small.centered[_ngcontent-bpw-c11] {
+  margin-top: -10px;
+  margin-left: -10px;
+}
+.powerbi-spinner.xsmall[_ngcontent-bpw-c11] {
+  width: 16px;
+  height: 16px;
+}
+.powerbi-spinner.xsmall[_ngcontent-bpw-c11]   .spinner[_ngcontent-bpw-c11] {
+  transform: scale(0.28571429);
+}
+.powerbi-spinner.xsmall.centered[_ngcontent-bpw-c11] {
+  margin-top: -8px;
+  margin-left: -8px;
+}
+.powerbi-spinner[_ngcontent-bpw-c11]   .spinner[_ngcontent-bpw-c11] {
+  position: static;
+  display: block;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  box-sizing: content-box;
+  transform-origin: 0 0;
+  -webkit-transform-origin: 0 0;
+}
+html[dir="rtl"][_ngcontent-bpw-c11]   .powerbi-spinner[_ngcontent-bpw-c11]   .spinner[_ngcontent-bpw-c11] {
+  transform-origin: top left;
+}
+.powerbi-spinner[_ngcontent-bpw-c11]   .spinner[_ngcontent-bpw-c11]   .circle[_ngcontent-bpw-c11] {
+  position: absolute;
+  width: 38px;
+  height: 38px;
+  opacity: 0;
+  transform: rotate(225deg);
+  animation-iteration-count: infinite;
+  animation-name: orbit;
+  animation-duration: 5.5s;
+}
+.powerbi-spinner[_ngcontent-bpw-c11]   .spinner[_ngcontent-bpw-c11]   .circle[_ngcontent-bpw-c11]:after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  background: #666;
+  
+}
+.powerbi-spinner[_ngcontent-bpw-c11]   .spinner[_ngcontent-bpw-c11]   .circle[_ngcontent-bpw-c11]:nth-child(2) {
+  animation-delay: 360ms;
+}
+.powerbi-spinner[_ngcontent-bpw-c11]   .spinner[_ngcontent-bpw-c11]   .circle[_ngcontent-bpw-c11]:nth-child(3) {
+  animation-delay: 720ms;
+}
+.powerbi-spinner[_ngcontent-bpw-c11]   .spinner[_ngcontent-bpw-c11]   .circle[_ngcontent-bpw-c11]:nth-child(4) {
+  animation-delay: 1080ms;
+}
+.powerbi-spinner[_ngcontent-bpw-c11]   .spinner[_ngcontent-bpw-c11]   .circle[_ngcontent-bpw-c11]:nth-child(5) {
+  animation-delay: 1440ms;
+}
+@keyframes orbit {
+  0% {
+    transform: rotate(225deg);
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  7% {
+    transform: rotate(345deg);
+    animation-timing-function: linear;
+  }
+  30% {
+    transform: rotate(455deg);
+    animation-timing-function: ease-in-out;
+  }
+  39% {
+    transform: rotate(690deg);
+    animation-timing-function: linear;
+  }
+  70% {
+    transform: rotate(815deg);
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  75% {
+    transform: rotate(945deg);
+    animation-timing-function: ease-out;
+  }
+  76% {
+    transform: rotate(945deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(945deg);
+    opacity: 0;
+  }
+}</style><style>[_nghost-bpw-c22] {
+  position: absolute;
+  border: 1px solid #797775;
+  background-color: rgba(121, 119, 117, 0.5);
+  z-index: 10000002;
+}</style><script charset="utf-8" src="https://content.powerapps.com/resource/powerbiwfe/scripts/reportEmbed.exploration-persistent-state.min.8f3aaa1dbbf6874fb2e9.js"></script><style type="text/css">@keyframes resizeanim {from { opacity: 0; } to { opacity: 0; }} .ResizeSensor__resizeTriggers { animation: 1ms resizeanim; visibility: hidden; opacity: 0; } .ResizeSensor__resizeTriggers, .ResizeSensor__resizeTriggers > div, .ResizeSensor__contractTrigger:before { content: ' '; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; overflow: hidden; } .ResizeSensor__resizeTriggers > div { background: #eee; overflow: auto; } .ResizeSensor__contractTrigger:before { width: 200%; height: 200%; }</style><style>transform[_ngcontent-bpw-c20] {
+  pointer-events: auto;
+}
+.explorationContainer.reading[_nghost-bpw-c20]   .exploreCanvas[_ngcontent-bpw-c20]   transform.selected[_ngcontent-bpw-c20]:hover:not(.popOut), .explorationContainer.reading   .exploreCanvas   [_nghost-bpw-c20]   transform.selected[_ngcontent-bpw-c20]:hover:not(.popOut) {
+  z-index: 10000001 !important;
+}
+.explorationContainer.editing[_nghost-bpw-c20]   .exploreCanvas[_ngcontent-bpw-c20]:hover   transform.selected[_ngcontent-bpw-c20]:not(.popOut), .explorationContainer.editing   .exploreCanvas:hover   [_nghost-bpw-c20]   transform.selected[_ngcontent-bpw-c20]:not(.popOut) {
+  z-index: 10000001 !important;
+}
+.explorationContainer[_nghost-bpw-c20]   .exploreCanvas.stylableVisualContainerHeader[_ngcontent-bpw-c20]   transform.dragging[_ngcontent-bpw-c20]   .vcHeader[_ngcontent-bpw-c20], .explorationContainer   .exploreCanvas.stylableVisualContainerHeader   [_nghost-bpw-c20]   transform.dragging[_ngcontent-bpw-c20]   .vcHeader[_ngcontent-bpw-c20], .explorationContainer[_nghost-bpw-c20]   .exploreCanvas.stylableVisualContainerHeader[_ngcontent-bpw-c20]   transform.resizing[_ngcontent-bpw-c20]   .vcHeader[_ngcontent-bpw-c20], .explorationContainer   .exploreCanvas.stylableVisualContainerHeader   [_nghost-bpw-c20]   transform.resizing[_ngcontent-bpw-c20]   .vcHeader[_ngcontent-bpw-c20] {
+  display: none;
+}</style><style>[_nghost-bpw-c24] {
+  position: absolute;
+}</style><style>.visualHeaderItemContainer[_ngcontent-bpw-c33] {
+  display: inline-block;
+  vertical-align: top;
+}
+.stylableVisualContainerHeader[_nghost-bpw-c33]   .visualHeaderItemContainer[_ngcontent-bpw-c33], .stylableVisualContainerHeader   [_nghost-bpw-c33]   .visualHeaderItemContainer[_ngcontent-bpw-c33] {
+  height: 20px;
+  padding-top: 1px;
+  margin-left: 4px;
+  border: 1px solid #ffffff;
+  background-color: #ffffff;
+}</style><style>[_nghost-bpw-c36] {
+  width: 100%;
+}
+[_nghost-bpw-c36]   .visual-tooltip-container[_ngcontent-bpw-c36] {
+  position: relative;
+}
+[_nghost-bpw-c36]   .loading-message-container[_ngcontent-bpw-c36] {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+html[_nghost-bpw-c36]:not([dir="rtl"])   [_nghost-bpw-c36]   .loading-message-container[_ngcontent-bpw-c36], html:not([dir="rtl"])   [_nghost-bpw-c36]   [_nghost-bpw-c36]   .loading-message-container[_ngcontent-bpw-c36] {
+  left: 0;
+}
+html[dir="rtl"][_nghost-bpw-c36]   [_nghost-bpw-c36]   .loading-message-container[_ngcontent-bpw-c36], html[dir="rtl"]   [_nghost-bpw-c36]   [_nghost-bpw-c36]   .loading-message-container[_ngcontent-bpw-c36] {
+  right: 0;
+}
+[_nghost-bpw-c36]   .loading-message[_ngcontent-bpw-c36] {
+  display: inline-block;
+  margin-top: 25%;
+  font-size: 12px;
+  color: #C8C8C8;
+}</style><style>.popOutBar[_ngcontent-bpw-c27] {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  height: 40px;
+  line-height: 40px;
+  list-style-type: none;
+  font-size: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.popOutBar[_ngcontent-bpw-c27]   .title[_ngcontent-bpw-c27], .popOutBar[_ngcontent-bpw-c27]   .subtitle[_ngcontent-bpw-c27] {
+  vertical-align: top;
+  text-transform: uppercase;
+  letter-spacing: 0.04375em;
+}
+html[data-focus-source="key"][_nghost-bpw-c27]   .popOutBar[_ngcontent-bpw-c27]   .title[_ngcontent-bpw-c27]:focus, html[data-focus-source="key"]   [_nghost-bpw-c27]   .popOutBar[_ngcontent-bpw-c27]   .title[_ngcontent-bpw-c27]:focus, html[data-focus-source="key"][_nghost-bpw-c27]   .popOutBar[_ngcontent-bpw-c27]   .subtitle[_ngcontent-bpw-c27]:focus, html[data-focus-source="key"]   [_nghost-bpw-c27]   .popOutBar[_ngcontent-bpw-c27]   .subtitle[_ngcontent-bpw-c27]:focus {
+  box-shadow: inset 0 0 5px #51caee;
+  outline: 1px solid #51cbee;
+  outline-offset: -1px;
+  background-color: transparent;
+}
+.popOutBar[_ngcontent-bpw-c27]   .subtitle[_ngcontent-bpw-c27] {
+  font-family: 'wf_standard-font', helvetica, arial, sans-serif;
+  color: #777777;
+}
+.popOutBar[_ngcontent-bpw-c27]   .title[_ngcontent-bpw-c27] {
+  font-family: 'wf_standard-font_bold', helvetica, arial, sans-serif;
+  color: #444444;
+  max-width: 500px;
+  padding-right: 5px;
+}
+.popOutBar[_ngcontent-bpw-c27]   .visualLastRefreshTime[_ngcontent-bpw-c27] {
+  float: right;
+  margin-left: auto;
+}
+.popOutBar[_ngcontent-bpw-c27]   .menuItem[_ngcontent-bpw-c27] {
+  font-family: 'Segoe UI', 'wf_segoe-ui_normal', helvetica, arial, sans-serif;
+  font-size: 12px;
+}
+.popOutBar[_ngcontent-bpw-c27]   button[_ngcontent-bpw-c27] {
+  border: none;
+  padding: 0;
+  line-height: 16px;
+  height: 38px;
+  background-color: transparent;
+  color: #666666;
+  margin-top: 1px;
+}
+.popOutBar[_ngcontent-bpw-c27]   button[_ngcontent-bpw-c27]:focus {
+  box-shadow: 0 0 5px #51caee;
+  outline: 1px solid #51cbee;
+}
+.popOutBar[_ngcontent-bpw-c27]   button[_ngcontent-bpw-c27]    > span[_ngcontent-bpw-c27] {
+  margin-left: 12px;
+  margin-right: 6px;
+}
+.popOutBar[_ngcontent-bpw-c27]   .iconBox[_ngcontent-bpw-c27] {
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+html[dir="rtl"][_ngcontent-bpw-c27]   .popOutBar[_ngcontent-bpw-c27]   .iconBox[_ngcontent-bpw-c27] {
+  transform: rotate(90deg);
+}
+.popOutBar[_ngcontent-bpw-c27]    > div[_ngcontent-bpw-c27] {
+  position: relative;
+  font-size: 12px;
+  display: inline-block;
+  cursor: default;
+  vertical-align: top;
+  line-height: 40px;
+  padding: 0 15px 0 15px;
+  outline: none;
+}
+.popOutBar[_ngcontent-bpw-c27]    > div.divider[_ngcontent-bpw-c27] {
+  display: inline-block;
+  width: 1px;
+  height: 30px;
+  background-color: #999999;
+  margin-top: 5px;
+  padding: 0;
+}
+.popOutBar[_ngcontent-bpw-c27]    > div[_ngcontent-bpw-c27]    > span[_ngcontent-bpw-c27], .popOutBar[_ngcontent-bpw-c27]    > div[_ngcontent-bpw-c27]   i[_ngcontent-bpw-c27] {
+  vertical-align: top;
+}</style></head>
+<body>
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="Power BI Report">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Report powered by Power BI">
+    <meta property="og:image" content="https://app.powerbi.com/https://content.powerapps.com/resource/powerbiwfe/images/PowerBI125x125.f3eedd0bae32356ba16f.png">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Power BI Report">
+    <meta name="twitter:description" content="Report powered by Power BI">
+    <meta name="twitter:image:src" content="https://app.powerbi.com/https://content.powerapps.com/resource/powerbiwfe/images/PowerBI125x125.f3eedd0bae32356ba16f.png">
+    <meta name="twitter:image" content="https://app.powerbi.com/https://content.powerapps.com/resource/powerbiwfe/images/PowerBI125x125.f3eedd0bae32356ba16f.png">
+
+    <!-- perf: loading screen directly on page -->
+    
+
+    <div id="pbiAppPlaceHolder">
+        <!----><ui-view><!----><information-protection-banner-wrapper ng-if="loadSensitivity" [artifact-object-id]="artifactObjectId" ng-version="9.1.0"><!----></information-protection-banner-wrapper><!----><!----><!----><!----><div><div id="embedWrapperID" class="embedWrapper" tabindex="0" ng-keydown="keyDown($event)" localize-attr="{'aria-label': 'Embed_Wrapper_Hint'}" aria-label="Press Ctrl + Enter key to navigate into the report."><!----><div ng-if="!showErrorMessage &amp;&amp; !showPromptForLogin &amp;&amp; !optimizePublishToWeb &amp;&amp; !isUserUnauthorized" class="landingController fillAvailableSpace" ng-class="{ sensitivityBanner: (hasSensitivityBanner &amp;&amp; !hasExpandSensitivityBanner), sensitivityBannerExpanded: hasExpandSensitivityBanner }"><div class="landingContainer"><div id="reportLandingContainer" class="embeddedLandingRootContent reportContainerContent isActive embeddedPV embeddedLandingRootContentLogoVisible" ng-class="backgroundCssClass + (showLogoBar ? ' embeddedLandingRootContentLogoVisible' : ' embeddedLandingRootContentLogoHidden')"><div class="embeddedPV"><!----><exploration-container [use-legacy]="useLegacyExplorationContainer()" [view-model]="exploreContainer" ng-if="exploreContainer" [canvas-options]="canvasOptions" [exploration-container-options]="explorationContainerOptions" ng-version="9.1.0"><!----><!----><exploration-container-modern><!----><div class="explorationContainer explorationWithChrome themeableElement reading" downgrade-injector-patcher="" prevent-focus-loss="true"><!----><notification-bar _nghost-bpw-c6=""><!----></notification-bar><div class="explorationHost explorationHostNoAppBar"><exploration-host id="pvExplorationHost" _nghost-bpw-c7=""><div _ngcontent-bpw-c7="" class="fillAvailableSpace verticalItemsContainer"><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><div class="horizontalItemsContainer"><exploration data-automation-type="exploration" class="exploreCanvasToBottom"><div class="exploration" role="application" toolbar-container=""><accessibility-info data-automation-type="accessibilityInfo" _nghost-bpw-c13=""><div _ngcontent-bpw-c13="" class="accessibility-info accessibility-info-collapsed" focus-nav-mode="Browser" keyboard-shortcuts="ctrl-Enter"><a _ngcontent-bpw-c13="" href="https://go.microsoft.com/fwlink/?linkid=852575" localize="AccessibilityInfo_Link" target="_blank">Tips for using Power BI with a screen reader.</a><span _ngcontent-bpw-c13="" class="link pbi-focus-outline" localize="AccessibilityInfo_SkipToContent" role="button" tabindex="0">Skip to main content.</span><span _ngcontent-bpw-c13="" aria-label="Also you can press &quot;Question mark&quot; to show keyboard shortcuts.">Also you can press "?" to show keyboard shortcuts.</span></div></accessibility-info><!----><!----><explore-canvas-modern class="explore-canvas-modern-style" _nghost-bpw-c14=""><div _ngcontent-bpw-c14="" class="exploreCanvas themeableElement disableAnimations popOut seeData stylableVisualContainerHeader master-form-factor"><!----><!----><div _ngcontent-bpw-c14="" class="backgroundContainer outspaceContainer" style="opacity: 1; background-color: rgb(255, 255, 255);"><!----></div><!----><div _ngcontent-bpw-c14="" class="canvasFlexBox"><div _ngcontent-bpw-c14="" class="displayAreaContainer droppableElement ui-droppable" style="overflow: hidden;"><div _ngcontent-bpw-c14="" class="displayAreaViewport"></div><div _ngcontent-bpw-c14="" class="displayArea disableAnimations fitToScreen" container-printer="" print-container-selector="displayArea" style="box-shadow: rgb(200, 200, 200) 0px 0px 10px; outline: none;"><div _ngcontent-bpw-c14="" class="backgroundContainer visualBackgroundContainer themableBackgroundColorSolid" style="opacity: 1; background-color: rgb(255, 255, 255);"><!----></div><div _ngcontent-bpw-c14="" class="visualContainerHost" focus-nav-mode="Group" focus-priority="0" keyboard-shortcuts="ctrl-F6" tab-order-enabled=""><!----><!----><!----><!----><!----><visual-container-repeat _ngcontent-bpw-c14=""><!----><visual-container-modern class="visual-container-component" _nghost-bpw-c20=""><transform _ngcontent-bpw-c20="" data-automation-type="visualContainer" _nghost-bpw-c24="" drag-resize-disabled="true" preserve-aspect-ratio="false" style="height: 764px; width: 1280px; transform: translate(0px, 0px); z-index: 0;" class="popOut selected"><div _ngcontent-bpw-c20="" class="visualContainer unselectable droppableElement ui-droppable selected swipeable-blocked readMode hideBorder popOut seeData noVisualTitle" extended-shortcut-scope="" skip-children-focus="" toolbar-anchor="" tab-order="2000" tabindex="0" aria-label=" Line chart" touch-action="auto" pbi-focus-tracker-idx="0"><div _ngcontent-bpw-c20="" class="visualContainerBorder"></div><div _ngcontent-bpw-c20="" class="visualContainerScreen"></div><!----><!----><!----><visual-container-header-modern _ngcontent-bpw-c20="" data-automation-type="visualContainerHeader" visual-container-header-group="" _nghost-bpw-c26=""><div _ngcontent-bpw-c26="" class="vcHeader themableBackgroundColorSolid" focus-nav-mode="Group" keyboard-shortcuts="alt-shift-F10 scoped"><!----><!----><!----><!----><!----><visual-container-drill _ngcontent-bpw-c26=""><!----><!----><!----><visual-container-drill-toggle class="optionSection"><!----></visual-container-drill-toggle><!----><!----></visual-container-drill><i _ngcontent-bpw-c26="" class="dragGrip glyphicon pbi-glyph-gripperbarhorizontal glyph-small"></i><div _ngcontent-bpw-c26="" class="optionsMenu"><!----><!----><!----><!----><visual-container-pin-button _ngcontent-bpw-c26="" class="optionSection" tabindex="-1"><!----><visual-header-item-container _nghost-bpw-c33="" hidden=""><div _ngcontent-bpw-c33="" class="visualHeaderItemContainer themeableElement" style="background-color: rgb(255, 255, 255); border-color: rgb(255, 255, 255);"><button class="vcPinBtn" aria-label="Pin visual"><i class="glyphicon pbi-glyph-pinned glyph-small"></i></button></div></visual-header-item-container></visual-container-pin-button><!----><!----><visual-container-filter-restatement-button _ngcontent-bpw-c26="" class="optionSection" tabindex="-1" _nghost-bpw-c35=""><!----><visual-header-item-container _ngcontent-bpw-c35="" _nghost-bpw-c33=""><div _ngcontent-bpw-c33="" class="visualHeaderItemContainer themeableElement" style="background-color: rgb(255, 255, 255); border-color: rgb(255, 255, 255);"><button _ngcontent-bpw-c35="" aria-expanded="false" aria-haspopup="true" class="vcFilterRestatementBtn" aria-label="Button to show current filters for visual"><i _ngcontent-bpw-c35="" class="glyphicon pbi-glyph-filter glyph-small"></i></button></div></visual-header-item-container></visual-container-filter-restatement-button><!----><div _ngcontent-bpw-c26="" class="optionSection"><!----><visual-header-item-container _ngcontent-bpw-c26="" class="vcPopOutBtn" _nghost-bpw-c33="" hidden=""><div _ngcontent-bpw-c33="" class="visualHeaderItemContainer themeableElement" style="background-color: rgb(255, 255, 255); border-color: rgb(255, 255, 255);"><button _ngcontent-bpw-c26="" class="vcPopOutBtn" aria-label="Focus mode"><i _ngcontent-bpw-c26="" class="glyphicon pbi-glyph-miniexpand glyph-small"></i></button></div></visual-header-item-container><!----><visual-header-item-container _ngcontent-bpw-c26="" _nghost-bpw-c33=""><div _ngcontent-bpw-c33="" class="visualHeaderItemContainer themeableElement" style="background-color: rgb(255, 255, 255); border-color: rgb(255, 255, 255);"><button _ngcontent-bpw-c26="" class="toggleSeeDataLayout" aria-label="Switch to vertical layout"><i _ngcontent-bpw-c26="" class="glyphicon pbi-glyph-rotatevertical glyph-small"></i></button></div></visual-header-item-container><!----></div></div><div class="ResizeSensor ResizeSensor__resizeTriggers"><div class="ResizeSensor__expandTrigger"><div style="width: 65px; height: 24px;"></div></div><div class="ResizeSensor__contractTrigger"></div></div></div></visual-container-header-modern><!----><div _ngcontent-bpw-c20="" focus-nav-mode="Group"><!----><visual-container-pop-out-bar _ngcontent-bpw-c20="" _nghost-bpw-c27=""><div _ngcontent-bpw-c27="" class="popOutBar" keyboard-shortcuts=""><div _ngcontent-bpw-c27=""><button _ngcontent-bpw-c27="" type="button" pbi-focus-tracker-idx="1"><i _ngcontent-bpw-c27="" class="glyphicon iconBox pbi-glyph-chevronleftmedium glyph-small"></i><span _ngcontent-bpw-c27="" class="menuItem" localize="VisualContainer_PopOut_BackToReportButton">Back to report</span></button></div><div _ngcontent-bpw-c27="" class="divider"></div><!----><div _ngcontent-bpw-c27="" class="title trimmedTextWithEllipsis">Patients in General Beds (Suspected + Confirmed), Patients in Intensive Care Beds (Suspected + Confirmed) and Total Hospital Patient Census</div><!----><div _ngcontent-bpw-c27="" class="subtitle">by Date</div><!----></div></visual-container-pop-out-bar><!----><div _ngcontent-bpw-c20="" class="vcBody themableBackgroundColor themableBorderColorSolid " style="width: 1280px; height: 704px;"><!----><!----><visual-modern _ngcontent-bpw-c20="" data-automation-type="visual" _nghost-bpw-c28=""><div _ngcontent-bpw-c28="" class="visual visual-lineChart allow-deferred-rendering" initialized=""><svg class="cartesianChart" width="1270" height="310" style="position: absolute; margin-top: 32px;"><rect class="clearCatcher" width="100%" height="100%"></rect><g class="axisGraphicsContext" transform="translate(37,11)"><g class="y axis showLinesOnAxis" data-automation-type="y axis" transform="translate(0,0)" style="fill: rgb(0, 0, 0); font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; font-size: 16px;"><g class="tick" transform="translate(0,269)" style="opacity: 1;"><line x2="1222" y2="0" class="zero-line" style="stroke: rgb(200, 198, 196); stroke-width: 2; stroke-dasharray: 1, 5;"></line><text dy=".32em" x="-10" y="0" style="text-anchor: end; fill: rgb(0, 0, 0);">0K<title>0K</title></text></g><g class="tick" transform="translate(0,215.4)" style="opacity: 1;"><line x2="1222" y2="0" style="stroke: rgb(200, 198, 196); stroke-width: 2; stroke-dasharray: 1, 5;"></line><text dy=".32em" x="-10" y="0" style="text-anchor: end; fill: rgb(0, 0, 0);">2K<title>2K</title></text></g><g class="tick" transform="translate(0,161.8)" style="opacity: 1;"><line x2="1222" y2="0" style="stroke: rgb(200, 198, 196); stroke-width: 2; stroke-dasharray: 1, 5;"></line><text dy=".32em" x="-10" y="0" style="text-anchor: end; fill: rgb(0, 0, 0);">4K<title>4K</title></text></g><g class="tick" transform="translate(0,108.2)" style="opacity: 1;"><line x2="1222" y2="0" style="stroke: rgb(200, 198, 196); stroke-width: 2; stroke-dasharray: 1, 5;"></line><text dy=".32em" x="-10" y="0" style="text-anchor: end; fill: rgb(0, 0, 0);">6K<title>6K</title></text></g><g class="tick" transform="translate(0,54.59999999999999)" style="opacity: 1;"><line x2="1222" y2="0" style="stroke: rgb(200, 198, 196); stroke-width: 2; stroke-dasharray: 1, 5;"></line><text dy=".32em" x="-10" y="0" style="text-anchor: end; fill: rgb(0, 0, 0);">8K<title>8K</title></text></g><g class="tick" transform="translate(0,1)" style="opacity: 1;"><line x2="1222" y2="0" style="stroke: rgb(200, 198, 196); stroke-width: 2; stroke-dasharray: 1, 5;"></line><text dy=".32em" x="-10" y="0" style="text-anchor: end; fill: rgb(0, 0, 0);">10K<title>10K</title></text></g><path class="domain" d="M1222,1H0V269H1222"></path></g><g class="y axis" data-automation-type="y2 axis" transform="translate(1222,0)"></g></g><svg class="svgScrollable" x="0" width="1270" height="310" style="overflow: hidden;"><g class="axisGraphicsContext lineChart" transform="translate(37,11)"><g class="x axis showLinesOnAxis" data-automation-type="x axis" transform="translate(0,270)"><g class="tick" transform="translate(250.4,0)" style="opacity: 1;"><line y2="-270" x2="0" style="stroke: rgb(200, 198, 196); stroke-width: 2; stroke-dasharray: 1, 5;"></line><text dy="1em" y="3" x="0" dx="0em" transform="rotate(0)" style="text-anchor: middle; fill: rgb(0, 0, 0); font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; font-size: 16px;">Jun 28<title>Jun 28</title></text></g><g class="tick" transform="translate(530.8666666666667,0)" style="opacity: 1;"><line y2="-270" x2="0" style="stroke: rgb(200, 198, 196); stroke-width: 2; stroke-dasharray: 1, 5;"></line><text dy="1em" y="3" x="0" dx="0em" transform="rotate(0)" style="text-anchor: middle; fill: rgb(0, 0, 0); font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; font-size: 16px;">Jul 05<title>Jul 05</title></text></g><g class="tick" transform="translate(811.3333333333334,0)" style="opacity: 1;"><line y2="-270" x2="0" style="stroke: rgb(200, 198, 196); stroke-width: 2; stroke-dasharray: 1, 5;"></line><text dy="1em" y="3" x="0" dx="0em" transform="rotate(0)" style="text-anchor: middle; fill: rgb(0, 0, 0); font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; font-size: 16px;">Jul 12<title>Jul 12</title></text></g><g class="tick" transform="translate(1091.8,0)" style="opacity: 1;"><line y2="-270" x2="0" style="stroke: rgb(200, 198, 196); stroke-width: 2; stroke-dasharray: 1, 5;"></line><text dy="1em" y="3" x="0" dx="0em" transform="rotate(0)" style="text-anchor: middle; fill: rgb(0, 0, 0); font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; font-size: 16px;">Jul 19<title>Jul 19</title></text></g><path class="domain" d="M10,0V0H1212V0"></path></g><rect class="scale-detector" width="1" height="1" stroke-width="0px" fill="none"></rect><svg class="lineChartSVG" height="270" width="1222"><g class="forecast-line-layer"></g><defs><marker id="seriesMarker0-1" markerUnits="strokeWidth" orient="0" refX="0" refY="0" viewBox="-6 -6 12 12" markerWidth="5" markerHeight="5"><path class="markerPaths" d="M 0 0 m -5 0 l 5 -5 l 5 5 l -5 5 z" style="stroke-width: 0; stroke-opacity: 1; stroke: rgb(0, 0, 255); fill: rgb(0, 0, 255);"></path></marker><marker id="seriesMarker1-1" markerUnits="strokeWidth" orient="0" refX="0" refY="0" viewBox="-6 -6 12 12" markerWidth="5" markerHeight="5"><path class="markerPaths" d="M 0 0 m -5 0 l 5 -5 l 5 5 l -5 5 z" style="stroke-width: 0; stroke-opacity: 1; stroke: rgb(255, 0, 0); fill: rgb(255, 0, 0);"></path></marker><marker id="seriesMarker2-1" markerUnits="strokeWidth" orient="0" refX="0" refY="0" viewBox="-6 -6 12 12" markerWidth="5" markerHeight="5"><path class="markerPaths" d="M 0 0 m -5 0 l 5 -5 l 5 5 l -5 5 z" style="stroke-width: 0; stroke-opacity: 1; stroke: rgb(0, 255, 0); fill: rgb(0, 255, 0);"></path></marker></defs><rect class="tooltip-overlay" x="0" width="1222" height="270"></rect><g aria-label="Plot area" class="mainGraphicsContext setFocusRing" tabindex="0" focusable="true"><g class="selected-markers"></g><path class="line" d="M10,243.1916L50.06666666666666,238.82319999999999L90.13333333333333,238.314L130.2,235.92880000000002L170.26666666666665,235.39280000000002L210.33333333333334,233.5704L250.4,232.39119999999997L290.4666666666667,227.0848L330.5333333333333,225.2088L370.59999999999997,226.41479999999999L410.6666666666667,224.9676L450.7333333333333,226.79L490.8,223.3596L530.8666666666667,221.1084L570.9333333333334,220.894L611,215.9896L651.0666666666666,217.8656L691.1333333333333,216.6864L731.1999999999999,215.15879999999999L771.2666666666665,216.5524L811.3333333333334,217.27599999999998L851.4,216.9008L891.4666666666666,214.32800000000003L931.5333333333334,214.48879999999997L971.6,218.66960000000003L1011.6666666666666,217.99960000000002L1051.7333333333333,220.894L1091.8,221.91240000000002L1131.8666666666668,218.4016L1171.9333333333332,221.61759999999995L1212,223.8688" style="stroke: rgb(0, 0, 255); stroke-opacity: 1; stroke-width: 3; stroke-linejoin: round;"></path><path class="line" d="M10,258.7624L50.06666666666666,257.1812L90.13333333333333,256.002L130.2,256.1628L170.26666666666665,255.68040000000002L210.33333333333334,255.064L250.4,253.4024L290.4666666666667,254.528L330.5333333333333,253.88479999999998L370.59999999999997,253.456L410.6666666666667,253.0272L450.7333333333333,253.16119999999998L490.8,251.1244L530.8666666666667,250.91L570.9333333333334,250.374L611,249.972L651.0666666666666,250.0256L691.1333333333333,248.1764L731.1999999999999,248.4712L771.2666666666665,249.57L811.3333333333334,248.632L851.4,248.8464L891.4666666666666,250.2668L931.5333333333334,248.92680000000001L971.6,249.54319999999998L1011.6666666666666,249.302L1051.7333333333333,246.46120000000002L1091.8,251.33880000000002L1131.8666666666668,249.57L1171.9333333333332,249.704L1212,252.5716" style="stroke: rgb(255, 0, 0); stroke-opacity: 1; stroke-width: 3; stroke-linejoin: round;"></path><path class="line" d="M10,47.498L50.06666666666666,31.176800000000007L90.13333333333333,21.770000000000003L130.2,21.98440000000001L170.26666666666665,25.468400000000013L210.33333333333334,40.82479999999999L250.4,44.65720000000001L290.4666666666667,44.255199999999995L330.5333333333333,31.739600000000006L370.59999999999997,32.24880000000001L410.6666666666667,31.525199999999998L450.7333333333333,39.9404L490.8,41.494800000000005L530.8666666666667,52.48280000000001L570.9333333333334,38.010799999999996L611,25.522000000000006L651.0666666666666,24.932400000000012L691.1333333333333,17.616000000000014L731.1999999999999,17.776799999999998L771.2666666666665,32.0612L811.3333333333334,36.48319999999999L851.4,33.10640000000001L891.4666666666666,26.51359999999999L931.5333333333334,25.65599999999999L971.6,33.079600000000006L1011.6666666666666,22.466799999999985L1051.7333333333333,36.77799999999999L1091.8,37.662400000000005L1131.8666666666668,40.85160000000002L1171.9333333333332,37.233599999999996L1212,37.045999999999985" style="stroke: rgb(0, 255, 0); stroke-opacity: 1; stroke-width: 3; stroke-linejoin: round;"></path><path class="marker-line" d="M10,243.1916L50.06666666666666,238.82319999999999L90.13333333333333,238.314L130.2,235.92880000000002L170.26666666666665,235.39280000000002L210.33333333333334,233.5704L250.4,232.39119999999997L290.4666666666667,227.0848L330.5333333333333,225.2088L370.59999999999997,226.41479999999999L410.6666666666667,224.9676L450.7333333333333,226.79L490.8,223.3596L530.8666666666667,221.1084L570.9333333333334,220.894L611,215.9896L651.0666666666666,217.8656L691.1333333333333,216.6864L731.1999999999999,215.15879999999999L771.2666666666665,216.5524L811.3333333333334,217.27599999999998L851.4,216.9008L891.4666666666666,214.32800000000003L931.5333333333334,214.48879999999997L971.6,218.66960000000003L1011.6666666666666,217.99960000000002L1051.7333333333333,220.894L1091.8,221.91240000000002L1131.8666666666668,218.4016L1171.9333333333332,221.61759999999995L1212,223.8688" marker-start="url('https://app.powerbi.com/view?r=eyJrIjoiYjU5MzU4NjAtZWJjMC00MTllLTkwYjYtMzE4ODY1YjAyMGU2IiwidCI6ImI3MjgwODdjLTgwZTgtNGQzMS04YjZmLTdlMGUzYmUxMGUwOCIsImMiOjN9#seriesMarker0-1')" marker-mid="url('https://app.powerbi.com/view?r=eyJrIjoiYjU5MzU4NjAtZWJjMC00MTllLTkwYjYtMzE4ODY1YjAyMGU2IiwidCI6ImI3MjgwODdjLTgwZTgtNGQzMS04YjZmLTdlMGUzYmUxMGUwOCIsImMiOjN9#seriesMarker0-1')" marker-end="url('https://app.powerbi.com/view?r=eyJrIjoiYjU5MzU4NjAtZWJjMC00MTllLTkwYjYtMzE4ODY1YjAyMGU2IiwidCI6ImI3MjgwODdjLTgwZTgtNGQzMS04YjZmLTdlMGUzYmUxMGUwOCIsImMiOjN9#seriesMarker0-1')" style="stroke: rgb(255, 255, 255); stroke-width: 2; stroke-opacity: 0; opacity: 1; pointer-events: none;"></path><path class="marker-line" d="M10,258.7624L50.06666666666666,257.1812L90.13333333333333,256.002L130.2,256.1628L170.26666666666665,255.68040000000002L210.33333333333334,255.064L250.4,253.4024L290.4666666666667,254.528L330.5333333333333,253.88479999999998L370.59999999999997,253.456L410.6666666666667,253.0272L450.7333333333333,253.16119999999998L490.8,251.1244L530.8666666666667,250.91L570.9333333333334,250.374L611,249.972L651.0666666666666,250.0256L691.1333333333333,248.1764L731.1999999999999,248.4712L771.2666666666665,249.57L811.3333333333334,248.632L851.4,248.8464L891.4666666666666,250.2668L931.5333333333334,248.92680000000001L971.6,249.54319999999998L1011.6666666666666,249.302L1051.7333333333333,246.46120000000002L1091.8,251.33880000000002L1131.8666666666668,249.57L1171.9333333333332,249.704L1212,252.5716" marker-start="url('https://app.powerbi.com/view?r=eyJrIjoiYjU5MzU4NjAtZWJjMC00MTllLTkwYjYtMzE4ODY1YjAyMGU2IiwidCI6ImI3MjgwODdjLTgwZTgtNGQzMS04YjZmLTdlMGUzYmUxMGUwOCIsImMiOjN9#seriesMarker1-1')" marker-mid="url('https://app.powerbi.com/view?r=eyJrIjoiYjU5MzU4NjAtZWJjMC00MTllLTkwYjYtMzE4ODY1YjAyMGU2IiwidCI6ImI3MjgwODdjLTgwZTgtNGQzMS04YjZmLTdlMGUzYmUxMGUwOCIsImMiOjN9#seriesMarker1-1')" marker-end="url('https://app.powerbi.com/view?r=eyJrIjoiYjU5MzU4NjAtZWJjMC00MTllLTkwYjYtMzE4ODY1YjAyMGU2IiwidCI6ImI3MjgwODdjLTgwZTgtNGQzMS04YjZmLTdlMGUzYmUxMGUwOCIsImMiOjN9#seriesMarker1-1')" style="stroke: rgb(255, 255, 255); stroke-width: 2; stroke-opacity: 0; opacity: 1; pointer-events: none;"></path><path class="marker-line" d="M10,47.498L50.06666666666666,31.176800000000007L90.13333333333333,21.770000000000003L130.2,21.98440000000001L170.26666666666665,25.468400000000013L210.33333333333334,40.82479999999999L250.4,44.65720000000001L290.4666666666667,44.255199999999995L330.5333333333333,31.739600000000006L370.59999999999997,32.24880000000001L410.6666666666667,31.525199999999998L450.7333333333333,39.9404L490.8,41.494800000000005L530.8666666666667,52.48280000000001L570.9333333333334,38.010799999999996L611,25.522000000000006L651.0666666666666,24.932400000000012L691.1333333333333,17.616000000000014L731.1999999999999,17.776799999999998L771.2666666666665,32.0612L811.3333333333334,36.48319999999999L851.4,33.10640000000001L891.4666666666666,26.51359999999999L931.5333333333334,25.65599999999999L971.6,33.079600000000006L1011.6666666666666,22.466799999999985L1051.7333333333333,36.77799999999999L1091.8,37.662400000000005L1131.8666666666668,40.85160000000002L1171.9333333333332,37.233599999999996L1212,37.045999999999985" marker-start="url('https://app.powerbi.com/view?r=eyJrIjoiYjU5MzU4NjAtZWJjMC00MTllLTkwYjYtMzE4ODY1YjAyMGU2IiwidCI6ImI3MjgwODdjLTgwZTgtNGQzMS04YjZmLTdlMGUzYmUxMGUwOCIsImMiOjN9#seriesMarker2-1')" marker-mid="url('https://app.powerbi.com/view?r=eyJrIjoiYjU5MzU4NjAtZWJjMC00MTllLTkwYjYtMzE4ODY1YjAyMGU2IiwidCI6ImI3MjgwODdjLTgwZTgtNGQzMS04YjZmLTdlMGUzYmUxMGUwOCIsImMiOjN9#seriesMarker2-1')" marker-end="url('https://app.powerbi.com/view?r=eyJrIjoiYjU5MzU4NjAtZWJjMC00MTllLTkwYjYtMzE4ODY1YjAyMGU2IiwidCI6ImI3MjgwODdjLTgwZTgtNGQzMS04YjZmLTdlMGUzYmUxMGUwOCIsImMiOjN9#seriesMarker2-1')" style="stroke: rgb(255, 255, 255); stroke-width: 2; stroke-opacity: 0; opacity: 1; pointer-events: none;"></path><path class="interactivity-line" d="M10,243.1916L50.06666666666666,238.82319999999999L90.13333333333333,238.314L130.2,235.92880000000002L170.26666666666665,235.39280000000002L210.33333333333334,233.5704L250.4,232.39119999999997L290.4666666666667,227.0848L330.5333333333333,225.2088L370.59999999999997,226.41479999999999L410.6666666666667,224.9676L450.7333333333333,226.79L490.8,223.3596L530.8666666666667,221.1084L570.9333333333334,220.894L611,215.9896L651.0666666666666,217.8656L691.1333333333333,216.6864L731.1999999999999,215.15879999999999L771.2666666666665,216.5524L811.3333333333334,217.27599999999998L851.4,216.9008L891.4666666666666,214.32800000000003L931.5333333333334,214.48879999999997L971.6,218.66960000000003L1011.6666666666666,217.99960000000002L1051.7333333333333,220.894L1091.8,221.91240000000002L1131.8666666666668,218.4016L1171.9333333333332,221.61759999999995L1212,223.8688" style="stroke-width: 10; stroke-linejoin: round;"></path><path class="interactivity-line" d="M10,258.7624L50.06666666666666,257.1812L90.13333333333333,256.002L130.2,256.1628L170.26666666666665,255.68040000000002L210.33333333333334,255.064L250.4,253.4024L290.4666666666667,254.528L330.5333333333333,253.88479999999998L370.59999999999997,253.456L410.6666666666667,253.0272L450.7333333333333,253.16119999999998L490.8,251.1244L530.8666666666667,250.91L570.9333333333334,250.374L611,249.972L651.0666666666666,250.0256L691.1333333333333,248.1764L731.1999999999999,248.4712L771.2666666666665,249.57L811.3333333333334,248.632L851.4,248.8464L891.4666666666666,250.2668L931.5333333333334,248.92680000000001L971.6,249.54319999999998L1011.6666666666666,249.302L1051.7333333333333,246.46120000000002L1091.8,251.33880000000002L1131.8666666666668,249.57L1171.9333333333332,249.704L1212,252.5716" style="stroke-width: 10; stroke-linejoin: round;"></path><path class="interactivity-line" d="M10,47.498L50.06666666666666,31.176800000000007L90.13333333333333,21.770000000000003L130.2,21.98440000000001L170.26666666666665,25.468400000000013L210.33333333333334,40.82479999999999L250.4,44.65720000000001L290.4666666666667,44.255199999999995L330.5333333333333,31.739600000000006L370.59999999999997,32.24880000000001L410.6666666666667,31.525199999999998L450.7333333333333,39.9404L490.8,41.494800000000005L530.8666666666667,52.48280000000001L570.9333333333334,38.010799999999996L611,25.522000000000006L651.0666666666666,24.932400000000012L691.1333333333333,17.616000000000014L731.1999999999999,17.776799999999998L771.2666666666665,32.0612L811.3333333333334,36.48319999999999L851.4,33.10640000000001L891.4666666666666,26.51359999999999L931.5333333333334,25.65599999999999L971.6,33.079600000000006L1011.6666666666666,22.466799999999985L1051.7333333333333,36.77799999999999L1091.8,37.662400000000005L1131.8666666666668,40.85160000000002L1171.9333333333332,37.233599999999996L1212,37.045999999999985" style="stroke-width: 10; stroke-linejoin: round;"></path><g class="cat"></g><g class="cat"></g><g class="cat"></g><circle class="focus-element setFocusRing" tabindex="0" focusable="true" aria-label="Date June 22. Patients in General Beds (Suspected + Confirmed) 963." cx="10" cy="243.1916" r="4.166666666666667" style="fill: none;"></circle></g><g class="hover-line"><line x1="504.19587628865975" x2="504.19587628865975" y1="0" y2="445.0103092783505" style="opacity: 1e-06; stroke: rgb(96, 94, 92);"></line></g></svg><svg class="trend-line-layer" height="270" width="1222"></svg></g><g class="labelBackgroundGraphicsContext" transform="translate(37,11)"></g><g class="labelGraphicsContext" transform="translate(37,11)"><text class="label" transform="translate(18,230.1916)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">1.0K</text><text class="label" transform="translate(1204,210.8688)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">1.7K</text><text class="label" transform="translate(891.4666666666666,201.32800000000003)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">2.0K</text><text class="label" transform="translate(330.5333333333333,212.2088)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">1.6K</text><text class="label" transform="translate(611,202.9896)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">2.0K</text><text class="label" transform="translate(450.7333333333333,213.79)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">1.6K</text><text class="label" transform="translate(811.3333333333334,204.27599999999998)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">1.9K</text><text class="label" transform="translate(731.1999999999999,202.15879999999999)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">2.0K</text><text class="label" transform="translate(170.26666666666665,222.39280000000002)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">1.3K</text><text class="label" transform="translate(530.8666666666667,208.1084)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">1.8K</text><text class="label" transform="translate(90.13333333333333,225.314)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">1.1K</text><text class="label" transform="translate(18,270)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">0.4K</text><text class="label" transform="translate(1204,270)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">0.6K</text><text class="label" transform="translate(1051.7333333333333,270)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">0.8K</text><text class="label" transform="translate(250.4,270)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">0.6K</text><text class="label" transform="translate(611,270)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">0.7K</text><text class="label" transform="translate(450.7333333333333,270)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">0.6K</text><text class="label" transform="translate(1131.8666666666668,270)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">0.7K</text><text class="label" transform="translate(891.4666666666666,270)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">0.7K</text><text class="label" transform="translate(811.3333333333334,270)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">0.8K</text><text class="label" transform="translate(971.6,270)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">0.7K</text><text class="label" transform="translate(130.2,270)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">0.5K</text><text class="label" transform="translate(18,34.498)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">8.3K</text><text class="label" transform="translate(1204,24.045999999999985)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">8.7K</text><text class="label" transform="translate(691.1333333333333,14.7)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">9.4K</text><text class="label" transform="translate(530.8666666666667,39.48280000000001)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">8.1K</text><text class="label" transform="translate(811.3333333333334,23.48319999999999)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">8.7K</text><text class="label" transform="translate(250.4,31.65720000000001)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">8.4K</text><text class="label" transform="translate(410.6666666666667,18.525199999999998)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">8.9K</text><text class="label" transform="translate(931.5333333333334,14.7)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">9.1K</text><text class="label" transform="translate(1011.6666666666666,14.7)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">9.2K</text><text class="label" transform="translate(330.5333333333333,18.739600000000006)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">8.9K</text><text class="label" transform="translate(611,14.7)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">9.1K</text><text class="label" transform="translate(490.8,28.494800000000005)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">8.5K</text><text class="label" transform="translate(1131.8666666666668,205.4016)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">1.9K</text><text class="label" transform="translate(971.6,205.66960000000003)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">1.9K</text><text class="label" transform="translate(691.1333333333333,270)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">0.8K</text><text class="label" transform="translate(90.13333333333333,14.7)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">9.2K</text><text class="label" transform="translate(1131.8666666666668,27.85160000000002)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">8.5K</text><text class="label" transform="translate(170.26666666666665,14.7)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">9.1K</text><text class="label" transform="translate(1091.8,208.91240000000002)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">1.8K</text><text class="label" transform="translate(651.0666666666666,204.8656)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">1.9K</text><text class="label" transform="translate(1011.6666666666666,204.99960000000002)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">1.9K</text><text class="label" transform="translate(410.6666666666667,211.9676)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">1.6K</text><text class="label" transform="translate(370.59999999999997,213.41479999999999)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">1.6K</text><text class="label" transform="translate(1091.8,270)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">0.7K</text><text class="label" transform="translate(290.4666666666667,270)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">0.5K</text><text class="label" transform="translate(90.13333333333333,270)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">0.5K</text><text class="label" transform="translate(771.2666666666665,270)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">0.7K</text><text class="label" transform="translate(410.6666666666667,270)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">0.6K</text><text class="label" transform="translate(931.5333333333334,270)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">0.7K</text><text class="label" transform="translate(971.6,20.079600000000006)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">8.8K</text><text class="label" transform="translate(370.59999999999997,19.24880000000001)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">8.8K</text><text class="label" transform="translate(771.2666666666665,19.0612)" style="fill: rgb(0, 0, 0); font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif;">8.8K</text></g></svg></svg><div class="legend flex-row flex-justify-content-center flex-align-items-center" tabindex="0" focus-nav-mode="Hierarchy" aria-label="Legend" style="position: absolute; height: 32px; width: 1270px;"><div class="clearCatcher" width="100%" height="100%" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></div><div class="legend-item-container flex-align-items-center flex-order-third flex-justify-context-start flex-row" width="1270" style="z-index: 2;"><div class="legend-item flex-justify-content-center flex-align-items-center" tabindex="0"><svg class="legend-item-svg" height="32" width="13.2"><path class="legend-icon-line" transform="translate(15.5,16.64)" stroke-width="2" fill="none" style="stroke: rgb(0, 0, 255);"></path><path class="legend-icon" transform="translate(6.6,16.64) scale(1)" d="M 0 0 m -5 0 l 5 -5 l 5 5 l -5 5 z" stroke-width="0" style="fill: rgb(0, 0, 255); stroke: rgb(0, 0, 255); stroke-linejoin: round;"><title>Patients in General Beds (Suspected + Confirmed)</title><title>Patients in General Beds (Suspected + Confirmed)</title><title>Patients in General Beds (Suspected + Confirmed)</title></path></svg><text class="legend-item-text" title="Patients in General Beds (Suspected + Confirmed)" style="text-overflow: ellipsis; white-space: pre; color: rgb(0, 0, 0); font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; font-size: 16px; padding-left: 1px; padding-right: 5.6px;">Patients in General Beds (Suspected + Confirmed)</text></div><div class="legend-item flex-justify-content-center flex-align-items-center" tabindex="0"><svg class="legend-item-svg" height="32" width="13.2"><path class="legend-icon-line" transform="translate(15.5,16.64)" stroke-width="2" fill="none" style="stroke: rgb(255, 0, 0);"></path><path class="legend-icon" transform="translate(6.6,16.64) scale(1)" d="M 0 0 m -5 0 l 5 -5 l 5 5 l -5 5 z" stroke-width="0" style="fill: rgb(255, 0, 0); stroke: rgb(255, 0, 0); stroke-linejoin: round;"><title>Patients in Intensive Care Beds (Suspected + Confirmed)</title><title>Patients in Intensive Care Beds (Suspected + Confirmed)</title><title>Patients in Intensive Care Beds (Suspected + Confirmed)</title></path></svg><text class="legend-item-text" title="Patients in Intensive Care Beds (Suspected + Confirmed)" style="text-overflow: ellipsis; white-space: pre; color: rgb(0, 0, 0); font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; font-size: 16px; padding-left: 1px; padding-right: 5.6px;">Patients in Intensive Care Beds (Suspected + Confirmed)</text></div><div class="legend-item flex-justify-content-center flex-align-items-center" tabindex="0"><svg class="legend-item-svg" height="32" width="13.2"><path class="legend-icon-line" transform="translate(15.5,16.64)" stroke-width="2" fill="none" style="stroke: rgb(0, 255, 0);"></path><path class="legend-icon" transform="translate(6.6,16.64) scale(1)" d="M 0 0 m -5 0 l 5 -5 l 5 5 l -5 5 z" stroke-width="0" style="fill: rgb(0, 255, 0); stroke: rgb(0, 255, 0); stroke-linejoin: round;"><title>Total Hospital Patient Census</title><title>Total Hospital Patient Census</title><title>Total Hospital Patient Census</title></path></svg><text class="legend-item-text" title="Total Hospital Patient Census" style="text-overflow: ellipsis; white-space: pre; color: rgb(0, 0, 0); font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; font-size: 16px; padding-left: 1px; padding-right: 5.6px;">Total Hospital Patient Census</text></div></div></div></div></visual-modern><!----><detail-visual-modern _ngcontent-bpw-c20="" data-automation-type="detailVisual" _nghost-bpw-c29=""><div _ngcontent-bpw-c29="" class="detailVisual" focus-nav-mode="Group" role="document"><!----><visual-modern _ngcontent-bpw-c29="" _nghost-bpw-c28=""><div _ngcontent-bpw-c28="" class="visual visual-pivotTable allow-deferred-rendering" aria-hidden="false" initialized=""><div class="pivotTableContainer"><div style="position:absolute;left:0;top:0;visibility:hidden;"></div><div style="position: relative; width: 1250px; height: 332px;" tabindex="0" aria-label="Grid" class="pivotTable"><div class="innerContainer" style="position:absolute;left:0;top:0;right:0;bottom:0"><div class="corner" drag-resize-disabled="true" style="font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; font-size: 13.3333px; height: 28px; width: 56px;"><div style="position: absolute; overflow: hidden; width: 56px; top: 0px; left: 0px;"><div class="pivotTableCellWrap cell-interactive " style="padding: 1px 5px 10px; color: rgb(37, 36, 35); background-color: rgb(255, 255, 255); box-shadow: rgb(17, 141, 255) 0px -1px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset; box-sizing: border-box; height: 28px;">Date<div class="powervisuals-glyph sort-icon caret-up future " style="font-size:9.466666666666665px;bottom:2px;">&nbsp;</div></div></div></div><div class="columnHeaders" style="position: absolute; overflow: auto; right: 9px; top: 0px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; font-size: 13.3333px; left: 56px;"><div drag-resize-disabled="true" style="height: 28px; width: 1185px;"><div style="position: absolute; overflow: hidden; top: 0px; left: 0px; width: 301px;"><div class="pivotTableCellWrap cell-interactive " style="padding: 1px 5px 10px; color: rgb(37, 36, 35); background-color: rgb(255, 255, 255); box-shadow: rgb(17, 141, 255) 0px -1px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset; box-sizing: border-box; height: 28px;">Patients in General Beds (Suspected + Confirmed)<div class="powervisuals-glyph sort-icon caret-down future " style="font-size:9.466666666666665px;bottom:2px;">&nbsp;</div></div></div><div style="position: absolute; overflow: hidden; top: 0px; left: 301px; width: 337px;"><div class="pivotTableCellWrap cell-interactive " style="padding: 1px 5px 10px; color: rgb(37, 36, 35); background-color: rgb(255, 255, 255); box-shadow: rgb(17, 141, 255) 0px -1px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset; box-sizing: border-box; height: 28px;">Patients in Intensive Care Beds (Suspected + Confirmed)<div class="powervisuals-glyph sort-icon caret-down future " style="font-size:9.466666666666665px;bottom:2px;">&nbsp;</div></div></div><div style="position: absolute; overflow: hidden; top: 0px; left: 638px; width: 178px;"><div class="pivotTableCellWrap cell-interactive " style="padding: 1px 5px 10px; color: rgb(37, 36, 35); background-color: rgb(255, 255, 255); box-shadow: rgb(17, 141, 255) 0px -1px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset; box-sizing: border-box; height: 28px;">Total Hospital Patient Census<div class="powervisuals-glyph sort-icon caret-down future " style="font-size:9.466666666666665px;bottom:2px;">&nbsp;</div></div></div></div></div><div class="rowHeaders" style="position: absolute; overflow: auto; left: 0px; bottom: 0px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; font-size: 13.3333px; top: 28px;"><div drag-resize-disabled="true" style="width: 56px; height: 589px;"><div style="position: absolute; overflow: hidden; top: 0px; width: 56px;"><div class="pivotTableCellWrap cell-interactive " style="padding: 1px 6px 1px 5px; color: rgb(37, 36, 35); background-color: rgb(255, 255, 255); box-shadow: rgb(17, 141, 255) -1px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset; box-sizing: border-box; height: 19px;">June 22</div></div><div style="position: absolute; overflow: hidden; top: 19px; width: 56px;"><div class="pivotTableCellWrap cell-interactive " style="padding: 1px 6px 1px 5px; color: rgb(37, 36, 35); background-color: rgb(238, 237, 237); box-shadow: rgb(17, 141, 255) -1px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset; box-sizing: border-box; height: 19px;">June 23</div></div><div style="position: absolute; overflow: hidden; top: 38px; width: 56px;"><div class="pivotTableCellWrap cell-interactive " style="padding: 1px 6px 1px 5px; color: rgb(37, 36, 35); background-color: rgb(255, 255, 255); box-shadow: rgb(17, 141, 255) -1px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset; box-sizing: border-box; height: 19px;">June 24</div></div><div style="position: absolute; overflow: hidden; top: 57px; width: 56px;"><div class="pivotTableCellWrap cell-interactive " style="padding: 1px 6px 1px 5px; color: rgb(37, 36, 35); background-color: rgb(238, 237, 237); box-shadow: rgb(17, 141, 255) -1px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset; box-sizing: border-box; height: 19px;">June 25</div></div><div style="position: absolute; overflow: hidden; top: 76px; width: 56px;"><div class="pivotTableCellWrap cell-interactive " style="padding: 1px 6px 1px 5px; color: rgb(37, 36, 35); background-color: rgb(255, 255, 255); box-shadow: rgb(17, 141, 255) -1px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset; box-sizing: border-box; height: 19px;">June 26</div></div><div style="position: absolute; overflow: hidden; top: 95px; width: 56px;"><div class="pivotTableCellWrap cell-interactive " style="padding: 1px 6px 1px 5px; color: rgb(37, 36, 35); background-color: rgb(238, 237, 237); box-shadow: rgb(17, 141, 255) -1px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset; box-sizing: border-box; height: 19px;">June 27</div></div><div style="position: absolute; overflow: hidden; top: 114px; width: 56px;"><div class="pivotTableCellWrap cell-interactive " style="padding: 1px 6px 1px 5px; color: rgb(37, 36, 35); background-color: rgb(255, 255, 255); box-shadow: rgb(17, 141, 255) -1px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset; box-sizing: border-box; height: 19px;">June 28</div></div><div style="position: absolute; overflow: hidden; top: 133px; width: 56px;"><div class="pivotTableCellWrap cell-interactive " style="padding: 1px 6px 1px 5px; color: rgb(37, 36, 35); background-color: rgb(238, 237, 237); box-shadow: rgb(17, 141, 255) -1px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset; box-sizing: border-box; height: 19px;">June 29</div></div><div style="position: absolute; overflow: hidden; top: 152px; width: 56px;"><div class="pivotTableCellWrap cell-interactive " style="padding: 1px 6px 1px 5px; color: rgb(37, 36, 35); background-color: rgb(255, 255, 255); box-shadow: rgb(17, 141, 255) -1px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset; box-sizing: border-box; height: 19px;">June 30</div></div><div style="position: absolute; overflow: hidden; top: 171px; width: 56px;"><div class="pivotTableCellWrap cell-interactive " style="padding: 1px 6px 1px 5px; color: rgb(37, 36, 35); background-color: rgb(238, 237, 237); box-shadow: rgb(17, 141, 255) -1px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset; box-sizing: border-box; height: 19px;">July 1</div></div><div style="position: absolute; overflow: hidden; top: 190px; width: 56px;"><div class="pivotTableCellWrap cell-interactive " style="padding: 1px 6px 1px 5px; color: rgb(37, 36, 35); background-color: rgb(255, 255, 255); box-shadow: rgb(17, 141, 255) -1px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset; box-sizing: border-box; height: 19px;">July 2</div></div><div style="position: absolute; overflow: hidden; top: 209px; width: 56px;"><div class="pivotTableCellWrap cell-interactive " style="padding: 1px 6px 1px 5px; color: rgb(37, 36, 35); background-color: rgb(238, 237, 237); box-shadow: rgb(17, 141, 255) -1px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset; box-sizing: border-box; height: 19px;">July 3</div></div><div style="position: absolute; overflow: hidden; top: 228px; width: 56px;"><div class="pivotTableCellWrap cell-interactive " style="padding: 1px 6px 1px 5px; color: rgb(37, 36, 35); background-color: rgb(255, 255, 255); box-shadow: rgb(17, 141, 255) -1px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset; box-sizing: border-box; height: 19px;">July 4</div></div><div style="position: absolute; overflow: hidden; top: 247px; width: 56px;"><div class="pivotTableCellWrap cell-interactive " style="padding: 1px 6px 1px 5px; color: rgb(37, 36, 35); background-color: rgb(238, 237, 237); box-shadow: rgb(17, 141, 255) -1px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset; box-sizing: border-box; height: 19px;">July 5</div></div><div style="position: absolute; overflow: hidden; top: 266px; width: 56px;"><div class="pivotTableCellWrap cell-interactive " style="padding: 1px 6px 1px 5px; color: rgb(37, 36, 35); background-color: rgb(255, 255, 255); box-shadow: rgb(17, 141, 255) -1px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset; box-sizing: border-box; height: 19px;">July 6</div></div><div style="position: absolute; overflow: hidden; top: 285px; width: 56px;"><div class="pivotTableCellWrap cell-interactive " style="padding: 1px 6px 1px 5px; color: rgb(37, 36, 35); background-color: rgb(238, 237, 237); box-shadow: rgb(17, 141, 255) -1px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset; box-sizing: border-box; height: 19px;">July 7</div></div><div style="position: absolute; overflow: hidden; top: 304px; width: 56px;"><div class="pivotTableCellWrap cell-interactive " style="padding: 1px 6px 1px 5px; color: rgb(37, 36, 35); background-color: rgb(255, 255, 255); box-shadow: rgb(17, 141, 255) -1px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset; box-sizing: border-box; height: 19px;">July 8</div></div><div style="position: absolute; overflow: hidden; top: 323px; width: 56px;"><div class="pivotTableCellWrap cell-interactive " style="padding: 1px 6px 1px 5px; color: rgb(37, 36, 35); background-color: rgb(238, 237, 237); box-shadow: rgb(17, 141, 255) -1px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset, black 0px 0px 0px 0px inset; box-sizing: border-box; height: 19px;">July 9</div></div></div></div><div class="bodyCells" style="position: absolute; overflow: auto; left: 56px; top: 28px; right: 9px; bottom: 0px; box-sizing: border-box; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; font-size: 13.3333px;"><div style="position: absolute; overflow: hidden; width: 1185px; height: 589px;"><div style="position:absolute;left:0;top:0;width:816px;height:380px;"><div style="overflow:hidden;position:absolute;left:0;width:301px;"><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#FFFFFF;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">963</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#EEEDED;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">1,126</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#FFFFFF;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">1,145</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#EEEDED;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">1,234</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#FFFFFF;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">1,254</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#EEEDED;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">1,322</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#FFFFFF;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">1,366</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#EEEDED;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">1,564</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#FFFFFF;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">1,634</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#EEEDED;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">1,589</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#FFFFFF;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">1,643</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#EEEDED;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">1,575</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#FFFFFF;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">1,703</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#EEEDED;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">1,787</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#FFFFFF;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">1,795</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#EEEDED;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">1,978</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#FFFFFF;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">1,908</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#EEEDED;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">1,952</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#FFFFFF;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">2,009</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#EEEDED;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">1,957</div></div><div style="overflow:hidden;position:absolute;left:301px;width:337px;"><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#FFFFFF;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">382</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#EEEDED;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">441</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#FFFFFF;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">485</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#EEEDED;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">479</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#FFFFFF;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">497</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#EEEDED;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">520</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#FFFFFF;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">582</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#EEEDED;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">540</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#FFFFFF;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">564</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#EEEDED;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">580</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#FFFFFF;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">596</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#EEEDED;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">591</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#FFFFFF;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">667</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#EEEDED;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">675</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#FFFFFF;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">695</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#EEEDED;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">710</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#FFFFFF;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">708</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#EEEDED;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">777</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#FFFFFF;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">766</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#EEEDED;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">725</div></div><div style="overflow:hidden;position:absolute;left:638px;width:178px;"><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#FFFFFF;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">8,265</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#EEEDED;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">8,874</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#FFFFFF;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">9,225</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#EEEDED;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">9,217</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#FFFFFF;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">9,087</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#EEEDED;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">8,514</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#FFFFFF;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">8,371</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#EEEDED;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">8,386</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#FFFFFF;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">8,853</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#EEEDED;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">8,834</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#FFFFFF;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">8,861</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#EEEDED;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">8,547</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#FFFFFF;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">8,489</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#EEEDED;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">8,079</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#FFFFFF;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">8,619</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#EEEDED;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">9,085</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#FFFFFF;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">9,107</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#EEEDED;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">9,380</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#FFFFFF;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">9,374</div><div class="pivotTableCellWrap cell-interactive tablixAlignRight " style="padding-top:1px;padding-right:5px;padding-bottom:1px;padding-left:5px;color:#252423;background-color:#EEEDED;box-shadow:inset 0px 0 0 0 black, inset -0px 0 0 0 black, inset 0 -0px 0 0 black, inset 0 0px 0 0 black;position:relative;box-sizing:border-box;height:19px;">8,841</div></div></div></div></div><div class="floatingRowHeader" style="position: absolute; left: 0px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; font-size: 13.3333px; width: 56px; height: 0px; bottom: 0px;"></div><div class="floatingBodyCells" style="position: absolute; overflow: auto; right: 9px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; font-size: 13.3333px; left: 56px; height: 0px; bottom: 0px;"><div style="height: 0px; width: 1185px;"></div></div></div><div class="measureElement" style="position:absolute;left:0;top:0;visibility:hidden"></div><div class="scroll-bar-div" drag-resize-disabled="true" style="height: 0px; position: absolute; left: 0px; bottom: 0px; right: 9px; visibility: hidden;"><div class="scroll-bar-part-arrow unselectable" style="width: 26px; height: 0px;"><svg class="unselectable" width="26px" height="0px" style="position: absolute; left: 0px; top: 0px;"><polygon points="3,3 6,3 13,8 6,13 3,13 10,8" fill="#404040" class="unselectable" transform="translate(13, 0) scale(0) rotate(-180,8,8)"></polygon></svg></div><div class="scroll-bar-part-arrow unselectable" style="width: 26px; height: 0px; left: 1215px;"><svg class="unselectable" width="26px" height="0px" style="position: absolute; left: 0px; top: 0px;"><polygon points="3,3 6,3 13,8 6,13 3,13 10,8" fill="#404040" class="unselectable" transform="translate(13, 0) scale(0) rotate(0,8,8)"></polygon></svg></div><div class="scroll-bar-part-bar" style="width: 1187px; height: 0px; left: 27px;"></div></div><div class="scroll-bar-div" drag-resize-disabled="true" style="width: 9px; position: absolute; right: 0px; top: 0px; bottom: 9px;"><div class="scroll-bar-part-arrow unselectable" style="width: 9px; height: 26px;"><svg class="unselectable" width="9px" height="26px" style="position: absolute; left: 0px; top: 0px;"><polygon points="3,3 6,3 13,8 6,13 3,13 10,8" fill="#404040" class="unselectable" transform="translate(0, 8.5) scale(0.5625) rotate(-90,8,8)"></polygon></svg></div><div class="scroll-bar-part-arrow unselectable" style="width: 9px; height: 26px; top: 297px;"><svg class="unselectable" width="9px" height="26px" style="position: absolute; left: 0px; top: 0px;"><polygon points="3,3 6,3 13,8 6,13 3,13 10,8" fill="#404040" class="unselectable" transform="translate(0, 8.5) scale(0.5625) rotate(90,8,8)"></polygon></svg></div><div class="scroll-bar-part-bar" style="width: 9px; height: 138.839px; top: 27px;"></div></div></div></div></div></visual-modern><!----></div></detail-visual-modern><!----><!----><!----></div></div><!----><!----><!----></div></transform></visual-container-modern><visual-container-modern class="visual-container-component" _nghost-bpw-c20=""><transform _ngcontent-bpw-c20="" data-automation-type="visualContainer" _nghost-bpw-c24="" drag-resize-disabled="true" preserve-aspect-ratio="false" style="height: 89px; width: 128px; transform: translate(1110px, 10px); z-index: 1000;"><div _ngcontent-bpw-c20="" class="visualContainer unselectable readMode hideBorder noVisualTitle visualHeaderBelow droppableElement ui-droppable" extended-shortcut-scope="" skip-children-focus="" toolbar-anchor="" tab-order="0" tabindex="0" aria-label=" Image" touch-action="auto"><div _ngcontent-bpw-c20="" class="visualContainerBorder themableBorderColor"></div><div _ngcontent-bpw-c20="" class="visualContainerScreen"></div><!----><!----><!----><!----><div _ngcontent-bpw-c20=""><!----><!----><div _ngcontent-bpw-c20="" class="vcBody themableBackgroundColor themableBorderColorSolid " style="width: 128px; height: 89px;"><!----><!----><visual-modern _ngcontent-bpw-c20="" data-automation-type="visual" _nghost-bpw-c28=""><div _ngcontent-bpw-c28="" class="visual visual-image allow-deferred-rendering" aria-hidden="true" initialized=""><div class="imageBackground" style="height: 79px; width: 118px; background-image: url(&quot;blob:https://app.powerbi.com/9fe5c6fe-81d2-4141-94a6-e796d318f154&quot;); background-size: contain; cursor: inherit;"></div></div></visual-modern><!----><!----><!----><!----></div></div><!----><!----><!----></div></transform></visual-container-modern><visual-container-modern class="visual-container-component" _nghost-bpw-c20=""><transform _ngcontent-bpw-c20="" data-automation-type="visualContainer" _nghost-bpw-c24="" drag-resize-disabled="true" preserve-aspect-ratio="false" style="height: 59px; width: 402px; transform: translate(0px, 10px); z-index: 2000;"><div _ngcontent-bpw-c20="" class="visualContainer unselectable readMode hideBorder noVisualTitle visualHeaderBelow droppableElement ui-droppable" extended-shortcut-scope="" skip-children-focus="" toolbar-anchor="" tab-order="1000" tabindex="0" aria-label=" Text box" touch-action="auto"><div _ngcontent-bpw-c20="" class="visualContainerBorder themableBorderColor"></div><div _ngcontent-bpw-c20="" class="visualContainerScreen"></div><!----><!----><!----><!----><div _ngcontent-bpw-c20=""><!----><!----><div _ngcontent-bpw-c20="" class="vcBody themableBackgroundColor themableBorderColorSolid " style="width: 402px; height: 59px;"><!----><!----><visual-modern _ngcontent-bpw-c20="" data-automation-type="visual" _nghost-bpw-c28=""><div _ngcontent-bpw-c28="" class="visual visual-textbox allow-deferred-rendering" focus-nav-mode="Group" initialized=""><div class="scrollWrapper" tabindex="0" role="document" focus-nav-mode="Browser" style="height: 49px; overflow: hidden auto;"><div class="textbox" style="color: rgb(37, 36, 35); font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; font-size: 13.3333px;"><p style="text-align: center;"><span class="textRun" style="font-size: 24pt;">Hospital/COVID Census</span></p></div></div></div></visual-modern><!----><!----><!----><!----></div></div><!----><!----><!----></div></transform></visual-container-modern><visual-container-modern class="visual-container-component" _nghost-bpw-c20=""><transform _ngcontent-bpw-c20="" data-automation-type="visualContainer" _nghost-bpw-c24="" drag-resize-disabled="true" preserve-aspect-ratio="false" style="height: 91px; width: 1280px; transform: translate(0px, 673px); z-index: 3000;"><div _ngcontent-bpw-c20="" class="visualContainer unselectable readMode hideBorder noVisualTitle visualHeaderAbove droppableElement ui-droppable" extended-shortcut-scope="" skip-children-focus="" toolbar-anchor="" tab-order="3000" tabindex="0" aria-label=" Text box" touch-action="auto"><div _ngcontent-bpw-c20="" class="visualContainerBorder themableBorderColor"></div><div _ngcontent-bpw-c20="" class="visualContainerScreen"></div><!----><!----><!----><!----><div _ngcontent-bpw-c20=""><!----><!----><div _ngcontent-bpw-c20="" class="vcBody themableBackgroundColor themableBorderColorSolid " style="width: 1280px; height: 91px;"><!----><!----><visual-modern _ngcontent-bpw-c20="" data-automation-type="visual" _nghost-bpw-c28=""><div _ngcontent-bpw-c28="" class="visual visual-textbox allow-deferred-rendering" focus-nav-mode="Group" initialized=""><div class="scrollWrapper" tabindex="0" role="document" focus-nav-mode="Browser" style="height: 81px; overflow: hidden auto;"><div class="textbox" style="color: rgb(37, 36, 35); font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; font-size: 13.3333px;"><p><span class="textRun" style="font-size: 10.5pt; color: rgb(0, 0, 0);">**This graph represents daily COVID related patient admissions. All data from March 18th to April 1st represents only suspected COVID cases. Data collected on and after April 2nd includes confirmed and suspected COVID cases. &nbsp; The red line "Patients in Intensive Care Beds" represents suspected plus confirmed COVID related cases admitted to the ICU.  The blue line "Patients in General Beds" is also suspected plus confirmed COVID cases admitted to general/isolation. Harris County data includes the City of Houston. For more detailed numbers place your cursor over the line on the map you want more information on.</span><span class="textRun" style="font-size: 9pt; color: rgb(0, 0, 0);"> </span><span class="textRun" style="font-weight: bold; text-decoration: underline;">All COVID related questions represent the previous day (midnight to 11:59pm). </span></p></div></div></div></visual-modern><!----><!----><!----><!----></div></div><!----><!----><!----></div></transform></visual-container-modern><visual-container-modern class="visual-container-component" _nghost-bpw-c20=""><transform _ngcontent-bpw-c20="" data-automation-type="visualContainer" _nghost-bpw-c24="" drag-resize-disabled="true" preserve-aspect-ratio="false" style="height: 31px; width: 177px; transform: translate(402px, 33px); z-index: 4000;"><div _ngcontent-bpw-c20="" class="visualContainer unselectable readMode hideBorder paddingDisabled noVisualTitle visualHeaderAbove droppableElement ui-droppable" extended-shortcut-scope="" skip-children-focus="" toolbar-anchor="" tab-order="4000" tabindex="0" aria-label=" Page navigation Button. Click here to follow link" touch-action="auto"><div _ngcontent-bpw-c20="" class="visualContainerBorder themableBorderColor"></div><div _ngcontent-bpw-c20="" class="visualContainerScreen"></div><!----><!----><!----><!----><div _ngcontent-bpw-c20=""><!----><!----><div _ngcontent-bpw-c20="" class="vcBody themableBackgroundColor themableBorderColorSolid " style="width: 177px; height: 31px; background-color: rgb(255, 255, 255);"><!----><!----><visual-modern _ngcontent-bpw-c20="" data-automation-type="visual" _nghost-bpw-c28=""><div _ngcontent-bpw-c28="" class="visual visual-actionButton allow-deferred-rendering" aria-hidden="true" initialized=""><button type="button" class="themableBackgroundColor" style="width: 177px; height: 31px; overflow: hidden; position: relative; display: block; background-color: rgba(230, 230, 230, 0.5); border-radius: 4px; cursor: pointer;"><span class="button-text" style="text-align: center; max-width: 169px; pointer-events: none; color: rgb(0, 0, 0); font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; font-size: 16px; position: absolute; left: 38.5px; top: 5px;">COVID Tracker</span><div class="button-icon"></div><div class="button-outline" style="pointer-events: none; top: 0px; left: 0px; position: absolute; width: 175px; height: 29px; border: 1px solid rgb(0, 0, 0); border-radius: 4px;"></div></button></div></visual-modern><!----><!----><!----><!----></div></div><!----><!----><!----></div></transform></visual-container-modern><visual-container-modern class="visual-container-component" _nghost-bpw-c20=""><transform _ngcontent-bpw-c20="" data-automation-type="visualContainer" _nghost-bpw-c24="" drag-resize-disabled="true" preserve-aspect-ratio="false" style="height: 29px; width: 177px; transform: translate(402px, 70px); z-index: 5000;"><div _ngcontent-bpw-c20="" class="visualContainer unselectable readMode hideBorder paddingDisabled noVisualTitle visualHeaderAbove droppableElement ui-droppable" extended-shortcut-scope="" skip-children-focus="" toolbar-anchor="" tab-order="5000" tabindex="0" aria-label=" Page navigation Button. Click here to follow link" touch-action="auto"><div _ngcontent-bpw-c20="" class="visualContainerBorder themableBorderColor"></div><div _ngcontent-bpw-c20="" class="visualContainerScreen"></div><!----><!----><!----><!----><div _ngcontent-bpw-c20=""><!----><!----><div _ngcontent-bpw-c20="" class="vcBody themableBackgroundColor themableBorderColorSolid " style="width: 177px; height: 29px; background-color: rgb(255, 255, 255);"><!----><!----><visual-modern _ngcontent-bpw-c20="" data-automation-type="visual" _nghost-bpw-c28=""><div _ngcontent-bpw-c28="" class="visual visual-actionButton allow-deferred-rendering" aria-hidden="true" initialized=""><button type="button" class="themableBackgroundColor" style="width: 177px; height: 29px; overflow: hidden; position: relative; display: block; background-color: rgba(230, 230, 230, 0.5); border-radius: 4px; cursor: pointer;"><span class="button-text" style="text-align: center; max-width: 169px; pointer-events: none; color: rgb(0, 0, 0); font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; font-size: 16px; position: absolute; left: 24px; top: 4px;">Vent Usage Report</span><div class="button-icon"></div><div class="button-outline" style="pointer-events: none; top: 0px; left: 0px; position: absolute; width: 175px; height: 27px; border: 1px solid rgb(0, 0, 0); border-radius: 4px;"></div></button></div></visual-modern><!----><!----><!----><!----></div></div><!----><!----><!----></div></transform></visual-container-modern><visual-container-modern class="visual-container-component" _nghost-bpw-c20=""><transform _ngcontent-bpw-c20="" data-automation-type="visualContainer" _nghost-bpw-c24="" drag-resize-disabled="true" preserve-aspect-ratio="false" style="height: 29px; width: 177px; transform: translate(597px, 70px); z-index: 6000;"><div _ngcontent-bpw-c20="" class="visualContainer unselectable readMode hideBorder paddingDisabled noVisualTitle visualHeaderAbove droppableElement ui-droppable" extended-shortcut-scope="" skip-children-focus="" toolbar-anchor="" tab-order="6000" tabindex="0" aria-label=" Page navigation Button. Click here to follow link" touch-action="auto"><div _ngcontent-bpw-c20="" class="visualContainerBorder themableBorderColor"></div><div _ngcontent-bpw-c20="" class="visualContainerScreen"></div><!----><!----><!----><!----><div _ngcontent-bpw-c20=""><!----><!----><div _ngcontent-bpw-c20="" class="vcBody themableBackgroundColor themableBorderColorSolid " style="width: 177px; height: 29px; background-color: rgb(255, 255, 255);"><!----><!----><visual-modern _ngcontent-bpw-c20="" data-automation-type="visual" _nghost-bpw-c28=""><div _ngcontent-bpw-c28="" class="visual visual-actionButton allow-deferred-rendering" aria-hidden="true" initialized=""><button type="button" class="themableBackgroundColor" style="width: 177px; height: 29px; overflow: hidden; position: relative; display: block; background-color: rgba(230, 230, 230, 0.5); border-radius: 4px; cursor: pointer;"><span class="button-text" style="text-align: center; max-width: 169px; pointer-events: none; color: rgb(0, 0, 0); font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; font-size: 16px; position: absolute; left: 10px; top: 4px;">COVID Related Census</span><div class="button-icon"></div><div class="button-outline" style="pointer-events: none; top: 0px; left: 0px; position: absolute; width: 175px; height: 27px; border: 1px solid rgb(0, 0, 0); border-radius: 4px;"></div></button></div></visual-modern><!----><!----><!----><!----></div></div><!----><!----><!----></div></transform></visual-container-modern><visual-container-modern class="visual-container-component" _nghost-bpw-c20=""><transform _ngcontent-bpw-c20="" data-automation-type="visualContainer" _nghost-bpw-c24="" drag-resize-disabled="true" preserve-aspect-ratio="false" style="height: 31px; width: 177px; transform: translate(597px, 33px); z-index: 7000;"><div _ngcontent-bpw-c20="" class="visualContainer unselectable readMode hideBorder paddingDisabled noVisualTitle visualHeaderAbove droppableElement ui-droppable" extended-shortcut-scope="" skip-children-focus="" toolbar-anchor="" tab-order="7000" tabindex="0" aria-label=" Page navigation Button. Click here to follow link" touch-action="auto"><div _ngcontent-bpw-c20="" class="visualContainerBorder themableBorderColor"></div><div _ngcontent-bpw-c20="" class="visualContainerScreen"></div><!----><!----><!----><!----><div _ngcontent-bpw-c20=""><!----><!----><div _ngcontent-bpw-c20="" class="vcBody themableBackgroundColor themableBorderColorSolid " style="width: 177px; height: 31px; background-color: rgb(255, 255, 255);"><!----><!----><visual-modern _ngcontent-bpw-c20="" data-automation-type="visual" _nghost-bpw-c28=""><div _ngcontent-bpw-c28="" class="visual visual-actionButton allow-deferred-rendering" aria-hidden="true" initialized=""><button type="button" class="themableBackgroundColor" style="width: 177px; height: 31px; overflow: hidden; position: relative; display: block; background-color: rgba(230, 230, 230, 0.5); border-radius: 4px; cursor: pointer;"><span class="button-text" style="text-align: center; max-width: 169px; pointer-events: none; color: rgb(0, 0, 0); font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; font-size: 16px; position: absolute; left: 23px; top: 5px;">General Bed Usage</span><div class="button-icon"></div><div class="button-outline" style="pointer-events: none; top: 0px; left: 0px; position: absolute; width: 175px; height: 29px; border: 1px solid rgb(0, 0, 0); border-radius: 4px;"></div></button></div></visual-modern><!----><!----><!----><!----></div></div><!----><!----><!----></div></transform></visual-container-modern><visual-container-modern class="visual-container-component" _nghost-bpw-c20=""><transform _ngcontent-bpw-c20="" data-automation-type="visualContainer" _nghost-bpw-c24="" drag-resize-disabled="true" preserve-aspect-ratio="false" style="height: 29px; width: 177px; transform: translate(792px, 33px); z-index: 8000;"><div _ngcontent-bpw-c20="" class="visualContainer unselectable readMode hideBorder paddingDisabled noVisualTitle visualHeaderAbove droppableElement ui-droppable" extended-shortcut-scope="" skip-children-focus="" toolbar-anchor="" tab-order="8000" tabindex="0" aria-label=" Page navigation Button. Click here to follow link" touch-action="auto"><div _ngcontent-bpw-c20="" class="visualContainerBorder themableBorderColor"></div><div _ngcontent-bpw-c20="" class="visualContainerScreen"></div><!----><!----><!----><!----><div _ngcontent-bpw-c20=""><!----><!----><div _ngcontent-bpw-c20="" class="vcBody themableBackgroundColor themableBorderColorSolid " style="width: 177px; height: 29px; background-color: rgb(255, 255, 255);"><!----><!----><visual-modern _ngcontent-bpw-c20="" data-automation-type="visual" _nghost-bpw-c28=""><div _ngcontent-bpw-c28="" class="visual visual-actionButton allow-deferred-rendering" aria-hidden="true" initialized=""><button type="button" class="themableBackgroundColor" style="width: 177px; height: 29px; overflow: hidden; position: relative; display: block; background-color: rgba(230, 230, 230, 0.5); border-radius: 4px; cursor: pointer;"><span class="button-text" style="text-align: center; max-width: 159px; pointer-events: none; color: rgb(0, 0, 0); font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; font-size: 16px; position: absolute; left: 37.5px; top: 4px;">ICU Bed Usage</span><div class="button-icon"></div><div class="button-outline" style="pointer-events: none; top: 0px; left: 0px; position: absolute; width: 175px; height: 27px; border: 1px solid rgb(0, 0, 0); border-radius: 4px;"></div></button></div></visual-modern><!----><!----><!----><!----></div></div><!----><!----><!----></div></transform></visual-container-modern><visual-container-modern class="visual-container-component" _nghost-bpw-c20=""><transform _ngcontent-bpw-c20="" data-automation-type="visualContainer" _nghost-bpw-c24="" drag-resize-disabled="true" preserve-aspect-ratio="false" style="height: 29px; width: 177px; transform: translate(792px, 70px); z-index: 9000;"><div _ngcontent-bpw-c20="" class="visualContainer unselectable readMode hideBorder paddingDisabled noVisualTitle visualHeaderAbove droppableElement ui-droppable" extended-shortcut-scope="" skip-children-focus="" toolbar-anchor="" tab-order="9000" tabindex="0" aria-label=" Page navigation Button. Click here to follow link" touch-action="auto"><div _ngcontent-bpw-c20="" class="visualContainerBorder themableBorderColor"></div><div _ngcontent-bpw-c20="" class="visualContainerScreen"></div><!----><!----><!----><!----><div _ngcontent-bpw-c20=""><!----><!----><div _ngcontent-bpw-c20="" class="vcBody themableBackgroundColor themableBorderColorSolid " style="width: 177px; height: 29px; background-color: rgb(255, 255, 255);"><!----><!----><visual-modern _ngcontent-bpw-c20="" data-automation-type="visual" _nghost-bpw-c28=""><div _ngcontent-bpw-c28="" class="visual visual-actionButton allow-deferred-rendering" aria-hidden="true" initialized=""><button type="button" class="themableBackgroundColor" style="width: 177px; height: 29px; overflow: hidden; position: relative; display: block; background-color: rgba(230, 230, 230, 0.5); border-radius: 4px; cursor: pointer;"><span class="button-text" style="text-align: center; max-width: 159px; pointer-events: none; color: rgb(0, 0, 0); font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; font-size: 16px; position: absolute; left: 20.5px; top: 4px;">Executive Summary</span><div class="button-icon"></div><div class="button-outline" style="pointer-events: none; top: 0px; left: 0px; position: absolute; width: 175px; height: 27px; border: 1px solid rgb(0, 0, 0); border-radius: 4px;"></div></button></div></visual-modern><!----><!----><!----><!----></div></div><!----><!----><!----></div></transform></visual-container-modern><visual-container-modern class="visual-container-component" _nghost-bpw-c20=""><transform _ngcontent-bpw-c20="" data-automation-type="visualContainer" _nghost-bpw-c24="" drag-resize-disabled="true" preserve-aspect-ratio="false" style="height: 86px; width: 214px; transform: translate(0px, 71px); z-index: 10000;"><div _ngcontent-bpw-c20="" class="visualContainer unselectable readMode hideBorder noVisualTitle visualHeaderAbove droppableElement ui-droppable" extended-shortcut-scope="" skip-children-focus="" toolbar-anchor="" tab-order="10000" tabindex="0" aria-label=" Slicer" touch-action="auto"><div _ngcontent-bpw-c20="" class="visualContainerBorder themableBorderColor"></div><div _ngcontent-bpw-c20="" class="visualContainerScreen"></div><!----><!----><!----><!----><div _ngcontent-bpw-c20=""><!----><!----><div _ngcontent-bpw-c20="" class="vcBody themableBackgroundColor themableBorderColorSolid " style="width: 214px; height: 86px;"><!----><!----><visual-modern _ngcontent-bpw-c20="" data-automation-type="visual" _nghost-bpw-c28=""><div _ngcontent-bpw-c28="" class="visual visual-slicer allow-deferred-rendering" focus-nav-mode="Group" initialized=""><div class="slicer-container" style="height: 76px;"><span aria-live="polite" role="status" style="display: none;"></span><div class="slicer-header-wrapper"><div class="slicer-header"><div class="slicer-header-title" style="display: none;"><span class="slicer-header-clear" title="Clear selections" aria-label="Clear selections" role="button" tabindex="0"></span><h2 class="slicer-header-text" title="Date">Date</h2></div></div></div><div class="slicer-content-wrapper"><div class="date-slicer"><div class="date-slicer-head wrap" style="font-size: 12px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; font-weight: normal;"><div class="date-slicer-range"><div class="date-slicer-control" style="font-size: 14.6667px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; font-weight: normal;"><input type="text" drag-resize-disabled="true" placeholder="M/d/yyyy" class="date-slicer-input hasDatepicker" id="dp1595477179529" prevent-focus-loss="false" aria-label="Start input box. Available input range 3/10/2020 to 7/22/2020" style="color: rgb(37, 36, 35);"></div><div class="date-slicer-control" style="font-size: 14.6667px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; font-weight: normal;"><input type="text" drag-resize-disabled="true" placeholder="M/d/yyyy" class="date-slicer-input hasDatepicker" id="dp1595477179530" prevent-focus-loss="false" aria-label="End input box. Available input range 6/22/2020 to 7/22/2020" style="color: rgb(37, 36, 35);"></div></div></div><div class="date-slicer-slider roundHandles" style="opacity: 1;"><div drag-resize-disabled="true" class="noUi-target noUi-ltr noUi-horizontal noUi-background backgroundToForegroundColor"><div class="noUi-base"><div class="noUi-origin noUi-connect noUi-stacking backgroundToSelectedBackgroundColor" style="left: 77.6119%; background-color: rgb(0, 0, 0);"><div class="noUi-handle noUi-handle-lower backgroundToSolidBackgroundColor highContrastSelectedBorderColor" style="border-color: rgb(0, 0, 0);"></div></div><div class="noUi-origin noUi-background backgroundToForegroundColor" style="left: 100%;"><div class="noUi-handle noUi-handle-upper backgroundToSolidBackgroundColor highContrastSelectedBorderColor" style="border-color: rgb(0, 0, 0);"></div></div></div></div></div></div></div></div></div></visual-modern><!----><!----><!----><!----></div></div><!----><!----><!----></div></transform></visual-container-modern><visual-container-modern class="visual-container-component" _nghost-bpw-c20=""><transform _ngcontent-bpw-c20="" data-automation-type="visualContainer" _nghost-bpw-c24="" drag-resize-disabled="true" preserve-aspect-ratio="false" style="height: 396px; width: 213px; transform: translate(0px, 282px); z-index: 11000;" class=""><div _ngcontent-bpw-c20="" class="visualContainer unselectable droppableElement ui-droppable readMode hideBorder noVisualTitle visualHeaderAbove" extended-shortcut-scope="" skip-children-focus="" toolbar-anchor="" tab-order="11000" tabindex="0" aria-label=" Slicer" touch-action="auto"><div _ngcontent-bpw-c20="" class="visualContainerBorder themableBorderColor"></div><div _ngcontent-bpw-c20="" class="visualContainerScreen"></div><!----><!----><!----><!----><div _ngcontent-bpw-c20=""><!----><!----><div _ngcontent-bpw-c20="" class="vcBody themableBackgroundColor themableBorderColorSolid " style="width: 213px; height: 396px;"><!----><!----><visual-modern _ngcontent-bpw-c20="" data-automation-type="visual" _nghost-bpw-c28=""><div _ngcontent-bpw-c28="" class="visual visual-slicer allow-deferred-rendering" focus-nav-mode="Group" initialized=""><div class="slicer-container" style="height: 386px;"><span aria-live="polite" role="status" style="display: none;"></span><div class="slicer-header-wrapper"><div class="slicer-header"><div class="slicer-header-title" style="border-style: solid; border-color: rgb(96, 94, 92); border-width: 0px; font-size: 18.6667px;"><span class="slicer-header-clear" title="Clear selections" aria-label="Clear selections" role="button" tabindex="0" style="font-size: 18.6667px; color: rgb(96, 94, 92);"></span><h2 class="slicer-header-text" title="County" style="font-size: 18.6667px; font-family: wf_standard-font, helvetica, arial, sans-serif; color: rgb(37, 36, 35);">County</h2></div></div></div><div class="slicer-content-wrapper"><div class="slicerContainer"><div class="searchHeader collapsed"><span class="powervisuals-glyph search icon searchIcon" title="Search"></span><input type="text" aria-label="Search" placeholder="Search" spellcheck="false" class="searchInput" drag-resize-disabled="true"></div><div class="slicerBody" role="listbox" width="203"><div class="scroll-wrapper scrollbar-inner" style="position: relative;"><div class="scrollbar-inner scroll-content scroll-scrolly_visible" style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 365.344px;"><div class="scrollRegion" height="598" style="height: 598px;"><div class="visibleGroup" style="transform: translate(0px, 0px);"><div class="row"><div class="slicerItemContainer" tabindex="0" role="option" aria-selected="false" aria-setsize="-1" aria-label="Select all" aria-posinset="undefined" style="margin-left: 0px;"><div class="slicerCheckbox partiallySelected" aria-hidden="true"><input type="checkbox"><span class="glyphicon checkbox" style="font-size: 16px;"></span></div><span class="slicerText" title="Select all" style="color: rgb(0, 0, 0); border-style: solid; border-color: rgb(96, 94, 92); border-width: 0px; font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; line-height: 21px;">Select all</span></div></div><div class="row"><div class="slicerItemContainer" role="option" aria-selected="false" aria-setsize="-1" aria-label="Angelina" point-inset="1" aria-posinset="1" style="margin-left: 0px;"><div class="slicerCheckbox" aria-hidden="true"><input type="checkbox"><span class="glyphicon checkbox" style="font-size: 16px;"></span></div><span class="slicerText" title="Angelina" style="color: rgb(0, 0, 0); border-style: solid; border-color: rgb(96, 94, 92); border-width: 0px; font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; line-height: 21px;">Angelina</span></div></div><div class="row"><div class="slicerItemContainer" role="option" aria-selected="false" aria-setsize="-1" aria-label="Austin" point-inset="2" aria-posinset="2" style="margin-left: 0px;"><div class="slicerCheckbox" aria-hidden="true"><input type="checkbox"><span class="glyphicon checkbox" style="font-size: 16px;"></span></div><span class="slicerText" title="Austin" style="color: rgb(0, 0, 0); border-style: solid; border-color: rgb(96, 94, 92); border-width: 0px; font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; line-height: 21px;">Austin</span></div></div><div class="row"><div class="slicerItemContainer" role="option" aria-selected="false" aria-setsize="-1" aria-label="Brazoria" point-inset="3" aria-posinset="3" style="margin-left: 0px;"><div class="slicerCheckbox" aria-hidden="true"><input type="checkbox"><span class="glyphicon checkbox" style="font-size: 16px;"></span></div><span class="slicerText" title="Brazoria" style="color: rgb(0, 0, 0); border-style: solid; border-color: rgb(96, 94, 92); border-width: 0px; font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; line-height: 21px;">Brazoria</span></div></div><div class="row"><div class="slicerItemContainer" role="option" aria-selected="false" aria-setsize="-1" aria-label="Chambers" point-inset="4" aria-posinset="4" style="margin-left: 0px;"><div class="slicerCheckbox" aria-hidden="true"><input type="checkbox"><span class="glyphicon checkbox" style="font-size: 16px;"></span></div><span class="slicerText" title="Chambers" style="color: rgb(0, 0, 0); border-style: solid; border-color: rgb(96, 94, 92); border-width: 0px; font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; line-height: 21px;">Chambers</span></div></div><div class="row"><div class="slicerItemContainer" role="option" aria-selected="false" aria-setsize="-1" aria-label="Colorado" point-inset="5" aria-posinset="5" style="margin-left: 0px;"><div class="slicerCheckbox" aria-hidden="true"><input type="checkbox"><span class="glyphicon checkbox" style="font-size: 16px;"></span></div><span class="slicerText" title="Colorado" style="color: rgb(0, 0, 0); border-style: solid; border-color: rgb(96, 94, 92); border-width: 0px; font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; line-height: 21px;">Colorado</span></div></div><div class="row"><div class="slicerItemContainer" role="option" aria-selected="false" aria-setsize="-1" aria-label="Fort Bend" point-inset="6" aria-posinset="6" style="margin-left: 0px;"><div class="slicerCheckbox" aria-hidden="true"><input type="checkbox"><span class="glyphicon checkbox" style="font-size: 16px;"></span></div><span class="slicerText" title="Fort Bend" style="color: rgb(0, 0, 0); border-style: solid; border-color: rgb(96, 94, 92); border-width: 0px; font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; line-height: 21px;">Fort Bend</span></div></div><div class="row"><div class="slicerItemContainer" role="option" aria-selected="false" aria-setsize="-1" aria-label="Galveston" point-inset="7" aria-posinset="7" style="margin-left: 0px;"><div class="slicerCheckbox" aria-hidden="true"><input type="checkbox"><span class="glyphicon checkbox" style="font-size: 16px;"></span></div><span class="slicerText" title="Galveston" style="color: rgb(0, 0, 0); border-style: solid; border-color: rgb(96, 94, 92); border-width: 0px; font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; line-height: 21px;">Galveston</span></div></div><div class="row"><div class="slicerItemContainer" role="option" aria-selected="false" aria-setsize="-1" aria-label="Hardin" point-inset="8" aria-posinset="8" style="margin-left: 0px;"><div class="slicerCheckbox" aria-hidden="true"><input type="checkbox"><span class="glyphicon checkbox" style="font-size: 16px;"></span></div><span class="slicerText" title="Hardin" style="color: rgb(0, 0, 0); border-style: solid; border-color: rgb(96, 94, 92); border-width: 0px; font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; line-height: 21px;">Hardin</span></div></div><div class="row"><div class="slicerItemContainer" role="option" aria-selected="true" aria-setsize="-1" aria-label="Harris" point-inset="9" aria-posinset="9" style="margin-left: 0px;"><div class="slicerCheckbox selected" aria-hidden="true"><input type="checkbox"><span class="glyphicon checkbox" style="font-size: 16px;"></span></div><span class="slicerText" title="Harris" style="color: rgb(0, 0, 0); border-style: solid; border-color: rgb(96, 94, 92); border-width: 0px; font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; line-height: 21px;">Harris</span></div></div><div class="row"><div class="slicerItemContainer" role="option" aria-selected="false" aria-setsize="-1" aria-label="Jasper" point-inset="10" aria-posinset="10" style="margin-left: 0px;"><div class="slicerCheckbox" aria-hidden="true"><input type="checkbox"><span class="glyphicon checkbox" style="font-size: 16px;"></span></div><span class="slicerText" title="Jasper" style="color: rgb(0, 0, 0); border-style: solid; border-color: rgb(96, 94, 92); border-width: 0px; font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; line-height: 21px;">Jasper</span></div></div><div class="row"><div class="slicerItemContainer" role="option" aria-selected="false" aria-setsize="-1" aria-label="Jefferson" point-inset="11" aria-posinset="11" style="margin-left: 0px;"><div class="slicerCheckbox" aria-hidden="true"><input type="checkbox"><span class="glyphicon checkbox" style="font-size: 16px;"></span></div><span class="slicerText" title="Jefferson" style="color: rgb(0, 0, 0); border-style: solid; border-color: rgb(96, 94, 92); border-width: 0px; font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; line-height: 21px;">Jefferson</span></div></div><div class="row"><div class="slicerItemContainer" role="option" aria-selected="false" aria-setsize="-1" aria-label="Liberty" point-inset="12" aria-posinset="12" style="margin-left: 0px;"><div class="slicerCheckbox" aria-hidden="true"><input type="checkbox"><span class="glyphicon checkbox" style="font-size: 16px;"></span></div><span class="slicerText" title="Liberty" style="color: rgb(0, 0, 0); border-style: solid; border-color: rgb(96, 94, 92); border-width: 0px; font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; line-height: 21px;">Liberty</span></div></div><div class="row"><div class="slicerItemContainer" role="option" aria-selected="false" aria-setsize="-1" aria-label="Matagorda" point-inset="13" aria-posinset="13" style="margin-left: 0px;"><div class="slicerCheckbox" aria-hidden="true"><input type="checkbox"><span class="glyphicon checkbox" style="font-size: 16px;"></span></div><span class="slicerText" title="Matagorda" style="color: rgb(0, 0, 0); border-style: solid; border-color: rgb(96, 94, 92); border-width: 0px; font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; line-height: 21px;">Matagorda</span></div></div><div class="row"><div class="slicerItemContainer" role="option" aria-selected="false" aria-setsize="-1" aria-label="Montgomery" point-inset="14" aria-posinset="14" style="margin-left: 0px;"><div class="slicerCheckbox" aria-hidden="true"><input type="checkbox"><span class="glyphicon checkbox" style="font-size: 16px;"></span></div><span class="slicerText" title="Montgomery" style="color: rgb(0, 0, 0); border-style: solid; border-color: rgb(96, 94, 92); border-width: 0px; font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; line-height: 21px;">Montgomery</span></div></div><div class="row"><div class="slicerItemContainer" role="option" aria-selected="false" aria-setsize="-1" aria-label="Nacogdoches" point-inset="15" aria-posinset="15" style="margin-left: 0px;"><div class="slicerCheckbox" aria-hidden="true"><input type="checkbox"><span class="glyphicon checkbox" style="font-size: 16px;"></span></div><span class="slicerText" title="Nacogdoches" style="color: rgb(0, 0, 0); border-style: solid; border-color: rgb(96, 94, 92); border-width: 0px; font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; line-height: 21px;">Nacogdoches</span></div></div><div class="row"><div class="slicerItemContainer" role="option" aria-selected="false" aria-setsize="-1" aria-label="Newton" point-inset="16" aria-posinset="16" style="margin-left: 0px;"><div class="slicerCheckbox" aria-hidden="true"><input type="checkbox"><span class="glyphicon checkbox" style="font-size: 16px;"></span></div><span class="slicerText" title="Newton" style="color: rgb(0, 0, 0); border-style: solid; border-color: rgb(96, 94, 92); border-width: 0px; font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; line-height: 21px;">Newton</span></div></div></div></div></div><div class="scroll-element scroll-x scroll-scrolly_visible" drag-resize-disabled="true"><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar" style="width: 0px;"></div></div></div><div class="scroll-element scroll-y scroll-scrolly_visible" drag-resize-disabled="true"><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar" style="height: 223px; top: 0px;"></div></div></div></div></div></div></div></div></div></visual-modern><!----><!----><!----><!----></div></div><!----><!----><!----></div></transform></visual-container-modern><visual-container-modern class="visual-container-component" _nghost-bpw-c20=""><transform _ngcontent-bpw-c20="" data-automation-type="visualContainer" _nghost-bpw-c24="" drag-resize-disabled="true" preserve-aspect-ratio="false" style="height: 137px; width: 213px; transform: translate(0px, 157px); z-index: 12000;"><div _ngcontent-bpw-c20="" class="visualContainer unselectable readMode hideBorder noVisualTitle visualHeaderAbove droppableElement ui-droppable" extended-shortcut-scope="" skip-children-focus="" toolbar-anchor="" tab-order="12000" tabindex="0" aria-label=" Slicer" touch-action="auto"><div _ngcontent-bpw-c20="" class="visualContainerBorder themableBorderColor"></div><div _ngcontent-bpw-c20="" class="visualContainerScreen"></div><!----><!----><!----><!----><div _ngcontent-bpw-c20=""><!----><!----><div _ngcontent-bpw-c20="" class="vcBody themableBackgroundColor themableBorderColorSolid " style="width: 213px; height: 137px;"><!----><!----><visual-modern _ngcontent-bpw-c20="" data-automation-type="visual" _nghost-bpw-c28=""><div _ngcontent-bpw-c28="" class="visual visual-slicer allow-deferred-rendering" focus-nav-mode="Group" initialized=""><div class="slicer-container" style="height: 127px;"><span aria-live="polite" role="status" style="display: none;"></span><div class="slicer-header-wrapper"><div class="slicer-header"><div class="slicer-header-title" style="border-style: solid; border-color: rgb(96, 94, 92); border-width: 0px; font-size: 18.6667px;"><span class="slicer-header-clear" title="Clear selections" aria-label="Clear selections" role="button" tabindex="0" style="font-size: 18.6667px; color: rgb(96, 94, 92);"></span><h2 class="slicer-header-text" title="TSA" style="font-size: 18.6667px; font-family: wf_standard-font, helvetica, arial, sans-serif; color: rgb(37, 36, 35);">TSA</h2></div></div></div><div class="slicer-content-wrapper"><div class="slicerContainer"><div class="searchHeader collapsed"><span class="powervisuals-glyph search icon searchIcon" title="Search"></span><input type="text" aria-label="Search" placeholder="Search" spellcheck="false" class="searchInput" drag-resize-disabled="true"></div><div class="slicerBody" role="listbox" width="203"><div class="scroll-wrapper scrollbar-inner" style="position: relative;"><div class="scrollbar-inner scroll-content" style="height: 106.344px; margin-bottom: 0px; margin-right: 0px; max-height: none;"><div class="scrollRegion" height="46" style="height: 46px;"><div class="visibleGroup" style="transform: translate(0px, 0px);"><div class="row"><div class="slicerItemContainer" tabindex="0" role="option" aria-selected="false" aria-setsize="-1" aria-label="Select all" aria-posinset="undefined" style="margin-left: 0px;"><div class="slicerCheckbox" aria-hidden="true"><input type="checkbox"><span class="glyphicon checkbox" style="font-size: 16px;"></span></div><span class="slicerText" title="Select all" style="color: rgb(0, 0, 0); border-style: solid; border-color: rgb(96, 94, 92); border-width: 0px; font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; line-height: 21px;">Select all</span></div></div><div class="row"><div class="slicerItemContainer" role="option" aria-selected="false" aria-setsize="-1" aria-label="TSA_Q" point-inset="2" aria-posinset="1" style="margin-left: 0px;"><div class="slicerCheckbox" aria-hidden="true"><input type="checkbox"><span class="glyphicon checkbox" style="font-size: 16px;"></span></div><span class="slicerText" title="TSA_Q" style="color: rgb(0, 0, 0); border-style: solid; border-color: rgb(96, 94, 92); border-width: 0px; font-size: 16px; font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; line-height: 21px;">TSA_Q</span></div></div></div></div></div><div class="scroll-element scroll-x" drag-resize-disabled="true"><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar" style="width: 0px;"></div></div></div><div class="scroll-element scroll-y" drag-resize-disabled="true"><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar" style="height: 0px;"></div></div></div></div></div></div></div></div></div></visual-modern><!----><!----><!----><!----></div></div><!----><!----><!----></div></transform></visual-container-modern></visual-container-repeat></div><!----></div><!----><lasso-select-window _ngcontent-bpw-c14="" _nghost-bpw-c22="" hidden=""></lasso-select-window><div class="ResizeSensor ResizeSensor__resizeTriggers"><div class="ResizeSensor__expandTrigger"><div style="width: 1281px; height: 765px;"></div></div><div class="ResizeSensor__contractTrigger"></div></div></div><!----></div></div></explore-canvas-modern></div></exploration><!----><!----><!----></div></div></exploration-host></div><!----><!----></div></exploration-container-modern></exploration-container><!----></div></div></div></div><!----><!----></div><div class="logoBarWrapper" ng-keydown="keyDown($event)" tabindex="0"><!----><logo-bar ng-if="showLogoBar" _nghost-bpw-c2="" ng-version="9.1.0"><div _ngcontent-bpw-c2="" class="unselectable"><div _ngcontent-bpw-c2="" class="logoBar"><div _ngcontent-bpw-c2="" class="logo"><!----><!----><a _ngcontent-bpw-c2="" tab-order-child="" target="_blank" href="https://go.microsoft.com/fwlink/?LinkID=722383&amp;clcid=0x409"><span _ngcontent-bpw-c2="" class="text" localize="Embed_Logobar_MarketingText">Microsoft Power BI</span></a><logo-bar-navigation _ngcontent-bpw-c2="" is-full-screen="isFullScreen()" is-small-screen="isSmallScreen" mail-to-link="mailToLink" show-about-dialog="showAboutDialog()" show-full-screen="showFullScreen" toggle-full-screen-mode="toggleFullScreenMode()"><span class="navigation-wrapper navigation-wrapper-big" keyboard-shortcuts="ctrl-F6"><a><i class="glyphicon glyph-small pbi-glyph-chevronleftmedium middleIcon pbi-focus-outline active" focus-element="" tabindex="0" title="Previous Page"></i></a><!----><a class="middleText"><!----><span><span class="innerText">3</span><span class="innerText" localize="Of">of</span><span class="innerText">7</span></span><!----></a><a><i class="glyphicon glyph-small pbi-glyph-chevronrightmedium middleIcon active pbi-focus-outline" focus-element="" tabindex="0" title="Next Page"></i></a><!----></span><!----><!----><section class="navFlyout" flyout-visible="false" id="flyoutElement" style="height: 243px;"><div class="wrapper"><div class="textContainer"><div class="flyoutSections"><ul class="list"><!----><li class="sectionItemHidden animated"><a class="sectionItem" title="Exec Summary">Exec Summary</a></li><li class="sectionItemHidden animated"><a class="sectionItem" title="COVID Tracker">COVID Tracker</a></li><li class="sectionItemHidden animated"><a class="sectionItem selected" title="Hospital/COVID Census">Hospital/COVID Census</a></li><li class="sectionItemHidden animated"><a class="sectionItem" title="General Bed Usage">General Bed Usage</a></li><li class="sectionItemHidden animated"><a class="sectionItem" title="ICU Bed Usage">ICU Bed Usage</a></li><li class="sectionItemHidden animated"><a class="sectionItem" title="Vent Usage">Vent Usage</a></li><li class="sectionItemHidden animated"><a class="sectionItem" title="COVID Related Census">COVID Related Census</a></li></ul></div></div></div><div class="arrow"></div></section></logo-bar-navigation><span _ngcontent-bpw-c2="" class="socialSharing"><!----><span _ngcontent-bpw-c2=""><logo-bar-social-sharing _ngcontent-bpw-c2="" _nghost-bpw-c3=""><!----><span _ngcontent-bpw-c3="" class="navigation-wrapper"><!----><a _ngcontent-bpw-c3="" localizetooltip="ReportEmbed_Logobar_LinkedIn" target="_blank" title="LinkedIn" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fapp.powerbi.com%2Fview%3Fr%3DeyJrIjoiYjU5MzU4NjAtZWJjMC00MTllLTkwYjYtMzE4ODY1YjAyMGU2IiwidCI6ImI3MjgwODdjLTgwZTgtNGQzMS04YjZmLTdlMGUzYmUxMGUwOCIsImMiOjN9%26pageName%3DReportSectiona2eec29ca4ee4e894a41"><div _ngcontent-bpw-c3="" class="glyphicon glyphicon-share-linkedIn glyph-small socialIcon"></div></a><!----><a _ngcontent-bpw-c3="" localizetooltip="ReportEmbed_Logobar_Twitter" target="_blank" title="Twitter" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fapp.powerbi.com%2Fview%3Fr%3DeyJrIjoiYjU5MzU4NjAtZWJjMC00MTllLTkwYjYtMzE4ODY1YjAyMGU2IiwidCI6ImI3MjgwODdjLTgwZTgtNGQzMS04YjZmLTdlMGUzYmUxMGUwOCIsImMiOjN9%26pageName%3DReportSectiona2eec29ca4ee4e894a41"><div _ngcontent-bpw-c3="" class="glyphicon glyphicon-share-twitter glyph-small socialIcon"></div></a><!----><a _ngcontent-bpw-c3="" localizetooltip="ReportEmbed_Logobar_Facebook" target="_blank" title="Facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fapp.powerbi.com%2Fview%3Fr%3DeyJrIjoiYjU5MzU4NjAtZWJjMC00MTllLTkwYjYtMzE4ODY1YjAyMGU2IiwidCI6ImI3MjgwODdjLTgwZTgtNGQzMS04YjZmLTdlMGUzYmUxMGUwOCIsImMiOjN9%26pageName%3DReportSectiona2eec29ca4ee4e894a41"><div _ngcontent-bpw-c3="" class="glyphicon glyphicon-share-facebook glyph-small socialIcon"></div></a><!----><button _ngcontent-bpw-c3="" localizetooltip="ReportEmbed_Logobar_Share" title="Share"><i _ngcontent-bpw-c3="" class="glyphicon pbi-glyph-share glyph-small socialIcon"></i></button></span><!----><!----></logo-bar-social-sharing></span><!----><!----><!----><a _ngcontent-bpw-c2="" id="fullScreenIcon"><!----><i _ngcontent-bpw-c2="" class="glyphicon glyph-small pbi-glyph-fullscreen icon" localizetooltip="ReportEmbed_Logobar_FullScreen_Enter" title="Enter Full Screen Mode"></i><!----></a></span></div></div></div></logo-bar><!----></div></div></ui-view>
+        <root ng-version="9.1.0"><!----></root>
+    </div>
+
+    <script> function cdnFallback(event) {var date = new Date(); var failedRequestUrl = 'unknown'; var maxAgeInSeconds = 8 * 60 * 60;if (event && event.currentTarget && event.currentTarget.src) {failedRequestUrl = event.currentTarget.src;}document.cookie = 'disablecdn=cdnRequestFailureTimestamp:' + date.toUTCString() + '-cdnRequestFailureUrl:' + failedRequestUrl + '; max-age=' + maxAgeInSeconds + '; secure';window.location.reload(true); }</script>
+<script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['globalize.min.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="https://content.powerapps.com/resource/powerbiwfe/scripts/jquery.globalize/globalize.min.8e8ec43af69cf3d5d7aa.js" defer="" onerror="cdnFallback(event)"></script>
+<script type="text/javascript">this.parseTimeMarkers['globalize.min.js'].end = Date.now();</script><script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['globalize.culture.en-US.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="https://content.powerapps.com/resource/powerbiwfe/scripts/jquery.globalize/globalize.culture.en-US.07ca294f77f622a072a5.js" defer="" onerror="cdnFallback(event)"></script>
+<script type="text/javascript">this.parseTimeMarkers['globalize.culture.en-US.js'].end = Date.now();</script>    <script>
+
+        powerbi.common.localizedStrings = '';
+    </script>
+<script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['hash-manifest.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="13.0.13913.66/scripts/hash-manifest.js" onerror="cdnFallback(event)"></script>
+<script type="text/javascript">this.parseTimeMarkers['hash-manifest.js'].end = Date.now();</script><script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['reportembed.externals.bundle.min.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="https://content.powerapps.com/resource/powerbiwfe/scripts/reportembed.externals.bundle.min.abe3c53ebcb82eaf3075.js" onerror="cdnFallback(event)"></script>
+<script type="text/javascript">this.parseTimeMarkers['reportembed.externals.bundle.min.js'].end = Date.now();</script><script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['powerbiportal.dependencies.bundle.min.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="https://content.powerapps.com/resource/powerbiwfe/scripts/powerbiportal.dependencies.bundle.min.c4c690ad9d3c8724690a.js" onerror="cdnFallback(event)"></script>
+<script type="text/javascript">this.parseTimeMarkers['powerbiportal.dependencies.bundle.min.js'].end = Date.now();</script><script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['reportembed.common.bundle.min.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="https://content.powerapps.com/resource/powerbiwfe/scripts/reportembed.common.bundle.min.81572d55577a90eedeca.js" onerror="cdnFallback(event)"></script>
+<script type="text/javascript">this.parseTimeMarkers['reportembed.common.bundle.min.js'].end = Date.now();</script><script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['powerbiportal.explore.bundle.min.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="https://content.powerapps.com/resource/powerbiwfe/scripts/powerbiportal.explore.bundle.min.90633a0c941056fa66d1.js" onerror="cdnFallback(event)"></script>
+<script type="text/javascript">this.parseTimeMarkers['powerbiportal.explore.bundle.min.js'].end = Date.now();</script><script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['reportembed.bundle.min.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="https://content.powerapps.com/resource/powerbiwfe/scripts/reportembed.bundle.min.c007488378269205b3d2.js" onerror="cdnFallback(event)"></script>
+<script type="text/javascript">this.parseTimeMarkers['reportembed.bundle.min.js'].end = Date.now();</script><script type="text/javascript">this.parseTimeMarkers = this.parseTimeMarkers || {};this.parseTimeMarkers['reportEmbed.min.js'] = { nominalStart: Date.now(), start: Date.now()};</script><script type="text/javascript" src="https://content.powerapps.com/resource/powerbiwfe/scripts/reportEmbed.min.0786d68e88f407cc19b8.js" onerror="cdnFallback(event)"></script>
+<script type="text/javascript">this.parseTimeMarkers['reportEmbed.min.js'].end = Date.now();</script>
+
+
+<div class="cdk-live-announcer-element cdk-visually-hidden" aria-atomic="true" aria-live="polite"></div><div id="svgProviderContainer" style="display: none;"></div><span></span><svg style="height: 0px; width: 0px; position: absolute;"><text visibility="hidden" font-family="Segoe UI, wf_segoe-ui_normal, helvetica, arial, sans-serif" font-size="16px" white-space="nowrap">Executive Summary</text></svg><div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"><div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div></div><div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" prevent-focus-loss="false"><div class="ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-all"><a class="ui-datepicker-prev ui-corner-all" data-handler="prev" data-event="click" title=""><span class="ui-icon ui-icon-circle-triangle-w"></span></a><a class="ui-datepicker-next ui-corner-all" data-handler="next" data-event="click" title=""><span class="ui-icon ui-icon-circle-triangle-e"></span></a><div class="ui-datepicker-title"><select class="ui-datepicker-month" data-handler="selectMonth" data-event="change"><option value="0">January</option><option value="1">February</option><option value="2">March</option><option value="3">April</option><option value="4">May</option><option value="5">June</option><option value="6" selected="selected">July</option><option value="7">August</option><option value="8">September</option><option value="9">October</option><option value="10">November</option><option value="11">December</option></select><select class="ui-datepicker-year" data-handler="selectYear" data-event="change"><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020" selected="selected">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option><option value="2025">2025</option><option value="2026">2026</option><option value="2027">2027</option><option value="2028">2028</option><option value="2029">2029</option><option value="2030">2030</option></select></div></div><table class="ui-datepicker-calendar"><thead><tr><th scope="col" class="ui-datepicker-week-end"><span title="Sunday">Sun</span></th><th scope="col"><span title="Monday">Mon</span></th><th scope="col"><span title="Tuesday">Tue</span></th><th scope="col"><span title="Wednesday">Wed</span></th><th scope="col"><span title="Thursday">Thu</span></th><th scope="col"><span title="Friday">Fri</span></th><th scope="col" class="ui-datepicker-week-end"><span title="Saturday">Sat</span></th></tr></thead><tbody><tr><td class=" ui-datepicker-week-end ui-datepicker-other-month " data-handler="selectDay" data-event="click" data-month="5" data-year="2020"><a class="ui-state-default ui-priority-secondary" href="#">28</a></td><td class=" ui-datepicker-other-month " data-handler="selectDay" data-event="click" data-month="5" data-year="2020"><a class="ui-state-default ui-priority-secondary" href="#">29</a></td><td class=" ui-datepicker-other-month " data-handler="selectDay" data-event="click" data-month="5" data-year="2020"><a class="ui-state-default ui-priority-secondary" href="#">30</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="6" data-year="2020"><a class="ui-state-default" href="#">1</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="6" data-year="2020"><a class="ui-state-default" href="#">2</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="6" data-year="2020"><a class="ui-state-default" href="#">3</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="6" data-year="2020"><a class="ui-state-default" href="#">4</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="6" data-year="2020"><a class="ui-state-default" href="#">5</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="6" data-year="2020"><a class="ui-state-default" href="#">6</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="6" data-year="2020"><a class="ui-state-default" href="#">7</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="6" data-year="2020"><a class="ui-state-default" href="#">8</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="6" data-year="2020"><a class="ui-state-default" href="#">9</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="6" data-year="2020"><a class="ui-state-default" href="#">10</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="6" data-year="2020"><a class="ui-state-default" href="#">11</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="6" data-year="2020"><a class="ui-state-default" href="#">12</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="6" data-year="2020"><a class="ui-state-default" href="#">13</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="6" data-year="2020"><a class="ui-state-default" href="#">14</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="6" data-year="2020"><a class="ui-state-default" href="#">15</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="6" data-year="2020"><a class="ui-state-default" href="#">16</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="6" data-year="2020"><a class="ui-state-default" href="#">17</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="6" data-year="2020"><a class="ui-state-default" href="#">18</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="6" data-year="2020"><a class="ui-state-default" href="#">19</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="6" data-year="2020"><a class="ui-state-default" href="#">20</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="6" data-year="2020"><a class="ui-state-default" href="#">21</a></td><td class=" ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today" data-handler="selectDay" data-event="click" data-month="6" data-year="2020"><a class="ui-state-default ui-state-highlight ui-state-active ui-state-hover" href="#">22</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="6" data-year="2020"><a class="ui-state-default" href="#">23</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="6" data-year="2020"><a class="ui-state-default" href="#">24</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="6" data-year="2020"><a class="ui-state-default" href="#">25</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="6" data-year="2020"><a class="ui-state-default" href="#">26</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="6" data-year="2020"><a class="ui-state-default" href="#">27</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="6" data-year="2020"><a class="ui-state-default" href="#">28</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="6" data-year="2020"><a class="ui-state-default" href="#">29</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="6" data-year="2020"><a class="ui-state-default" href="#">30</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="6" data-year="2020"><a class="ui-state-default" href="#">31</a></td><td class=" ui-datepicker-week-end ui-datepicker-other-month " data-handler="selectDay" data-event="click" data-month="7" data-year="2020"><a class="ui-state-default ui-priority-secondary" href="#">1</a></td></tr></tbody></table></div><div class="tooltip-container themeableElement right" style="top: 357.5px; right: 547px; display: none;"><div class="arrow top right" style="border-right-color: rgb(51, 51, 51); border-left-color: rgb(51, 51, 51); opacity: 1;"></div><visual-tooltip-modern _nghost-bpw-c36="" class="tooltip-content"><div _ngcontent-bpw-c36="" class="visual-tooltip-container"><!----><div _ngcontent-bpw-c36="" hidden=""><div class="tooltip-content-container" style="background-color: rgb(51, 51, 51); opacity: 1;"><div class="tooltip-data-container" style="direction: ltr;"><div class="tooltip-header" style="font-family: &quot;Segoe UI Semibold&quot;, wf_segoe-ui_semibold, helvetica, arial, sans-serif; font-size: 12px; font-weight: 700;">July 7</div><div class="tooltip-row"><div class="tooltip-icon-cell" style="max-width: 13px;"><svg height="15px" width="100%"><path class="tooltip-line-icon" transform="translate(5,8) scale(1)" style="stroke-opacity: 1; stroke-width: 2; stroke: rgb(0, 0, 255);"></path><path class="tooltip-marker-icon" transform="translate(5,8) scale(1)" d="M 0 0 m -5 0 l 5 -5 l 5 5 l -5 5 z" style="fill: rgb(0, 0, 255); stroke: rgb(0, 0, 255); fill-opacity: 1; stroke-opacity: 1;"></path></svg></div><div class="tooltip-title-cell" style="font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; font-size: 12px; font-weight: 700;"><div>Patients in General Beds (Suspected + Confirmed)</div></div><div class="tooltip-value-cell" style="font-family: &quot;Segoe UI Semibold&quot;, wf_segoe-ui_semibold, helvetica, arial, sans-serif; font-size: 12px; font-weight: 700;"><div>2,870</div></div></div><div class="tooltip-row"><div class="tooltip-icon-cell" style="max-width: 13px;"><svg height="15px" width="100%"><path class="tooltip-line-icon" transform="translate(5,8) scale(1)" style="stroke-opacity: 1; stroke-width: 2; stroke: rgb(255, 0, 0);"></path><path class="tooltip-marker-icon" transform="translate(5,8) scale(1)" d="M 0 0 m -5 0 l 5 -5 l 5 5 l -5 5 z" style="fill: rgb(255, 0, 0); stroke: rgb(255, 0, 0); fill-opacity: 1; stroke-opacity: 1;"></path></svg></div><div class="tooltip-title-cell" style="font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; font-size: 12px; font-weight: 700;"><div>Patients in Intensive Care Beds (Suspected +</div><div>Confirmed)</div></div><div class="tooltip-value-cell" style="font-family: &quot;Segoe UI Semibold&quot;, wf_segoe-ui_semibold, helvetica, arial, sans-serif; font-size: 12px; font-weight: 700;"><div>981</div></div></div><div class="tooltip-row"><div class="tooltip-icon-cell" style="max-width: 13px;"><svg height="15px" width="100%"><path class="tooltip-line-icon" transform="translate(5,8) scale(1)" style="stroke-opacity: 1; stroke-width: 2; stroke: rgb(0, 255, 0);"></path><path class="tooltip-marker-icon" transform="translate(5,8) scale(1)" d="M 0 0 m -5 0 l 5 -5 l 5 5 l -5 5 z" style="fill: rgb(0, 255, 0); stroke: rgb(0, 255, 0); fill-opacity: 1; stroke-opacity: 1;"></path></svg></div><div class="tooltip-title-cell" style="font-family: &quot;Segoe UI&quot;, wf_segoe-ui_normal, helvetica, arial, sans-serif; font-size: 12px; font-weight: 700;"><div>Total Hospital Patient Census</div></div><div class="tooltip-value-cell" style="font-family: &quot;Segoe UI Semibold&quot;, wf_segoe-ui_semibold, helvetica, arial, sans-serif; font-size: 12px; font-weight: 700;"><div>12,801</div></div></div></div></div></div><!----><!----></div></visual-tooltip-modern></div></body></html>
